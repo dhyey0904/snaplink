@@ -107,16 +107,19 @@ export default function Login() {
             <GoogleLogin
               onSuccess={async (credentialResponse) => {
                 if (!credentialResponse.credential) return;
-                try {
-                  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
-                  const data = await fetch(`${backendUrl}/api/auth/google`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ token: credentialResponse.credential }),
-                  });
-                  if (!data.ok) throw new Error("Google login failed");
-                  
-                  const result = await data.json();
+                  try {
+                    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+                    const data = await fetch(`${backendUrl}/api/auth/google`, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ token: credentialResponse.credential }),
+                    });
+                    if (!data.ok) {
+                      const errData = await data.json().catch(() => ({}));
+                      throw new Error(errData.detail || "Google login failed: " + data.status);
+                    }
+                    
+                    const result = await data.json();
                   localStorage.setItem("token", result.access_token);
                   router.push("/dashboard");
                 } catch (err: any) {
