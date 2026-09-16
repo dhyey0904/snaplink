@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 export default function BioPageClient({ bioPage }: { bioPage: any }) {
   const [countdown, setCountdown] = useState(5);
+  const [emailCopied, setEmailCopied] = useState(false);
 
   useEffect(() => {
     if (countdown > 0) {
@@ -60,9 +61,19 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
           
           {/* Special Buttons */}
           {bioPage.contact_email && (
-            <a href={`mailto:${bioPage.contact_email}`} className="block w-full p-4 bg-[#202124] text-white rounded-2xl shadow-sm text-center font-medium hover:bg-[#3c4043] transition-all border border-[#202124] flex items-center justify-center gap-2">
+            <a 
+              href={`mailto:${bioPage.contact_email}`} 
+              onClick={(e) => {
+                try {
+                  navigator.clipboard.writeText(bioPage.contact_email);
+                  setEmailCopied(true);
+                  setTimeout(() => setEmailCopied(false), 3000);
+                } catch (err) {}
+              }}
+              className="block w-full p-4 bg-[#202124] text-white rounded-2xl shadow-sm text-center font-medium hover:bg-[#3c4043] transition-all border border-[#202124] flex items-center justify-center gap-2"
+            >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-              Contact Me
+              {emailCopied ? "Email Copied!" : "Contact Me"}
             </a>
           )}
           {bioPage.resume_url && (

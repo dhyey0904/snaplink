@@ -386,7 +386,17 @@ export default function BioDashboard() {
                 <div className="flex-1 bg-[#f8f9fa] p-5 space-y-4 overflow-y-auto">
                   {/* Special Buttons */}
                   {contactEmail && (
-                    <a href={`mailto:${contactEmail}`} className="block w-full p-4 bg-[#202124] text-white rounded-2xl shadow-sm text-center font-medium hover:bg-[#3c4043] transition-all border border-[#202124] flex items-center justify-center gap-2">
+                    <a 
+                      href={`mailto:${contactEmail}`} 
+                      onClick={(e) => {
+                        try {
+                          navigator.clipboard.writeText(contactEmail);
+                          // For preview, we don't need complex state, just alert is fine
+                          alert("Email copied: " + contactEmail);
+                        } catch (err) {}
+                      }}
+                      className="block w-full p-4 bg-[#202124] text-white rounded-2xl shadow-sm text-center font-medium hover:bg-[#3c4043] transition-all border border-[#202124] flex items-center justify-center gap-2"
+                    >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                       Contact Me
                     </a>
