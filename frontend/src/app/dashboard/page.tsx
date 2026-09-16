@@ -15,6 +15,8 @@ export default function BioDashboard() {
   const [title, setTitle] = useState("My Links");
   const [themeColor, setThemeColor] = useState("#3B82F6");
   const [profileImageUrl, setProfileImageUrl] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [resumeUrl, setResumeUrl] = useState("");
   const [adEnabled, setAdEnabled] = useState(true);
   
   // New Link form state
@@ -56,12 +58,16 @@ export default function BioDashboard() {
   const loadBioPage = async () => {
     try {
       const data = await fetchAPI("/bio/");
-      setBioPage(data);
-      setAlias(data.alias);
-      setTitle(data.title);
-      setThemeColor(data.theme_color);
-      if (data.profile_image_url) setProfileImageUrl(data.profile_image_url);
-      if (data.ad_enabled !== undefined) setAdEnabled(data.ad_enabled);
+      if (data) {
+        setBioPage(data);
+        setAlias(data.alias);
+        setTitle(data.title);
+        setThemeColor(data.theme_color);
+        if (data.profile_image_url) setProfileImageUrl(data.profile_image_url);
+        if (data.contact_email) setContactEmail(data.contact_email);
+        if (data.resume_url) setResumeUrl(data.resume_url);
+        if (data.ad_enabled !== undefined) setAdEnabled(data.ad_enabled);
+      }
     } catch (err: any) {
       // If 404, user doesn't have a bio page yet. That's fine.
       if (err.message && err.message.includes("not found")) {
@@ -84,12 +90,14 @@ export default function BioDashboard() {
           title, 
           theme_color: themeColor,
           profile_image_url: profileImageUrl || null,
+          contact_email: contactEmail || null,
+          resume_url: resumeUrl || null,
           ad_enabled: adEnabled
         })
       });
       setBioPage(data);
     } catch (err: any) {
-      alert(err.message);
+      alert(err.message || "Failed to create bio page");
     }
   };
 
@@ -99,9 +107,12 @@ export default function BioDashboard() {
       const data = await fetchAPI("/bio/", {
         method: "PUT",
         body: JSON.stringify({ 
+          alias, 
           title, 
           theme_color: themeColor,
           profile_image_url: profileImageUrl || null,
+          contact_email: contactEmail || null,
+          resume_url: resumeUrl || null,
           ad_enabled: adEnabled
         })
       });
@@ -240,6 +251,14 @@ export default function BioDashboard() {
                     )}
                   </div>
                   <div>
+                    <label className="block text-sm font-medium text-[#202124] mb-2">Contact Email <span className="text-[#5f6368] font-normal">(Optional)</span></label>
+                    <input type="email" value={contactEmail} onChange={e => setContactEmail(e.target.value)} placeholder="hello@example.com" className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#202124] mb-2">Resume URL <span className="text-[#5f6368] font-normal">(Optional)</span></label>
+                    <input type="url" value={resumeUrl} onChange={e => setResumeUrl(e.target.value)} placeholder="https://drive.google.com/..." className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                  </div>
+                  <div>
                     <label className="block text-sm font-medium text-[#202124] mb-2">Theme Color</label>
                     <div className="flex gap-3">
                       <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-12 h-12 p-1 border border-[#dadce0] rounded-md cursor-pointer bg-white" />
@@ -289,6 +308,20 @@ export default function BioDashboard() {
                 
                 {/* Mobile Links */}
                 <div className="flex-1 bg-[#f8f9fa] p-5 space-y-4 overflow-y-auto">
+                  {/* Special Buttons */}
+                  {bioPage.contact_email && (
+                    <a href={`mailto:${bioPage.contact_email}`} className="block w-full p-4 bg-[#202124] text-white rounded-2xl shadow-sm text-center font-medium hover:bg-[#3c4043] transition-all border border-[#202124] flex items-center justify-center gap-2">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                      Email Me
+                    </a>
+                  )}
+                  {bioPage.resume_url && (
+                    <a href={bioPage.resume_url} target="_blank" className="block w-full p-4 bg-white text-[#202124] rounded-2xl shadow-sm text-center font-medium hover:bg-gray-50 transition-all border-2 border-[#202124] flex items-center justify-center gap-2">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                      Download Resume
+                    </a>
+                  )}
+
                   {bioPage.links && bioPage.links.map((link: any) => (
                     <div key={link.id} className="relative group">
                       <a href={link.url} target="_blank" className="block w-full p-4 bg-white rounded-2xl shadow-sm text-center font-medium text-[#202124] hover:shadow-md transition-all border border-[#dadce0]" style={{borderLeftColor: themeColor, borderLeftWidth: "6px"}}>

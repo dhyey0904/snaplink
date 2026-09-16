@@ -32,6 +32,8 @@ class BioPageBase(BaseModel):
     bio_text: Optional[str] = None
     theme_color: str = "#3B82F6"
     profile_image_url: Optional[str] = None
+    contact_email: Optional[str] = None
+    resume_url: Optional[str] = None
     ad_enabled: bool = True
 
 class BioPageCreate(BioPageBase):
@@ -43,6 +45,8 @@ class BioPageUpdate(BaseModel):
     bio_text: Optional[str] = None
     theme_color: Optional[str] = None
     profile_image_url: Optional[str] = None
+    contact_email: Optional[str] = None
+    resume_url: Optional[str] = None
     ad_enabled: Optional[bool] = None
 
 class BioPageResponse(BioPageBase):

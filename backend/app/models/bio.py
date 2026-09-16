@@ -13,6 +13,8 @@ class BioPage(Base):
     bio_text = Column(String, nullable=True)
     theme_color = Column(String, nullable=False, default="#3B82F6") # Default blue
     profile_image_url = Column(String, nullable=True)
+    contact_email = Column(String, nullable=True)
+    resume_url = Column(String, nullable=True)
     ad_enabled = Column(Boolean, default=True)
     views = Column(Integer, default=0)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
