@@ -1,16 +1,17 @@
 import { notFound } from "next/navigation";
 
-export default async function PublicBioPage({ params }: { params: { alias: string } }) {
+export default async function PublicBioPage({ params }: { params: Promise<{ alias: string }> }) {
   const backendUrl = "https://snaplink-backend-j69v.onrender.com";
   
   try {
-    const res = await fetch(`${backendUrl}/api/bio/public/${params.alias}`, {
+    const resolvedParams = await params;
+    const res = await fetch(`${backendUrl}/api/bio/public/${resolvedParams.alias}`, {
       next: { revalidate: 0 }
     });
     
     if (!res.ok) {
       const text = await res.text();
-      throw new Error(`RENDER RETURNED: ${res.status}. URL: ${backendUrl}/api/bio/public/${params.alias}. Body: ${text}`);
+      throw new Error(`RENDER RETURNED: ${res.status}. URL: ${backendUrl}/api/bio/public/${resolvedParams.alias}. Body: ${text}`);
     }
     
     const bioPage = await res.json();
