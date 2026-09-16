@@ -17,7 +17,8 @@ try:
         "ALTER TABLE bio_pages ADD COLUMN profile_image_url VARCHAR",
         "ALTER TABLE bio_pages ADD COLUMN ad_enabled BOOLEAN DEFAULT true",
         "ALTER TABLE bio_links ADD COLUMN clicks INTEGER DEFAULT 0",
-        "ALTER TABLE users ADD COLUMN api_key VARCHAR"
+        "ALTER TABLE users ADD COLUMN api_key VARCHAR",
+        "ALTER TABLE links ADD COLUMN expires_at TIMESTAMP WITH TIME ZONE"
     ]
     
     for query in migrations:

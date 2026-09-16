@@ -14,6 +14,7 @@ type LinkData = {
   custom_alias: string | null;
   is_active: boolean;
   has_password: boolean;
+  expires_at?: string;
 };
 
 export default function Dashboard() {
@@ -22,6 +23,7 @@ export default function Dashboard() {
   const [newUrl, setNewUrl] = useState("");
   const [customAlias, setCustomAlias] = useState("");
   const [password, setPassword] = useState("");
+  const [expiresAt, setExpiresAt] = useState("");
   const [loading, setLoading] = useState(true);
   const [copiedId, setCopiedId] = useState<number | null>(null);
   
@@ -87,13 +89,15 @@ export default function Dashboard() {
         body: JSON.stringify({ 
           original_url: newUrl,
           custom_alias: customAlias,
-          password: password || null
+          password: password || null,
+          expires_at: expiresAt ? new Date(expiresAt).toISOString() : null
         }),
       });
       setLinks([...links, data]);
       setNewUrl("");
       setCustomAlias("");
       setPassword("");
+      setExpiresAt("");
     } catch (err: any) {
       alert(err.message);
     } finally {
@@ -226,6 +230,16 @@ export default function Dashboard() {
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black shadow-sm"
                 />
               </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Expiration Date (Optional)</label>
+                <input
+                  type="datetime-local"
+                  value={expiresAt}
+                  onChange={(e) => setExpiresAt(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black shadow-sm"
+                />
+              </div>
               
               <button type="submit" className="w-full py-2.5 mt-2 bg-black text-white rounded-lg font-bold hover:bg-gray-800 shadow-sm transition-colors">
                 Generate Link
@@ -251,6 +265,8 @@ export default function Dashboard() {
                   const shortCode = link.custom_alias || link.short_code;
                   const fullShortUrl = `${SHORT_LINK_DOMAIN}${shortCode}`;
                   
+                  const isExpired = link.expires_at ? new Date(link.expires_at) < new Date() : false;
+                  
                   return (
                     <tr key={link.id} className="hover:bg-gray-50 transition-colors group">
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -262,14 +278,21 @@ export default function Dashboard() {
                           {shortCode}
                         </a>
                         {link.has_password && <span className="ml-2 text-xs text-gray-400" title="Password Protected">🔒</span>}
+                        {link.expires_at && !isExpired && <span className="ml-2 text-xs text-orange-500" title={`Expires: ${new Date(link.expires_at).toLocaleString()}`}>⏳</span>}
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-500 max-w-[200px] truncate" title={link.original_url}>
                         {link.original_url}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`px-2.5 py-1 inline-flex text-xs leading-5 font-bold rounded-md ${link.is_active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                          {link.is_active ? 'Active' : 'Disabled'}
-                        </span>
+                        {isExpired ? (
+                          <span className="px-2.5 py-1 inline-flex text-xs leading-5 font-bold rounded-md bg-gray-100 text-gray-600">
+                            Expired
+                          </span>
+                        ) : (
+                          <span className={`px-2.5 py-1 inline-flex text-xs leading-5 font-bold rounded-md ${link.is_active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                            {link.is_active ? 'Active' : 'Disabled'}
+                          </span>
+                        )}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-3">
                         <button 
