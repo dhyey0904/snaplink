@@ -91,8 +91,8 @@ def google_login(token_data: GoogleToken, db: Session = Depends(get_db)) -> Any:
         )
         return {"access_token": access_token, "token_type": "bearer"}
 
-    except ValueError:
-        raise HTTPException(status_code=401, detail="Invalid Google token")
+    except ValueError as e:
+        raise HTTPException(status_code=401, detail=f"Invalid Google token: {str(e)}")
 
 from app.api.deps import get_current_user
 
