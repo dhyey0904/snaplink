@@ -31,7 +31,10 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4 font-sans">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 font-sans">
+      <Link href="/" className="mb-8 text-3xl font-bold tracking-tight text-[#202124] hover:opacity-80 transition-opacity">
+        Snap<span className="text-[#1a73e8]">Link</span>
+      </Link>
       <div className="max-w-[450px] w-full space-y-8 p-10 bg-white rounded-3xl border border-[#dadce0]">
         <div className="text-center">
           <h2 className="text-2xl font-normal text-[#202124]">Create a SnapLink Account</h2>
