@@ -63,7 +63,7 @@ def google_login(token_data: GoogleToken, db: Session = Depends(get_db)) -> Any:
         # Verify the token with Google
         # For development without a real client ID, we could bypass this, but let's implement it properly.
         # If GOOGLE_CLIENT_ID is not set, we will skip verification for testing purposes (Not for Prod!)
-        if GOOGLE_CLIENT_ID == "YOUR_GOOGLE_CLIENT_ID":
+        if GOOGLE_CLIENT_ID == "234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleusercontent.com":
             # WARNING: This is a fallback purely for testing if you haven't set up Google Cloud yet.
             from jose import jwt
             idinfo = jwt.decode(token_data.token, options={"verify_signature": False})
