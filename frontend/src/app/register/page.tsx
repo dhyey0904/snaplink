@@ -31,59 +31,63 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-xl shadow-lg">
+    <div className="min-h-screen flex items-center justify-center bg-white px-4 font-sans">
+      <div className="max-w-[450px] w-full space-y-8 p-10 bg-white rounded-3xl border border-[#dadce0]">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900">Create an account</h2>
-          <p className="mt-2 text-sm text-gray-600">Start shortening your links today</p>
+          <h2 className="text-2xl font-normal text-[#202124]">Create a SnapLink Account</h2>
+          <p className="mt-2 text-base text-[#5f6368]">Enter your details to continue</p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          {error && <div className="text-red-500 text-sm text-center bg-red-50 p-2 rounded">{error}</div>}
-          <div className="space-y-4">
+          {error && <div className="text-[#d93025] text-sm text-center bg-[#fce8e6] p-3 rounded-lg flex items-center justify-center gap-2">⚠️ {error}</div>}
+          <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Name</label>
               <input
                 type="text"
                 required
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-black"
+                placeholder="Full Name"
+                className="block w-full px-4 py-4 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] text-base placeholder-[#5f6368] transition-shadow"
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Email address</label>
               <input
                 type="email"
                 required
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-black"
+                placeholder="Email address"
+                className="block w-full px-4 py-4 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] text-base placeholder-[#5f6368] transition-shadow"
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Password</label>
               <input
                 type="password"
                 required
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-black"
+                placeholder="Password"
+                className="block w-full px-4 py-4 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] text-base placeholder-[#5f6368] transition-shadow"
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
           </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
-          >
-            {loading ? "Creating account..." : "Sign up"}
-          </button>
+          <div className="flex justify-between items-center pt-2">
+            <Link href="/login" className="font-medium text-[#1a73e8] hover:text-[#174ea6] transition-colors text-sm">
+              Sign in instead
+            </Link>
+            <button
+              type="submit"
+              disabled={loading}
+              className="py-2.5 px-6 rounded-full font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 disabled:opacity-50 transition-colors"
+            >
+              {loading ? "Creating..." : "Next"}
+            </button>
+          </div>
         </form>
-
-        <div className="mt-6">
+        <div className="mt-8">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300" />
+              <div className="w-full border-t border-[#dadce0]" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with</span>
+              <span className="px-4 bg-white text-[#5f6368]">Or continue with</span>
             </div>
           </div>
 
@@ -112,12 +116,6 @@ export default function Register() {
           </div>
         </div>
 
-        <p className="text-center text-sm text-gray-600 mt-6">
-          Already have an account?{" "}
-          <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500">
-            Log in
-          </Link>
-        </p>
       </div>
     </div>
   );
