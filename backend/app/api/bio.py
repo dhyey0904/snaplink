@@ -40,7 +40,11 @@ def create_bio_page(
         alias=bio_in.alias,
         title=bio_in.title,
         bio_text=bio_in.bio_text,
-        theme_color=bio_in.theme_color
+        theme_color=bio_in.theme_color,
+        profile_image_url=bio_in.profile_image_url,
+        contact_email=bio_in.contact_email,
+        resume_url=bio_in.resume_url,
+        ad_enabled=bio_in.ad_enabled
     )
     db.add(bio_page)
     db.commit()
@@ -71,6 +75,10 @@ def update_bio_page(
         bio_page.theme_color = bio_in.theme_color
     if bio_in.profile_image_url is not None:
         bio_page.profile_image_url = bio_in.profile_image_url
+    if bio_in.contact_email is not None:
+        bio_page.contact_email = bio_in.contact_email
+    if bio_in.resume_url is not None:
+        bio_page.resume_url = bio_in.resume_url
     if bio_in.ad_enabled is not None:
         bio_page.ad_enabled = bio_in.ad_enabled
         
