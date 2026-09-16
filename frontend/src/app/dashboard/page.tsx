@@ -251,12 +251,32 @@ export default function BioDashboard() {
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#202124] mb-2">Contact Email <span className="text-[#5f6368] font-normal">(Optional)</span></label>
+                    <label className="block text-sm font-medium text-[#202124] mb-1.5">Contact Email <span className="text-[#5f6368] font-normal">(Optional)</span></label>
                     <input type="email" value={contactEmail} onChange={e => setContactEmail(e.target.value)} placeholder="hello@example.com" className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#202124] mb-2">Resume URL <span className="text-[#5f6368] font-normal">(Optional)</span></label>
-                    <input type="url" value={resumeUrl} onChange={e => setResumeUrl(e.target.value)} placeholder="https://drive.google.com/..." className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                    <label className="block text-sm font-medium text-[#202124] mb-1.5">Resume (Upload PDF) <span className="text-[#5f6368] font-normal">(Optional)</span></label>
+                    <input 
+                      type="file" 
+                      accept=".pdf,application/pdf"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          if (file.size > 2 * 1024 * 1024) {
+                            alert("Resume file is too large (max 2MB)");
+                            e.target.value = '';
+                            return;
+                          }
+                          const reader = new FileReader();
+                          reader.onloadend = () => setResumeUrl(reader.result as string);
+                          reader.readAsDataURL(file);
+                        }
+                      }} 
+                      className="block w-full text-sm text-[#5f6368] file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-[#e8f0fe] file:text-[#1a73e8] hover:file:bg-[#d2e3fc] cursor-pointer"
+                    />
+                    {resumeUrl && resumeUrl.startsWith("data:") && (
+                      <div className="mt-2 text-sm text-[#34a853] font-medium">Resume ready to save!</div>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[#202124] mb-2">Theme Color</label>
@@ -312,11 +332,11 @@ export default function BioDashboard() {
                   {bioPage.contact_email && (
                     <a href={`mailto:${bioPage.contact_email}`} className="block w-full p-4 bg-[#202124] text-white rounded-2xl shadow-sm text-center font-medium hover:bg-[#3c4043] transition-all border border-[#202124] flex items-center justify-center gap-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                      Email Me
+                      Contact Me
                     </a>
                   )}
                   {bioPage.resume_url && (
-                    <a href={bioPage.resume_url} target="_blank" className="block w-full p-4 bg-white text-[#202124] rounded-2xl shadow-sm text-center font-medium hover:bg-gray-50 transition-all border-2 border-[#202124] flex items-center justify-center gap-2">
+                    <a href={bioPage.resume_url} download="resume.pdf" className="block w-full p-4 bg-white text-[#202124] rounded-2xl shadow-sm text-center font-medium hover:bg-gray-50 transition-all border-2 border-[#202124] flex items-center justify-center gap-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                       Download Resume
                     </a>
