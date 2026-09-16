@@ -156,6 +156,9 @@ export default function BioDashboard() {
           <Link href="/dashboard/links" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">
             URL Shortener
           </Link>
+          <Link href="/dashboard/api" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">
+            API Access
+          </Link>
           <button onClick={handleLogout} className="text-gray-600 hover:text-gray-900 font-medium">Logout</button>
         </div>
       </nav>

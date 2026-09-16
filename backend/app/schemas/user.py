@@ -11,6 +11,7 @@ class UserCreate(UserBase):
 
 class UserResponse(UserBase):
     id: int
+    api_key: Optional[str] = None
     created_at: datetime
 
     class Config:

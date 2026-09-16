@@ -178,6 +178,9 @@ export default function Dashboard() {
           <Link href="/dashboard" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">
             Link-in-Bio
           </Link>
+          <Link href="/dashboard/api" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">
+            API Access
+          </Link>
           <button onClick={handleLogout} className="text-gray-600 hover:text-gray-900 font-medium">Logout</button>
         </div>
       </nav>

@@ -26,6 +26,9 @@ try:
             
             try: conn.execute(text("ALTER TABLE bio_links ADD COLUMN clicks INTEGER DEFAULT 0"))
             except Exception: pass
+            
+            try: conn.execute(text("ALTER TABLE users ADD COLUMN api_key VARCHAR"))
+            except Exception: pass
     except Exception as e:
         print(f"Migration error (ignorable): {e}")
     

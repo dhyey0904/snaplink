@@ -93,3 +93,26 @@ def google_login(token_data: GoogleToken, db: Session = Depends(get_db)) -> Any:
 
     except ValueError:
         raise HTTPException(status_code=401, detail="Invalid Google token")
+
+from app.api.deps import get_current_user
+
+@router.get("/me", response_model=UserResponse)
+def get_me(
+    current_user: User = Depends(get_current_user)
+) -> Any:
+    return current_user
+
+@router.post("/api-key", response_model=UserResponse)
+def generate_api_key(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+) -> Any:
+    # Generate a secure 32-character API key
+    import secrets
+    api_key = "snap_" + secrets.token_urlsafe(32)
+    
+    current_user.api_key = api_key
+    db.commit()
+    db.refresh(current_user)
+    
+    return current_user
