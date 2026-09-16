@@ -206,55 +206,55 @@ export default function Dashboard() {
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full flex flex-col lg:flex-row gap-8">
         {/* Create Link Section - Left Side */}
         <div className="w-full lg:w-1/3">
-          <div className="bg-white p-8 rounded-3xl border border-[#dadce0] sticky top-24">
-            <h2 className="text-xl font-normal text-[#202124] mb-6">Create New Link</h2>
-            <form onSubmit={handleCreateLink} className="space-y-5">
+          <div className="bg-white p-6 rounded-3xl border border-[#dadce0] sticky top-24">
+            <h2 className="text-lg font-medium text-[#202124] mb-4">Create New Link</h2>
+            <form onSubmit={handleCreateLink} className="space-y-3.5">
               <div>
-                <label className="block text-sm font-medium text-[#202124] mb-2">Original Destination URL</label>
+                <label className="block text-sm font-medium text-[#202124] mb-1.5">Original Destination URL</label>
                 <input
                   type="url"
                   required
                   value={newUrl}
                   onChange={(e) => setNewUrl(e.target.value)}
                   placeholder="https://example.com/long-url..."
-                  className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
+                  className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-[#202124] mb-2">Custom Short Link <span className="text-[#d93025]">*</span></label>
+                <label className="block text-sm font-medium text-[#202124] mb-1.5">Custom Short Link <span className="text-[#d93025]">*</span></label>
                 <input
                   type="text"
                   required
                   value={customAlias}
                   onChange={handleAliasChange}
                   placeholder="my-custom-url"
-                  className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
+                  className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#202124] mb-2">Password <span className="text-[#5f6368] font-normal">(Optional)</span></label>
+                <label className="block text-sm font-medium text-[#202124] mb-1.5">Password <span className="text-[#5f6368] font-normal">(Optional)</span></label>
                 <input
                   type="text"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Leave blank for public link"
-                  className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
+                  className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#202124] mb-2">Expiration Date <span className="text-[#5f6368] font-normal">(Optional)</span></label>
+                <label className="block text-sm font-medium text-[#202124] mb-1.5">Expiration Date <span className="text-[#5f6368] font-normal">(Optional)</span></label>
                 <input
                   type="datetime-local"
                   value={expiresAt}
                   onChange={(e) => setExpiresAt(e.target.value)}
-                  className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow"
+                  className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow"
                 />
               </div>
               
-              <button type="submit" className="w-full mt-2 py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 transition-colors">
+              <button type="submit" className="w-full mt-1 py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 transition-colors">
                 Generate Link
               </button>
             </form>
