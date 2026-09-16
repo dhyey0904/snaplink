@@ -14,6 +14,8 @@ export default function BioDashboard() {
   const [alias, setAlias] = useState("");
   const [title, setTitle] = useState("My Links");
   const [themeColor, setThemeColor] = useState("#3B82F6");
+  const [profileImageUrl, setProfileImageUrl] = useState("");
+  const [adEnabled, setAdEnabled] = useState(true);
   
   // New Link form state
   const [newLinkTitle, setNewLinkTitle] = useState("");
@@ -36,6 +38,8 @@ export default function BioDashboard() {
       setAlias(data.alias);
       setTitle(data.title);
       setThemeColor(data.theme_color);
+      if (data.profile_image_url) setProfileImageUrl(data.profile_image_url);
+      if (data.ad_enabled !== undefined) setAdEnabled(data.ad_enabled);
     } catch (err: any) {
       // If 404, user doesn't have a bio page yet. That's fine.
       if (err.message && err.message.includes("not found")) {
@@ -53,7 +57,13 @@ export default function BioDashboard() {
     try {
       const data = await fetchAPI("/bio/", {
         method: "POST",
-        body: JSON.stringify({ alias, title, theme_color: themeColor })
+        body: JSON.stringify({ 
+          alias, 
+          title, 
+          theme_color: themeColor,
+          profile_image_url: profileImageUrl || null,
+          ad_enabled: adEnabled
+        })
       });
       setBioPage(data);
     } catch (err: any) {
@@ -66,7 +76,12 @@ export default function BioDashboard() {
     try {
       const data = await fetchAPI("/bio/", {
         method: "PUT",
-        body: JSON.stringify({ title, theme_color: themeColor })
+        body: JSON.stringify({ 
+          title, 
+          theme_color: themeColor,
+          profile_image_url: profileImageUrl || null,
+          ad_enabled: adEnabled
+        })
       });
       setBioPage(data);
       alert("Profile updated!");
@@ -144,6 +159,13 @@ export default function BioDashboard() {
             
             {/* Editor Side */}
             <div className="space-y-6">
+              
+              {/* Analytics Section */}
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                <h3 className="font-bold text-lg mb-2 text-gray-900">Profile Analytics</h3>
+                <p className="text-gray-600">Total Views: <span className="font-bold text-blue-600 text-lg">{bioPage.views || 0}</span></p>
+              </div>
+
               {/* Profile Settings */}
               <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
                 <h3 className="font-bold text-lg mb-4 text-gray-900">Profile Settings</h3>
@@ -153,11 +175,19 @@ export default function BioDashboard() {
                     <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black" />
                   </div>
                   <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">Profile Image URL (Optional)</label>
+                    <input type="url" value={profileImageUrl} onChange={e => setProfileImageUrl(e.target.value)} placeholder="https://..." className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black" />
+                  </div>
+                  <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Theme Color</label>
                     <div className="flex gap-2">
                       <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-12 h-10 p-1 border border-gray-300 rounded cursor-pointer" />
                       <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-black" />
                     </div>
+                  </div>
+                  <div className="flex items-center gap-3 pt-2">
+                    <input type="checkbox" id="ad_toggle" checked={adEnabled} onChange={e => setAdEnabled(e.target.checked)} className="w-5 h-5 text-blue-600 rounded border-gray-300" />
+                    <label htmlFor="ad_toggle" className="text-sm font-semibold text-gray-700">Enable 5-second Ad Modal (Monetization)</label>
                   </div>
                   <button type="submit" className="px-4 py-2 bg-gray-900 text-white rounded-md text-sm font-bold">Save Profile</button>
                 </form>
@@ -183,9 +213,13 @@ export default function BioDashboard() {
               <div className="w-[320px] min-h-[600px] border-[10px] border-gray-900 rounded-[2.5rem] overflow-hidden bg-white shadow-2xl relative flex flex-col">
                 {/* Mobile Header */}
                 <div style={{backgroundColor: themeColor}} className="pt-12 pb-6 px-6 text-center text-white">
-                  <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-3 flex items-center justify-center text-2xl font-bold">
-                    {title.charAt(0)}
-                  </div>
+                  {profileImageUrl ? (
+                    <img src={profileImageUrl} alt="Profile" className="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-lg border-2 border-white" />
+                  ) : (
+                    <div className="w-24 h-24 bg-white bg-opacity-20 rounded-full mx-auto mb-3 flex items-center justify-center text-4xl font-bold shadow-lg">
+                      {title.charAt(0)}
+                    </div>
+                  )}
                   <h2 className="font-bold text-lg">{title}</h2>
                   <p className="text-sm opacity-90 mt-1">snaplinks.in/bio/{bioPage.alias}</p>
                 </div>
@@ -196,6 +230,9 @@ export default function BioDashboard() {
                     <div key={link.id} className="relative group">
                       <a href={link.url} target="_blank" className="block w-full p-4 bg-white rounded-xl shadow-sm text-center font-semibold text-gray-800 hover:shadow-md transition-all border border-gray-200" style={{borderLeftColor: themeColor, borderLeftWidth: "4px"}}>
                         {link.title}
+                        <div className="text-xs text-gray-400 mt-1 font-normal">
+                          {link.clicks || 0} clicks
+                        </div>
                       </a>
                       <button onClick={() => handleDeleteLink(link.id)} className="absolute -right-2 -top-2 bg-red-500 text-white w-6 h-6 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">?</button>
                     </div>

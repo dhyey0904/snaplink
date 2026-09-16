@@ -6,9 +6,28 @@ try:
     from app.database.database import engine, Base
     from app.models import User, Link, Click
     from app.api import auth, links, redirect, analytics, bio
+    from sqlalchemy import text
     
     # Create database tables
     Base.metadata.create_all(bind=engine)
+    
+    # Safe migration: Add new columns if they don't exist
+    try:
+        with engine.begin() as conn:
+            # We catch exceptions individually in case some exist and others don't
+            try: conn.execute(text("ALTER TABLE bio_pages ADD COLUMN views INTEGER DEFAULT 0"))
+            except Exception: pass
+            
+            try: conn.execute(text("ALTER TABLE bio_pages ADD COLUMN profile_image_url VARCHAR"))
+            except Exception: pass
+            
+            try: conn.execute(text("ALTER TABLE bio_pages ADD COLUMN ad_enabled BOOLEAN DEFAULT true"))
+            except Exception: pass
+            
+            try: conn.execute(text("ALTER TABLE bio_links ADD COLUMN clicks INTEGER DEFAULT 0"))
+            except Exception: pass
+    except Exception as e:
+        print(f"Migration error (ignorable): {e}")
     
     app = FastAPI(
         title="SnapLink API",

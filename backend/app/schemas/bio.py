@@ -20,6 +20,7 @@ class BioLinkUpdate(BaseModel):
 class BioLinkResponse(BioLinkBase):
     id: int
     bio_page_id: int
+    clicks: int = 0
     created_at: datetime
 
     class Config:
@@ -30,6 +31,8 @@ class BioPageBase(BaseModel):
     title: str
     bio_text: Optional[str] = None
     theme_color: str = "#3B82F6"
+    profile_image_url: Optional[str] = None
+    ad_enabled: bool = True
 
 class BioPageCreate(BioPageBase):
     pass
@@ -39,10 +42,13 @@ class BioPageUpdate(BaseModel):
     title: Optional[str] = None
     bio_text: Optional[str] = None
     theme_color: Optional[str] = None
+    profile_image_url: Optional[str] = None
+    ad_enabled: Optional[bool] = None
 
 class BioPageResponse(BioPageBase):
     id: int
     user_id: int
+    views: int = 0
     created_at: datetime
     links: List[BioLinkResponse] = []
 

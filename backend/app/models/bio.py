@@ -12,6 +12,9 @@ class BioPage(Base):
     title = Column(String, nullable=False, default="My Links")
     bio_text = Column(String, nullable=True)
     theme_color = Column(String, nullable=False, default="#3B82F6") # Default blue
+    profile_image_url = Column(String, nullable=True)
+    ad_enabled = Column(Boolean, default=True)
+    views = Column(Integer, default=0)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     owner = relationship("User", backref="bio_page")
@@ -26,6 +29,7 @@ class BioLink(Base):
     url = Column(String, nullable=False)
     order = Column(Integer, default=0)
     is_active = Column(Boolean, default=True)
+    clicks = Column(Integer, default=0)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     bio_page = relationship("BioPage", back_populates="links")

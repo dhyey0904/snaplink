@@ -69,6 +69,10 @@ def update_bio_page(
         bio_page.bio_text = bio_in.bio_text
     if bio_in.theme_color is not None:
         bio_page.theme_color = bio_in.theme_color
+    if bio_in.profile_image_url is not None:
+        bio_page.profile_image_url = bio_in.profile_image_url
+    if bio_in.ad_enabled is not None:
+        bio_page.ad_enabled = bio_in.ad_enabled
         
     db.commit()
     db.refresh(bio_page)
@@ -160,7 +164,32 @@ def get_public_bio_page(
         "title": bio_page.title,
         "bio_text": bio_page.bio_text,
         "theme_color": bio_page.theme_color,
+        "profile_image_url": bio_page.profile_image_url,
+        "ad_enabled": bio_page.ad_enabled,
+        "views": bio_page.views,
         "created_at": bio_page.created_at,
         "links": [link for link in bio_page.links if link.is_active]
     }
     return response_data
+
+@router.post("/public/{alias}/view")
+def increment_bio_view(
+    alias: str,
+    db: Session = Depends(get_db)
+) -> Any:
+    bio_page = db.query(BioPage).filter(BioPage.alias == alias).first()
+    if bio_page:
+        bio_page.views = (bio_page.views or 0) + 1
+        db.commit()
+    return {"status": "ok"}
+
+@router.post("/public/links/{link_id}/click")
+def increment_bio_link_click(
+    link_id: int,
+    db: Session = Depends(get_db)
+) -> Any:
+    bio_link = db.query(BioLink).filter(BioLink.id == link_id).first()
+    if bio_link:
+        bio_link.clicks = (bio_link.clicks or 0) + 1
+        db.commit()
+    return {"status": "ok"}
