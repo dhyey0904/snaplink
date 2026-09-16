@@ -206,142 +206,140 @@ export default function Dashboard() {
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full flex flex-col lg:flex-row gap-8">
         {/* Create Link Section - Left Side */}
         <div className="w-full lg:w-1/3">
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 sticky top-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-5">Create New Link</h2>
-            <form onSubmit={handleCreateLink} className="space-y-4">
+          <div className="bg-white p-8 rounded-3xl border border-[#dadce0] sticky top-24">
+            <h2 className="text-xl font-normal text-[#202124] mb-6">Create New Link</h2>
+            <form onSubmit={handleCreateLink} className="space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Original Destination URL</label>
+                <label className="block text-sm font-medium text-[#202124] mb-2">Original Destination URL</label>
                 <input
                   type="url"
                   required
                   value={newUrl}
                   onChange={(e) => setNewUrl(e.target.value)}
                   placeholder="https://example.com/long-url..."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black shadow-sm"
+                  className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Your Custom Short Link <span className="text-red-500">*</span></label>
+                <label className="block text-sm font-medium text-[#202124] mb-2">Custom Short Link <span className="text-[#d93025]">*</span></label>
                 <input
                   type="text"
                   required
                   value={customAlias}
                   onChange={handleAliasChange}
                   placeholder="my-custom-url"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black shadow-sm"
+                  className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Password (Optional)</label>
+                <label className="block text-sm font-medium text-[#202124] mb-2">Password <span className="text-[#5f6368] font-normal">(Optional)</span></label>
                 <input
                   type="text"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Leave blank for public"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black shadow-sm"
+                  placeholder="Leave blank for public link"
+                  className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Expiration Date (Optional)</label>
+                <label className="block text-sm font-medium text-[#202124] mb-2">Expiration Date <span className="text-[#5f6368] font-normal">(Optional)</span></label>
                 <input
                   type="datetime-local"
                   value={expiresAt}
                   onChange={(e) => setExpiresAt(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black shadow-sm"
+                  className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow"
                 />
               </div>
               
-              <button type="submit" className="w-full py-2.5 mt-2 bg-black text-white rounded-lg font-bold hover:bg-gray-800 shadow-sm transition-colors">
+              <button type="submit" className="w-full mt-2 py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 transition-colors">
                 Generate Link
               </button>
             </form>
           </div>
         </div>
 
-        {/* Links List - Right Side */}
+        {/* Links Table Section - Right Side */}
         <div className="w-full lg:w-2/3">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50 border-b border-gray-200">
-                <tr>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Short Link</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Original URL</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-100">
-                {links.map((link) => {
-                  const shortCode = link.custom_alias || link.short_code;
-                  const fullShortUrl = `${SHORT_LINK_DOMAIN}${shortCode}`;
-                  
-                  const isExpired = link.expires_at ? new Date(link.expires_at) < new Date() : false;
-                  
-                  return (
-                    <tr key={link.id} className="hover:bg-gray-50 transition-colors group">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <a 
-                          href={fullShortUrl} 
-                          target="_blank" 
-                          className="text-gray-900 hover:text-blue-600 font-semibold transition-colors"
-                        >
-                          {shortCode}
-                        </a>
-                        {link.has_password && <span className="ml-2 text-xs text-gray-400" title="Password Protected">🔒</span>}
-                        {link.expires_at && !isExpired && <span className="ml-2 text-xs text-orange-500" title={`Expires: ${new Date(link.expires_at).toLocaleString()}`}>⏳</span>}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-500 max-w-[200px] truncate" title={link.original_url}>
-                        {link.original_url}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        {isExpired ? (
-                          <span className="px-2.5 py-1 inline-flex text-xs leading-5 font-bold rounded-md bg-gray-100 text-gray-600">
-                            Expired
-                          </span>
-                        ) : (
-                          <span className={`px-2.5 py-1 inline-flex text-xs leading-5 font-bold rounded-md ${link.is_active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                            {link.is_active ? 'Active' : 'Disabled'}
-                          </span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-3">
-                        <button 
-                          onClick={() => handleCopy(shortCode, link.id)}
-                          className={`${copiedId === link.id ? 'text-green-600' : 'text-gray-400 hover:text-gray-900'} transition-colors inline-block`}
-                        >
-                          {copiedId === link.id ? 'Copied ✓' : 'Copy'}
-                        </button>
-                        <button 
-                          onClick={() => setQrModalUrl(fullShortUrl)}
-                          className="text-gray-400 hover:text-blue-600 transition-colors inline-block"
-                        >
-                          QR
-                        </button>
-                        <button 
-                          onClick={() => handleEdit(link.id, link.original_url)}
-                          className="text-gray-400 hover:text-blue-600 transition-colors inline-block"
-                        >
-                          Edit
-                        </button>
-                        <a href={`/analytics/${link.id}`} className="text-gray-400 hover:text-purple-600 transition-colors inline-block">
-                          Stats
-                        </a>
-                        <button 
-                          onClick={() => handleDelete(link.id)}
-                          className="text-gray-400 hover:text-red-600 transition-colors inline-block"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
+          <div className="bg-white rounded-3xl border border-[#dadce0] overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-[#dadce0]">
+                <thead className="bg-[#f8f9fa] border-b border-[#dadce0]">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#5f6368] uppercase tracking-wider">Short Link</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#5f6368] uppercase tracking-wider">Original URL</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#5f6368] uppercase tracking-wider">Status</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#5f6368] uppercase tracking-wider">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-[#dadce0]">
+                  {links.map((link) => {
+                    const shortCode = link.custom_alias || link.short_code;
+                    const fullShortUrl = `${SHORT_LINK_DOMAIN}${shortCode}`;
+                    
+                    const isExpired = link.expires_at ? new Date(link.expires_at) < new Date() : false;
+                    
+                    return (
+                      <tr key={link.id} className="hover:bg-[#f8f9fa] transition-colors group">
+                        <td className="px-6 py-5 whitespace-nowrap">
+                          <a 
+                            href={fullShortUrl} 
+                            target="_blank" 
+                            className="text-[#202124] hover:text-[#1a73e8] font-medium transition-colors"
+                          >
+                            {shortCode}
+                          </a>
+                          {link.has_password && <span className="ml-2 text-xs text-[#5f6368]" title="Password Protected">🔒</span>}
+                          {link.expires_at && !isExpired && <span className="ml-2 text-xs text-[#f9ab00]" title={`Expires: ${new Date(link.expires_at).toLocaleString()}`}>⏱️</span>}
+                        </td>
+                        <td className="px-6 py-5 text-sm text-[#5f6368] max-w-[200px] truncate" title={link.original_url}>
+                          {link.original_url}
+                        </td>
+                        <td className="px-6 py-5 whitespace-nowrap">
+                          {isExpired ? (
+                            <span className="px-3 py-1 inline-flex text-xs leading-5 font-medium rounded-full bg-[#f8f9fa] text-[#5f6368] border border-[#dadce0]">
+                              Expired
+                            </span>
+                          ) : (
+                            <span className={`px-3 py-1 inline-flex text-xs leading-5 font-medium rounded-full border ${link.is_active ? 'bg-[#e6f4ea] text-[#137333] border-[#ceead6]' : 'bg-[#fce8e6] text-[#c5221f] border-[#fad2cf]'}`}>
+                              {link.is_active ? 'Active' : 'Disabled'}
+                            </span>
+                          )}
+                        </td>
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-medium space-x-4">
+                          <button 
+                            onClick={() => handleCopy(shortCode, link.id)}
+                            className={`${copiedId === link.id ? 'text-[#34a853]' : 'text-[#5f6368] hover:text-[#202124]'} transition-colors inline-block`}
+                          >
+                            {copiedId === link.id ? 'Copied ✓' : 'Copy'}
+                          </button>
+                          <button 
+                            onClick={() => setQrModalUrl(fullShortUrl)}
+                            className="text-[#5f6368] hover:text-[#1a73e8] transition-colors inline-block"
+                          >
+                            QR
+                          </button>
+                          <button 
+                            onClick={() => handleEdit(link.id, link.original_url)}
+                            className="text-[#5f6368] hover:text-[#1a73e8] transition-colors inline-block"
+                          >
+                            Edit
+                          </button>
+                          <button 
+                            onClick={() => handleDelete(link.id)}
+                            className="text-[#5f6368] hover:text-[#d93025] transition-colors inline-block"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 {links.length === 0 && (
                   <tr>
-                    <td colSpan={4} className="px-6 py-12 text-center text-gray-500 font-medium">
+                    <td colSpan={4} className="px-6 py-12 text-center text-[#5f6368] font-medium">
                       You haven&apos;t created any links yet. Build your first one!
                     </td>
                   </tr>
