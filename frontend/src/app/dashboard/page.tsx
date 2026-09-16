@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { fetchAPI } from "@/utils/api";
 
 const SHORT_LINK_DOMAIN = process.env.NEXT_PUBLIC_BACKEND_URL ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/` : "http://127.0.0.1:8000/";
