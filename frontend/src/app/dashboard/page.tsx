@@ -173,7 +173,12 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <nav className="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold text-gray-900">Snap<span className="text-blue-600">Link</span> Dashboard</h1>
-        <button onClick={handleLogout} className="text-gray-600 hover:text-gray-900 font-medium">Logout</button>
+        <div className="flex gap-6 items-center">
+          <Link href="/dashboard/bio" className="text-blue-600 font-bold hover:text-blue-800 transition-colors">
+            Link-in-Bio
+          </Link>
+          <button onClick={handleLogout} className="text-gray-600 hover:text-gray-900 font-medium">Logout</button>
+        </div>
       </nav>
 
       {/* Main Content Side-by-Side */}

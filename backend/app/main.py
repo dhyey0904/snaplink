@@ -5,7 +5,7 @@ try:
     
     from app.database.database import engine, Base
     from app.models import User, Link, Click
-    from app.api import auth, links, redirect, analytics
+    from app.api import auth, links, redirect, analytics, bio
     
     # Create database tables
     Base.metadata.create_all(bind=engine)
@@ -32,6 +32,7 @@ try:
     app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
     app.include_router(links.router, prefix="/api/links", tags=["links"])
     app.include_router(analytics.router, prefix="/api/analytics", tags=["analytics"])
+    app.include_router(bio.router, prefix="/api/bio", tags=["bio"])
     app.include_router(redirect.router, tags=["redirect"])
     
     
