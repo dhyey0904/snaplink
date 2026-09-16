@@ -176,7 +176,8 @@ export default function Dashboard() {
         <button onClick={handleLogout} className="text-gray-600 hover:text-gray-900 font-medium">Logout</button>
       </nav>
 
-      <main className="max-w-7xl mx-auto mt-8 px-4 flex-1 w-full flex flex-col lg:flex-row gap-12">
+      {/* Main Content Side-by-Side */}
+      <main className="flex-1 max-w-7xl mx-auto px-4 py-8 w-full flex flex-col lg:flex-row gap-8">
         {/* Create Link Section - Left Side */}
         <div className="w-full lg:w-1/3">
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 sticky top-8">
