@@ -154,9 +154,9 @@ export default function BioDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-2xl font-bold tracking-tight text-[#202124]">
+              <span className="text-2xl font-bold tracking-tight text-[#202124]">
                 Snap<span className="text-[#1a73e8]">Link</span>
-              </Link>
+              </span>
             </div>
             <div className="flex items-center gap-6">
               <Link href="/dashboard" className="text-sm font-medium text-[#1a73e8] border-b-2 border-[#1a73e8] py-5">
@@ -176,38 +176,47 @@ export default function BioDashboard() {
         </div>
       </nav>
 
-      <main className="flex-1 max-w-4xl mx-auto px-4 py-12 w-full">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         {!bioPage ? (
-          <div className="bg-white rounded-xl shadow-sm p-8 text-center max-w-lg mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Create your Link-in-Bio</h2>
-            <p className="text-gray-500 mb-6">One link to share all your content.</p>
-            <form onSubmit={handleCreateBio} className="space-y-4 text-left">
+          <div className="bg-white rounded-3xl border border-[#dadce0] p-10 text-center max-w-lg mx-auto">
+            <h2 className="text-2xl font-normal text-[#202124] mb-2">Create your Link-in-Bio</h2>
+            <p className="text-[#5f6368] mb-8">One link to share all your content.</p>
+            <form onSubmit={handleCreateBio} className="space-y-6 text-left">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Your Alias</label>
-                <div className="flex items-center">
-                  <span className="bg-gray-100 border border-gray-300 border-r-0 px-3 py-2 rounded-l-md text-gray-500">snaplinks.in/bio/</span>
-                  <input required type="text" value={alias} onChange={e => setAlias(e.target.value)} placeholder="yourname" className="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+                <label className="block text-sm font-medium text-[#202124] mb-2">Your Alias</label>
+                <div className="flex rounded-md shadow-sm">
+                  <span className="inline-flex items-center px-4 rounded-l-md border border-r-0 border-[#dadce0] bg-[#f8f9fa] text-[#5f6368] sm:text-sm">
+                    snaplinks.in/bio/
+                  </span>
+                  <input
+                    type="text"
+                    required
+                    value={alias}
+                    onChange={(e) => setAlias(e.target.value)}
+                    className="flex-1 min-w-0 block w-full px-4 py-3 rounded-none rounded-r-md border border-[#dadce0] focus:ring-[#1a73e8] focus:border-[#1a73e8] sm:text-sm text-[#202124]"
+                    placeholder="my-name"
+                  />
                 </div>
               </div>
-              <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-md font-bold hover:bg-blue-700">Create Bio Page</button>
+              <button type="submit" className="w-full py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 transition-colors">
+                Create Page
+              </button>
             </form>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            {/* Editor Side */}
-            <div className="space-y-6">
-              
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Settings Side */}
+            <div className="space-y-8">
               {/* Profile Settings */}
-              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
-                <h3 className="font-bold text-lg mb-4 text-gray-900">Profile Settings</h3>
-                <form onSubmit={handleUpdateBio} className="space-y-4">
+              <div className="bg-white rounded-3xl border border-[#dadce0] p-8">
+                <h3 className="text-xl font-normal text-[#202124] mb-6">Profile Settings</h3>
+                <form onSubmit={handleUpdateBio} className="space-y-5">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Page Title</label>
-                    <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black" />
+                    <label className="block text-sm font-medium text-[#202124] mb-2">Page Title</label>
+                    <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow" />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Profile Image (Upload from device)</label>
+                    <label className="block text-sm font-medium text-[#202124] mb-2">Profile Image (Upload from device)</label>
                     <input 
                       type="file" 
                       accept="image/*"
@@ -224,69 +233,72 @@ export default function BioDashboard() {
                           reader.readAsDataURL(file);
                         }
                       }} 
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black bg-white" 
+                      className="block w-full text-sm text-[#5f6368] file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-[#e8f0fe] file:text-[#1a73e8] hover:file:bg-[#d2e3fc] cursor-pointer"
                     />
                     {profileImageUrl && (
-                      <div className="mt-2 text-sm text-green-600 font-medium">Image ready to save!</div>
+                      <div className="mt-2 text-sm text-[#34a853] font-medium">Image ready to save!</div>
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Theme Color</label>
-                    <div className="flex gap-2">
-                      <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-12 h-10 p-1 border border-gray-300 rounded cursor-pointer" />
-                      <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-black" />
+                    <label className="block text-sm font-medium text-[#202124] mb-2">Theme Color</label>
+                    <div className="flex gap-3">
+                      <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-12 h-12 p-1 border border-[#dadce0] rounded-md cursor-pointer bg-white" />
+                      <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 px-4 py-3 border border-[#dadce0] rounded-md text-[#202124] focus:ring-2 focus:ring-[#1a73e8] focus:outline-none" />
                     </div>
                   </div>
-                  <div className="flex gap-4 pt-2">
-                    <button type="submit" className="px-6 py-2 bg-gray-900 text-white rounded-md text-sm font-bold flex-1">Save Profile</button>
-                    <button type="button" onClick={() => setQrModalUrl(`https://snaplinks.in/bio/${bioPage.alias}`)} className="px-6 py-2 bg-blue-600 text-white rounded-md text-sm font-bold flex-1">Generate QR Code</button>
+                  <div className="flex gap-4 pt-4">
+                    <button type="submit" className="flex-1 py-2.5 px-6 rounded-full font-medium text-white bg-[#202124] hover:bg-[#3c4043] focus:outline-none focus:ring-4 focus:ring-gray-200 transition-colors">Save Profile</button>
+                    <button type="button" onClick={() => setQrModalUrl(`https://snaplinks.in/bio/${bioPage.alias}`)} className="flex-1 py-2.5 px-6 rounded-full font-medium text-[#1a73e8] bg-[#e8f0fe] hover:bg-[#d2e3fc] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 transition-colors">Generate QR</button>
                   </div>
                 </form>
               </div>
 
               {/* Add Links */}
-              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
-                <h3 className="font-bold text-lg mb-4 text-gray-900">Add New Link</h3>
+              <div className="bg-white rounded-3xl border border-[#dadce0] p-8">
+                <h3 className="text-xl font-normal text-[#202124] mb-6">Add New Link</h3>
                 <form onSubmit={handleAddLink} className="space-y-4">
                   <div>
-                    <input required type="text" value={newLinkTitle} onChange={e => setNewLinkTitle(e.target.value)} placeholder="Title (e.g. My YouTube)" className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black" />
+                    <input required type="text" value={newLinkTitle} onChange={e => setNewLinkTitle(e.target.value)} placeholder="Title (e.g. My YouTube)" className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
                   </div>
                   <div>
-                    <input required type="url" value={newLinkUrl} onChange={e => setNewLinkUrl(e.target.value)} placeholder="URL (e.g. https://youtube.com/...)" className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black" />
+                    <input required type="url" value={newLinkUrl} onChange={e => setNewLinkUrl(e.target.value)} placeholder="URL (e.g. https://youtube.com/...)" className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
                   </div>
-                  <button type="submit" disabled={isAddingLink} className="w-full py-2 bg-blue-600 text-white rounded-md font-bold disabled:opacity-50">Add Link</button>
+                  <button type="submit" disabled={isAddingLink} className="w-full mt-2 py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 disabled:opacity-50 transition-colors">Add Link</button>
                 </form>
               </div>
             </div>
 
             {/* Preview Side */}
             <div className="flex justify-center items-start">
-              <div className="w-[320px] min-h-[600px] border-[10px] border-gray-900 rounded-[2.5rem] overflow-hidden bg-white shadow-2xl relative flex flex-col">
+              <div className="w-[340px] h-[700px] border-[12px] border-[#202124] rounded-[3rem] overflow-hidden bg-white shadow-2xl relative flex flex-col">
+                {/* Mobile Notch */}
+                <div className="absolute top-0 inset-x-0 h-6 bg-[#202124] rounded-b-3xl w-40 mx-auto z-10"></div>
+                
                 {/* Mobile Header */}
-                <div style={{backgroundColor: themeColor}} className="pt-12 pb-6 px-6 text-center text-white">
+                <div style={{backgroundColor: themeColor}} className="pt-16 pb-8 px-6 text-center text-white relative">
                   {profileImageUrl ? (
-                    <img src={profileImageUrl} alt="Profile" className="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-lg border-2 border-white" />
+                    <img src={profileImageUrl} alt="Profile" className="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-md border-4 border-white/20" />
                   ) : (
-                    <div className="w-24 h-24 bg-white bg-opacity-20 rounded-full mx-auto mb-3 flex items-center justify-center text-4xl font-bold shadow-lg">
+                    <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold shadow-md border-4 border-white/20">
                       {title.charAt(0)}
                     </div>
                   )}
-                  <h2 className="font-bold text-lg">{title}</h2>
-                  <p className="text-sm opacity-90 mt-1">snaplinks.in/bio/{bioPage.alias}</p>
+                  <h2 className="font-bold text-xl tracking-tight">{title}</h2>
+                  <p className="text-sm opacity-90 mt-1 font-medium">snaplinks.in/bio/{bioPage.alias}</p>
                 </div>
                 
                 {/* Mobile Links */}
-                <div className="flex-1 bg-gray-50 p-4 space-y-3 overflow-y-auto">
+                <div className="flex-1 bg-[#f8f9fa] p-5 space-y-4 overflow-y-auto">
                   {bioPage.links && bioPage.links.map((link: any) => (
                     <div key={link.id} className="relative group">
-                      <a href={link.url} target="_blank" className="block w-full p-4 bg-white rounded-xl shadow-sm text-center font-semibold text-gray-800 hover:shadow-md transition-all border border-gray-200" style={{borderLeftColor: themeColor, borderLeftWidth: "4px"}}>
+                      <a href={link.url} target="_blank" className="block w-full p-4 bg-white rounded-2xl shadow-sm text-center font-medium text-[#202124] hover:shadow-md transition-all border border-[#dadce0]" style={{borderLeftColor: themeColor, borderLeftWidth: "6px"}}>
                         {link.title}
                       </a>
-                      <button onClick={() => handleDeleteLink(link.id)} className="absolute -right-2 -top-2 bg-red-500 text-white w-6 h-6 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">?</button>
+                      <button onClick={() => handleDeleteLink(link.id)} className="absolute -right-2 -top-2 bg-[#d93025] text-white w-7 h-7 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-sm flex items-center justify-center">✕</button>
                     </div>
                   ))}
                   {(!bioPage.links || bioPage.links.length === 0) && (
-                    <p className="text-center text-gray-400 text-sm mt-8">No links added yet.</p>
+                    <p className="text-center text-[#5f6368] text-sm mt-10">No links added yet.</p>
                   )}
                 </div>
               </div>
