@@ -60,26 +60,37 @@ export default function ApiDashboard() {
     router.push("/login");
   };
 
-  if (loading && !apiKey) {
-    return <div className="min-h-screen bg-gray-50 flex items-center justify-center font-bold text-xl">Loading API Data...</div>;
-  }
+  if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <nav className="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-gray-900">Snap<span className="text-blue-600">Link</span> Developer</h1>
-        <div className="flex gap-6 items-center">
-          <Link href="/dashboard" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">
-            Link-in-Bio
-          </Link>
-          <Link href="/dashboard/links" className="text-gray-600 font-medium hover:text-gray-900 transition-colors">
-            URL Shortener
-          </Link>
-          <button onClick={handleLogout} className="text-gray-600 hover:text-gray-900 font-medium">Logout</button>
+    <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
+      <nav className="w-full border-b border-[#dadce0] bg-white sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            <div className="flex-shrink-0 flex items-center">
+              <Link href="/" className="text-2xl font-bold tracking-tight text-[#202124]">
+                Snap<span className="text-[#1a73e8]">Link</span>
+              </Link>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link href="/dashboard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                Link-in-Bio
+              </Link>
+              <Link href="/dashboard/links" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                URL Shortener
+              </Link>
+              <Link href="/dashboard/api" className="text-sm font-medium text-[#1a73e8] border-b-2 border-[#1a73e8] py-5">
+                API Access
+              </Link>
+              <button onClick={handleLogout} className="text-sm font-medium text-[#5f6368] hover:text-[#d93025] transition-colors ml-4">
+                Logout
+              </button>
+            </div>
+          </div>
         </div>
       </nav>
 
-      <main className="flex-1 max-w-4xl mx-auto px-4 py-12 w-full">
+      <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Developer API (SaaS)</h2>
           <p className="text-gray-600 mb-8">
@@ -135,6 +146,18 @@ export default function ApiDashboard() {
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-[#dadce0] py-12 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
+          <span className="text-xl font-bold tracking-tight text-[#202124] mb-4 sm:mb-0">
+            Snap<span className="text-[#1a73e8]">Link</span>
+          </span>
+          <p className="text-[#5f6368] text-sm">
+            © {new Date().getFullYear()} SnapLink. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
