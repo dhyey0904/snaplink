@@ -49,23 +49,23 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 font-sans">
-      <Link href="/" className="mb-8 text-3xl font-bold tracking-tight text-[#202124] hover:opacity-80 transition-opacity">
+      <Link href="/" className="mb-4 text-3xl font-bold tracking-tight text-[#202124] hover:opacity-80 transition-opacity">
         Snap<span className="text-[#1a73e8]">Link</span>
       </Link>
-      <div className="max-w-[450px] w-full space-y-8 p-10 bg-white rounded-3xl border border-[#dadce0]">
+      <div className="max-w-[420px] w-full space-y-6 p-8 bg-white rounded-3xl border border-[#dadce0]">
         <div className="text-center">
           <h2 className="text-2xl font-normal text-[#202124]">Sign in</h2>
-          <p className="mt-2 text-base text-[#5f6368]">to continue to SnapLink</p>
+          <p className="mt-1 text-sm text-[#5f6368]">to continue to SnapLink</p>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          {error && <div className="text-[#d93025] text-sm text-center bg-[#fce8e6] p-3 rounded-lg flex items-center justify-center gap-2">⚠️ {error}</div>}
-          <div className="space-y-5">
+        <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
+          {error && <div className="text-[#d93025] text-sm text-center bg-[#fce8e6] p-2 rounded-lg flex items-center justify-center gap-2">⚠️ {error}</div>}
+          <div className="space-y-3">
             <div>
               <input
                 type="email"
                 required
                 placeholder="Email address"
-                className="block w-full px-4 py-4 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] text-base placeholder-[#5f6368] transition-shadow"
+                className="block w-full px-3 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] text-sm placeholder-[#5f6368] transition-shadow"
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
@@ -74,7 +74,7 @@ export default function Login() {
                 type="password"
                 required
                 placeholder="Password"
-                className="block w-full px-4 py-4 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] text-base placeholder-[#5f6368] transition-shadow"
+                className="block w-full px-3 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] text-sm placeholder-[#5f6368] transition-shadow"
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
@@ -86,24 +86,24 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="py-2.5 px-6 rounded-full font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 disabled:opacity-50 transition-colors"
+              className="py-2.5 px-6 rounded-full font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 disabled:opacity-50 transition-colors text-sm"
             >
               {loading ? "Signing in..." : "Next"}
             </button>
           </div>
         </form>
 
-        <div className="mt-8">
+        <div className="mt-6">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-[#dadce0]" />
             </div>
-            <div className="relative flex justify-center text-sm">
+            <div className="relative flex justify-center text-xs">
               <span className="px-4 bg-white text-[#5f6368]">Or continue with</span>
             </div>
           </div>
 
-          <div className="mt-6 flex justify-center">
+          <div className="mt-4 flex justify-center">
             <GoogleLogin
               onSuccess={async (credentialResponse) => {
                 if (!credentialResponse.credential) return;
