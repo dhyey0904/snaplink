@@ -152,6 +152,15 @@ def get_public_bio_page(
     if not bio_page:
         raise HTTPException(status_code=404, detail="Bio page not found")
     
-    # Filter only active links
-    bio_page.links = [link for link in bio_page.links if link.is_active]
-    return bio_page
+    # Create a dict to avoid mutating the SQLAlchemy model
+    response_data = {
+        "id": bio_page.id,
+        "user_id": bio_page.user_id,
+        "alias": bio_page.alias,
+        "title": bio_page.title,
+        "bio_text": bio_page.bio_text,
+        "theme_color": bio_page.theme_color,
+        "created_at": bio_page.created_at,
+        "links": [link for link in bio_page.links if link.is_active]
+    }
+    return response_data

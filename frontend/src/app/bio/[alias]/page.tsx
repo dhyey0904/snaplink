@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 
 // Server Component
 export default async function PublicBioPage({ params }: { params: { alias: string } }) {
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+  let backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-backend-j69v.onrender.com";
+  if (backendUrl.endsWith("/")) backendUrl = backendUrl.slice(0, -1);
   
   try {
     const res = await fetch(`${backendUrl}/api/bio/public/${params.alias}`, {
@@ -11,7 +12,9 @@ export default async function PublicBioPage({ params }: { params: { alias: strin
     
     if (!res.ok) {
       if (res.status === 404) return notFound();
-      throw new Error("Failed to load");
+      const text = await res.text();
+      console.error("Backend returned:", res.status, text);
+      throw new Error(`Failed to load: ${res.status}`);
     }
     
     const bioPage = await res.json();
