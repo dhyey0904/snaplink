@@ -44,6 +44,10 @@ def create_bio_page(
         profile_image_url=bio_in.profile_image_url,
         contact_email=bio_in.contact_email,
         resume_url=bio_in.resume_url,
+        github_url=bio_in.github_url,
+        twitter_url=bio_in.twitter_url,
+        instagram_url=bio_in.instagram_url,
+        linkedin_url=bio_in.linkedin_url,
         ad_enabled=bio_in.ad_enabled
     )
     db.add(bio_page)
@@ -79,6 +83,14 @@ def update_bio_page(
         bio_page.contact_email = bio_in.contact_email
     if bio_in.resume_url is not None:
         bio_page.resume_url = bio_in.resume_url
+    if bio_in.github_url is not None:
+        bio_page.github_url = bio_in.github_url
+    if bio_in.twitter_url is not None:
+        bio_page.twitter_url = bio_in.twitter_url
+    if bio_in.instagram_url is not None:
+        bio_page.instagram_url = bio_in.instagram_url
+    if bio_in.linkedin_url is not None:
+        bio_page.linkedin_url = bio_in.linkedin_url
     if bio_in.ad_enabled is not None:
         bio_page.ad_enabled = bio_in.ad_enabled
         

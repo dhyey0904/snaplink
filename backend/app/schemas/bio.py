@@ -34,6 +34,10 @@ class BioPageBase(BaseModel):
     profile_image_url: Optional[str] = None
     contact_email: Optional[str] = None
     resume_url: Optional[str] = None
+    github_url: Optional[str] = None
+    twitter_url: Optional[str] = None
+    instagram_url: Optional[str] = None
+    linkedin_url: Optional[str] = None
     ad_enabled: bool = True
 
 class BioPageCreate(BioPageBase):
@@ -47,6 +51,10 @@ class BioPageUpdate(BaseModel):
     profile_image_url: Optional[str] = None
     contact_email: Optional[str] = None
     resume_url: Optional[str] = None
+    github_url: Optional[str] = None
+    twitter_url: Optional[str] = None
+    instagram_url: Optional[str] = None
+    linkedin_url: Optional[str] = None
     ad_enabled: Optional[bool] = None
 
 class BioPageResponse(BioPageBase):
