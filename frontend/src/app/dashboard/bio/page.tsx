@@ -160,12 +160,6 @@ export default function BioDashboard() {
             {/* Editor Side */}
             <div className="space-y-6">
               
-              {/* Analytics Section */}
-              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
-                <h3 className="font-bold text-lg mb-2 text-gray-900">Profile Analytics</h3>
-                <p className="text-gray-600">Total Views: <span className="font-bold text-blue-600 text-lg">{bioPage.views || 0}</span></p>
-              </div>
-
               {/* Profile Settings */}
               <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
                 <h3 className="font-bold text-lg mb-4 text-gray-900">Profile Settings</h3>
@@ -175,8 +169,28 @@ export default function BioDashboard() {
                     <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black" />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Profile Image URL (Optional)</label>
-                    <input type="url" value={profileImageUrl} onChange={e => setProfileImageUrl(e.target.value)} placeholder="https://..." className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black" />
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">Profile Image (Upload from device)</label>
+                    <input 
+                      type="file" 
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          if (file.size > 2 * 1024 * 1024) {
+                            alert("File is too large (max 2MB)");
+                            e.target.value = '';
+                            return;
+                          }
+                          const reader = new FileReader();
+                          reader.onloadend = () => setProfileImageUrl(reader.result as string);
+                          reader.readAsDataURL(file);
+                        }
+                      }} 
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-black bg-white" 
+                    />
+                    {profileImageUrl && (
+                      <div className="mt-2 text-sm text-green-600 font-medium">Image ready to save!</div>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Theme Color</label>
@@ -184,10 +198,6 @@ export default function BioDashboard() {
                       <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-12 h-10 p-1 border border-gray-300 rounded cursor-pointer" />
                       <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-black" />
                     </div>
-                  </div>
-                  <div className="flex items-center gap-3 pt-2">
-                    <input type="checkbox" id="ad_toggle" checked={adEnabled} onChange={e => setAdEnabled(e.target.checked)} className="w-5 h-5 text-blue-600 rounded border-gray-300" />
-                    <label htmlFor="ad_toggle" className="text-sm font-semibold text-gray-700">Enable 5-second Ad Modal (Monetization)</label>
                   </div>
                   <button type="submit" className="px-4 py-2 bg-gray-900 text-white rounded-md text-sm font-bold">Save Profile</button>
                 </form>
@@ -230,9 +240,6 @@ export default function BioDashboard() {
                     <div key={link.id} className="relative group">
                       <a href={link.url} target="_blank" className="block w-full p-4 bg-white rounded-xl shadow-sm text-center font-semibold text-gray-800 hover:shadow-md transition-all border border-gray-200" style={{borderLeftColor: themeColor, borderLeftWidth: "4px"}}>
                         {link.title}
-                        <div className="text-xs text-gray-400 mt-1 font-normal">
-                          {link.clicks || 0} clicks
-                        </div>
                       </a>
                       <button onClick={() => handleDeleteLink(link.id)} className="absolute -right-2 -top-2 bg-red-500 text-white w-6 h-6 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">?</button>
                     </div>

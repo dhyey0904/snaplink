@@ -3,17 +3,7 @@
 import { useState, useEffect } from "react";
 
 export default function BioPageClient({ bioPage }: { bioPage: any }) {
-  const [countdown, setCountdown] = useState(bioPage.ad_enabled ? 5 : 0);
-  const [viewTracked, setViewTracked] = useState(false);
-
-  useEffect(() => {
-    if (!viewTracked) {
-      // Track page view
-      const backendUrl = "https://snaplink-backend-j69v.onrender.com";
-      fetch(`${backendUrl}/api/bio/public/${bioPage.alias}/view`, { method: "POST" }).catch(console.error);
-      setViewTracked(true);
-    }
-  }, [bioPage.alias, viewTracked]);
+  const [countdown, setCountdown] = useState(5);
 
   useEffect(() => {
     if (countdown > 0) {
@@ -22,12 +12,8 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
     }
   }, [countdown]);
 
-  const handleLinkClick = async (e: React.MouseEvent<HTMLAnchorElement>, link: any) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: any) => {
     e.preventDefault();
-    // Track click
-    const backendUrl = "https://snaplink-backend-j69v.onrender.com";
-    await fetch(`${backendUrl}/api/bio/public/links/${link.id}/click`, { method: "POST" }).catch(console.error);
-    // Redirect
     window.open(link.url, "_blank", "noopener,noreferrer");
   };
 
