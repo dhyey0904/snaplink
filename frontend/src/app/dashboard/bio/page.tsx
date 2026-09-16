@@ -22,6 +22,28 @@ export default function BioDashboard() {
   const [newLinkUrl, setNewLinkUrl] = useState("");
   const [isAddingLink, setIsAddingLink] = useState(false);
 
+  // QR Modal State
+  const [qrModalUrl, setQrModalUrl] = useState<string | null>(null);
+
+  const handleDownloadQR = async () => {
+    if (!qrModalUrl) return;
+    try {
+      const response = await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(qrModalUrl)}`);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      const aliasPart = qrModalUrl.split('/').pop() || 'bio';
+      link.download = `snaplink-qr-${aliasPart}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Failed to download QR code", err);
+    }
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -199,7 +221,10 @@ export default function BioDashboard() {
                       <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-black" />
                     </div>
                   </div>
-                  <button type="submit" className="px-4 py-2 bg-gray-900 text-white rounded-md text-sm font-bold">Save Profile</button>
+                  <div className="flex gap-4 pt-2">
+                    <button type="submit" className="px-6 py-2 bg-gray-900 text-white rounded-md text-sm font-bold flex-1">Save Profile</button>
+                    <button type="button" onClick={() => setQrModalUrl(`https://snaplinks.in/bio/${bioPage.alias}`)} className="px-6 py-2 bg-blue-600 text-white rounded-md text-sm font-bold flex-1">Generate QR Code</button>
+                  </div>
                 </form>
               </div>
 
@@ -254,6 +279,27 @@ export default function BioDashboard() {
           </div>
         )}
       </main>
+
+      {/* QR Code Modal */}
+      {qrModalUrl && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4" onClick={() => setQrModalUrl(null)}>
+          <div className="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full text-center" onClick={e => e.stopPropagation()}>
+            <h3 className="font-bold text-gray-900 mb-2 text-xl">Bio QR Code</h3>
+            <p className="text-sm text-gray-500 mb-6">Scan to view your Link-in-Bio</p>
+            <div className="flex justify-center mb-6">
+              <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrModalUrl)}`} alt="QR Code" width="200" height="200" />
+            </div>
+            <div className="space-y-3">
+              <button onClick={handleDownloadQR} className="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors w-full shadow-sm">
+                Download Image
+              </button>
+              <button onClick={() => setQrModalUrl(null)} className="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-colors w-full">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
