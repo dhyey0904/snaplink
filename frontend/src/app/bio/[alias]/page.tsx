@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import BioPageClient from "./BioPageClient";
 
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+
 export default async function PublicBioPage({ params }: { params: Promise<{ alias: string }> }) {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-backend-j69v.onrender.com";
   
