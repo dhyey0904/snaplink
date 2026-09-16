@@ -7,7 +7,7 @@ export default function Home() {
         Snap<span className="text-blue-600">Link</span>
       </h1>
       <p className="mt-4 text-xl text-gray-600 max-w-2xl">
-        The simplest and most powerful way to shorten your URLs, track clicks, and manage your links.
+        The ultimate Link-in-Bio platform. Create a beautiful, customizable profile to share all your content, and shorten URLs on the side.
       </p>
       
       <div className="mt-8 flex gap-4">
@@ -15,7 +15,7 @@ export default function Home() {
           href="/register" 
           className="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
         >
-          Get Started
+          Create your Bio
         </Link>
         <Link 
           href="/login" 
@@ -27,16 +27,16 @@ export default function Home() {
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full">
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h3 className="text-lg font-semibold text-gray-900">Link-in-Bio</h3>
+          <p className="mt-2 text-gray-600">Build a stunning, custom mobile-friendly page to house all your important links.</p>
+        </div>
+        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
           <h3 className="text-lg font-semibold text-gray-900">Shorten Links</h3>
-          <p className="mt-2 text-gray-600">Create memorable, custom aliases for your long URLs in seconds.</p>
+          <p className="mt-2 text-gray-600">Create memorable short URLs with password protection and custom aliases.</p>
         </div>
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900">Track Analytics</h3>
-          <p className="mt-2 text-gray-600">See exactly how many people click your links, and where they come from.</p>
-        </div>
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900">Secure Links</h3>
-          <p className="mt-2 text-gray-600">Add passwords to keep your links private and safe.</p>
+          <h3 className="text-lg font-semibold text-gray-900">Monetize</h3>
+          <p className="mt-2 text-gray-600">Generate revenue automatically with built-in ad monetisation on every link you share.</p>
         </div>
       </div>
     </div>
