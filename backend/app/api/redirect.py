@@ -28,7 +28,7 @@ def redirect_to_original(short_code: str, request: Request, db: Session = Depend
         pwd = request.query_params.get("pwd")
         from app.core.security import verify_password
         if not pwd or not verify_password(pwd, link.password_hash):
-            return RedirectResponse(url=f"http://localhost:3000/unlock/{short_code}")
+            return RedirectResponse(url=f"https://snaplinks.in/unlock/{short_code}")
             
     # Record the click
     user_agent = request.headers.get("user-agent", "Unknown")

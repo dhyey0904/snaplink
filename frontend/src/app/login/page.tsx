@@ -23,7 +23,8 @@ export default function Login() {
       formBody.append("username", formData.email);
       formBody.append("password", formData.password);
 
-      const data = await fetch("http://127.0.0.1:8000/api/auth/login", {
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+      const data = await fetch(`${backendUrl}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
