@@ -1,20 +1,16 @@
 import { notFound } from "next/navigation";
 
-// Server Component
 export default async function PublicBioPage({ params }: { params: { alias: string } }) {
-  let backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-backend-j69v.onrender.com";
-  if (backendUrl.endsWith("/")) backendUrl = backendUrl.slice(0, -1);
+  const backendUrl = "https://snaplink-backend-j69v.onrender.com";
   
   try {
     const res = await fetch(`${backendUrl}/api/bio/public/${params.alias}`, {
-      next: { revalidate: 60 } // Cache for 60 seconds
+      next: { revalidate: 0 }
     });
     
     if (!res.ok) {
-      if (res.status === 404) return notFound();
       const text = await res.text();
-      console.error("Backend returned:", res.status, text);
-      throw new Error(`Failed to load: ${res.status}`);
+      throw new Error(`RENDER RETURNED: ${res.status}. URL: ${backendUrl}/api/bio/public/${params.alias}. Body: ${text}`);
     }
     
     const bioPage = await res.json();
@@ -59,10 +55,11 @@ export default async function PublicBioPage({ params }: { params: { alias: strin
         </div>
       </div>
     );
-  } catch (error) {
+  } catch (error: any) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-500">
-        Something went wrong loading this page.
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-800 p-8">
+        <h2 className="text-xl font-bold text-red-600 mb-4">Error loading page</h2>
+        <p className="font-mono bg-white p-4 rounded border text-sm">{error.message || String(error)}</p>
       </div>
     );
   }
