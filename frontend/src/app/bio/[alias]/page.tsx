@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import BioPageClient from "./BioPageClient";
 
 export default async function PublicBioPage({ params }: { params: Promise<{ alias: string }> }) {
-  const backendUrl = "https://snaplink-backend-j69v.onrender.com";
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-backend-j69v.onrender.com";
   
   try {
     const resolvedParams = await params;
