@@ -37,10 +37,25 @@ def get_link_analytics(
     referrers = db.query(Click.referrer, func.count(Click.id)).filter(Click.link_id == link_id).group_by(Click.referrer).all()
     referrer_stats = {r[0]: r[1] for r in referrers}
 
+    # Daily clicks for the last 30 days
+    # Using DATE() cast to group by day
+    from sqlalchemy.sql import cast
+    from sqlalchemy import Date
+    
+    daily_clicks_query = (
+        db.query(cast(Click.clicked_at, Date).label('date'), func.count(Click.id).label('count'))
+        .filter(Click.link_id == link_id)
+        .group_by('date')
+        .order_by('date')
+        .all()
+    )
+    clicks_by_date = [{"date": str(d.date), "clicks": d.count} for d in daily_clicks_query]
+
     return {
         "link_id": link_id,
         "total_clicks": total_clicks,
         "browsers": browser_stats,
         "devices": device_stats,
-        "referrers": referrer_stats
+        "referrers": referrer_stats,
+        "daily_clicks": clicks_by_date
     }

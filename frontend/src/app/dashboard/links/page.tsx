@@ -379,6 +379,12 @@ export default function Dashboard() {
                           >
                             QR
                           </button>
+                          <Link 
+                            href={`/dashboard/analytics/${link.id}`}
+                            className="text-[#5f6368] hover:text-[#1a73e8] transition-colors inline-block"
+                          >
+                            Analytics
+                          </Link>
                           <button 
                             onClick={() => handleEdit(link.id, link.original_url)}
                             className="text-[#5f6368] hover:text-[#1a73e8] transition-colors inline-block"
