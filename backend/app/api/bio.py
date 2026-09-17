@@ -65,34 +65,14 @@ def update_bio_page(
     if not bio_page:
         raise HTTPException(status_code=404, detail="Bio page not found")
         
-    if bio_in.alias is not None and bio_in.alias != bio_page.alias:
-        alias_taken = db.query(BioPage).filter(BioPage.alias == bio_in.alias).first()
+    update_data = bio_in.model_dump(exclude_unset=True)
+    if "alias" in update_data and update_data["alias"] != bio_page.alias:
+        alias_taken = db.query(BioPage).filter(BioPage.alias == update_data["alias"]).first()
         if alias_taken:
             raise HTTPException(status_code=400, detail="This alias is already taken")
-        bio_page.alias = bio_in.alias
-        
-    if bio_in.title is not None:
-        bio_page.title = bio_in.title
-    if bio_in.bio_text is not None:
-        bio_page.bio_text = bio_in.bio_text
-    if bio_in.theme_color is not None:
-        bio_page.theme_color = bio_in.theme_color
-    if bio_in.profile_image_url is not None:
-        bio_page.profile_image_url = bio_in.profile_image_url
-    if bio_in.contact_email is not None:
-        bio_page.contact_email = bio_in.contact_email
-    if bio_in.resume_url is not None:
-        bio_page.resume_url = bio_in.resume_url
-    if bio_in.github_url is not None:
-        bio_page.github_url = bio_in.github_url
-    if bio_in.twitter_url is not None:
-        bio_page.twitter_url = bio_in.twitter_url
-    if bio_in.instagram_url is not None:
-        bio_page.instagram_url = bio_in.instagram_url
-    if bio_in.linkedin_url is not None:
-        bio_page.linkedin_url = bio_in.linkedin_url
-    if bio_in.ad_enabled is not None:
-        bio_page.ad_enabled = bio_in.ad_enabled
+            
+    for key, value in update_data.items():
+        setattr(bio_page, key, value)
         
     db.commit()
     db.refresh(bio_page)
@@ -135,14 +115,9 @@ def update_bio_link(
     if not bio_link:
         raise HTTPException(status_code=404, detail="Link not found")
         
-    if link_in.title is not None:
-        bio_link.title = link_in.title
-    if link_in.url is not None:
-        bio_link.url = link_in.url
-    if link_in.order is not None:
-        bio_link.order = link_in.order
-    if link_in.is_active is not None:
-        bio_link.is_active = link_in.is_active
+    update_data = link_in.model_dump(exclude_unset=True)
+    for key, value in update_data.items():
+        setattr(bio_link, key, value)
         
     db.commit()
     db.refresh(bio_link)
