@@ -143,6 +143,21 @@ export default function DashboardOverview() {
             </div>
           </Link>
 
+          {/* Card 6: Competitor Analysis */}
+          <Link href="/dashboard/compare" className="group bg-white p-8 rounded-3xl border border-[#dadce0] shadow-sm hover:shadow-lg hover:border-indigo-500 transition-all flex flex-col justify-between cursor-pointer overflow-hidden relative md:col-span-2 lg:col-span-1">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+            <div className="relative z-10">
+              <div className="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+              </div>
+              <h2 className="text-2xl font-bold text-[#202124] mb-3">Competitor AI</h2>
+              <p className="text-[#5f6368] leading-relaxed">Run a deep Lighthouse audit comparing your website vs your competitor.</p>
+            </div>
+            <div className="mt-8 flex items-center text-indigo-600 font-bold relative z-10 group-hover:translate-x-2 transition-transform">
+              Run Audit <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </div>
+          </Link>
+
         </div>
       </main>
 
