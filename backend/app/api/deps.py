@@ -24,6 +24,8 @@ def get_current_user(
     if api_key:
         user = db.query(User).filter(User.api_key == api_key).first()
         if user:
+            if user.tier == "free":
+                raise HTTPException(status_code=403, detail="API access requires a Pro subscription.")
             return user
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid API Key")
         

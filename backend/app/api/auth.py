@@ -115,6 +115,12 @@ def generate_api_key(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ) -> Any:
+    if current_user.tier == "free":
+        raise HTTPException(
+            status_code=403, 
+            detail="API access is a Pro feature. Please upgrade your account to generate an API key."
+        )
+
     # Generate a secure 32-character API key
     import secrets
     api_key = "snap_" + secrets.token_urlsafe(32)

@@ -10,4 +10,5 @@ class User(Base):
     email = Column(String, unique=True, index=True, nullable=False)
     password = Column(String, nullable=False)
     api_key = Column(String, unique=True, index=True, nullable=True)
+    tier = Column(String, default="free")
     created_at = Column(DateTime(timezone=True), server_default=func.now())

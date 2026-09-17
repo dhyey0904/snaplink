@@ -8,6 +8,7 @@ import { fetchAPI } from "@/utils/api";
 export default function ApiDashboard() {
   const router = useRouter();
   const [apiKey, setApiKey] = useState<string | null>(null);
+  const [tier, setTier] = useState<string>("free");
   const [loading, setLoading] = useState(true);
   const [revealed, setRevealed] = useState(false);
 
@@ -24,6 +25,7 @@ export default function ApiDashboard() {
     try {
       const data = await fetchAPI("/auth/me");
       setApiKey(data.api_key);
+      setTier(data.tier || "free");
     } catch (err: any) {
       console.error(err);
     } finally {
@@ -91,60 +93,100 @@ export default function ApiDashboard() {
       </nav>
 
       <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-        <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Developer API (SaaS)</h2>
-          <p className="text-gray-600 mb-8">
-            Use your secret API key to programmatically generate short links from your own applications, scripts, or backend servers.
-          </p>
-
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col gap-4">
-            <h3 className="font-semibold text-gray-800">Your Secret API Key</h3>
+        {tier === "free" ? (
+          <div className="bg-white rounded-xl shadow-lg p-10 border border-gray-200 text-center max-w-2xl mx-auto mt-10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">PRO FEATURE</div>
+            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+            </div>
+            <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Unlock the SnapLink API</h2>
+            <p className="text-gray-600 mb-8 text-lg">
+              Automate your workflow. Generate thousands of short links instantly, integrate into your own apps, and build custom dashboards programmatically.
+            </p>
             
-            {apiKey ? (
-              <div className="flex items-center gap-4">
-                <div className="flex-1 bg-white p-3 rounded border border-gray-300 font-mono text-sm tracking-wider break-all flex items-center justify-between">
-                  {revealed ? apiKey : "••••••••••••••••••••••••••••••••••••••••••••••••"}
-                  <button onClick={() => setRevealed(!revealed)} className="ml-4 text-xs font-bold text-blue-600 hover:text-blue-800 uppercase">
-                    {revealed ? "Hide" : "Reveal"}
+            <div className="text-left bg-gray-50 p-6 rounded-lg mb-8 border border-gray-200">
+              <h3 className="font-bold text-gray-900 mb-3">Why businesses upgrade:</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center text-gray-700">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                  Bulk URL Shortening for SMS & Email Campaigns
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                  Custom Discord & Slack Bot Integrations
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                  Direct CRM & Backend API Integration
+                </li>
+              </ul>
+            </div>
+            
+            <button className="w-full py-4 px-8 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              Upgrade to Pro — $9/month
+            </button>
+            <p className="text-sm text-gray-400 mt-4">Cancel anytime. 14-day money back guarantee.</p>
+          </div>
+        ) : (
+          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Developer API (Pro)</h2>
+            <p className="text-gray-600 mb-8">
+              Use your secret API key to programmatically generate short links from your own applications, scripts, or backend servers.
+            </p>
+
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col gap-4">
+              <h3 className="font-semibold text-gray-800">Your Secret API Key</h3>
+              
+              {apiKey ? (
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <div className="flex-1 w-full bg-white p-3 rounded border border-gray-300 font-mono text-sm tracking-wider break-all flex items-center justify-between">
+                    {revealed ? apiKey : "••••••••••••••••••••••••••••••••••••••••••••••••••••••••"}
+                    <button onClick={() => setRevealed(!revealed)} className="ml-4 text-xs font-bold text-blue-600 hover:text-blue-800 uppercase shrink-0">
+                      {revealed ? "Hide" : "Reveal"}
+                    </button>
+                  </div>
+                  <div className="flex gap-2 w-full sm:w-auto">
+                    <button onClick={handleCopy} className="flex-1 sm:flex-none px-4 py-3 bg-gray-800 text-white rounded font-bold hover:bg-gray-900 transition shrink-0">
+                      Copy
+                    </button>
+                    <button onClick={handleGenerateKey} className="flex-1 sm:flex-none px-4 py-3 bg-red-100 text-red-600 rounded font-bold hover:bg-red-200 transition shrink-0">
+                      Regen
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <p className="text-sm text-gray-500 mb-4">You have not generated an API key yet.</p>
+                  <button onClick={handleGenerateKey} className="px-6 py-3 bg-blue-600 text-white rounded font-bold hover:bg-blue-700 transition">
+                    Generate API Key
                   </button>
                 </div>
-                <button onClick={handleCopy} className="px-4 py-3 bg-gray-800 text-white rounded font-bold hover:bg-gray-900 transition shrink-0">
-                  Copy
-                </button>
-                <button onClick={handleGenerateKey} className="px-4 py-3 bg-red-100 text-red-600 rounded font-bold hover:bg-red-200 transition shrink-0">
-                  Regenerate
-                </button>
-              </div>
-            ) : (
-              <div>
-                <p className="text-sm text-gray-500 mb-4">You have not generated an API key yet.</p>
-                <button onClick={handleGenerateKey} className="px-6 py-3 bg-blue-600 text-white rounded font-bold hover:bg-blue-700 transition">
-                  Generate API Key
-                </button>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
-        <div className="bg-gray-900 rounded-xl shadow-sm p-8 border border-gray-800 text-white">
-          <h3 className="text-xl font-bold mb-4">API Documentation</h3>
-          <p className="text-gray-400 mb-6">Include your API key in the <code className="bg-gray-800 px-1 py-0.5 rounded text-blue-400">x-api-key</code> header to authenticate.</p>
-          
-          <div className="space-y-6">
-            <div>
-              <h4 className="font-semibold text-blue-400 mb-2">Create a Short Link (POST)</h4>
-              <div className="bg-black p-4 rounded-lg font-mono text-sm text-green-400 overflow-x-auto">
-                <pre>{`curl -X POST https://snaplink-backend-j69v.onrender.com/api/links/ \\
-  -H "Content-Type: application/json" \\
-  -H "x-api-key: YOUR_API_KEY_HERE" \\
-  -d '{
-    "original_url": "https://example.com/very/long/url",
-    "short_code": "my-custom-alias"
-  }'`}</pre>
+        {tier !== "free" && (
+          <div className="bg-gray-900 rounded-xl shadow-sm p-8 border border-gray-800 text-white">
+            <h3 className="text-xl font-bold mb-4">API Documentation</h3>
+            <p className="text-gray-400 mb-6">Include your API key in the <code className="bg-gray-800 px-1 py-0.5 rounded text-blue-400">x-api-key</code> header to authenticate.</p>
+            
+            <div className="space-y-6">
+              <div>
+                <h4 className="font-semibold text-blue-400 mb-2">Create a Short Link (POST)</h4>
+                <div className="bg-black p-4 rounded-lg font-mono text-sm text-green-400 overflow-x-auto">
+                  <pre>{`curl -X POST https://snaplink-backend-j69v.onrender.com/api/links/ \\
+    -H "Content-Type: application/json" \\
+    -H "x-api-key: YOUR_API_KEY_HERE" \\
+    -d '{
+      "original_url": "https://example.com/very/long/url",
+      "short_code": "my-custom-alias"
+    }'`}</pre>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </main>
 
       {/* Footer */}

@@ -12,6 +12,7 @@ class UserCreate(UserBase):
 class UserResponse(UserBase):
     id: int
     api_key: Optional[str] = None
+    tier: str = "free"
     created_at: datetime
 
     class Config:
