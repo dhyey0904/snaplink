@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Script from "next/script";
 import { fetchAPI } from "@/utils/api";
 
 export default function AdPage() {
@@ -10,6 +11,16 @@ export default function AdPage() {
   const [countdown, setCountdown] = useState(5);
   const [originalUrl, setOriginalUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const adSensePubId = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID;
+
+  useEffect(() => {
+    // Initialize AdSense if ad slot is rendered
+    if (adSensePubId) {
+      try {
+        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+      } catch (e) {}
+    }
+  }, [adSensePubId]);
 
   useEffect(() => {
     const fetchLink = async () => {
@@ -52,48 +63,55 @@ export default function AdPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center pt-10">
+    <div className="min-h-screen bg-[#000000] flex items-center justify-center p-4">
+      {adSensePubId && (
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adSensePubId}`}
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
+      )}
       
-      {/* Top Banner Ad Placeholder */}
-      <div className="w-[728px] h-[90px] bg-gray-300 flex items-center justify-center border border-gray-400 mb-8">
-        <span className="text-gray-500 font-medium">Advertisement Space (728x90)</span>
-      </div>
+      <div className="bg-[#f8f9fa] rounded-xl overflow-hidden shadow-2xl max-w-2xl w-full">
+        {/* Header */}
+        <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200 bg-white">
+          <h2 className="text-lg font-bold text-[#202124]">Generating your short link...</h2>
+          <span className="text-sm text-gray-500">Advertisement</span>
+        </div>
 
-      <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center max-w-md w-full">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Snap<span className="text-blue-600">Link</span></h1>
-        
-        {!originalUrl ? (
-          <p className="text-gray-600 py-4">Loading your destination...</p>
-        ) : (
-          <div className="py-6">
-            <p className="text-gray-600 mb-4">Please wait while we prepare your link.</p>
-            {countdown > 0 ? (
-              <div className="text-4xl font-extrabold text-blue-600">{countdown}</div>
+        {/* Ad Container */}
+        <div className="flex justify-center items-center py-12 bg-[#f8f9fa]">
+          <div className="w-[300px] h-[250px] bg-[#dce0e5] border border-[#bdc1c6] flex items-center justify-center relative overflow-hidden">
+            {adSensePubId ? (
+              <ins className="adsbygoogle"
+                   style={{ display: "inline-block", width: "300px", height: "250px" }}
+                   data-ad-client={adSensePubId}
+                   data-ad-slot="4096463539"></ins>
             ) : (
-              <p className="text-green-600 font-bold">Redirecting...</p>
+              <span className="text-[#5f6368] font-medium text-lg">Ad Space (300x250)</span>
             )}
-            
-            <button 
-              disabled={countdown > 0}
-              onClick={() => window.location.href = originalUrl}
-              className={`mt-6 px-6 py-2 rounded font-medium w-full ${countdown > 0 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
-            >
-              {countdown > 0 ? 'Skip Ad in ' + countdown + 's' : 'Continue to Link'}
-            </button>
           </div>
-        )}
-      </div>
-
-      {/* Side Ads Placeholder Container */}
-      <div className="flex gap-8 mt-8">
-        <div className="w-[300px] h-[250px] bg-gray-300 flex items-center justify-center border border-gray-400">
-          <span className="text-gray-500 font-medium">Ad (300x250)</span>
         </div>
-        <div className="w-[300px] h-[250px] bg-gray-300 flex items-center justify-center border border-gray-400">
-          <span className="text-gray-500 font-medium">Ad (300x250)</span>
+
+        {/* Footer Countdown */}
+        <div className="text-center py-8 bg-[#f8f9fa]">
+          {countdown > 0 ? (
+            <p className="text-xl text-[#202124]">
+              Your link will be ready in <span className="text-3xl font-extrabold text-[#1a73e8] mx-1">{countdown}</span> seconds
+            </p>
+          ) : (
+            <div className="flex justify-center">
+              <button 
+                onClick={() => window.location.href = originalUrl}
+                className="px-8 py-3 bg-[#1a73e8] hover:bg-[#1557b0] text-white font-bold rounded-lg transition-colors text-lg"
+              >
+                Continue to Link
+              </button>
+            </div>
+          )}
         </div>
       </div>
-
     </div>
   );
 }
