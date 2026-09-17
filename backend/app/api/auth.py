@@ -121,11 +121,14 @@ def generate_api_key(
             detail="API access is a Pro feature. Please upgrade your account to generate an API key."
         )
 
-    # Generate a secure 32-character API key
+    # Generate secure 32-character API keys
     import secrets
-    api_key = "snap_" + secrets.token_urlsafe(32)
+    current_user.api_key = "snap_master_" + secrets.token_urlsafe(32)
+    current_user.api_key_url = "snap_url_" + secrets.token_urlsafe(32)
+    current_user.api_key_bio = "snap_bio_" + secrets.token_urlsafe(32)
+    current_user.api_key_vcard = "snap_vcard_" + secrets.token_urlsafe(32)
+    current_user.api_key_files = "snap_files_" + secrets.token_urlsafe(32)
     
-    current_user.api_key = api_key
     db.commit()
     db.refresh(current_user)
     

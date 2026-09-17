@@ -12,6 +12,10 @@ class UserCreate(UserBase):
 class UserResponse(UserBase):
     id: int
     api_key: Optional[str] = None
+    api_key_url: Optional[str] = None
+    api_key_bio: Optional[str] = None
+    api_key_vcard: Optional[str] = None
+    api_key_files: Optional[str] = None
     tier: str = "free"
     created_at: datetime
 

@@ -9,6 +9,10 @@ class User(Base):
     name = Column(String, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
     password = Column(String, nullable=False)
-    api_key = Column(String, unique=True, index=True, nullable=True)
+    api_key = Column(String, unique=True, index=True, nullable=True) # Master key
+    api_key_url = Column(String, unique=True, index=True, nullable=True)
+    api_key_bio = Column(String, unique=True, index=True, nullable=True)
+    api_key_vcard = Column(String, unique=True, index=True, nullable=True)
+    api_key_files = Column(String, unique=True, index=True, nullable=True)
     tier = Column(String, default="free")
     created_at = Column(DateTime(timezone=True), server_default=func.now())

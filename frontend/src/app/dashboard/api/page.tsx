@@ -10,6 +10,10 @@ import Footer from '@/components/Footer';
 export default function ApiDashboard() {
   const router = useRouter();
   const [apiKey, setApiKey] = useState<string | null>(null);
+  const [apiKeyUrl, setApiKeyUrl] = useState<string | null>(null);
+  const [apiKeyBio, setApiKeyBio] = useState<string | null>(null);
+  const [apiKeyVcard, setApiKeyVcard] = useState<string | null>(null);
+  const [apiKeyFiles, setApiKeyFiles] = useState<string | null>(null);
   const [tier, setTier] = useState<string>("free");
   const [loading, setLoading] = useState(true);
   const [paying, setPaying] = useState(false);
@@ -28,6 +32,14 @@ export default function ApiDashboard() {
     try {
       const data = await fetchAPI("/auth/me");
       setApiKey(data.api_key);
+      setApiKeyUrl(data.api_key_url);
+      setApiKeyBio(data.api_key_bio);
+      setApiKeyVcard(data.api_key_vcard);
+      setApiKeyFiles(data.api_key_files);
+      setApiKeyUrl(data.api_key_url);
+      setApiKeyBio(data.api_key_bio);
+      setApiKeyVcard(data.api_key_vcard);
+      setApiKeyFiles(data.api_key_files);
       setTier(data.tier || "free");
     } catch (err: any) {
       console.error(err);
@@ -100,6 +112,14 @@ export default function ApiDashboard() {
       setLoading(true);
       const data = await fetchAPI("/auth/api-key", { method: "POST" });
       setApiKey(data.api_key);
+      setApiKeyUrl(data.api_key_url);
+      setApiKeyBio(data.api_key_bio);
+      setApiKeyVcard(data.api_key_vcard);
+      setApiKeyFiles(data.api_key_files);
+      setApiKeyUrl(data.api_key_url);
+      setApiKeyBio(data.api_key_bio);
+      setApiKeyVcard(data.api_key_vcard);
+      setApiKeyFiles(data.api_key_files);
       setRevealed(true);
     } catch (err: any) {
       alert(err.message || "Failed to generate key");
