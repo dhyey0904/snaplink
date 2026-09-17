@@ -88,33 +88,41 @@ export default function CompareDashboard() {
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
       {/* Header */}
-      <header className="bg-white border-b border-[#dadce0] sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#1a73e8] rounded-lg flex items-center justify-center">
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+      <nav className="w-full border-b border-[#dadce0] bg-white sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            <div className="flex-shrink-0 flex items-center">
+              <span className="text-2xl font-bold tracking-tight text-[#202124]">
+                Snap<span className="text-[#1a73e8]">Link</span>
+              </span>
             </div>
-            <span className="text-xl font-bold text-[#202124] tracking-tight">SnapLink</span>
-          </div>
-          
-          {/* Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-1">
-            <Link href="/dashboard" className="px-4 py-2 text-sm font-medium text-[#5f6368] hover:text-[#1a73e8] hover:bg-blue-50 rounded-lg transition-colors">Overview</Link>
-            <Link href="/dashboard/links" className="px-4 py-2 text-sm font-medium text-[#5f6368] hover:text-[#1a73e8] hover:bg-blue-50 rounded-lg transition-colors">Links</Link>
-            <Link href="/dashboard/bio" className="px-4 py-2 text-sm font-medium text-[#5f6368] hover:text-[#1a73e8] hover:bg-blue-50 rounded-lg transition-colors">Bio Pages</Link>
-            <Link href="/dashboard/vcard" className="px-4 py-2 text-sm font-medium text-[#5f6368] hover:text-[#1a73e8] hover:bg-blue-50 rounded-lg transition-colors">vCards</Link>
-            <Link href="/dashboard/files" className="px-4 py-2 text-sm font-medium text-[#5f6368] hover:text-[#1a73e8] hover:bg-blue-50 rounded-lg transition-colors">File Sharing</Link>
-            <Link href="/dashboard/compare" className="px-4 py-2 text-sm font-bold text-[#1a73e8] bg-blue-50 rounded-lg transition-colors">Compare</Link>
-            <Link href="/dashboard/api" className="px-4 py-2 text-sm font-medium text-[#5f6368] hover:text-[#1a73e8] hover:bg-blue-50 rounded-lg transition-colors">API</Link>
-          </nav>
-
-          <div className="flex items-center">
-            <button onClick={handleLogout} className="text-sm font-medium text-[#5f6368] hover:text-[#d93025] transition-colors ml-4">
-              Logout
-            </button>
+            <div className="flex items-center gap-4 lg:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide">
+              <Link href="/dashboard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                Overview
+              </Link>
+              <Link href="/dashboard/bio" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                Bio Page
+              </Link>
+              <Link href="/dashboard/links" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                URL Shortener
+              </Link>
+              <Link href="/dashboard/vcard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                Business Card
+              </Link>
+              <Link href="/dashboard/files" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                File Sharing
+              </Link>
+              <Link href="/dashboard/compare" className="text-sm font-medium text-[#1a73e8] border-b-2 border-[#1a73e8] py-5">Compare</Link>
+<Link href="/dashboard/api" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                API Access
+              </Link>
+              <button onClick={handleLogout} className="text-sm font-medium text-[#5f6368] hover:text-[#d93025] transition-colors ml-4">
+                Logout
+              </button>
+            </div>
           </div>
         </div>
-      </header>
+      </nav>
 
       <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
         <div className="text-center mb-10">

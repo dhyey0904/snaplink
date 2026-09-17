@@ -39,18 +39,6 @@ async def fetch_pagespeed(url: str) -> Dict[str, Any]:
     try:
         async with httpx.AsyncClient() as client:
             response = await client.get(api_url, params=params, timeout=40.0)
-            if response.status_code == 429:
-                import random
-                return {
-                    "lighthouseResult": {
-                        "categories": {
-                            "performance": {"score": random.uniform(0.5, 0.9)},
-                            "accessibility": {"score": random.uniform(0.7, 1.0)},
-                            "best-practices": {"score": random.uniform(0.6, 0.9)},
-                            "seo": {"score": random.uniform(0.8, 1.0)}
-                        }
-                    }
-                }
             if response.status_code != 200:
                 return {"error": f"API returned {response.status_code}: {response.text}"}
             return response.json()

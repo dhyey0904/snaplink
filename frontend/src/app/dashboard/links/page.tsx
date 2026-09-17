@@ -215,7 +215,7 @@ export default function Dashboard() {
                 Snap<span className="text-[#1a73e8]">Link</span>
               </span>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 lg:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide">
               <Link href="/dashboard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 Overview
               </Link>
