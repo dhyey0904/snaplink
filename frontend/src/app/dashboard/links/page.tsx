@@ -215,7 +215,7 @@ export default function Dashboard() {
                 Snap<span className="text-[#1a73e8]">Link</span>
               </span>
             </div>
-            <div className="flex items-center gap-4 lg:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide">
+            <div className="flex items-center gap-6">
               <Link href="/dashboard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 Overview
               </Link>
@@ -231,8 +231,7 @@ export default function Dashboard() {
               <Link href="/dashboard/files" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 File Sharing
               </Link>
-              <Link href="/dashboard/compare" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">Compare</Link>
-<Link href="/dashboard/api" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+              <Link href="/dashboard/api" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 API Access
               </Link>
               <button onClick={handleLogout} className="text-sm font-medium text-[#5f6368] hover:text-[#d93025] transition-colors ml-4">
