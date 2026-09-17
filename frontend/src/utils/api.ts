@@ -18,6 +18,12 @@ export async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
+    if (response.status === 401) {
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('token');
+        window.location.href = '/login';
+      }
+    }
     throw new Error(errorData.detail || 'An error occurred');
   }
 

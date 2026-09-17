@@ -1,11 +1,19 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 
 export default function DashboardOverview() {
   const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, [router]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");

@@ -25,6 +25,12 @@ export default function VCardDashboard() {
   const SHORT_LINK_DOMAIN = process.env.NEXT_PUBLIC_SHORT_LINK_DOMAIN || 'http://localhost:3000/v/';
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+      return;
+    }
+
     const fetchCard = async () => {
       try {
         const data = await fetchAPI('/vcard/me');
