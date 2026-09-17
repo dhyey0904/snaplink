@@ -123,9 +123,9 @@ export default function ApiDashboard() {
             </div>
             
             <button className="w-full py-4 px-8 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Upgrade to Pro — $9/month
+              Unlock API Access — ₹199
             </button>
-            <p className="text-sm text-gray-400 mt-4">Cancel anytime. 14-day money back guarantee.</p>
+            <p className="text-sm text-gray-400 mt-4">One-time payment. Lifetime access.</p>
           </div>
         ) : (
           <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 mb-8">
