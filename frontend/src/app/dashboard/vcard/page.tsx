@@ -113,29 +113,27 @@ export default function VCardDashboard() {
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col">
       {/* Navbar */}
-      <nav className="bg-white border-b border-[#dadce0] sticky top-0 z-10">
+      <nav className="w-full border-b border-[#dadce0] bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center gap-8">
-              <span className="text-xl font-bold tracking-tight text-[#202124]">
+            <div className="flex-shrink-0 flex items-center">
+              <span className="text-2xl font-bold tracking-tight text-[#202124]">
                 Snap<span className="text-[#1a73e8]">Link</span>
               </span>
-              <div className="hidden md:flex items-center gap-6">
-                <Link href="/dashboard/links" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
-                  Short Links
-                </Link>
-                <Link href="/dashboard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
-                  Bio Page
-                </Link>
-                <Link href="/dashboard/vcard" className="text-sm font-bold border-b-2 border-[#1a73e8] text-[#1a73e8] transition-colors py-5">
-                  Business Card
-                </Link>
-                <Link href="/dashboard/api" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
-                  API Access
-                </Link>
-              </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center gap-6">
+              <Link href="/dashboard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                Link-in-Bio
+              </Link>
+              <Link href="/dashboard/links" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                URL Shortener
+              </Link>
+              <Link href="/dashboard/vcard" className="text-sm font-medium text-[#1a73e8] border-b-2 border-[#1a73e8] py-5">
+                Business Card
+              </Link>
+              <Link href="/dashboard/api" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                API Access
+              </Link>
               <button onClick={handleLogout} className="text-sm font-medium text-[#5f6368] hover:text-[#d93025] transition-colors ml-4">
                 Logout
               </button>
