@@ -37,8 +37,8 @@ def create_order(
             "currency": currency,
             "receipt": f"receipt_{current_user.id}",
             "notes": {
-                "user_id": current_user.id,
-                "email": current_user.email,
+                "user_id": str(current_user.id),
+                "email": str(current_user.email),
                 "type": "api_pro_lifetime"
             }
         })

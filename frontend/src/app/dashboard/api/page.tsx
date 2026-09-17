@@ -84,7 +84,7 @@ export default function ApiDashboard() {
       rzp.open();
       
     } catch (err: any) {
-      alert("Could not start payment. Please try again.");
+      alert("Could not start payment. " + (err.message || "Please try again."));
     } finally {
       setPaying(false);
     }
