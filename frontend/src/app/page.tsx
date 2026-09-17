@@ -110,7 +110,7 @@ export default function Home() {
               <div className="bg-white rounded-3xl p-8 border border-[#dadce0] shadow-sm flex flex-col h-full">
                 <h3 className="text-2xl font-bold text-[#202124]">Basic</h3>
                 <div className="mt-4 flex items-baseline text-5xl font-extrabold text-[#202124]">
-                  $0
+                  ₹0
                   <span className="ml-1 text-xl font-medium text-[#5f6368]">/forever</span>
                 </div>
                 <p className="mt-4 text-[#5f6368]">Perfect for testing out the platform.</p>
@@ -130,7 +130,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold text-white">Creator Pro</h3>
                 <div className="mt-4 flex items-baseline text-5xl font-extrabold text-white">
-                  $10
+                  ₹299
                   <span className="ml-1 text-xl font-medium text-blue-200">/month</span>
                 </div>
                 <p className="mt-4 text-blue-100">For active creators and growing audiences.</p>
@@ -148,7 +148,7 @@ export default function Home() {
               <div className="bg-gray-900 rounded-3xl p-8 border border-gray-800 shadow-xl flex flex-col h-full">
                 <h3 className="text-2xl font-bold text-white">Developer API</h3>
                 <div className="mt-4 flex items-baseline text-5xl font-extrabold text-white">
-                  $49
+                  ₹1499
                   <span className="ml-1 text-xl font-medium text-gray-400">/month</span>
                 </div>
                 <p className="mt-4 text-gray-400">Programmatic access for apps and software.</p>
@@ -195,7 +195,7 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="text-lg font-bold text-[#202124]">How does the API payment work?</h4>
-                <p className="mt-2 text-[#5f6368]">Our Developer tier is $49/month. Once active, you get 5 distinct, scoped API keys (Master, URL, Bio, File, vCard) to safely automate different parts of your workflow.</p>
+                <p className="mt-2 text-[#5f6368]">Our Developer tier is ₹1499/month. Once active, you get 5 distinct, scoped API keys (Master, URL, Bio, File, vCard) to safely automate different parts of your workflow.</p>
               </div>
             </div>
           </div>
