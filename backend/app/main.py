@@ -7,7 +7,7 @@ try:
     
     from app.database.database import engine, Base
     from app.models import User, Link, Click
-    from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard, files
+    from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard, files, compare
     from sqlalchemy import text
     
     # Create database tables
@@ -101,6 +101,7 @@ try:
     app.include_router(bio.router, prefix="/api/bio", tags=["bio"])
     app.include_router(vcard.router, prefix="/api/vcard", tags=["vcard"])
     app.include_router(files.router, prefix="/api/files", tags=["files"])
+    app.include_router(compare.router, prefix="/api/compare", tags=["compare"])
     app.include_router(payment.router, prefix="/api/payment", tags=["payment"])
     app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
     app.include_router(redirect.router, tags=["redirect"])

@@ -178,7 +178,8 @@ export default function FileShareDashboard() {
               <Link href="/dashboard/vcard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 Business Card
               </Link>
-              <Link href="/dashboard/api" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+              <Link href="/dashboard/compare" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">Compare</Link>
+<Link href="/dashboard/api" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 API Access
               </Link>
               <button onClick={handleLogout} className="text-sm font-medium text-[#5f6368] hover:text-[#d93025] transition-colors ml-4">
