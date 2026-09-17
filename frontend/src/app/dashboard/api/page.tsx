@@ -135,6 +135,9 @@ export default function ApiDashboard() {
             </div>
             <div className="flex items-center gap-6">
               <Link href="/dashboard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                Overview
+              </Link>
+              <Link href="/dashboard/bio" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 Bio Page
               </Link>
               <Link href="/dashboard/vcard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
