@@ -287,50 +287,92 @@ export default function Dashboard() {
               </div>
 
               {showAdvanced && (
-                <div className="space-y-5 bg-white p-5 rounded-xl border border-gray-200 shadow-sm mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                  
-                  {/* Explainer Box */}
-                  <div className="flex items-start sm:items-center gap-4 mb-2 pb-4 border-b border-gray-100 bg-[#e8f0fe] p-4 rounded-lg">
-                    <div className="min-w-[40px] w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1a73e8] shadow-sm">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                <div className="mt-3 bg-white p-5 rounded-xl border border-gray-200 shadow-sm animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    {/* Left Side: The Form */}
+                    <div className="space-y-5">
+                      <div className="bg-blue-50 text-blue-800 p-3 rounded-lg text-sm font-medium border border-blue-100 mb-4">
+                        Type below and watch the Live Preview change! 👉
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-bold text-[#202124] mb-2">Headline (Title)</label>
+                        <input
+                          type="text"
+                          value={ogTitle}
+                          onChange={(e) => setOgTitle(e.target.value)}
+                          placeholder="e.g., 🔥 50% OFF Summer Sale!"
+                          className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm transition-all"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-bold text-[#202124] mb-2">Short Description</label>
+                        <textarea
+                          value={ogDescription}
+                          onChange={(e) => setOgDescription(e.target.value)}
+                          placeholder="e.g., Click here to claim your discount before time runs out!"
+                          rows={2}
+                          className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm resize-none transition-all"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-bold text-[#202124] mb-2">Preview Image URL</label>
+                        <input
+                          type="url"
+                          value={ogImage}
+                          onChange={(e) => setOgImage(e.target.value)}
+                          placeholder="e.g., https://your-website.com/shoe.png"
+                          className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm transition-all"
+                        />
+                        <p className="mt-2 text-xs text-[#5f6368]">Paste a direct link to any image online.</p>
+                      </div>
                     </div>
-                    <p className="text-sm text-[#202124] font-medium leading-relaxed">
-                      When you send this short link in a chat, the app will pop up a card using the details you provide below.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-bold text-[#202124] mb-2">Headline (Title)</label>
-                    <input
-                      type="text"
-                      value={ogTitle}
-                      onChange={(e) => setOgTitle(e.target.value)}
-                      placeholder="e.g., 🔥 50% OFF Summer Sale!"
-                      className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-bold text-[#202124] mb-2">Short Description</label>
-                    <textarea
-                      value={ogDescription}
-                      onChange={(e) => setOgDescription(e.target.value)}
-                      placeholder="e.g., Click here to claim your discount before time runs out!"
-                      rows={2}
-                      className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm resize-none"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-bold text-[#202124] mb-2">Preview Image URL</label>
-                    <input
-                      type="url"
-                      value={ogImage}
-                      onChange={(e) => setOgImage(e.target.value)}
-                      placeholder="e.g., https://your-website.com/shoe.png"
-                      className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm"
-                    />
-                    <p className="mt-2 text-xs text-[#5f6368]">Paste a direct link to an image. (Square or landscape works best)</p>
+
+                    {/* Right Side: Live WhatsApp Preview Mockup */}
+                    <div className="bg-[#e5ddd5] rounded-xl p-4 flex flex-col justify-center border border-gray-300 relative overflow-hidden h-full min-h-[300px]">
+                      {/* WhatsApp background pattern (simulated) */}
+                      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')", backgroundSize: 'cover' }}></div>
+                      
+                      <div className="relative z-10 w-full max-w-[280px] mx-auto">
+                        <p className="text-center text-xs text-gray-500 bg-[#e1f3fb] rounded-lg px-2 py-1 mx-auto w-max mb-4 shadow-sm">Live WhatsApp Preview</p>
+                        
+                        {/* The Chat Bubble */}
+                        <div className="bg-white rounded-lg rounded-tr-none p-1 shadow-md ml-4 mb-2 max-w-full">
+                          
+                          {/* The Link Preview Card inside the bubble */}
+                          <div className="bg-[#f0f2f5] rounded border border-[#dae0e5] overflow-hidden cursor-default flex flex-col">
+                            {/* Image Part */}
+                            <div className="w-full h-[140px] bg-[#d1d7db] flex items-center justify-center overflow-hidden border-b border-[#dae0e5]">
+                              {ogImage ? (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img src={ogImage} alt="Preview" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                              ) : (
+                                <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                              )}
+                            </div>
+                            
+                            {/* Text Part */}
+                            <div className="p-3">
+                              <h3 className="font-semibold text-[#111b21] text-sm truncate leading-tight mb-1">
+                                {ogTitle || "SnapLink - Your Link Name"}
+                              </h3>
+                              <p className="text-[#667781] text-xs line-clamp-2 leading-snug">
+                                {ogDescription || "Click here to see the destination page..."}
+                              </p>
+                              <p className="text-[#667781] text-[10px] mt-2 uppercase">snaplinks.in</p>
+                            </div>
+                          </div>
+                          
+                          {/* Blue text link below preview */}
+                          <p className="text-[#027eb5] text-[15px] p-2 break-all hover:underline cursor-pointer">
+                            https://snaplinks.in/{customAlias || "xyz12"}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
