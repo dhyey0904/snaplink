@@ -146,6 +146,9 @@ export default function ApiDashboard() {
               <Link href="/dashboard/links" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 URL Shortener
               </Link>
+              <Link href="/dashboard/files" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                File Sharing
+              </Link>
               <Link href="/dashboard/api" className="text-sm font-medium text-[#1a73e8] border-b-2 border-[#1a73e8] py-5">
                 API Access
               </Link>

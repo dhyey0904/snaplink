@@ -124,6 +124,21 @@ export default function DashboardOverview() {
             </div>
           </Link>
 
+          {/* Card 5: File Sharing */}
+          <Link href="/dashboard/files" className="group bg-white p-8 rounded-3xl border border-[#dadce0] shadow-sm hover:shadow-lg hover:border-emerald-500 transition-all flex flex-col justify-between cursor-pointer overflow-hidden relative md:col-span-2 lg:col-span-1">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+            <div className="relative z-10">
+              <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+              </div>
+              <h2 className="text-2xl font-bold text-[#202124] mb-3">Secure File Sharing</h2>
+              <p className="text-[#5f6368] leading-relaxed">Upload PDFs, Resumes, or ZIP files securely with password protection and auto-expiry links.</p>
+            </div>
+            <div className="mt-8 flex items-center text-emerald-600 font-bold relative z-10 group-hover:translate-x-2 transition-transform">
+              Upload Files <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </div>
+          </Link>
+
         </div>
       </main>
 

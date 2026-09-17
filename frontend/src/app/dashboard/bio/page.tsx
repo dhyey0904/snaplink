@@ -221,6 +221,9 @@ export default function BioDashboard() {
               <Link href="/dashboard/vcard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 Business Card
               </Link>
+              <Link href="/dashboard/files" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
+                File Sharing
+              </Link>
               <Link href="/dashboard/api" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 API Access
               </Link>

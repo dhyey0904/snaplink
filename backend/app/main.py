@@ -1,11 +1,13 @@
 import sys
+import os
 try:
     from fastapi import FastAPI
     from fastapi.middleware.cors import CORSMiddleware
+    from fastapi.staticfiles import StaticFiles
     
     from app.database.database import engine, Base
     from app.models import User, Link, Click
-    from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard
+    from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard, click, files
     from sqlalchemy import text
     
     # Create database tables
@@ -40,6 +42,21 @@ try:
             theme_color VARCHAR DEFAULT 'dark',
             views INTEGER DEFAULT 0
         )
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS files (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER REFERENCES users(id),
+            filename VARCHAR,
+            file_path VARCHAR,
+            content_type VARCHAR,
+            size_bytes INTEGER,
+            short_code VARCHAR UNIQUE,
+            password_hash VARCHAR,
+            expires_at TIMESTAMP WITH TIME ZONE,
+            downloads INTEGER DEFAULT 0,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        )
         """
     ]
     
@@ -69,11 +86,15 @@ try:
     def read_root():
         return {"message": "Welcome to SnapLink API"}
     
+    os.makedirs("uploads", exist_ok=True)
+    app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+    
     app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
     app.include_router(links.router, prefix="/api/links", tags=["links"])
     app.include_router(analytics.router, prefix="/api/analytics", tags=["analytics"])
     app.include_router(bio.router, prefix="/api/bio", tags=["bio"])
     app.include_router(vcard.router, prefix="/api/vcard", tags=["vcard"])
+    app.include_router(files.router, prefix="/api/files", tags=["files"])
     app.include_router(payment.router, prefix="/api/payment", tags=["payment"])
     app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
     app.include_router(redirect.router, tags=["redirect"])
