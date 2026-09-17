@@ -47,6 +47,29 @@ export default function BioDashboard() {
     return null;
   };
 
+  
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, setter: React.Dispatch<React.SetStateAction<string>>) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    
+    try {
+      const token = localStorage.getItem("token");
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://127.0.0.1:8000';
+      const res = await fetch(`${backendUrl}/api/bio/upload-image`, {
+        method: "POST",
+        headers: { "Authorization": `Bearer ${token}` },
+        body: formData
+      });
+      if (!res.ok) throw new Error("Failed to upload image");
+      const data = await res.json();
+      setter(`${backendUrl}${data.url}`);
+    } catch (err: any) {
+      alert(err.message);
+    }
+  };
+
   const handleDownloadQR = async () => {
     if (!qrModalUrl) return;
     try {
@@ -469,14 +492,20 @@ export default function BioDashboard() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-[#202124] mb-1">Image URL</label>
-                        <input 
-                          type="url" 
-                          value={newLinkImageUrl} 
-                          onChange={(e) => setNewLinkImageUrl(e.target.value)} 
-                          className="block w-full px-3 py-2 border border-[#dadce0] rounded-lg focus:ring-[#1a73e8] focus:border-[#1a73e8]" 
-                          placeholder="https://..." 
-                        />
+                        <label className="block text-sm font-medium text-[#202124] mb-1">Product Image</label>
+                        <div className="flex gap-2">
+                          <input 
+                            type="url" 
+                            value={newLinkImageUrl} 
+                            onChange={(e) => setNewLinkImageUrl(e.target.value)} 
+                            className="block w-full px-3 py-2 border border-[#dadce0] rounded-lg focus:ring-[#1a73e8] focus:border-[#1a73e8]" 
+                            placeholder="https://..." 
+                          />
+                          <label className="flex items-center justify-center px-4 py-2 border border-[#dadce0] rounded-lg shadow-sm text-sm font-medium text-[#202124] bg-white hover:bg-gray-50 cursor-pointer whitespace-nowrap">
+                            Upload
+                            <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, setNewLinkImageUrl)} />
+                          </label>
+                        </div>
                       </div>
                     </div>
                   )}

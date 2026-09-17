@@ -1,14 +1,32 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File
 from sqlalchemy.orm import Session
-from typing import Any
+from typing import List, Any
+import os
+import uuid
+import shutil
 
 from app.database.database import get_db
 from app.models.bio import BioPage, BioLink
+from app.schemas.bio import BioPageCreate, BioPageResponse, BioPageUpdate, BioLinkCreate, BioLinkResponse, BioLinkUpdate
 from app.models.user import User
-from app.schemas.bio import BioPageCreate, BioPageUpdate, BioPageResponse, BioLinkCreate, BioLinkUpdate, BioLinkResponse
 from app.api.deps import get_current_user
 
 router = APIRouter()
+
+@router.post("/upload-image")
+async def upload_image(file: UploadFile = File(...), current_user: User = Depends(get_current_user)):
+    os.makedirs("uploads", exist_ok=True)
+    
+    # Generate unique filename
+    file_ext = os.path.splitext(file.filename)[1]
+    unique_filename = f"img_{uuid.uuid4().hex}{file_ext}"
+    file_path = os.path.join("uploads", unique_filename)
+    
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+        
+    # Return the relative path that the frontend can append to the backend URL
+    return {"url": f"/uploads/{unique_filename}"}
 
 @router.get("/", response_model=BioPageResponse)
 def get_my_bio_page(
