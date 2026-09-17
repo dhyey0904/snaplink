@@ -35,11 +35,11 @@ export default function Home() {
       <main className="flex-grow">
         <section className="px-4 sm:px-6 lg:px-8 pt-24 pb-32 max-w-7xl mx-auto text-center flex flex-col items-center">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#202124] tracking-tight leading-tight max-w-4xl">
-            One link to share <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a73e8] to-[#9333ea]">everything you create</span>
+            The all-in-one suite for <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a73e8] to-[#9333ea]">modern creators</span>
           </h1>
           <p className="mt-8 text-lg sm:text-xl text-[#5f6368] max-w-2xl leading-relaxed">
-            The ultimate Link-in-Bio and URL Shortener platform. Create a beautiful, customizable profile to share your content, shorten links, and monetize your audience effortlessly.
+            We built SnapLink to solve our own problem: paying for 5 different subscriptions. Now you can shorten links, build a bio page, share secure files, and generate 3D vCards—all from one dashboard.
           </p>
           
           <div className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
@@ -47,7 +47,7 @@ export default function Home() {
               href="/register" 
               className="px-8 py-4 bg-[#1a73e8] text-white rounded-full font-medium text-lg hover:bg-[#1557b0] transition-colors focus:ring-4 focus:ring-[#1a73e8]/20 shadow-sm w-full sm:w-auto"
             >
-              Create your Bio for free
+              Start using SnapLink
             </Link>
             <Link 
               href="/login" 
@@ -56,16 +56,6 @@ export default function Home() {
               Login to Dashboard
             </Link>
           </div>
-
-          <div className="mt-20 pt-10 border-t border-gray-200 w-full">
-            <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-8">Trusted by creators & developers worldwide</p>
-            <div className="flex flex-wrap justify-center items-center gap-10 opacity-60 grayscale">
-              <svg className="h-8" viewBox="0 0 100 30" fill="currentColor"><text x="0" y="20" fontSize="20" fontWeight="bold">TechCrunch</text></svg>
-              <svg className="h-8" viewBox="0 0 100 30" fill="currentColor"><text x="0" y="20" fontSize="20" fontWeight="bold">The Verge</text></svg>
-              <svg className="h-8" viewBox="0 0 100 30" fill="currentColor"><text x="0" y="20" fontSize="20" fontWeight="bold">Wired</text></svg>
-              <svg className="h-8" viewBox="0 0 100 30" fill="currentColor"><text x="0" y="20" fontSize="20" fontWeight="bold">Forbes</text></svg>
-            </div>
-          </div>
         </section>
 
         {/* Features Section */}
@@ -73,125 +63,119 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-[#202124]">Everything you need to grow</h2>
-              <p className="mt-4 text-[#5f6368] text-lg">Powerful tools designed for creators, marketers, and developers.</p>
+              <p className="mt-4 text-[#5f6368] text-lg">Powerful tools built by developers, for creators.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Feature 1 */}
-              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#1a73e8] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-[#e8f0fe] text-[#1a73e8] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">📈</div>
-                <h3 className="text-xl font-bold text-[#202124]">Advanced Analytics</h3>
-                <p className="mt-3 text-[#5f6368] leading-relaxed">Track your success with our beautiful dashboard. Monitor clicks over time, device types, browsers, and top referring websites.</p>
+              <div className="bg-white rounded-3xl p-8 border border-[#dadce0] shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#202124] mb-3">Smart URL Shortener</h3>
+                <p className="text-[#5f6368] leading-relaxed">Create short, branded links with custom OpenGraph preview cards. Track clicks, locations, and referrers instantly.</p>
               </div>
 
               {/* Feature 2 */}
-              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#9333ea] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🖼️</div>
-                <h3 className="text-xl font-bold text-[#202124]">Custom SEO Previews</h3>
-                <p className="mt-3 text-[#5f6368] leading-relaxed">Control exactly how your link looks on WhatsApp and Twitter. Inject custom Open Graph images, titles, and descriptions.</p>
+              <div className="bg-white rounded-3xl p-8 border border-[#dadce0] shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#202124] mb-3">Advanced Link-in-Bio</h3>
+                <p className="text-[#5f6368] leading-relaxed">Sell products, collect donations, and embed native video or audio directly in your beautifully themed bio page.</p>
               </div>
-              
+
               {/* Feature 3 */}
-              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#ea4335] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-red-50 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">✨</div>
-                <h3 className="text-xl font-bold text-[#202124]">Animated Themes</h3>
-                <p className="mt-3 text-[#5f6368] leading-relaxed">Make your Bio page stand out. Unlock premium Glassmorphism and beautiful animated gradient backgrounds.</p>
-              </div>
-
-              {/* Feature 4 */}
-              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#1a73e8] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-[#e8f0fe] text-[#1a73e8] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🔗</div>
-                <h3 className="text-xl font-bold text-[#202124]">Link-in-Bio Profiles</h3>
-                <p className="mt-3 text-[#5f6368] leading-relaxed">Build a stunning, mobile-friendly landing page to house all your important links in one place. Customize it to match your brand.</p>
-              </div>
-              
-              {/* Feature 5 */}
-              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#34a853] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-[#e6f4ea] text-[#34a853] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">✂️</div>
-                <h3 className="text-xl font-bold text-[#202124]">Smart URL Shortener</h3>
-                <p className="mt-3 text-[#5f6368] leading-relaxed">Create memorable short URLs. Protect them with passwords, set expiration dates, and generate instant QR codes.</p>
-              </div>
-              
-              {/* Feature 6 */}
-              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#202124] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-gray-100 text-gray-800 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">💻</div>
-                <h3 className="text-xl font-bold text-[#202124]">Developer API Access</h3>
-                <p className="mt-3 text-[#5f6368] leading-relaxed">Automate your workflow. Use our robust REST API to programmatically generate short links, QR codes, and read analytics data.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Product Showcase Section */}
-        <section className="py-24 bg-white border-t border-[#dadce0]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#202124] mb-4">See SnapLink in action</h2>
-            <p className="text-[#5f6368] text-lg mb-16 max-w-2xl mx-auto">Everything you need to manage your links, track your performance, and customize your brand, all in one intuitive dashboard.</p>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="bg-[#f8f9fa] rounded-2xl border border-[#dadce0] p-4 shadow-xl overflow-hidden h-[400px] flex items-center justify-center">
-                {/* Placeholder for Analytics Screenshot */}
-                <div className="text-[#5f6368] font-medium flex flex-col items-center">
-                  <svg className="w-16 h-16 text-[#1a73e8] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                  [Analytics Dashboard Screenshot]
+              <div className="bg-white rounded-3xl p-8 border border-[#dadce0] shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                 </div>
-              </div>
-              <div className="bg-[#f8f9fa] rounded-2xl border border-[#dadce0] p-4 shadow-xl overflow-hidden h-[400px] flex items-center justify-center">
-                {/* Placeholder for Bio Page Screenshot */}
-                <div className="text-[#5f6368] font-medium flex flex-col items-center">
-                  <svg className="w-16 h-16 text-[#9333ea] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                  [Bio Page Themes Screenshot]
-                </div>
+                <h3 className="text-xl font-bold text-[#202124] mb-3">Secure File Sharing</h3>
+                <p className="text-[#5f6368] leading-relaxed">Upload PDFs, Resumes, or ZIP files securely with password protection, QR Codes, and auto-expiry links.</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Pricing Section */}
-        <section className="py-24 bg-[#f8f9fa] border-t border-[#dadce0]">
+        <section className="py-24 bg-white border-t border-[#dadce0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#202124]">Simple, transparent pricing</h2>
-              <p className="mt-4 text-[#5f6368] text-lg">Start for free, upgrade when you need programmatic access.</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#202124]">Simple, honest pricing</h2>
+              <p className="mt-4 text-[#5f6368] text-lg">We are a startup building tools for startups. No hidden fees.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Free Tier */}
-              <div className="bg-white rounded-3xl p-8 border border-[#dadce0] shadow-sm">
-                <h3 className="text-2xl font-bold text-[#202124]">Creator</h3>
+              <div className="bg-white rounded-3xl p-8 border border-[#dadce0] shadow-sm flex flex-col h-full">
+                <h3 className="text-2xl font-bold text-[#202124]">Basic</h3>
                 <div className="mt-4 flex items-baseline text-5xl font-extrabold text-[#202124]">
-                  ₹0
+                  $0
                   <span className="ml-1 text-xl font-medium text-[#5f6368]">/forever</span>
                 </div>
-                <p className="mt-4 text-[#5f6368]">Perfect for individuals and creators starting out.</p>
-                <ul className="mt-8 space-y-4">
+                <p className="mt-4 text-[#5f6368]">Perfect for testing out the platform.</p>
+                <ul className="mt-8 space-y-4 flex-grow">
                   <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Short Links</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>1 Link-in-Bio Profile</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Advanced Analytics</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>1 Basic Bio Profile</li>
+                  <li className="flex items-center text-[#5f6368]"><svg className="w-5 h-5 text-gray-300 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>File Sharing</li>
                   <li className="flex items-center text-[#5f6368]"><svg className="w-5 h-5 text-gray-300 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>API Access</li>
                 </ul>
                 <Link href="/register" className="mt-8 block w-full py-3 px-6 border border-[#dadce0] rounded-full text-center font-medium text-[#202124] hover:bg-gray-50 transition-colors">Get Started Free</Link>
               </div>
 
               {/* Pro Tier */}
-              <div className="bg-[#1a73e8] rounded-3xl p-8 border border-[#1a73e8] shadow-xl relative transform md:-translate-y-4">
+              <div className="bg-[#1a73e8] rounded-3xl p-8 border border-[#1a73e8] shadow-xl relative transform md:-translate-y-4 flex flex-col h-full">
                 <div className="absolute top-0 right-6 transform -translate-y-1/2">
-                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</span>
+                  <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Pro</span>
                 </div>
+                <h3 className="text-2xl font-bold text-white">Creator Pro</h3>
+                <div className="mt-4 flex items-baseline text-5xl font-extrabold text-white">
+                  $10
+                  <span className="ml-1 text-xl font-medium text-blue-200">/month</span>
+                </div>
+                <p className="mt-4 text-blue-100">For active creators and growing audiences.</p>
+                <ul className="mt-8 space-y-4 text-white flex-grow">
+                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Everything in Basic</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Advanced Bio (Products, Donations)</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Secure File Sharing (Up to 1GB)</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>3D vCard Generation</li>
+                  <li className="flex items-center text-blue-300/50"><svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>API Access</li>
+                </ul>
+                <Link href="/register" className="mt-8 block w-full py-3 px-6 bg-white rounded-full text-center font-bold text-[#1a73e8] hover:bg-gray-100 transition-colors shadow-sm">Upgrade to Pro</Link>
+              </div>
+
+              {/* API Tier */}
+              <div className="bg-gray-900 rounded-3xl p-8 border border-gray-800 shadow-xl flex flex-col h-full">
                 <h3 className="text-2xl font-bold text-white">Developer API</h3>
                 <div className="mt-4 flex items-baseline text-5xl font-extrabold text-white">
-                  ₹199
-                  <span className="ml-1 text-xl font-medium text-blue-200">/lifetime</span>
+                  $49
+                  <span className="ml-1 text-xl font-medium text-gray-400">/month</span>
                 </div>
-                <p className="mt-4 text-blue-100">For businesses that need programmatic automation.</p>
-                <ul className="mt-8 space-y-4 text-white">
-                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Everything in Creator</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Full REST API Access</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Programmatic Link Generation</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Priority Support</li>
+                <p className="mt-4 text-gray-400">Programmatic access for apps and software.</p>
+                <ul className="mt-8 space-y-4 text-gray-300 flex-grow">
+                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Everything in Pro</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>5 Scoped API Keys</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Automated Link Generation</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Automated File Uploads</li>
                 </ul>
-                <Link href="/login" className="mt-8 block w-full py-3 px-6 bg-white rounded-full text-center font-bold text-[#1a73e8] hover:bg-gray-100 transition-colors shadow-sm">Unlock API</Link>
+                <Link href="/login" className="mt-8 block w-full py-3 px-6 bg-gray-800 border border-gray-700 rounded-full text-center font-bold text-white hover:bg-gray-700 transition-colors shadow-sm">Get API Key</Link>
               </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Why We Built This Section */}
+        <section className="py-24 bg-[#f8f9fa] border-t border-[#dadce0]">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold text-[#202124] mb-8">Why we built SnapLink</h2>
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-[#dadce0] text-left">
+              <p className="text-lg text-[#5f6368] mb-6 leading-relaxed">
+                As creators and developers, we were frustrated by the fragmented tools available online. We had to pay one company $15/mo just to host a bio page, another $10/mo to shorten links, and yet another to share large files securely. 
+              </p>
+              <p className="text-lg text-[#5f6368] leading-relaxed">
+                We decided to build one platform that does it all. SnapLink is currently in its early stages as a fast-growing startup. By joining us today, you are helping shape a genuine platform that actually cares about solving real problems for creators.
+              </p>
             </div>
           </div>
         </section>
@@ -203,7 +187,7 @@ export default function Home() {
             <div className="space-y-8">
               <div>
                 <h4 className="text-lg font-bold text-[#202124]">Is it really free?</h4>
-                <p className="mt-2 text-[#5f6368]">Yes! Our core platform for creating short links and your Link-in-Bio profile is completely free forever. We support our free tier through lightweight, unobtrusive ads shown during redirects.</p>
+                <p className="mt-2 text-[#5f6368]">Yes! The Basic tier for creating short links and your Link-in-Bio profile is free forever. We support the platform through our Pro and Developer tiers.</p>
               </div>
               <div>
                 <h4 className="text-lg font-bold text-[#202124]">How do Custom SEO Previews work?</h4>
@@ -211,7 +195,7 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="text-lg font-bold text-[#202124]">How does the API payment work?</h4>
-                <p className="mt-2 text-[#5f6368]">It is a simple, one-time lifetime payment of ₹199. No subscriptions, no hidden fees. Once unlocked, you can generate unlimited API keys from your dashboard to automate your workflow.</p>
+                <p className="mt-2 text-[#5f6368]">Our Developer tier is $49/month. Once active, you get 5 distinct, scoped API keys (Master, URL, Bio, File, vCard) to safely automate different parts of your workflow.</p>
               </div>
             </div>
           </div>
