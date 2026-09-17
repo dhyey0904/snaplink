@@ -13,6 +13,12 @@ class Link(Base):
     custom_alias = Column(String, unique=True, index=True, nullable=True)
     password_hash = Column(String, nullable=True)
     expires_at = Column(DateTime(timezone=True), nullable=True)
+    
+    # SEO / Open Graph fields
+    og_title = Column(String, nullable=True)
+    og_description = Column(String, nullable=True)
+    og_image = Column(String, nullable=True)
+    
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 

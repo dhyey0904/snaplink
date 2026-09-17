@@ -24,6 +24,10 @@ export default function Dashboard() {
   const [customAlias, setCustomAlias] = useState("");
   const [password, setPassword] = useState("");
   const [expiresAt, setExpiresAt] = useState("");
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [ogTitle, setOgTitle] = useState("");
+  const [ogDescription, setOgDescription] = useState("");
+  const [ogImage, setOgImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [copiedId, setCopiedId] = useState<number | null>(null);
   
@@ -90,7 +94,10 @@ export default function Dashboard() {
           original_url: newUrl,
           custom_alias: customAlias,
           password: password || null,
-          expires_at: expiresAt ? new Date(expiresAt).toISOString() : null
+          expires_at: expiresAt ? new Date(expiresAt).toISOString() : null,
+          og_title: ogTitle || null,
+          og_description: ogDescription || null,
+          og_image: ogImage || null
         }),
       });
       setLinks([...links, data]);
@@ -98,6 +105,10 @@ export default function Dashboard() {
       setCustomAlias("");
       setPassword("");
       setExpiresAt("");
+      setOgTitle("");
+      setOgDescription("");
+      setOgImage("");
+      setShowAdvanced(false);
     } catch (err: any) {
       alert(err.message);
     } finally {
@@ -253,8 +264,55 @@ export default function Dashboard() {
                   className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow"
                 />
               </div>
+
+              {/* Advanced Settings Toggle */}
+              <div className="pt-2">
+                <button 
+                  type="button" 
+                  onClick={() => setShowAdvanced(!showAdvanced)}
+                  className="flex items-center text-sm font-medium text-[#1a73e8] hover:text-[#1557b0] transition-colors"
+                >
+                  <svg className={`w-4 h-4 mr-1 transition-transform ${showAdvanced ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                  Advanced Settings (SEO & Social Previews)
+                </button>
+              </div>
+
+              {showAdvanced && (
+                <div className="space-y-3.5 bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                  <div>
+                    <label className="block text-sm font-medium text-[#202124] mb-1.5">Preview Title</label>
+                    <input
+                      type="text"
+                      value={ogTitle}
+                      onChange={(e) => setOgTitle(e.target.value)}
+                      placeholder="e.g., My Awesome Product"
+                      className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#202124] mb-1.5">Preview Description</label>
+                    <input
+                      type="text"
+                      value={ogDescription}
+                      onChange={(e) => setOgDescription(e.target.value)}
+                      placeholder="e.g., Check out this amazing product..."
+                      className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#202124] mb-1.5">Preview Image URL</label>
+                    <input
+                      type="url"
+                      value={ogImage}
+                      onChange={(e) => setOgImage(e.target.value)}
+                      placeholder="https://example.com/image.png"
+                      className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm"
+                    />
+                  </div>
+                </div>
+              )}
               
-              <button type="submit" className="w-full mt-1 py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 transition-colors">
+              <button type="submit" className="w-full mt-2 py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 transition-colors">
                 Generate Link
               </button>
             </form>

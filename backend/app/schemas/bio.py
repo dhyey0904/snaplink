@@ -39,6 +39,7 @@ class BioPageBase(BaseModel):
     instagram_url: Optional[str] = None
     linkedin_url: Optional[str] = None
     ad_enabled: bool = True
+    theme_type: str = "solid"
 
 class BioPageCreate(BioPageBase):
     pass
@@ -56,6 +57,7 @@ class BioPageUpdate(BaseModel):
     instagram_url: Optional[str] = None
     linkedin_url: Optional[str] = None
     ad_enabled: Optional[bool] = None
+    theme_type: Optional[str] = None
 
 class BioPageResponse(BioPageBase):
     id: int

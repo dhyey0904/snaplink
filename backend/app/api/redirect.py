@@ -32,32 +32,38 @@ def redirect_to_original(short_code: str, request: Request, db: Session = Depend
                 raise HTTPException(status_code=401, detail="Password required or incorrect")
             return RedirectResponse(url=f"https://snaplinks.in/unlock/{short_code}")
             
-    # Record the click
-    user_agent = request.headers.get("user-agent", "Unknown")
-    ip_address = request.client.host if request.client else "Unknown"
-    referer = request.headers.get("referer", "Direct")
+    # Record the click (if not a bot/metadata fetch)
+    if request.query_params.get("no_analytics") != "true":
+        user_agent = request.headers.get("user-agent", "Unknown")
+        ip_address = request.client.host if request.client else "Unknown"
+        referer = request.headers.get("referer", "Direct")
 
-    browser = "Other"
-    if "Chrome" in user_agent: browser = "Chrome"
-    elif "Firefox" in user_agent: browser = "Firefox"
-    elif "Safari" in user_agent and "Chrome" not in user_agent: browser = "Safari"
-    
-    device = "Desktop"
-    if "Mobile" in user_agent or "Android" in user_agent or "iPhone" in user_agent:
-        device = "Mobile"
+        browser = "Other"
+        if "Chrome" in user_agent: browser = "Chrome"
+        elif "Firefox" in user_agent: browser = "Firefox"
+        elif "Safari" in user_agent and "Chrome" not in user_agent: browser = "Safari"
+        
+        device = "Desktop"
+        if "Mobile" in user_agent or "Android" in user_agent or "iPhone" in user_agent:
+            device = "Mobile"
 
-    click = Click(
-        link_id=link.id,
-        ip=ip_address,
-        browser=browser,
-        device=device,
-        referrer=referer,
-        country="Unknown" 
-    )
-    db.add(click)
-    db.commit()
+        click = Click(
+            link_id=link.id,
+            ip=ip_address,
+            browser=browser,
+            device=device,
+            referrer=referer,
+            country="Unknown" 
+        )
+        db.add(click)
+        db.commit()
 
     if request.query_params.get("json") == "true":
-        return {"original_url": link.original_url}
+        return {
+            "original_url": link.original_url,
+            "og_title": link.og_title,
+            "og_description": link.og_description,
+            "og_image": link.og_image
+        }
         
     return RedirectResponse(url=link.original_url)

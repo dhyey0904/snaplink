@@ -21,6 +21,7 @@ class BioPage(Base):
     linkedin_url = Column(String, nullable=True)
     ad_enabled = Column(Boolean, default=True)
     views = Column(Integer, default=0)
+    theme_type = Column(String, default="solid")
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     owner = relationship("User", backref="bio_page")

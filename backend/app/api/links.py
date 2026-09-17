@@ -89,16 +89,16 @@ def update_link(
     if not link:
         raise HTTPException(status_code=404, detail="Link not found")
     
-    if link_in.original_url is not None:
-        link.original_url = link_in.original_url
-    if link_in.is_active is not None:
-        link.is_active = link_in.is_active
-        
     if link_in.password:
         if link_in.password == "REMOVE":
             link.password_hash = None
         else:
             link.password_hash = get_password_hash(link_in.password)
+            
+    # Update all other provided fields dynamically
+    update_data = link_in.model_dump(exclude_unset=True, exclude={"password"})
+    for field, value in update_data.items():
+        setattr(link, field, value)
         
     db.commit()
     db.refresh(link)

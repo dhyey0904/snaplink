@@ -16,10 +16,14 @@ try:
         "ALTER TABLE bio_pages ADD COLUMN views INTEGER DEFAULT 0",
         "ALTER TABLE bio_pages ADD COLUMN profile_image_url VARCHAR",
         "ALTER TABLE bio_pages ADD COLUMN ad_enabled BOOLEAN DEFAULT true",
+        "ALTER TABLE bio_pages ADD COLUMN theme_type VARCHAR DEFAULT 'solid'",
         "ALTER TABLE bio_links ADD COLUMN clicks INTEGER DEFAULT 0",
         "ALTER TABLE users ADD COLUMN api_key VARCHAR",
         "ALTER TABLE users ADD COLUMN tier VARCHAR DEFAULT 'free'",
-        "ALTER TABLE links ADD COLUMN expires_at TIMESTAMP WITH TIME ZONE"
+        "ALTER TABLE links ADD COLUMN expires_at TIMESTAMP WITH TIME ZONE",
+        "ALTER TABLE links ADD COLUMN og_title VARCHAR",
+        "ALTER TABLE links ADD COLUMN og_description VARCHAR",
+        "ALTER TABLE links ADD COLUMN og_image VARCHAR"
     ]
     
     for query in migrations:
