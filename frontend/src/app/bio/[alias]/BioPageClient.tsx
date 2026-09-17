@@ -124,7 +124,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
               <ins className="adsbygoogle"
                    style={{ display: "block", minWidth: "320px", maxWidth: "100%", height: "90px" }}
                    data-ad-client={adSensePubId}
-                   data-ad-slot="YOUR_AD_SLOT_ID_HERE"
+                   data-ad-slot="4096463539"
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
             </div>
