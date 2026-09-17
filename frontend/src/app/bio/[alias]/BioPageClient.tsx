@@ -10,7 +10,26 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
   useEffect(() => {
     if (countdown > 0) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
-      return () => clearTimeout(timer);
+    
+  const getVideoEmbedUrl = (url: string) => {
+    if (!url) return null;
+    
+    // YouTube
+    const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&]{11})/);
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    }
+    
+    // Vimeo
+    const vimeoMatch = url.match(/(?:vimeo\.com\/)(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)/);
+    if (vimeoMatch && vimeoMatch[3]) {
+      return `https://player.vimeo.com/video/${vimeoMatch[3]}`;
+    }
+    
+    return null;
+  };
+
+  return () => clearTimeout(timer);
     }
   }, [countdown]);
 
@@ -51,7 +70,26 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
   }, [bioPage.ad_enabled, adSensePubId, countdown]);
 
   if (countdown > 0) {
-    return (
+  
+  const getVideoEmbedUrl = (url: string) => {
+    if (!url) return null;
+    
+    // YouTube
+    const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&]{11})/);
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    }
+    
+    // Vimeo
+    const vimeoMatch = url.match(/(?:vimeo\.com\/)(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)/);
+    if (vimeoMatch && vimeoMatch[3]) {
+      return `https://player.vimeo.com/video/${vimeoMatch[3]}`;
+    }
+    
+    return null;
+  };
+
+  return (
       <div className="min-h-screen bg-[#000000] flex items-center justify-center p-4">
         {adSensePubId && (
           <Script
@@ -93,6 +131,25 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
       </div>
     );
   }
+
+
+  const getVideoEmbedUrl = (url: string) => {
+    if (!url) return null;
+    
+    // YouTube
+    const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&]{11})/);
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    }
+    
+    // Vimeo
+    const vimeoMatch = url.match(/(?:vimeo\.com\/)(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)/);
+    if (vimeoMatch && vimeoMatch[3]) {
+      return `https://player.vimeo.com/video/${vimeoMatch[3]}`;
+    }
+    
+    return null;
+  };
 
   return (
     <div className="min-h-screen relative overflow-hidden" style={backgroundStyle}>
@@ -163,16 +220,76 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
           )}
 
           {bioPage.links && bioPage.links.length > 0 ? (
-            bioPage.links.map((link: any) => (
-              <a 
-                key={link.id} 
-                href={link.url} 
-                onClick={(e) => handleLinkClick(e, link)}
-                className="block w-full p-4 bg-white rounded-2xl shadow-sm text-center font-medium text-[#202124] hover:shadow-md hover:-translate-y-1 transition-all border border-[#dadce0]"
-              >
-                {link.title}
-              </a>
-            ))
+            bioPage.links.map((link: any) => {
+              
+              let meta = {};
+              try {
+                if (link.metadata_json) meta = JSON.parse(link.metadata_json);
+              } catch (e) {}
+
+              if (link.link_type === 'video') {
+                const embedUrl = getVideoEmbedUrl(link.url);
+                return (
+                  <div key={link.id} className="bg-white rounded-2xl shadow-sm overflow-hidden border border-[#dadce0] transition-shadow hover:shadow-md">
+                    <div className="p-4 border-b border-gray-100 font-bold text-[#202124] flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                      {link.title}
+                    </div>
+                    {embedUrl ? (
+                      <div className="aspect-w-16 aspect-h-9 relative" style={{ paddingBottom: '56.25%' }}>
+                        <iframe src={embedUrl} className="absolute top-0 left-0 w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                      </div>
+                    ) : (
+                      <a href={link.url} target="_blank" className="block p-4 text-center text-blue-600 hover:underline">Watch Video</a>
+                    )}
+                  </div>
+                );
+              }
+
+              if (link.link_type === 'product') {
+                return (
+                  <a key={link.id} href={link.url} onClick={(e) => handleLinkClick(e, link)} className="block bg-white rounded-2xl shadow-sm border border-[#dadce0] hover:shadow-md hover:-translate-y-1 transition-all overflow-hidden flex flex-col sm:flex-row">
+                    {meta.image_url && (
+                      <div className="w-full sm:w-1/3 h-48 sm:h-auto bg-gray-100 flex-shrink-0">
+                        <img src={meta.image_url} alt={link.title} className="w-full h-full object-cover" />
+                      </div>
+                    )}
+                    <div className="p-5 flex flex-col justify-center flex-grow">
+                      <h3 className="font-bold text-lg text-[#202124] mb-1">{link.title}</h3>
+                      {meta.price && <div className="text-[#1a73e8] font-black text-xl mb-3">{meta.price}</div>}
+                      <div className="mt-auto inline-flex items-center justify-center px-4 py-2 bg-[#202124] text-white rounded-lg font-medium">
+                        Buy Now
+                      </div>
+                    </div>
+                  </a>
+                );
+              }
+
+              if (link.link_type === 'donation') {
+                return (
+                  <a key={link.id} href={link.url} onClick={(e) => handleLinkClick(e, link)} className="block w-full p-5 bg-gradient-to-r from-pink-50 to-red-50 rounded-2xl shadow-sm text-center font-medium text-[#202124] hover:shadow-md hover:-translate-y-1 transition-all border border-pink-100">
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-pink-500">
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      </div>
+                      <span className="text-lg font-bold">{link.title}</span>
+                    </div>
+                  </a>
+                );
+              }
+
+              // Default standard button
+              return (
+                <a 
+                  key={link.id} 
+                  href={link.url} 
+                  onClick={(e) => handleLinkClick(e, link)}
+                  className="block w-full p-4 bg-white rounded-2xl shadow-sm text-center font-medium text-[#202124] hover:shadow-md hover:-translate-y-1 transition-all border border-[#dadce0]"
+                >
+                  {link.title}
+                </a>
+              );
+            })
           ) : (
             <p className="text-center text-[#5f6368]">No links added yet.</p>
           )}

@@ -29,10 +29,23 @@ export default function BioDashboard() {
   // New Link form state
   const [newLinkTitle, setNewLinkTitle] = useState("");
   const [newLinkUrl, setNewLinkUrl] = useState("");
+  const [newLinkType, setNewLinkType] = useState("link");
+  const [newLinkPrice, setNewLinkPrice] = useState("");
+  const [newLinkImageUrl, setNewLinkImageUrl] = useState("");
   const [isAddingLink, setIsAddingLink] = useState(false);
 
   // QR Modal State
   const [qrModalUrl, setQrModalUrl] = useState<string | null>(null);
+
+  
+  const getVideoEmbedUrl = (url: string) => {
+    if (!url) return null;
+    const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&]{11})/);
+    if (ytMatch && ytMatch[1]) return `https://www.youtube.com/embed/${ytMatch[1]}`;
+    const vimeoMatch = url.match(/(?:vimeo\.com\/)(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)/);
+    if (vimeoMatch && vimeoMatch[3]) return `https://player.vimeo.com/video/${vimeoMatch[3]}`;
+    return null;
+  };
 
   const handleDownloadQR = async () => {
     if (!qrModalUrl) return;
@@ -155,15 +168,31 @@ export default function BioDashboard() {
 
   const handleAddLink = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!newLinkTitle || !newLinkUrl) return;
     setIsAddingLink(true);
+
+    let metadata_json = null;
+    if (newLinkType === 'product') {
+      metadata_json = JSON.stringify({ price: newLinkPrice, image_url: newLinkImageUrl });
+    }
+
     try {
       const order = bioPage?.links ? bioPage.links.length : 0;
       const newLink = await fetchAPI("/bio/links", {
         method: "POST",
-        body: JSON.stringify({ title: newLinkTitle, url: newLinkUrl, order })
+        body: JSON.stringify({
+          title: newLinkTitle,
+          url: newLinkUrl,
+          link_type: newLinkType,
+          metadata_json: metadata_json,
+          order
+        })
       });
       setNewLinkTitle("");
       setNewLinkUrl("");
+      setNewLinkType("link");
+      setNewLinkPrice("");
+      setNewLinkImageUrl("");
       
       // Add link locally without wiping out unsaved profile edits!
       setBioPage((prev: any) => {
@@ -171,7 +200,7 @@ export default function BioDashboard() {
         return { ...prev, links: [...(prev.links || []), newLink] };
       });
     } catch (err: any) {
-      alert(err.message);
+      alert(err.message || err);
     } finally {
       setIsAddingLink(false);
     }
@@ -382,11 +411,76 @@ export default function BioDashboard() {
                 <h3 className="text-xl font-normal text-[#202124] mb-6">Add New Link</h3>
                 <form onSubmit={handleAddLink} className="space-y-4">
                   <div>
-                    <input required type="text" value={newLinkTitle} onChange={e => setNewLinkTitle(e.target.value)} placeholder="Title (e.g. My YouTube)" className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                    <label className="block text-sm font-medium text-[#202124] mb-1">Block Type</label>
+                    <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 mb-4">
+                      {['link', 'video', 'product', 'donation'].map((type) => (
+                        <button
+                          key={type}
+                          type="button"
+                          onClick={() => setNewLinkType(type)}
+                          className={`px-3 py-2 text-sm font-medium rounded-lg border ${
+                            newLinkType === type
+                              ? 'bg-blue-50 border-blue-500 text-blue-700'
+                              : 'border-[#dadce0] text-[#5f6368] hover:bg-gray-50'
+                          }`}
+                        >
+                          {type.charAt(0).toUpperCase() + type.slice(1)}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                   <div>
-                    <input required type="url" value={newLinkUrl} onChange={e => setNewLinkUrl(e.target.value)} placeholder="URL (e.g. https://youtube.com/...)" className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                    <label className="block text-sm font-medium text-[#202124] mb-1">
+                      {newLinkType === 'video' ? 'Video Title' : newLinkType === 'product' ? 'Product Name' : newLinkType === 'donation' ? 'Support Title' : 'Link Title'}
+                    </label>
+                    <input 
+                      type="text" 
+                      value={newLinkTitle} 
+                      onChange={(e) => setNewLinkTitle(e.target.value)} 
+                      className="block w-full px-3 py-2 border border-[#dadce0] rounded-lg focus:ring-[#1a73e8] focus:border-[#1a73e8]" 
+                      placeholder={newLinkType === 'video' ? "My Latest Vlog" : newLinkType === 'donation' ? "Buy me a coffee" : "My Awesome Link"} 
+                      required
+                    />
                   </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#202124] mb-1">
+                      {newLinkType === 'video' ? 'YouTube / Vimeo URL' : newLinkType === 'product' ? 'Checkout URL' : newLinkType === 'donation' ? 'Stripe / PayPal URL' : 'URL'}
+                    </label>
+                    <input 
+                      type="url" 
+                      value={newLinkUrl} 
+                      onChange={(e) => setNewLinkUrl(e.target.value)} 
+                      className="block w-full px-3 py-2 border border-[#dadce0] rounded-lg focus:ring-[#1a73e8] focus:border-[#1a73e8]" 
+                      placeholder="https://..." 
+                      required
+                    />
+                  </div>
+                  
+                  {newLinkType === 'product' && (
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="block text-sm font-medium text-[#202124] mb-1">Price (e.g. $19.99)</label>
+                        <input 
+                          type="text" 
+                          value={newLinkPrice} 
+                          onChange={(e) => setNewLinkPrice(e.target.value)} 
+                          className="block w-full px-3 py-2 border border-[#dadce0] rounded-lg focus:ring-[#1a73e8] focus:border-[#1a73e8]" 
+                          placeholder="$19.99" 
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-[#202124] mb-1">Image URL</label>
+                        <input 
+                          type="url" 
+                          value={newLinkImageUrl} 
+                          onChange={(e) => setNewLinkImageUrl(e.target.value)} 
+                          className="block w-full px-3 py-2 border border-[#dadce0] rounded-lg focus:ring-[#1a73e8] focus:border-[#1a73e8]" 
+                          placeholder="https://..." 
+                        />
+                      </div>
+                    </div>
+                  )}
+
                   <button type="submit" disabled={isAddingLink} className="w-full mt-2 py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] focus:outline-none focus:ring-4 focus:ring-[#1a73e8]/20 disabled:opacity-50 transition-colors">Add Link</button>
                 </form>
               </div>

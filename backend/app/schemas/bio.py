@@ -9,7 +9,8 @@ class BioLinkBase(BaseModel):
     is_active: Optional[bool] = True
 
 class BioLinkCreate(BioLinkBase):
-    pass
+    link_type: Optional[str] = "link"
+    metadata_json: Optional[str] = None
 
 class BioLinkUpdate(BaseModel):
     title: Optional[str] = None
@@ -17,7 +18,7 @@ class BioLinkUpdate(BaseModel):
     order: Optional[int] = None
     is_active: Optional[bool] = None
 
-class BioLinkResponse(BioLinkBase):
+class BioLinkResponse(BioLinkCreate):
     id: int
     bio_page_id: int
     clicks: int = 0

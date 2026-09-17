@@ -34,6 +34,8 @@ class BioLink(Base):
     bio_page_id = Column(Integer, ForeignKey("bio_pages.id"), nullable=False)
     title = Column(String, nullable=False)
     url = Column(String, nullable=False)
+    link_type = Column(String, default="link") # "link", "video", "product", "donation"
+    metadata_json = Column(String, nullable=True)
     order = Column(Integer, default=0)
     is_active = Column(Boolean, default=True)
     clicks = Column(Integer, default=0)

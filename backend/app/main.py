@@ -7,7 +7,7 @@ try:
     
     from app.database.database import engine, Base
     from app.models import User, Link, Click
-    from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard, click, files
+    from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard, files
     from sqlalchemy import text
     
     # Create database tables
@@ -20,6 +20,8 @@ try:
         "ALTER TABLE bio_pages ADD COLUMN ad_enabled BOOLEAN DEFAULT true",
         "ALTER TABLE bio_pages ADD COLUMN theme_type VARCHAR DEFAULT 'solid'",
         "ALTER TABLE bio_links ADD COLUMN clicks INTEGER DEFAULT 0",
+        "ALTER TABLE bio_links ADD COLUMN link_type VARCHAR DEFAULT 'link'",
+        "ALTER TABLE bio_links ADD COLUMN metadata_json VARCHAR",
         "ALTER TABLE users ADD COLUMN api_key VARCHAR",
         "ALTER TABLE users ADD COLUMN tier VARCHAR DEFAULT 'free'",
         "ALTER TABLE links ADD COLUMN expires_at TIMESTAMP WITH TIME ZONE",
