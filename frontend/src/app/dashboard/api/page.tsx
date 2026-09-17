@@ -137,7 +137,7 @@ export default function ApiDashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    router.push("/login");
+    router.push("/");
   };
 
   if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;

@@ -154,7 +154,7 @@ export default function Dashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    router.push("/login");
+    router.push("/");
   };
 
   const handleCopy = (shortCode: string, id: number) => {

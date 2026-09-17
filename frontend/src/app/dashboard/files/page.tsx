@@ -49,7 +49,7 @@ export default function FileShareDashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    router.push("/login");
+    router.push("/");
   };
 
   const handleFileDrop = (e: React.DragEvent) => {

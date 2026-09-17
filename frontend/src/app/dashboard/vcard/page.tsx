@@ -87,7 +87,7 @@ export default function VCardDashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    router.push("/login");
+    router.push("/");
   };
 
   const handleCopy = () => {
