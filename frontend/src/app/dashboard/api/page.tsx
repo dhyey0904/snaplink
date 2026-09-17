@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 import { fetchAPI } from "@/utils/api";
 
 export default function ApiDashboard() {
@@ -10,6 +11,7 @@ export default function ApiDashboard() {
   const [apiKey, setApiKey] = useState<string | null>(null);
   const [tier, setTier] = useState<string>("free");
   const [loading, setLoading] = useState(true);
+  const [paying, setPaying] = useState(false);
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
@@ -30,6 +32,61 @@ export default function ApiDashboard() {
       console.error(err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handlePurchase = async () => {
+    if (paying) return;
+    setPaying(true);
+    
+    try {
+      // 1. Create order on backend
+      const order = await fetchAPI("/payment/create-order", { method: "POST" });
+      
+      // 2. Open Razorpay Checkout
+      const options = {
+        key: order.key_id, 
+        amount: order.amount,
+        currency: order.currency,
+        name: "SnapLink Pro",
+        description: "Lifetime API Access",
+        order_id: order.order_id,
+        handler: async function (response: any) {
+          // 3. Verify payment on backend
+          try {
+            await fetchAPI("/payment/verify", {
+              method: "POST",
+              body: JSON.stringify({
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature
+              })
+            });
+            alert("Payment Successful! Welcome to Pro.");
+            window.location.reload();
+          } catch (err) {
+            alert("Payment verification failed.");
+          }
+        },
+        prefill: {
+          name: "Developer",
+          email: "dev@example.com"
+        },
+        theme: {
+          color: "#1a73e8"
+        }
+      };
+      
+      const rzp = new (window as any).Razorpay(options);
+      rzp.on('payment.failed', function (response: any) {
+        alert(response.error.description);
+      });
+      rzp.open();
+      
+    } catch (err: any) {
+      alert("Could not start payment. Please try again.");
+    } finally {
+      setPaying(false);
     }
   };
 
@@ -66,6 +123,7 @@ export default function ApiDashboard() {
 
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       <nav className="w-full border-b border-[#dadce0] bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
@@ -122,8 +180,8 @@ export default function ApiDashboard() {
               </ul>
             </div>
             
-            <button className="w-full py-4 px-8 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Unlock API Access — ₹199
+            <button onClick={handlePurchase} disabled={paying} className="w-full py-4 px-8 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              {paying ? "Loading Payment..." : "Unlock API Access — ₹199"}
             </button>
             <p className="text-sm text-gray-400 mt-4">One-time payment. Lifetime access.</p>
           </div>
