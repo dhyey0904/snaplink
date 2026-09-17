@@ -20,7 +20,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
   };
 
   const themeColor = bioPage.theme_color || "#3B82F6";
-  const adSensePubId = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID; // e.g., ca-pub-1234567890123456
+  const adSensePubId = "ca-pub-3444542685708016"; // Hardcoded from user
 
   useEffect(() => {
     // Initialize AdSense if ad slot is rendered

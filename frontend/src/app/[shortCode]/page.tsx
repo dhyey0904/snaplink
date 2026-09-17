@@ -11,7 +11,7 @@ export default function AdPage() {
   const [countdown, setCountdown] = useState(5);
   const [originalUrl, setOriginalUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const adSensePubId = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID;
+  const adSensePubId = "ca-pub-3444542685708016"; // Hardcoded from user
 
   useEffect(() => {
     // Initialize AdSense if ad slot is rendered
