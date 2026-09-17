@@ -16,6 +16,8 @@ type LinkData = {
   is_active: boolean;
   has_password: boolean;
   expires_at?: string;
+  og_title?: string;
+  og_description?: string;
 };
 
 export default function Dashboard() {

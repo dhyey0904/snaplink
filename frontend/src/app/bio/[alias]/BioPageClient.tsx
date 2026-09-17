@@ -222,7 +222,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
           {bioPage.links && bioPage.links.length > 0 ? (
             bioPage.links.map((link: any) => {
               
-              let meta = {};
+              let meta: any = {};
               try {
                 if (link.metadata_json) meta = JSON.parse(link.metadata_json);
               } catch (e) {}

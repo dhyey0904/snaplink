@@ -109,7 +109,7 @@ export default function FileShareDashboard() {
     }
   };
 
-  const handleDelete = async (id: int) => {
+  const handleDelete = async (id: number) => {
     if (!confirm('Are you sure you want to delete this file? Any existing links will stop working.')) return;
     
     try {
@@ -120,12 +120,12 @@ export default function FileShareDashboard() {
     }
   };
 
-  const handleCopy = (shortCode: str) => {
+  const handleCopy = (shortCode: string) => {
     navigator.clipboard.writeText(`${SHORT_LINK_DOMAIN}${shortCode}`);
     alert('Link copied to clipboard!');
   };
 
-  const handleShare = async (shortCode: str, filename: str) => {
+  const handleShare = async (shortCode: string, filename: string) => {
     const fullUrl = `${SHORT_LINK_DOMAIN}${shortCode}`;
     if (navigator.share) {
       try {

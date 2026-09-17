@@ -14,7 +14,7 @@ export default function FileDownloadPage() {
   const [password, setPassword] = useState('');
   const [verifying, setVerifying] = useState(false);
   const [passwordError, setPasswordError] = useState('');
-  const [verifiedToken, setVerifiedToken] = useState<str | null>(null);
+  const [verifiedToken, setVerifiedToken] = useState<string | null>(null);
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://127.0.0.1:8000';
 
