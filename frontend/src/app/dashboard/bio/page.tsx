@@ -467,16 +467,24 @@ export default function BioDashboard() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[#202124] mb-1">
-                      {newLinkType === 'video' ? 'YouTube / Vimeo URL' : newLinkType === 'product' ? 'Checkout URL' : newLinkType === 'donation' ? 'Stripe / PayPal URL' : 'URL'}
+                      {newLinkType === 'video' ? 'Video URL or Upload' : newLinkType === 'product' ? 'Checkout URL' : newLinkType === 'donation' ? 'Stripe / PayPal URL' : 'URL'}
                     </label>
-                    <input 
-                      type="url" 
-                      value={newLinkUrl} 
-                      onChange={(e) => setNewLinkUrl(e.target.value)} 
-                      className="block w-full px-3 py-2 border border-[#dadce0] rounded-lg focus:ring-[#1a73e8] focus:border-[#1a73e8]" 
-                      placeholder="https://..." 
-                      required
-                    />
+                    <div className="flex gap-2">
+                      <input 
+                        type="url" 
+                        value={newLinkUrl} 
+                        onChange={(e) => setNewLinkUrl(e.target.value)} 
+                        className="block w-full px-3 py-2 border border-[#dadce0] rounded-lg focus:ring-[#1a73e8] focus:border-[#1a73e8]" 
+                        placeholder="https://..." 
+                        required
+                      />
+                      {newLinkType === 'video' && (
+                        <label className="flex items-center justify-center px-4 py-2 border border-[#dadce0] rounded-lg shadow-sm text-sm font-medium text-[#202124] bg-white hover:bg-gray-50 cursor-pointer whitespace-nowrap">
+                          Upload File
+                          <input type="file" accept="video/mp4,video/webm" className="hidden" onChange={(e) => handleImageUpload(e, setNewLinkUrl)} />
+                        </label>
+                      )}
+                    </div>
                   </div>
                   
                   {newLinkType === 'product' && (
@@ -561,14 +569,65 @@ export default function BioDashboard() {
                     </a>
                   )}
 
-                  {bioPage.links && bioPage.links.map((link: any) => (
-                    <div key={link.id} className="relative group">
-                      <a href={link.url} target="_blank" className="block w-full p-4 bg-white rounded-2xl shadow-sm text-center font-medium text-[#202124] hover:shadow-md transition-all border border-[#dadce0]" style={{borderLeftColor: themeColor, borderLeftWidth: "6px"}}>
+                                    {bioPage.links && bioPage.links.map((link: any) => {
+                    let meta: any = {};
+                    try { if (link.metadata_json) meta = JSON.parse(link.metadata_json); } catch(e){}
+
+                    let innerContent = (
+                      <div className="block w-full p-4 bg-white rounded-2xl shadow-sm text-center font-medium text-[#202124] hover:shadow-md transition-all border border-[#dadce0]" style={{borderLeftColor: themeColor, borderLeftWidth: "6px"}}>
                         {link.title}
-                      </a>
-                      <button onClick={() => handleDeleteLink(link.id)} className="absolute -right-2 -top-2 bg-[#d93025] text-white w-7 h-7 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-sm flex items-center justify-center">✕</button>
-                    </div>
-                  ))}
+                      </div>
+                    );
+
+                    if (link.link_type === 'video') {
+                      innerContent = (
+                        <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-[#dadce0]">
+                          <div className="p-3 border-b border-gray-100 font-bold text-[#202124] flex items-center gap-2 text-sm">
+                            <svg className="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                            {link.title}
+                          </div>
+                          {link.url.match(/\.(mp4|webm|ogg)$/i) || link.url.includes('/uploads/') ? (
+                            <video src={link.url} className="w-full h-32 object-cover bg-black" />
+                          ) : (
+                            <div className="bg-gray-100 w-full h-32 flex items-center justify-center text-xs text-gray-500">Video Player</div>
+                          )}
+                        </div>
+                      );
+                    } else if (link.link_type === 'product') {
+                      innerContent = (
+                        <div className="block bg-white rounded-2xl shadow-sm border border-[#dadce0] overflow-hidden flex flex-col sm:flex-row text-left">
+                          {meta.image_url && (
+                            <div className="w-full sm:w-24 h-24 bg-gray-100 flex-shrink-0">
+                              <img src={meta.image_url} alt={link.title} className="w-full h-full object-cover" />
+                            </div>
+                          )}
+                          <div className="p-3 flex flex-col justify-center flex-grow">
+                            <h3 className="font-bold text-sm text-[#202124] mb-1">{link.title}</h3>
+                            {meta.price && <div className="text-[#1a73e8] font-black text-sm mb-2">{meta.price}</div>}
+                            <div className="mt-auto inline-flex items-center justify-center px-2 py-1 bg-[#202124] text-white rounded text-xs font-medium w-max">Buy Now</div>
+                          </div>
+                        </div>
+                      );
+                    } else if (link.link_type === 'donation') {
+                      innerContent = (
+                        <div className="block w-full p-4 bg-gradient-to-r from-pink-50 to-red-50 rounded-2xl shadow-sm text-center font-medium text-[#202124] border border-pink-100">
+                          <div className="flex items-center justify-center gap-2">
+                            <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm text-pink-500">
+                              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            </div>
+                            <span className="text-sm font-bold">{link.title}</span>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div key={link.id} className="relative group">
+                        {innerContent}
+                        <button onClick={() => handleDeleteLink(link.id)} className="absolute -right-2 -top-2 bg-[#d93025] text-white w-7 h-7 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-sm flex items-center justify-center z-10">×</button>
+                      </div>
+                    );
+                  })}
                   {(!bioPage.links || bioPage.links.length === 0) && (
                     <p className="text-center text-[#5f6368] text-sm mt-10">No links added yet.</p>
                   )}

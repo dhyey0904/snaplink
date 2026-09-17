@@ -19,7 +19,7 @@ async def upload_image(file: UploadFile = File(...), current_user: User = Depend
     
     # Generate unique filename
     file_ext = os.path.splitext(file.filename)[1]
-    unique_filename = f"img_{uuid.uuid4().hex}{file_ext}"
+    unique_filename = f"file_{uuid.uuid4().hex}{file_ext}"
     file_path = os.path.join("uploads", unique_filename)
     
     with open(file_path, "wb") as buffer:

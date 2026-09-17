@@ -239,6 +239,8 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
                       <div className="aspect-w-16 aspect-h-9 relative" style={{ paddingBottom: '56.25%' }}>
                         <iframe src={embedUrl} className="absolute top-0 left-0 w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                       </div>
+                    ) : link.url.match(/\\.(mp4|webm|ogg)$/i) || link.url.includes('/uploads/') ? (
+                      <video src={link.url} controls className="w-full h-auto max-h-[60vh] bg-black" />
                     ) : (
                       <a href={link.url} target="_blank" className="block p-4 text-center text-blue-600 hover:underline">Watch Video</a>
                     )}
