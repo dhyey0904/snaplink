@@ -20,7 +20,24 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
   };
 
   const themeColor = bioPage.theme_color || "#3B82F6";
+  const themeType = bioPage.theme_type || "solid";
   const adSensePubId = "ca-pub-3444542685708016"; // Hardcoded from user
+  
+  // Theme styling logic
+  let backgroundStyle: React.CSSProperties = { backgroundColor: themeColor };
+  if (themeType === 'gradient') {
+    backgroundStyle = {
+      background: `linear-gradient(-45deg, ${themeColor}, #000000, ${themeColor}88, #222222)`,
+      backgroundSize: '400% 400%',
+      animation: 'gradientBG 15s ease infinite',
+    };
+  } else if (themeType === 'glassmorphism') {
+    backgroundStyle = {
+      background: `radial-gradient(circle at top left, ${themeColor}, transparent 80%), radial-gradient(circle at bottom right, ${themeColor}88, transparent 80%)`,
+      backgroundColor: '#1a1a1a',
+    };
+  }
+
 
   useEffect(() => {
     // Initialize AdSense if ad slot is rendered
@@ -78,7 +95,23 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: themeColor }}>
+    <div className="min-h-screen relative overflow-hidden" style={backgroundStyle}>
+      {themeType === 'glassmorphism' && (
+        <div className="absolute inset-0 backdrop-blur-3xl z-0" style={{ pointerEvents: 'none' }}></div>
+      )}
+      <div className="relative z-10">
+      
+      {/* Add keyframes for gradient animation */}
+      {themeType === 'gradient' && (
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+        `}} />
+      )}
+
       {/* AdSense Script */}
       {bioPage.ad_enabled && adSensePubId && (
         <Script
@@ -188,6 +221,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

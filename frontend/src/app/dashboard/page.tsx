@@ -15,6 +15,7 @@ export default function BioDashboard() {
   const [title, setTitle] = useState("My Links");
   const [bioText, setBioText] = useState("");
   const [themeColor, setThemeColor] = useState("#3B82F6");
+  const [themeType, setThemeType] = useState("solid");
   const [profileImageUrl, setProfileImageUrl] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [resumeUrl, setResumeUrl] = useState("");
@@ -72,6 +73,7 @@ export default function BioDashboard() {
         setTitle(data.title);
         if (data.bio_text) setBioText(data.bio_text);
         setThemeColor(data.theme_color);
+        if (data.theme_type) setThemeType(data.theme_type);
         if (data.profile_image_url) setProfileImageUrl(data.profile_image_url);
         if (data.contact_email) setContactEmail(data.contact_email);
         if (data.resume_url) setResumeUrl(data.resume_url);
@@ -343,6 +345,15 @@ export default function BioDashboard() {
                   </div>
 
                   <div>
+                    <label className="block text-sm font-medium text-[#202124] mb-2">Theme Style</label>
+                    <div className="flex gap-3 mb-4">
+                      <select value={themeType} onChange={e => setThemeType(e.target.value)} className="flex-1 px-4 py-3 bg-white border border-[#dadce0] rounded-md text-[#202124] focus:ring-2 focus:ring-[#1a73e8] focus:outline-none">
+                        <option value="solid">Solid Color (Classic)</option>
+                        <option value="gradient">Gradient (Modern)</option>
+                        <option value="glassmorphism">Glassmorphism (Premium)</option>
+                      </select>
+                    </div>
+
                     <label className="block text-sm font-medium text-[#202124] mb-2">Theme Color</label>
                     <div className="flex gap-3">
                       <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-12 h-12 p-1 border border-[#dadce0] rounded-md cursor-pointer bg-white" />
