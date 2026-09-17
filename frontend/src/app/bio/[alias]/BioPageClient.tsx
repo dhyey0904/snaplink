@@ -1,17 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Script from "next/script";
 
 export default function BioPageClient({ bioPage }: { bioPage: any }) {
-  const [countdown, setCountdown] = useState(5);
   const [emailCopied, setEmailCopied] = useState(false);
-
-  useEffect(() => {
-    if (countdown > 0) {
-      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [countdown]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: any) => {
     e.preventDefault();
@@ -19,29 +12,30 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
   };
 
   const themeColor = bioPage.theme_color || "#3B82F6";
+  const adSensePubId = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID; // e.g., ca-pub-1234567890123456
 
-  if (countdown > 0) {
-    return (
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center pt-10">
-        <div className="w-[728px] h-[90px] bg-gray-300 flex items-center justify-center border border-gray-400 mb-8 max-w-full">
-          <span className="text-gray-500 font-medium">Advertisement Space</span>
-        </div>
-        <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center max-w-md w-full">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Snap<span className="text-blue-600">Link</span> Bio</h1>
-          <div className="py-6">
-            <p className="text-gray-600 mb-4">Viewing profile for <strong>{bioPage.title}</strong></p>
-            <div className="text-4xl font-extrabold text-blue-600 mb-4">{countdown}</div>
-            <button disabled className="mt-2 px-6 py-2 bg-gray-200 text-gray-400 font-medium w-full rounded cursor-not-allowed">
-              Skip Ad in {countdown}s
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    // Initialize AdSense if ad slot is rendered
+    if (bioPage.ad_enabled && adSensePubId) {
+      try {
+        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+      } catch (e) {
+        console.error("AdSense error", e);
+      }
+    }
+  }, [bioPage.ad_enabled, adSensePubId]);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: themeColor }}>
+      {/* AdSense Script */}
+      {bioPage.ad_enabled && adSensePubId && (
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adSensePubId}`}
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
+      )}
       {/* Top Header Area */}
       <div className="max-w-xl mx-auto px-4 pt-16 pb-8 text-center text-white">
         {bioPage.profile_image_url ? (
@@ -124,6 +118,18 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
             </div>
           )}
           
+          {/* AdSense Ad Unit */}
+          {bioPage.ad_enabled && adSensePubId && (
+            <div className="pt-8 text-center w-full overflow-hidden flex justify-center">
+              <ins className="adsbygoogle"
+                   style={{ display: "block", minWidth: "320px", maxWidth: "100%", height: "90px" }}
+                   data-ad-client={adSensePubId}
+                   data-ad-slot="YOUR_AD_SLOT_ID_HERE"
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
+            </div>
+          )}
+
           <div className="pt-12 text-center">
             <a href="https://snaplinks.in" className="text-xs font-semibold text-gray-400 hover:text-gray-600 transition-colors">
               Powered by SnapLink
