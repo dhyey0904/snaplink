@@ -150,101 +150,146 @@ export default function ApiDashboard() {
         </div>
       </nav>
 
-      <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-        {tier === "free" ? (
-          <div className="bg-white rounded-xl shadow-lg p-10 border border-gray-200 text-center max-w-2xl mx-auto mt-10 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">PRO FEATURE</div>
-            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-            </div>
-            <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Unlock the SnapLink API</h2>
-            <p className="text-gray-600 mb-8 text-lg">
-              Automate your workflow. Generate thousands of short links instantly, integrate into your own apps, and build custom dashboards programmatically.
-            </p>
-            
-            <div className="text-left bg-gray-50 p-6 rounded-lg mb-8 border border-gray-200">
-              <h3 className="font-bold text-gray-900 mb-3">Why businesses upgrade:</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                  Bulk URL Shortening for SMS & Email Campaigns
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                  Custom Discord & Slack Bot Integrations
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                  Direct CRM & Backend API Integration
-                </li>
-              </ul>
-            </div>
-            
-            <button onClick={handlePurchase} disabled={paying} className="w-full py-4 px-8 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              {paying ? "Loading Payment..." : "Unlock API Access — ₹199"}
-            </button>
-            <p className="text-sm text-gray-400 mt-4">One-time payment. Lifetime access.</p>
-          </div>
-        ) : (
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Developer API (Pro)</h2>
-            <p className="text-gray-600 mb-8">
-              Use your secret API key to programmatically generate short links from your own applications, scripts, or backend servers.
-            </p>
+      <main className="flex-1 bg-[#f8f9fa]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          
+          {tier === "free" ? (
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#1a73e8] text-sm font-semibold mb-4 border border-blue-100 uppercase tracking-wide">
+                  Developer Pro
+                </span>
+                <h1 className="text-4xl sm:text-5xl font-bold text-[#202124] tracking-tight mb-6">
+                  Build faster with the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a73e8] to-[#9333ea]">SnapLink API</span>
+                </h1>
+                <p className="text-xl text-[#5f6368] max-w-2xl mx-auto">
+                  Automate your workflow. Generate thousands of short links instantly, integrate into your own apps, and build custom dashboards programmatically.
+                </p>
+              </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col gap-4">
-              <h3 className="font-semibold text-gray-800">Your Secret API Key</h3>
-              
-              {apiKey ? (
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <div className="flex-1 w-full bg-white p-3 rounded border border-gray-300 font-mono text-sm tracking-wider break-all flex items-center justify-between">
-                    {revealed ? apiKey : "••••••••••••••••••••••••••••••••••••••••••••••••••••••••"}
-                    <button onClick={() => setRevealed(!revealed)} className="ml-4 text-xs font-bold text-blue-600 hover:text-blue-800 uppercase shrink-0">
-                      {revealed ? "Hide" : "Reveal"}
-                    </button>
-                  </div>
-                  <div className="flex gap-2 w-full sm:w-auto">
-                    <button onClick={handleCopy} className="flex-1 sm:flex-none px-4 py-3 bg-gray-800 text-white rounded font-bold hover:bg-gray-900 transition shrink-0">
-                      Copy
-                    </button>
-                    <button onClick={handleGenerateKey} className="flex-1 sm:flex-none px-4 py-3 bg-red-100 text-red-600 rounded font-bold hover:bg-red-200 transition shrink-0">
-                      Regen
-                    </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div className="bg-white p-8 rounded-2xl border border-[#dadce0] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4">Why upgrade to Pro?</h3>
+                    <ul className="space-y-4">
+                      <li className="flex items-start text-[#5f6368]">
+                        <svg className="w-6 h-6 text-[#1a73e8] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong className="text-[#202124]">Bulk URL Shortening:</strong> Perfect for high-volume SMS & Email marketing campaigns.</span>
+                      </li>
+                      <li className="flex items-start text-[#5f6368]">
+                        <svg className="w-6 h-6 text-[#1a73e8] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong className="text-[#202124]">Custom Integrations:</strong> Connect SnapLink directly into your Discord bots, Slack, or internal tools.</span>
+                      </li>
+                      <li className="flex items-start text-[#5f6368]">
+                        <svg className="w-6 h-6 text-[#1a73e8] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong className="text-[#202124]">Seamless CRM Sync:</strong> Automatically generate tracked links for every new customer in your database.</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-              ) : (
-                <div>
-                  <p className="text-sm text-gray-500 mb-4">You have not generated an API key yet.</p>
-                  <button onClick={handleGenerateKey} className="px-6 py-3 bg-blue-600 text-white rounded font-bold hover:bg-blue-700 transition">
-                    Generate API Key
+
+                <div className="bg-white p-8 rounded-2xl border border-[#dadce0] shadow-sm flex flex-col items-center justify-center text-center relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#1a73e8]/10 to-[#9333ea]/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                  <h3 className="text-2xl font-bold text-[#202124] mb-2">Lifetime API Access</h3>
+                  <div className="flex items-baseline justify-center mb-6">
+                    <span className="text-5xl font-extrabold text-[#202124]">₹199</span>
+                    <span className="text-xl text-[#5f6368] ml-2">net</span>
+                  </div>
+                  <p className="text-[#5f6368] mb-8">One-time payment. No subscriptions, no hidden fees. Complete developer access forever.</p>
+                  
+                  <button 
+                    onClick={handlePurchase} 
+                    disabled={paying} 
+                    className="w-full py-4 px-8 bg-[#1a73e8] hover:bg-[#1557b0] disabled:bg-[#8ab4f8] disabled:cursor-not-allowed text-white text-lg font-medium rounded-full transition-colors focus:ring-4 focus:ring-[#1a73e8]/20 shadow-sm"
+                  >
+                    {paying ? "Loading Secure Checkout..." : "Unlock API Access Now"}
                   </button>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {tier !== "free" && (
-          <div className="bg-gray-900 rounded-xl shadow-sm p-8 border border-gray-800 text-white">
-            <h3 className="text-xl font-bold mb-4">API Documentation</h3>
-            <p className="text-gray-400 mb-6">Include your API key in the <code className="bg-gray-800 px-1 py-0.5 rounded text-blue-400">x-api-key</code> header to authenticate.</p>
-            
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-semibold text-blue-400 mb-2">Create a Short Link (POST)</h4>
-                <div className="bg-black p-4 rounded-lg font-mono text-sm text-green-400 overflow-x-auto">
-                  <pre>{`curl -X POST https://snaplink-backend-j69v.onrender.com/api/links/ \\
-    -H "Content-Type: application/json" \\
-    -H "x-api-key: YOUR_API_KEY_HERE" \\
-    -d '{
-      "original_url": "https://example.com/very/long/url",
-      "short_code": "my-custom-alias"
-    }'`}</pre>
+                  <div className="mt-4 flex items-center justify-center gap-2 text-sm text-[#5f6368]">
+                    <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"></path></svg>
+                    Secured by Razorpay
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="max-w-4xl mx-auto">
+              <div className="mb-10">
+                <h1 className="text-3xl font-bold text-[#202124] mb-2">Developer Dashboard</h1>
+                <p className="text-[#5f6368] text-lg">Manage your API keys and read the integration documentation.</p>
+              </div>
+
+              {/* API Key Card */}
+              <div className="bg-white rounded-2xl border border-[#dadce0] shadow-sm mb-10 overflow-hidden">
+                <div className="px-8 py-6 border-b border-[#dadce0] bg-[#f8f9fa]">
+                  <h3 className="text-xl font-bold text-[#202124]">Authentication</h3>
+                  <p className="text-sm text-[#5f6368] mt-1">Your secret key must be kept safe. Do not share it publicly.</p>
+                </div>
+                <div className="p-8">
+                  {apiKey ? (
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                      <div className="flex-1 w-full bg-[#f1f3f4] p-4 rounded-xl border border-[#dadce0] font-mono text-sm tracking-wider break-all flex items-center justify-between">
+                        <span className="text-[#202124]">{revealed ? apiKey : "••••••••••••••••••••••••••••••••••••••••••••••••••••••••"}</span>
+                        <button onClick={() => setRevealed(!revealed)} className="ml-4 text-sm font-semibold text-[#1a73e8] hover:text-[#1557b0] uppercase tracking-wider shrink-0">
+                          {revealed ? "Hide" : "Reveal"}
+                        </button>
+                      </div>
+                      <div className="flex gap-3 w-full sm:w-auto">
+                        <button onClick={handleCopy} className="flex-1 sm:flex-none px-6 py-4 bg-[#202124] text-white rounded-xl font-medium hover:bg-[#3c4043] transition-colors shrink-0">
+                          Copy Key
+                        </button>
+                        <button onClick={handleGenerateKey} className="flex-1 sm:flex-none px-6 py-4 bg-red-50 text-red-600 border border-red-200 rounded-xl font-medium hover:bg-red-100 transition-colors shrink-0">
+                          Regenerate
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-center py-6">
+                      <p className="text-[#5f6368] mb-6">You have not generated an API key yet.</p>
+                      <button onClick={handleGenerateKey} className="px-8 py-3 bg-[#1a73e8] text-white rounded-full font-medium hover:bg-[#1557b0] transition-colors focus:ring-4 focus:ring-[#1a73e8]/20">
+                        Generate API Key
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Documentation Card */}
+              <div className="bg-white rounded-2xl border border-[#dadce0] shadow-sm overflow-hidden">
+                <div className="px-8 py-6 border-b border-[#dadce0]">
+                  <h3 className="text-xl font-bold text-[#202124]">API Reference</h3>
+                </div>
+                <div className="p-8">
+                  <p className="text-[#5f6368] mb-8">
+                    All API requests must include your secret API key in the <code className="bg-[#f1f3f4] text-[#d93025] px-2 py-1 rounded text-sm font-mono border border-[#dadce0]">x-api-key</code> header.
+                  </p>
+                  
+                  <div className="mb-8">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="bg-green-100 text-green-700 px-3 py-1 rounded-md text-sm font-bold tracking-wider">POST</span>
+                      <h4 className="text-lg font-bold text-[#202124]">Create a Short Link</h4>
+                    </div>
+                    
+                    <div className="bg-[#202124] rounded-xl overflow-hidden shadow-inner">
+                      <div className="flex items-center px-4 py-2 bg-[#3c4043] text-gray-300 text-xs font-mono border-b border-gray-600">
+                        <span>Terminal</span>
+                      </div>
+                      <div className="p-6 overflow-x-auto">
+                        <pre className="font-mono text-sm text-[#8ab4f8] leading-relaxed">
+                          <span className="text-white">curl -X POST</span> https://snaplink-backend-j69v.onrender.com/api/links/ \<br/>
+                          <span className="text-white">  -H</span> "Content-Type: application/json" \<br/>
+                          <span className="text-white">  -H</span> "x-api-key: YOUR_API_KEY_HERE" \<br/>
+                          <span className="text-white">  -d</span> '{JSON.stringify({ original_url: "https://example.com/very/long/url", short_code: "my-custom-alias" }, null, 4)}'
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          )}
+        </div>
       </main>
 
       {/* Footer */}
