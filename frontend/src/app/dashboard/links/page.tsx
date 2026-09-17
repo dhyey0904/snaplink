@@ -163,6 +163,25 @@ export default function Dashboard() {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
+  const handleShare = async (shortCode: string, title?: string, description?: string) => {
+    const fullUrl = `${SHORT_LINK_DOMAIN}${shortCode}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title || 'SnapLink URL',
+          text: description || 'Check out this link!',
+          url: fullUrl,
+        });
+      } catch (err) {
+        console.log('Error sharing', err);
+      }
+    } else {
+      // Fallback for desktop browsers without share API
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(fullUrl)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  };
+
   const handleDownloadQR = async () => {
     if (!qrModalUrl) return;
     try {
@@ -434,9 +453,15 @@ export default function Dashboard() {
                         <td className="px-6 py-5 whitespace-nowrap text-sm font-medium space-x-4">
                           <button 
                             onClick={() => handleCopy(shortCode, link.id)}
-                            className={`${copiedId === link.id ? 'text-[#34a853]' : 'text-[#5f6368] hover:text-[#202124]'} transition-colors inline-block`}
+                            className={`${copiedId === link.id ? 'text-[#34a853]' : 'text-[#5f6368] hover:text-[#202124]'} transition-colors inline-block font-bold`}
                           >
                             {copiedId === link.id ? 'Copied ✓' : 'Copy'}
+                          </button>
+                          <button 
+                            onClick={() => handleShare(shortCode, link.og_title, link.og_description)}
+                            className="text-[#1a73e8] hover:text-[#1557b0] transition-colors inline-block font-bold"
+                          >
+                            Share
                           </button>
                           <button 
                             onClick={() => setQrModalUrl(fullShortUrl)}
