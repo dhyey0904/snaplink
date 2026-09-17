@@ -33,7 +33,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <main className="flex-grow">
-        <section className="px-4 sm:px-6 lg:px-8 pt-24 pb-32 max-w-7xl mx-auto text-center flex flex-col items-center">
+        <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-32 max-w-7xl mx-auto text-center flex flex-col items-center">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#202124] tracking-tight leading-tight max-w-4xl">
             The all-in-one suite for <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a73e8] to-[#9333ea]">modern creators</span>
