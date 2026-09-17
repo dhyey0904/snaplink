@@ -97,68 +97,51 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Section */}
+                {/* Pricing Section */}
         <section className="py-24 bg-white border-t border-[#dadce0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-[#202124]">Simple, honest pricing</h2>
-              <p className="mt-4 text-[#5f6368] text-lg">We are a startup building tools for startups. No hidden fees.</p>
+              <p className="mt-4 text-[#5f6368] text-lg">We want you to grow first. Everything is free until you need an API.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Free Tier */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Creator Tier */}
               <div className="bg-white rounded-3xl p-8 border border-[#dadce0] shadow-sm flex flex-col h-full">
-                <h3 className="text-2xl font-bold text-[#202124]">Basic</h3>
+                <h3 className="text-2xl font-bold text-[#202124]">Creator</h3>
                 <div className="mt-4 flex items-baseline text-5xl font-extrabold text-[#202124]">
                   ₹0
                   <span className="ml-1 text-xl font-medium text-[#5f6368]">/forever</span>
                 </div>
-                <p className="mt-4 text-[#5f6368]">Perfect for testing out the platform.</p>
+                <p className="mt-4 text-[#5f6368]">Full access to all consumer tools to help you grow.</p>
                 <ul className="mt-8 space-y-4 flex-grow">
                   <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Short Links</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>1 Basic Bio Profile</li>
-                  <li className="flex items-center text-[#5f6368]"><svg className="w-5 h-5 text-gray-300 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>File Sharing</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Advanced Bio (Products, Donations)</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Secure File Sharing (Up to 1GB)</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>3D vCard Generation</li>
                   <li className="flex items-center text-[#5f6368]"><svg className="w-5 h-5 text-gray-300 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>API Access</li>
                 </ul>
-                <Link href="/register" className="mt-8 block w-full py-3 px-6 border border-[#dadce0] rounded-full text-center font-medium text-[#202124] hover:bg-gray-50 transition-colors">Get Started Free</Link>
-              </div>
-
-              {/* Pro Tier */}
-              <div className="bg-[#1a73e8] rounded-3xl p-8 border border-[#1a73e8] shadow-xl relative transform md:-translate-y-4 flex flex-col h-full">
-                <div className="absolute top-0 right-6 transform -translate-y-1/2">
-                  <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Pro</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white">Creator Pro</h3>
-                <div className="mt-4 flex items-baseline text-5xl font-extrabold text-white">
-                  ₹299
-                  <span className="ml-1 text-xl font-medium text-blue-200">/month</span>
-                </div>
-                <p className="mt-4 text-blue-100">For active creators and growing audiences.</p>
-                <ul className="mt-8 space-y-4 text-white flex-grow">
-                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Everything in Basic</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Advanced Bio (Products, Donations)</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Secure File Sharing (Up to 1GB)</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-blue-200 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>3D vCard Generation</li>
-                  <li className="flex items-center text-blue-300/50"><svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>API Access</li>
-                </ul>
-                <Link href="/register" className="mt-8 block w-full py-3 px-6 bg-white rounded-full text-center font-bold text-[#1a73e8] hover:bg-gray-100 transition-colors shadow-sm">Upgrade to Pro</Link>
+                <Link href="/register" className="mt-8 block w-full py-3 px-6 border border-[#dadce0] rounded-full text-center font-medium text-[#202124] hover:bg-gray-50 transition-colors">Start Using Free</Link>
               </div>
 
               {/* API Tier */}
-              <div className="bg-gray-900 rounded-3xl p-8 border border-gray-800 shadow-xl flex flex-col h-full">
-                <h3 className="text-2xl font-bold text-white">Developer API</h3>
+              <div className="bg-gray-900 rounded-3xl p-8 border border-gray-800 shadow-xl flex flex-col h-full relative transform md:-translate-y-4">
+                <div className="absolute top-0 right-6 transform -translate-y-1/2">
+                  <span className="bg-gradient-to-r from-[#1a73e8] to-[#9333ea] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Developer</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">API Access</h3>
                 <div className="mt-4 flex items-baseline text-5xl font-extrabold text-white">
-                  ₹1499
+                  ₹499
                   <span className="ml-1 text-xl font-medium text-gray-400">/month</span>
                 </div>
                 <p className="mt-4 text-gray-400">Programmatic access for apps and software.</p>
                 <ul className="mt-8 space-y-4 text-gray-300 flex-grow">
-                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Everything in Pro</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>5 Scoped API Keys</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Automated Link Generation</li>
-                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Automated File Uploads</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Everything in Creator</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-[#1a73e8] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>5 Scoped API Keys</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-[#1a73e8] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Automated Link Generation</li>
+                  <li className="flex items-center"><svg className="w-5 h-5 text-[#1a73e8] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>Automated File Uploads</li>
                 </ul>
-                <Link href="/login" className="mt-8 block w-full py-3 px-6 bg-gray-800 border border-gray-700 rounded-full text-center font-bold text-white hover:bg-gray-700 transition-colors shadow-sm">Get API Key</Link>
+                <Link href="/login" className="mt-8 block w-full py-3 px-6 bg-white text-[#202124] rounded-full text-center font-bold hover:bg-gray-100 transition-colors shadow-sm">Get API Key</Link>
               </div>
 
             </div>
@@ -195,7 +178,7 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="text-lg font-bold text-[#202124]">How does the API payment work?</h4>
-                <p className="mt-2 text-[#5f6368]">Our Developer tier is ₹1499/month. Once active, you get 5 distinct, scoped API keys (Master, URL, Bio, File, vCard) to safely automate different parts of your workflow.</p>
+                <p className="mt-2 text-[#5f6368]">Our Developer tier is ₹499/month. Once active, you get 5 distinct, scoped API keys (Master, URL, Bio, File, vCard) to safely automate different parts of your workflow.</p>
               </div>
             </div>
           </div>
