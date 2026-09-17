@@ -68,21 +68,42 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Feature 1 */}
               <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#1a73e8] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-[#e8f0fe] text-[#1a73e8] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">✨</div>
+                <div className="w-14 h-14 rounded-full bg-[#e8f0fe] text-[#1a73e8] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">📈</div>
+                <h3 className="text-xl font-bold text-[#202124]">Advanced Analytics</h3>
+                <p className="mt-3 text-[#5f6368] leading-relaxed">Track your success with our beautiful dashboard. Monitor clicks over time, device types, browsers, and top referring websites.</p>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#9333ea] hover:shadow-md transition-all text-left flex flex-col items-start group">
+                <div className="w-14 h-14 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🖼️</div>
+                <h3 className="text-xl font-bold text-[#202124]">Custom SEO Previews</h3>
+                <p className="mt-3 text-[#5f6368] leading-relaxed">Control exactly how your link looks on WhatsApp and Twitter. Inject custom Open Graph images, titles, and descriptions.</p>
+              </div>
+              
+              {/* Feature 3 */}
+              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#ea4335] hover:shadow-md transition-all text-left flex flex-col items-start group">
+                <div className="w-14 h-14 rounded-full bg-red-50 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">✨</div>
+                <h3 className="text-xl font-bold text-[#202124]">Animated Themes</h3>
+                <p className="mt-3 text-[#5f6368] leading-relaxed">Make your Bio page stand out. Unlock premium Glassmorphism and beautiful animated gradient backgrounds.</p>
+              </div>
+
+              {/* Feature 4 */}
+              <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#1a73e8] hover:shadow-md transition-all text-left flex flex-col items-start group">
+                <div className="w-14 h-14 rounded-full bg-[#e8f0fe] text-[#1a73e8] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🔗</div>
                 <h3 className="text-xl font-bold text-[#202124]">Link-in-Bio Profiles</h3>
                 <p className="mt-3 text-[#5f6368] leading-relaxed">Build a stunning, mobile-friendly landing page to house all your important links in one place. Customize it to match your brand.</p>
               </div>
               
-              {/* Feature 2 */}
+              {/* Feature 5 */}
               <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#34a853] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-[#e6f4ea] text-[#34a853] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🔗</div>
+                <div className="w-14 h-14 rounded-full bg-[#e6f4ea] text-[#34a853] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">✂️</div>
                 <h3 className="text-xl font-bold text-[#202124]">Smart URL Shortener</h3>
                 <p className="mt-3 text-[#5f6368] leading-relaxed">Create memorable short URLs. Protect them with passwords, set expiration dates, and generate instant QR codes.</p>
               </div>
               
-              {/* Feature 3 */}
+              {/* Feature 6 */}
               <div className="bg-white p-8 rounded-2xl border border-[#dadce0] hover:border-[#fbbc04] hover:shadow-md transition-all text-left flex flex-col items-start group">
-                <div className="w-14 h-14 rounded-full bg-[#fef7e0] text-[#f9ab00] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">💎</div>
+                <div className="w-14 h-14 rounded-full bg-[#fef7e0] text-[#f9ab00] flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">💰</div>
                 <h3 className="text-xl font-bold text-[#202124]">Ad Monetization</h3>
                 <p className="mt-3 text-[#5f6368] leading-relaxed">Turn your traffic into revenue. Enable our built-in 5-second ad monetization modal on your links to earn money automatically.</p>
               </div>
