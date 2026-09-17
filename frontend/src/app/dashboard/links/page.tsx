@@ -265,49 +265,72 @@ export default function Dashboard() {
                 />
               </div>
 
-              {/* Advanced Settings Toggle */}
-              <div className="pt-2">
+              {/* Social Media Preview Toggle */}
+              <div className="pt-4 border-t border-gray-100 mt-6">
                 <button 
                   type="button" 
                   onClick={() => setShowAdvanced(!showAdvanced)}
-                  className="flex items-center text-sm font-medium text-[#1a73e8] hover:text-[#1557b0] transition-colors"
+                  className="flex flex-col sm:flex-row sm:items-center justify-between w-full p-4 bg-[#f8f9fa] hover:bg-gray-100 rounded-xl transition-all border border-gray-200 shadow-sm text-left gap-3"
                 >
-                  <svg className={`w-4 h-4 mr-1 transition-transform ${showAdvanced ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-                  Advanced Settings (SEO & Social Previews)
+                  <div className="flex flex-col text-left">
+                    <span className="font-bold text-[#202124] flex items-center gap-2 text-base">
+                      🖼️ Customize Social Media Preview
+                    </span>
+                    <span className="text-xs sm:text-sm text-[#5f6368] mt-1 leading-relaxed">
+                      Change how this link looks when shared on WhatsApp, Facebook, iMessage, or Twitter.
+                    </span>
+                  </div>
+                  <div className="hidden sm:flex items-center justify-center bg-white rounded-full p-2 border border-gray-200">
+                    <svg className={`w-5 h-5 text-gray-600 transition-transform ${showAdvanced ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
                 </button>
               </div>
 
               {showAdvanced && (
-                <div className="space-y-3.5 bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                <div className="space-y-5 bg-white p-5 rounded-xl border border-gray-200 shadow-sm mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                  
+                  {/* Explainer Box */}
+                  <div className="flex items-start sm:items-center gap-4 mb-2 pb-4 border-b border-gray-100 bg-[#e8f0fe] p-4 rounded-lg">
+                    <div className="min-w-[40px] w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1a73e8] shadow-sm">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    </div>
+                    <p className="text-sm text-[#202124] font-medium leading-relaxed">
+                      When you send this short link in a chat, the app will pop up a card using the details you provide below.
+                    </p>
+                  </div>
+                  
                   <div>
-                    <label className="block text-sm font-medium text-[#202124] mb-1.5">Preview Title</label>
+                    <label className="block text-sm font-bold text-[#202124] mb-2">Headline (Title)</label>
                     <input
                       type="text"
                       value={ogTitle}
                       onChange={(e) => setOgTitle(e.target.value)}
-                      placeholder="e.g., My Awesome Product"
-                      className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm"
+                      placeholder="e.g., 🔥 50% OFF Summer Sale!"
+                      className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm"
                     />
                   </div>
+                  
                   <div>
-                    <label className="block text-sm font-medium text-[#202124] mb-1.5">Preview Description</label>
-                    <input
-                      type="text"
+                    <label className="block text-sm font-bold text-[#202124] mb-2">Short Description</label>
+                    <textarea
                       value={ogDescription}
                       onChange={(e) => setOgDescription(e.target.value)}
-                      placeholder="e.g., Check out this amazing product..."
-                      className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm"
+                      placeholder="e.g., Click here to claim your discount before time runs out!"
+                      rows={2}
+                      className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm resize-none"
                     />
                   </div>
+                  
                   <div>
-                    <label className="block text-sm font-medium text-[#202124] mb-1.5">Preview Image URL</label>
+                    <label className="block text-sm font-bold text-[#202124] mb-2">Preview Image URL</label>
                     <input
                       type="url"
                       value={ogImage}
                       onChange={(e) => setOgImage(e.target.value)}
-                      placeholder="https://example.com/image.png"
-                      className="block w-full px-3 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm"
+                      placeholder="e.g., https://your-website.com/shoe.png"
+                      className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm shadow-sm"
                     />
+                    <p className="mt-2 text-xs text-[#5f6368]">Paste a direct link to an image. (Square or landscape works best)</p>
                   </div>
                 </div>
               )}
