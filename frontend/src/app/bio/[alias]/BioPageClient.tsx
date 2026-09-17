@@ -4,7 +4,15 @@ import { useState, useEffect } from "react";
 import Script from "next/script";
 
 export default function BioPageClient({ bioPage }: { bioPage: any }) {
+  const [countdown, setCountdown] = useState(bioPage.ad_enabled ? 5 : 0);
   const [emailCopied, setEmailCopied] = useState(false);
+
+  useEffect(() => {
+    if (countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [countdown]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: any) => {
     e.preventDefault();
@@ -23,7 +31,51 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
         console.error("AdSense error", e);
       }
     }
-  }, [bioPage.ad_enabled, adSensePubId]);
+  }, [bioPage.ad_enabled, adSensePubId, countdown]);
+
+  if (countdown > 0) {
+    return (
+      <div className="min-h-screen bg-[#000000] flex items-center justify-center p-4">
+        {adSensePubId && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adSensePubId}`}
+            crossOrigin="anonymous"
+            strategy="lazyOnload"
+          />
+        )}
+        
+        <div className="bg-[#f8f9fa] rounded-xl overflow-hidden shadow-2xl max-w-2xl w-full">
+          {/* Header */}
+          <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200 bg-white">
+            <h2 className="text-lg font-bold text-[#202124]">Loading {bioPage.title}'s bio...</h2>
+            <span className="text-sm text-gray-500">Advertisement</span>
+          </div>
+
+          {/* Ad Container */}
+          <div className="flex justify-center items-center py-12 bg-[#f8f9fa]">
+            <div className="w-[300px] h-[250px] bg-[#dce0e5] border border-[#bdc1c6] flex items-center justify-center relative overflow-hidden">
+              {adSensePubId ? (
+                <ins className="adsbygoogle"
+                     style={{ display: "inline-block", width: "300px", height: "250px" }}
+                     data-ad-client={adSensePubId}
+                     data-ad-slot="4096463539"></ins>
+              ) : (
+                <span className="text-[#5f6368] font-medium text-lg">Ad Space (300x250)</span>
+              )}
+            </div>
+          </div>
+
+          {/* Footer Countdown */}
+          <div className="text-center py-8 bg-[#f8f9fa]">
+            <p className="text-xl text-[#202124]">
+              Profile will load in <span className="text-3xl font-extrabold text-[#1a73e8] mx-1">{countdown}</span> seconds
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: themeColor }}>

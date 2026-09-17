@@ -103,7 +103,7 @@ export default function AdPage() {
           ) : (
             <div className="flex justify-center">
               <button 
-                onClick={() => window.location.href = originalUrl}
+                onClick={() => { if (originalUrl) window.location.href = originalUrl; }}
                 className="px-8 py-3 bg-[#1a73e8] hover:bg-[#1557b0] text-white font-bold rounded-lg transition-colors text-lg"
               >
                 Continue to Link
