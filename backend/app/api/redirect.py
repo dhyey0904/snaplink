@@ -28,6 +28,8 @@ def redirect_to_original(short_code: str, request: Request, db: Session = Depend
         pwd = request.query_params.get("pwd")
         from app.core.security import verify_password
         if not pwd or not verify_password(pwd, link.password_hash):
+            if request.query_params.get("json") == "true":
+                raise HTTPException(status_code=401, detail="Password required or incorrect")
             return RedirectResponse(url=f"https://snaplinks.in/unlock/{short_code}")
             
     # Record the click
@@ -55,4 +57,7 @@ def redirect_to_original(short_code: str, request: Request, db: Session = Depend
     db.add(click)
     db.commit()
 
+    if request.query_params.get("json") == "true":
+        return {"original_url": link.original_url}
+        
     return RedirectResponse(url=link.original_url)

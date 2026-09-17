@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import BioPageClient from "./BioPageClient";
 
-export const dynamic = 'force-dynamic';
-export const fetchCache = 'force-no-store';
+// Revalidate in the background every 60 seconds (ISR)
+// This makes the page load instantly from Vercel's edge cache!
+export const revalidate = 60;
 
 export default async function PublicBioPage({ params }: { params: Promise<{ alias: string }> }) {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-backend-j69v.onrender.com";
@@ -10,7 +11,7 @@ export default async function PublicBioPage({ params }: { params: Promise<{ alia
   try {
     const resolvedParams = await params;
     const res = await fetch(`${backendUrl}/api/bio/public/${resolvedParams.alias}`, {
-      next: { revalidate: 0 }
+      next: { revalidate: 60 }
     });
     
     if (!res.ok) {

@@ -27,7 +27,7 @@ export default function AdPage() {
       try {
         const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
         // Fetch to log the click and get the destination!
-        const res = await fetch(`${backendUrl}/api/redirect/${shortCode}`);
+        const res = await fetch(`${backendUrl}/${shortCode}?json=true`);
         const data = await res.json();
         
         if (!res.ok) {
