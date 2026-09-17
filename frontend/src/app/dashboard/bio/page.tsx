@@ -254,13 +254,15 @@ export default function BioDashboard() {
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
       <nav className="w-full border-b border-[#dadce0] bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex-shrink-0 flex items-center">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:h-16 sm:items-center py-3 sm:py-0">
+            <div className="flex justify-between items-center w-full sm:w-auto">
+              <div className="flex-shrink-0 flex items-center">
               <span className="text-2xl font-bold tracking-tight text-[#202124]">
                 Snap<span className="text-[#1a73e8]">Link</span>
               </span>
             </div>
-            <div className="flex items-center gap-6">
+            </div>
+            <div className="flex items-center gap-4 lg:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide mt-3 sm:mt-0 pb-1 sm:pb-0 w-full sm:w-auto">
               <Link href="/dashboard" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors py-5">
                 Overview
               </Link>
