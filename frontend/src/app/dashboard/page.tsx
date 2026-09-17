@@ -154,14 +154,19 @@ export default function BioDashboard() {
     e.preventDefault();
     setIsAddingLink(true);
     try {
-      const order = bioPage.links ? bioPage.links.length : 0;
-      await fetchAPI("/bio/links", {
+      const order = bioPage?.links ? bioPage.links.length : 0;
+      const newLink = await fetchAPI("/bio/links", {
         method: "POST",
         body: JSON.stringify({ title: newLinkTitle, url: newLinkUrl, order })
       });
       setNewLinkTitle("");
       setNewLinkUrl("");
-      await loadBioPage(); // Refresh links
+      
+      // Add link locally without wiping out unsaved profile edits!
+      setBioPage((prev: any) => {
+        if (!prev) return prev;
+        return { ...prev, links: [...(prev.links || []), newLink] };
+      });
     } catch (err: any) {
       alert(err.message);
     } finally {
@@ -173,7 +178,11 @@ export default function BioDashboard() {
     if (!confirm("Delete this link?")) return;
     try {
       await fetchAPI(`/bio/links/${id}`, { method: "DELETE" });
-      await loadBioPage(); // Refresh
+      // Remove link locally without wiping out unsaved profile edits!
+      setBioPage((prev: any) => {
+        if (!prev) return prev;
+        return { ...prev, links: prev.links.filter((l: any) => l.id !== id) };
+      });
     } catch (err: any) {
       alert(err.message);
     }
@@ -251,11 +260,11 @@ export default function BioDashboard() {
                 <form onSubmit={handleUpdateBio} className="space-y-5">
                   <div>
                     <label className="block text-sm font-medium text-[#202124] mb-2">Page Title</label>
-                    <input required type="text" value={title} onChange={e => setTitle(e.target.value)} onBlur={autoSave} className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow" />
+                    <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[#202124] mb-2">Bio Text <span className="text-[#5f6368] font-normal">(Optional)</span></label>
-                    <textarea value={bioText} onChange={e => setBioText(e.target.value)} onBlur={autoSave} placeholder="A short description about yourself" rows={2} className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368] resize-none" />
+                    <textarea value={bioText} onChange={e => setBioText(e.target.value)} placeholder="A short description about yourself" rows={2} className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368] resize-none" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[#202124] mb-2">Profile Image (Upload from device)</label>
@@ -286,7 +295,7 @@ export default function BioDashboard() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[#202124] mb-1.5">Contact Email <span className="text-[#5f6368] font-normal">(Optional)</span></label>
-                    <input type="email" value={contactEmail} onChange={e => setContactEmail(e.target.value)} onBlur={autoSave} placeholder="hello@example.com" className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                    <input type="email" value={contactEmail} onChange={e => setContactEmail(e.target.value)} placeholder="hello@example.com" className="block w-full px-4 py-3 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[#202124] mb-1.5">Resume (Upload PDF) <span className="text-[#5f6368] font-normal">(Optional)</span></label>
@@ -317,27 +326,27 @@ export default function BioDashboard() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-[#202124] mb-1.5">Twitter URL <span className="text-[#5f6368] font-normal">(Optional)</span></label>
-                      <input type="url" value={twitterUrl} onChange={e => setTwitterUrl(e.target.value)} onBlur={autoSave} placeholder="https://twitter.com/..." className="block w-full px-4 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                      <input type="url" value={twitterUrl} onChange={e => setTwitterUrl(e.target.value)} placeholder="https://twitter.com/..." className="block w-full px-4 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[#202124] mb-1.5">Instagram URL <span className="text-[#5f6368] font-normal">(Optional)</span></label>
-                      <input type="url" value={instagramUrl} onChange={e => setInstagramUrl(e.target.value)} onBlur={autoSave} placeholder="https://instagram.com/..." className="block w-full px-4 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                      <input type="url" value={instagramUrl} onChange={e => setInstagramUrl(e.target.value)} placeholder="https://instagram.com/..." className="block w-full px-4 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[#202124] mb-1.5">LinkedIn URL <span className="text-[#5f6368] font-normal">(Optional)</span></label>
-                      <input type="url" value={linkedinUrl} onChange={e => setLinkedinUrl(e.target.value)} onBlur={autoSave} placeholder="https://linkedin.com/in/..." className="block w-full px-4 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                      <input type="url" value={linkedinUrl} onChange={e => setLinkedinUrl(e.target.value)} placeholder="https://linkedin.com/in/..." className="block w-full px-4 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[#202124] mb-1.5">GitHub URL <span className="text-[#5f6368] font-normal">(Optional)</span></label>
-                      <input type="url" value={githubUrl} onChange={e => setGithubUrl(e.target.value)} onBlur={autoSave} placeholder="https://github.com/..." className="block w-full px-4 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
+                      <input type="url" value={githubUrl} onChange={e => setGithubUrl(e.target.value)} placeholder="https://github.com/..." className="block w-full px-4 py-2 bg-white border border-[#dadce0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1a73e8] text-[#202124] sm:text-sm transition-shadow placeholder-[#5f6368]" />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-[#202124] mb-2">Theme Color</label>
                     <div className="flex gap-3">
-                      <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} onBlur={autoSave} className="w-12 h-12 p-1 border border-[#dadce0] rounded-md cursor-pointer bg-white" />
-                      <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} onBlur={autoSave} className="flex-1 px-4 py-3 border border-[#dadce0] rounded-md text-[#202124] focus:ring-2 focus:ring-[#1a73e8] focus:outline-none" />
+                      <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-12 h-12 p-1 border border-[#dadce0] rounded-md cursor-pointer bg-white" />
+                      <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 px-4 py-3 border border-[#dadce0] rounded-md text-[#202124] focus:ring-2 focus:ring-[#1a73e8] focus:outline-none" />
                     </div>
                   </div>
                   <div className="flex gap-4 pt-4">
