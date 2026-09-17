@@ -75,10 +75,16 @@ def google_login(token_data: GoogleToken, db: Session = Depends(get_db)) -> Any:
         if not user:
             # Create a new user with a random unguessable password
             random_pwd = ''.join(secrets.choice(string.ascii_letters + string.digits) for _ in range(32))
+            
+            try:
+                hashed_pwd = get_password_hash(random_pwd)
+            except Exception as pwd_err:
+                raise HTTPException(status_code=401, detail=f"Password hashing failed for string '{random_pwd}' (length {len(random_pwd)}): {str(pwd_err)}")
+                
             user = User(
                 name=name,
                 email=email,
-                password=get_password_hash(random_pwd),
+                password=hashed_pwd,
             )
             db.add(user)
             db.commit()
@@ -92,7 +98,9 @@ def google_login(token_data: GoogleToken, db: Session = Depends(get_db)) -> Any:
         return {"access_token": access_token, "token_type": "bearer"}
 
     except ValueError as e:
-        raise HTTPException(status_code=401, detail=f"Invalid Google token: {str(e)}")
+        import traceback
+        tb = traceback.format_exc()
+        raise HTTPException(status_code=401, detail=f"Invalid Google token: {str(e)} \n\n {tb}")
 
 from app.api.deps import get_current_user
 
