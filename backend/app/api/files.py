@@ -17,7 +17,7 @@ router = APIRouter()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 UPLOAD_DIR = "uploads"
-MAX_FILE_SIZE = 50 * 1024 * 1024  # 50 MB
+MAX_FILE_SIZE = 1024 * 1024 * 1024  # 1024 MB
 
 import string
 import random
@@ -29,7 +29,6 @@ def generate_short_code(length=6):
 async def upload_file(
     file: UploadFile = File(...),
     password: Optional[str] = Form(None),
-    expires_in_days: Optional[int] = Form(None),
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
@@ -42,7 +41,7 @@ async def upload_file(
     file.file.seek(0)
     
     if file_size > MAX_FILE_SIZE:
-        raise HTTPException(status_code=400, detail="File too large. Maximum size is 50MB.")
+        raise HTTPException(status_code=400, detail="File too large. Maximum size is 1024MB.")
         
     # Generate unique filename
     file_uuid = str(uuid.uuid4())
@@ -62,10 +61,8 @@ async def upload_file(
     # Hash password if provided
     password_hash = pwd_context.hash(password) if password else None
     
-    # Expiry
-    expires_at = None
-    if expires_in_days:
-        expires_at = datetime.utcnow() + timedelta(days=expires_in_days)
+    # Auto-expire after 5 minutes
+    expires_at = datetime.utcnow() + timedelta(minutes=5)
         
     db_file = FileShare(
         user_id=current_user.id,
@@ -139,7 +136,9 @@ def get_public_file_info(short_code: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="File not found")
         
     if db_file.expires_at and datetime.utcnow() > db_file.expires_at:
-        raise HTTPException(status_code=410, detail="This file link has expired")
+        db.delete(db_file)
+        db.commit()
+        raise HTTPException(status_code=410, detail="This file link has expired and was deleted")
         
     return {
         "filename": db_file.filename,
@@ -174,7 +173,9 @@ def download_file(short_code: str, token: str = None, db: Session = Depends(get_
         raise HTTPException(status_code=404, detail="File not found")
         
     if db_file.expires_at and datetime.utcnow() > db_file.expires_at:
-        raise HTTPException(status_code=410, detail="This file link has expired")
+        db.delete(db_file)
+        db.commit()
+        raise HTTPException(status_code=410, detail="This file link has expired and was deleted")
         
     if db_file.password_hash:
         if token != "verified":
