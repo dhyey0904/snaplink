@@ -386,7 +386,7 @@ export default function Dashboard() {
                           <button onClick={() => {
                             if (navigator.share) {
                               navigator.share({
-                                title: link.title || 'My Link',
+                                title: link.og_title || 'My Link',
                                 url: `${SHORT_LINK_DOMAIN}${shortCode}`,
                               }).catch(console.error);
                             } else {
