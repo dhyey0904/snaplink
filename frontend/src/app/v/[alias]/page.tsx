@@ -44,6 +44,16 @@ export default function PublicBusinessCard() {
     setIsFlipped(!isFlipped);
   };
 
+    useEffect(() => {
+    if (loading || error) return;
+    if (timeLeft <= 0) {
+      setAdFinished(true);
+      return;
+    }
+    const timer = setTimeout(() => setTimeLeft(prev => prev - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [timeLeft, loading, error]);
+
   const handleSaveContact = () => {
     if (!card) return;
     const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;${card.name || ''};;;\nFN:${card.name || ''}\nORG:${card.company || ''}\nTITLE:${card.job_title || ''}\nTEL;TYPE=WORK,VOICE:${card.phone || ''}\nTEL;TYPE=CELL,VOICE:${card.whatsapp || ''}\nEMAIL;TYPE=PREF,INTERNET:${card.email || ''}\nURL:${card.resume_url || ''}\nEND:VCARD`;
@@ -295,7 +305,7 @@ export default function PublicBusinessCard() {
         
         {/* Powered By SnapLink */}
         <div className="absolute bottom-4 inset-x-0 flex justify-center z-20 pointer-events-auto">
-          <a href="https://snaplink.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
+          <a href="https://www.snaplinks.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
             <span className="text-[10px] md:text-xs text-white font-medium uppercase tracking-widest">Powered by</span>
             <span className="text-[10px] md:text-xs text-white font-black tracking-tight">SnapLink</span>
           </a>
