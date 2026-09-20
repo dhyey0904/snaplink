@@ -44,15 +44,7 @@ export default function PublicBusinessCard() {
     setIsFlipped(!isFlipped);
   };
 
-    useEffect(() => {
-    if (loading || error) return;
-    if (timeLeft <= 0) {
-      setAdFinished(true);
-      return;
-    }
-    const timer = setTimeout(() => setTimeLeft(prev => prev - 1), 1000);
-    return () => clearTimeout(timer);
-  }, [timeLeft, loading, error]);
+  
 
   const handleSaveContact = () => {
     if (!card) return;
@@ -124,33 +116,19 @@ export default function PublicBusinessCard() {
   return (
     <div className="h-[100dvh] w-full flex flex-col font-sans relative overflow-hidden fixed inset-0" style={{ background: bgStyle }}>
       {!hasEntered && (
-        <div className="absolute inset-0 z-[100] flex flex-col items-center justify-center backdrop-blur-2xl bg-black/80 transition-opacity duration-500 p-4">
-          {!adFinished ? (
-            <div className="text-center">
-              <h2 className="text-white text-2xl font-bold mb-2">Advertisement</h2>
-              <p className="text-gray-400 mb-6">Experience starts in {timeLeft} seconds...</p>
-              <div className="bg-white rounded-xl overflow-hidden p-2 min-w-[300px] min-h-[250px]">
-                <AdBanner dataAdSlot="5555555555" />
-              </div>
-            </div>
-          ) : (
-            <button 
-              onClick={() => {
-                setHasEntered(true);
-                if (card.bg_music && card.bg_music !== 'none') {
-                  setTimeout(() => {
-                    if (audioRef.current) {
-                      audioRef.current.play().then(() => setIsPlaying(true)).catch(e => console.log("Audio play failed", e));
-                    }
-                  }, 100);
+        <AdOverlay 
+          actionText="Loading 3D Experience" 
+          onComplete={() => {
+            setHasEntered(true);
+            if (card.bg_music && card.bg_music !== 'none') {
+              setTimeout(() => {
+                if (audioRef.current) {
+                  audioRef.current.play().then(() => setIsPlaying(true)).catch(e => console.log("Audio play failed", e));
                 }
-              }}
-              className={`px-12 py-5 rounded-full text-xl font-bold tracking-widest uppercase transition-all hover:scale-105 active:scale-95 shadow-2xl border ${isDarkText ? 'bg-gray-900 text-white border-white/20' : 'bg-white text-gray-900 border-black/10'}`}
-            >
-              Click to View
-            </button>
-          )}
-        </div>
+              }, 100);
+            }
+          }} 
+        />
       )}
       
       {card.bg_music && card.bg_music !== 'none' && (
