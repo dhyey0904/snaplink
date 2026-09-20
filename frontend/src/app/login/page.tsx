@@ -81,7 +81,14 @@ export default function Login() {
       {/* LEFT SIDE - Form */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-16 md:px-24 xl:px-32 py-10 lg:py-0 relative z-10 bg-white shadow-[20px_0_40px_rgba(0,0,0,0.1)]">
         <div className="max-w-md w-full mx-auto">
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-1">Welcome back</h2>
+                    {/* Mobile Only Logo */}
+          <div className="lg:hidden mb-8 flex items-center justify-center">
+            <Link href="/" className="text-3xl font-black tracking-tighter text-gray-900">
+              Snap<span className="text-[#1a73e8]">Link</span>
+            </Link>
+          </div>
+          
+<h2 className="text-3xl font-extrabold text-gray-900 mb-1">Welcome back</h2>
           <p className="text-gray-500 font-medium mb-6 text-sm">Enter your details to access your account.</p>
 
           <div className="mb-4 w-full flex justify-center transform hover:scale-[1.02] transition-transform">
