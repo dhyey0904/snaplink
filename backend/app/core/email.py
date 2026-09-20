@@ -11,8 +11,38 @@ SMTP_USER = os.environ.get("SMTP_USER", "")
 SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 
 def send_email(to_email: str, subject: str, html_body: str):
+    # 1. Try Resend HTTP API (Bypasses Render SMTP Block)
+    resend_api_key = os.environ.get("RESEND_API_KEY")
+    if resend_api_key:
+        import requests
+        print(f"Attempting to send email via Resend API to {to_email}...")
+        try:
+            response = requests.post(
+                "https://api.resend.com/emails",
+                headers={
+                    "Authorization": f"Bearer {resend_api_key}",
+                    "Content-Type": "application/json"
+                },
+                json={
+                    "from": "SnapLink <onboarding@resend.dev>",
+                    "to": [to_email],
+                    "subject": subject,
+                    "html": html_body
+                }
+            )
+            if response.status_code in [200, 201]:
+                print(f"Successfully sent email via Resend to {to_email}")
+                return True
+            else:
+                print(f"Resend API Error: {response.text}")
+                return False
+        except Exception as e:
+            print(f"Resend API Exception: {e}")
+            return False
+
+    # 2. Fallback to standard SMTP
     if not SMTP_USER or not SMTP_PASSWORD:
-        print(f"Skipping email to {to_email} (SMTP credentials not configured)")
+        print(f"Skipping email to {to_email} (Neither RESEND_API_KEY nor SMTP credentials configured)")
         return False
         
     msg = MIMEMultipart("alternative")
