@@ -16,9 +16,10 @@ export default function AdOverlay({ onComplete, actionText = "Continuing" }: AdO
       onComplete();
       return;
     }
-    const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    const timer = setTimeout(() => setTimeLeft(prev => prev - 1), 1000);
     return () => clearTimeout(timer);
-  }, [timeLeft, onComplete]);
+  }, [timeLeft]); // Removed onComplete to prevent inline function re-render bugs
+
 
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#111827] text-white overflow-hidden p-4 sm:p-8">
