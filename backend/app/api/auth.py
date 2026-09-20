@@ -135,3 +135,47 @@ def generate_api_key(
     db.refresh(current_user)
     
     return current_user
+
+class ForgotPasswordRequest(BaseModel):
+    email: str
+
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str
+
+@router.post("/forgot-password")
+def forgot_password(request: ForgotPasswordRequest, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == request.email).first()
+    if user:
+        from jose import jwt
+        from datetime import datetime
+        # Create a stateless JWT reset token valid for 15 minutes
+        expire = datetime.utcnow() + timedelta(minutes=15)
+        to_encode = {"sub": user.email, "exp": expire, "type": "reset"}
+        encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm="HS256")
+        
+        from app.core.email import send_password_reset_email
+        background_tasks.add_task(send_password_reset_email, user.email, encoded_jwt)
+    
+    # Always return success to prevent email enumeration attacks
+    return {"message": "If an account with that email exists, we sent a password reset link."}
+
+@router.post("/reset-password")
+def reset_password(request: ResetPasswordRequest, db: Session = Depends(get_db)):
+    from jose import jwt, JWTError
+    try:
+        payload = jwt.decode(request.token, settings.SECRET_KEY, algorithms=["HS256"])
+        email = payload.get("sub")
+        token_type = payload.get("type")
+        if email is None or token_type != "reset":
+            raise HTTPException(status_code=400, detail="Invalid token")
+    except JWTError:
+        raise HTTPException(status_code=400, detail="Invalid or expired token")
+
+    user = db.query(User).filter(User.email == email).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    user.password = get_password_hash(request.new_password)
+    db.commit()
+    return {"message": "Password successfully reset"}

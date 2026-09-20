@@ -68,3 +68,23 @@ def send_file_downloaded_email(to_email: str, filename: str):
     </html>
     """
     return send_email(to_email, subject, body)
+
+def send_password_reset_email(to_email: str, token: str):
+    subject = "Reset your SnapLink password"
+    # Using snaplinks.in explicitly, or environment variable
+    reset_url = f"https://www.snaplinks.in/reset-password?token={token}"
+    body = f"""
+    <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h2 style="color: #1a73e8;">Reset Your Password</h2>
+        <p>Hi there,</p>
+        <p>We received a request to reset the password for your SnapLink account. If you made this request, please click the button below to choose a new password:</p>
+        <div style="margin: 30px 0;">
+          <a href="{reset_url}" style="background-color: #1a73e8; color: white; padding: 12px 24px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">Reset Password</a>
+        </div>
+        <p>If you didn't request a password reset, you can safely ignore this email.</p>
+        <p>Cheers,<br>The SnapLink Team</p>
+      </body>
+    </html>
+    """
+    return send_email(to_email, subject, body)

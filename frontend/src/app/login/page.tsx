@@ -153,6 +153,9 @@ export default function Login() {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
+              <div className="flex justify-end mt-2">
+                <Link href="/forgot-password" className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors">Forgot password?</Link>
+              </div>
             </div>
 
             <button
