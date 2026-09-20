@@ -140,7 +140,7 @@ export default function FileDownloadPage() {
 
     const handleDownload = () => {
     if (metadata.has_password && !verifiedToken) return;
-    executeDownload();
+    setShowAd(true);
   };
 
   const executeDownload = () => {

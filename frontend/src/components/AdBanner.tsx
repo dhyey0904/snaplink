@@ -28,7 +28,7 @@ export default function AdBanner({
   }, []);
 
   return (
-    <div className={`w-full overflow-hidden flex justify-center items-center bg-gray-50 rounded-xl border border-gray-100 ${className}`}>
+    <div className={`w-full overflow-hidden flex justify-center items-center bg-transparent ${className}`}>
       <ins
         ref={adRef}
         className="adsbygoogle"
