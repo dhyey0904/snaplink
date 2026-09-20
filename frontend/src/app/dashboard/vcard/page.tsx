@@ -328,6 +328,9 @@ export default function VCardDashboard() {
                           <span className="text-xs font-semibold text-gray-500">{headshotUrl ? 'Change Headshot' : 'Upload Headshot'}</span>
                           <input type="file" className="hidden text-gray-900 placeholder-gray-400" accept="image/*" onChange={(e) => handleImageUpload(e, setHeadshotUrl)} />
                         </label>
+                          {headshotUrl && (
+                            <button type="button" onClick={() => setHeadshotUrl("")} className="mt-2 text-xs text-red-500 hover:text-red-700 font-bold w-full text-center">Remove Headshot</button>
+                          )}
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Company Logo</label>
@@ -335,6 +338,9 @@ export default function VCardDashboard() {
                           <span className="text-xs font-semibold text-gray-500">{logoUrl ? 'Change Logo' : 'Upload Logo'}</span>
                           <input type="file" className="hidden text-gray-900 placeholder-gray-400" accept="image/*" onChange={(e) => handleImageUpload(e, setLogoUrl)} />
                         </label>
+                          {logoUrl && (
+                            <button type="button" onClick={() => setLogoUrl("")} className="mt-2 text-xs text-red-500 hover:text-red-700 font-bold w-full text-center">Remove Logo</button>
+                          )}
                       </div>
                     </div>
                   </div>
@@ -581,10 +587,7 @@ export default function VCardDashboard() {
                             <div className="relative z-10 flex items-end justify-between">
                               <div className="flex flex-col">
                                 <h2 className={`text-xl font-black tracking-wide leading-tight ${isDarkText ? 'text-gray-900' : 'text-white'}`}>{name || 'Your Name'}</h2>
-                                <p className={`text-[10px] font-semibold uppercase tracking-widest mt-0.5 ${isDarkText ? 'text-gray-700' : 'text-white/80'}`}>
-                                    {jobTitle || 'Job Title'}
-                                    {logoUrl && company ? ` • ${company}` : ''}
-                                  </p>
+                                <p className={`text-[10px] font-semibold uppercase tracking-widest mt-0.5 ${isDarkText ? 'text-gray-700' : 'text-white/80'}`}>{jobTitle || 'Job Title'}</p>
                                 
                                 <div className={`mt-2 flex flex-col gap-1 text-[9px] font-medium ${isDarkText ? 'text-gray-800' : 'text-white/90'}`}>
                                   {phone && <span className="flex items-center gap-1.5"><svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> {phone}</span>}
