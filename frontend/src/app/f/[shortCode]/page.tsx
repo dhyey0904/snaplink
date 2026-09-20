@@ -181,9 +181,7 @@ export default function FileDownloadPage() {
 
   return (
     <div className="min-h-screen bg-[#fafafc] flex flex-col items-center justify-center font-sans overflow-hidden relative">
-      
-      
-
+      {showAd && <AdOverlay onComplete={executeDownload} actionText="Downloading Securely" />}
       
       {/* SnapLink Brand Header */}
       <div className="w-full flex justify-center sm:justify-start sm:pl-8 mb-8 sm:absolute sm:top-8 sm:mb-0 z-20 relative">
