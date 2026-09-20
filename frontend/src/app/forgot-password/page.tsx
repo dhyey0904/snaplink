@@ -6,12 +6,14 @@ import Link from "next/link";
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
+    setError("");
 
     try {
       const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || (typeof window !== 'undefined' ? `http://${window.location.hostname}:8000` : "http://127.0.0.1:8000");
@@ -22,9 +24,12 @@ export default function ForgotPassword() {
       });
       
       const data = await res.json();
-      setMessage(data.message || "If an account exists, a reset link has been sent.");
+      if (!res.ok) {
+        throw new Error(data.detail || "Something went wrong.");
+      }
+      setMessage(data.message || "Success! Reset link sent.");
     } catch (err: any) {
-      setMessage("Failed to connect to the server. Please try again.");
+      setError(err.message || "Failed to connect to the server.");
     } finally {
       setLoading(false);
     }
@@ -47,7 +52,8 @@ export default function ForgotPassword() {
             <p className="text-white/70 font-medium text-sm">Enter your email to receive a secure reset link.</p>
           </div>
 
-          {message && <div className="text-blue-400 text-sm font-bold p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-center mb-6">{message}</div>}
+          {message && <div className="text-green-400 text-sm font-bold p-4 bg-green-500/10 border border-green-500/20 rounded-2xl text-center mb-6">{message}</div>}
+          {error && <div className="text-red-400 text-sm font-bold p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-center mb-6">{error}</div>}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>

@@ -5,9 +5,10 @@ from app.core.config import settings
 
 SMTP_HOST = "smtp.gmail.com"
 SMTP_PORT = 587
-# You can replace these with os.environ.get if you want them highly dynamic
-SMTP_USER = getattr(settings, "SMTP_USER", "")
-SMTP_PASSWORD = getattr(settings, "SMTP_PASSWORD", "")
+import os
+# Read directly from OS environment variables since Pydantic Settings doesn't have them defined
+SMTP_USER = os.environ.get("SMTP_USER", "")
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 
 def send_email(to_email: str, subject: str, html_body: str):
     if not SMTP_USER or not SMTP_PASSWORD:
