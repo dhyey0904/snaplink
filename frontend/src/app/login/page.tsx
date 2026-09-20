@@ -22,7 +22,7 @@ export default function Login() {
       formBody.append("username", formData.email);
       formBody.append("password", formData.password);
 
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || (typeof window !== 'undefined' ? `http://${window.location.hostname}:8000` : "http://127.0.0.1:8000");
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
       const data = await fetch(`${backendUrl}/api/auth/login`, {
         method: "POST",
         headers: {
@@ -52,7 +52,7 @@ export default function Login() {
       setLoading(true);
       setError("");
       
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || (typeof window !== 'undefined' ? `http://${window.location.hostname}:8000` : "http://127.0.0.1:8000");
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
       const response = await fetch(`${backendUrl}/api/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -148,7 +148,7 @@ export default function Dashboard() {
 
     try {
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', `${process.env.NEXT_PUBLIC_BACKEND_URL || (typeof window !== 'undefined' ? `http://${window.location.hostname}:8000` : "http://127.0.0.1:8000")}/api/files/upload`);
+      xhr.open('POST', `${process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com"}/api/files/upload`);
       
       const token = localStorage.getItem('token');
       if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`);
