@@ -3,6 +3,7 @@ import ClientVCardPage from './ClientVCardPage';
 
 export async function generateMetadata({ params }: { params: Promise<{ alias: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
+  const frontendUrl = "https://www.snaplinks.in";
   
   try {
     const resolvedParams = await params;
@@ -15,25 +16,38 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
         ? `${data.job_title}${data.company ? ` at ${data.company}` : ''}`
         : 'View my 3D Digital vCard on SnapLink';
         
+      let imageUrl = data.headshot_url || data.logo_url;
+      if (imageUrl && !imageUrl.startsWith('http')) {
+        imageUrl = `${frontendUrl}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+      }
+
       return {
         title,
         description,
         openGraph: {
           title,
           description,
-          images: data.headshot_url ? [{ url: data.headshot_url }] : [],
+          type: 'profile',
+          siteName: 'SnapLink',
+          url: `${frontendUrl}/v/${resolvedParams.alias}`,
+          images: imageUrl ? [
+            {
+              url: imageUrl,
+              width: 800,
+              height: 800,
+              alt: data.name || 'Profile Image',
+            }
+          ] : [],
         },
         twitter: {
-          card: 'summary_large_image',
+          card: 'summary',
           title,
           description,
-          images: data.headshot_url ? [data.headshot_url] : [],
+          images: imageUrl ? [imageUrl] : [],
         }
       };
     }
-  } catch (e) {
-    console.error("Metadata fetch error:", e);
-  }
+  } catch (e) {}
 
   return {
     title: 'SnapLink Digital vCard',

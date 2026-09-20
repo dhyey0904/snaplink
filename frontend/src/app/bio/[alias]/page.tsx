@@ -3,6 +3,7 @@ import ClientBioPage from './ClientBioPage';
 
 export async function generateMetadata({ params }: { params: Promise<{ alias: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
+  const frontendUrl = "https://www.snaplinks.in";
   
   try {
     const resolvedParams = await params;
@@ -12,6 +13,11 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
       
       const title = data.title || 'My Bio Links';
       const description = data.description || 'Check out my links on SnapLink';
+      
+      let imageUrl = data.avatar_url;
+      if (imageUrl && !imageUrl.startsWith('http')) {
+        imageUrl = `${frontendUrl}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+      }
         
       return {
         title,
@@ -19,19 +25,27 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
         openGraph: {
           title,
           description,
-          images: data.avatar_url ? [{ url: data.avatar_url }] : [],
+          type: 'profile',
+          siteName: 'SnapLink',
+          url: `${frontendUrl}/bio/${resolvedParams.alias}`,
+          images: imageUrl ? [
+            {
+              url: imageUrl,
+              width: 800,
+              height: 800,
+              alt: title,
+            }
+          ] : [],
         },
         twitter: {
-          card: 'summary_large_image',
+          card: 'summary',
           title,
           description,
-          images: data.avatar_url ? [data.avatar_url] : [],
+          images: imageUrl ? [imageUrl] : [],
         }
       };
     }
-  } catch (e) {
-    console.error("Metadata fetch error:", e);
-  }
+  } catch (e) {}
 
   return {
     title: 'SnapLink Bio',
