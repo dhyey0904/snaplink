@@ -26,7 +26,7 @@ export default function AdPage() {
     const fetchLink = async () => {
       try {
         const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
-        const res = await fetch(`${backendUrl}/${shortCode}?json=true`);
+        const res = await fetch(`${backendUrl}/${shortCode}?json=true`, { cache: "no-store" });
         const data = await res.json();
         
         if (!res.ok) {

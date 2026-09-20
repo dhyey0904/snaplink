@@ -26,7 +26,7 @@ export default function PublicBusinessCard() {
     const fetchCard = async () => {
       try {
         const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
-        const res = await fetch(`${backendUrl}/api/vcard/${alias}`);
+        const res = await fetch(`${backendUrl}/api/vcard/${alias}`, { cache: "no-store" });
         if (!res.ok) throw new Error('Card not found');
         const data = await res.json();
         setCard(data);
@@ -49,14 +49,24 @@ export default function PublicBusinessCard() {
     if (!card) return;
     const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;${card.name || ''};;;\nFN:${card.name || ''}\nORG:${card.company || ''}\nTITLE:${card.job_title || ''}\nTEL;TYPE=WORK,VOICE:${card.phone || ''}\nTEL;TYPE=CELL,VOICE:${card.whatsapp || ''}\nEMAIL;TYPE=PREF,INTERNET:${card.email || ''}\nURL:${card.resume_url || ''}\nEND:VCARD`;
     const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', `${card.name || 'Contact'}.vcf`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    window.URL.revokeObjectURL(url);
+    
+    // On iOS Safari, blob URLs for downloads can fail. Using a Data URI triggers the native Add Contact sheet.
+    if (navigator.userAgent.match(/iPad|iPhone|iPod/i) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        window.location.href = e.target?.result as string;
+      };
+      reader.readAsDataURL(blob);
+    } else {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `${card.name || 'Contact'}.vcf`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    }
   };
 
   if (loading) {
