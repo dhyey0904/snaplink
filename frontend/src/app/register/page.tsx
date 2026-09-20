@@ -10,6 +10,7 @@ export default function Register() {
   const router = useRouter();
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,7 +50,8 @@ export default function Register() {
 
       const data = await response.json();
       localStorage.setItem("token", data.access_token);
-      router.push("/dashboard");
+      setSuccess("Account created successfully! Redirecting to your dashboard...");
+      setTimeout(() => router.push("/dashboard"), 1500);
     } catch (err: any) {
       setError(err.message);
     } finally {

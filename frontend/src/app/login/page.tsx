@@ -9,6 +9,7 @@ export default function Login() {
   const router = useRouter();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,7 +38,8 @@ export default function Login() {
 
       const result = await data.json();
       localStorage.setItem("token", result.access_token);
-      router.push("/dashboard");
+      setSuccess("Login successful! Redirecting to your dashboard...");
+      setTimeout(() => router.push("/dashboard"), 1500);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -64,7 +66,8 @@ export default function Login() {
 
       const data = await response.json();
       localStorage.setItem("token", data.access_token);
-      router.push("/dashboard");
+      setSuccess("Login successful! Redirecting to your dashboard...");
+      setTimeout(() => router.push("/dashboard"), 1500);
     } catch (err: any) {
       setError(err.message);
     } finally {
