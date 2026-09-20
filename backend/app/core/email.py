@@ -31,7 +31,9 @@ def send_email(to_email: str, subject: str, html_body: str):
         server.quit()
         return True
     except Exception as e:
-        print(f"Failed to send email to {to_email}: {e}")
+        import traceback
+        print(f"\n[SMTP ERROR] Failed to send email to {to_email}:\n{e}\n")
+        traceback.print_exc()
         return False
 
 def send_welcome_email(to_email: str):
