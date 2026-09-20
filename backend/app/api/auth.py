@@ -5,6 +5,8 @@ from typing import Any
 
 from app.database.database import get_db
 from app.models.user import User
+from app.core.email import send_welcome_email
+from fastapi import BackgroundTasks
 from app.schemas.user import UserCreate, UserResponse
 from app.schemas.token import Token
 from app.core.security import get_password_hash, verify_password, create_access_token
