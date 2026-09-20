@@ -15,18 +15,17 @@ export default function AdPage() {
 
   useEffect(() => {
     // Initialize AdSense if ad slot is rendered
-    if (adSensePubId) {
+    if (adSensePubId && originalUrl) {
       try {
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
       } catch (e) {}
     }
-  }, [adSensePubId]);
+  }, [adSensePubId, originalUrl]);
 
   useEffect(() => {
     const fetchLink = async () => {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
-        // Fetch to log the click and get the destination!
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
         const res = await fetch(`${backendUrl}/${shortCode}?json=true`);
         const data = await res.json();
         
@@ -37,6 +36,16 @@ export default function AdPage() {
           }
           throw new Error(data.detail || "Link not found");
         }
+        
+        // Anti-Double-Ad Logic: If the destination is an internal SnapLink vCard or File,
+        // it already has its own AdOverlay. Instantly redirect to prevent showing two ads back-to-back!
+        try {
+          const dest = new URL(data.original_url);
+          if (dest.pathname.startsWith('/v/') || dest.pathname.startsWith('/f/')) {
+            window.location.replace(data.original_url);
+            return;
+          }
+        } catch(e) {}
         
         setOriginalUrl(data.original_url);
       } catch (err: any) {
@@ -53,17 +62,22 @@ export default function AdPage() {
     if (countdown > 0) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
       return () => clearTimeout(timer);
-    } else {
-      window.location.href = originalUrl;
     }
   }, [countdown, originalUrl]);
 
   if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600 font-bold">{error}</div>;
+    return <div className="min-h-screen bg-[#111827] flex items-center justify-center text-red-500 font-bold">{error}</div>;
+  }
+
+  // Show a blank dark screen while fetching the URL (preventing ad UI flash for internal links)
+  if (!originalUrl) {
+    return <div className="min-h-screen bg-[#111827] flex items-center justify-center">
+      <svg className="w-8 h-8 text-blue-500 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+    </div>;
   }
 
   return (
-    <div className="min-h-screen bg-[#000000] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#111827] text-white overflow-hidden p-4 sm:p-8">
       {adSensePubId && (
         <Script
           async
@@ -72,17 +86,30 @@ export default function AdPage() {
           strategy="lazyOnload"
         />
       )}
-      
-      <div className="bg-[#f8f9fa] rounded-xl overflow-hidden shadow-2xl max-w-2xl w-full">
-        {/* Header */}
-        <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200 bg-white">
-          <h2 className="text-lg font-bold text-[#202124]">Generating your short link...</h2>
-          <span className="text-sm text-gray-500">Advertisement</span>
-        </div>
 
-        {/* Ad Container */}
-        <div className="flex justify-center items-center py-12 bg-[#f8f9fa]">
-          <div className="w-[300px] h-[250px] bg-[#dce0e5] border border-[#bdc1c6] flex items-center justify-center relative overflow-hidden">
+      {/* Top Section - Timer or Button */}
+      <div className="w-full flex justify-end mt-4">
+        {countdown > 0 ? (
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-xl">
+            <svg className="w-5 h-5 text-gray-300 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            <span className="font-semibold text-lg">Redirecting in <span className="font-black text-[#3b82f6] text-xl w-6 inline-block text-center">{countdown}</span>s</span>
+          </div>
+        ) : (
+          <button 
+            onClick={() => window.location.href = originalUrl}
+            className="flex items-center gap-3 bg-[#3b82f6] hover:bg-[#2563eb] text-white px-8 py-3 rounded-full border border-blue-400 shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer font-bold"
+          >
+            Continue to Link
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
+        )}
+      </div>
+
+      {/* Middle Section - Ad Container */}
+      <div className="flex-1 w-full max-w-4xl flex items-center justify-center my-6">
+        <div className="w-full h-full max-h-[400px] bg-black/50 border-2 border-dashed border-white/20 rounded-2xl flex flex-col items-center justify-center p-2 relative overflow-hidden">
+          <span className="absolute text-white/30 font-bold uppercase tracking-widest text-xs z-0 pointer-events-none">Advertisement</span>
+          <div className="w-full h-full relative z-10 flex items-center justify-center">
             {adSensePubId ? (
               <ins className="adsbygoogle"
                    style={{ display: "inline-block", width: "300px", height: "250px" }}
@@ -93,24 +120,12 @@ export default function AdPage() {
             )}
           </div>
         </div>
+      </div>
 
-        {/* Footer Countdown */}
-        <div className="text-center py-8 bg-[#f8f9fa]">
-          {countdown > 0 ? (
-            <p className="text-xl text-[#202124]">
-              Your link will be ready in <span className="text-3xl font-extrabold text-[#1a73e8] mx-1">{countdown}</span> seconds
-            </p>
-          ) : (
-            <div className="flex justify-center">
-              <button 
-                onClick={() => { if (originalUrl) window.location.href = originalUrl; }}
-                className="px-8 py-3 bg-[#1a73e8] hover:bg-[#1557b0] text-white font-bold rounded-lg transition-colors text-lg"
-              >
-                Continue to Link
-              </button>
-            </div>
-          )}
-        </div>
+      {/* Bottom Section - Branding */}
+      <div className="mb-4 flex items-center gap-2 opacity-50">
+        <span className="text-sm font-medium uppercase tracking-widest">Secured by</span>
+        <span className="text-sm font-black tracking-tighter text-white">Snap<span className="text-[#3b82f6]">Link</span></span>
       </div>
     </div>
   );
