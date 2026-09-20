@@ -9,6 +9,7 @@ export default function PublicBusinessCard() {
   const [card, setCard] = useState<any>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [showAd, setShowAd] = useState(true);
   
   const [isFlipped, setIsFlipped] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
