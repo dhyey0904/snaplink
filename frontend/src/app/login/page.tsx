@@ -76,135 +76,121 @@ export default function Login() {
   };
 
   return (
-    <div className="flex min-h-[100dvh] overflow-y-auto lg:h-screen lg:overflow-hidden w-full bg-white font-sans">
+    <div className="min-h-[100dvh] w-full flex items-center justify-center p-4 sm:p-8 relative overflow-hidden font-sans">
       
-      {/* LEFT SIDE - Form */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-16 md:px-24 xl:px-32 py-10 lg:py-0 relative z-10 bg-white shadow-[20px_0_40px_rgba(0,0,0,0.1)]">
-        <div className="max-w-md w-full mx-auto">
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-1">Welcome back</h2>
-          <p className="text-gray-500 font-medium mb-6 text-sm">Enter your details to access your account.</p>
+      {/* Beautiful Animated Background */}
+      <div className="absolute inset-0 bg-[#0a0a0a]"></div>
+      <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-blue-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={ animationDuration: '8s' }></div>
+      <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-purple-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={ animationDuration: '10s' }></div>
+      <div className="absolute top-[40%] left-[20%] w-[40vw] h-[40vw] bg-pink-500/20 rounded-full mix-blend-screen filter blur-[120px] animate-pulse" style={ animationDuration: '12s' }></div>
 
-          <div className="mb-4 w-full flex justify-center transform hover:scale-[1.02] transition-transform">
-             <div className="overflow-hidden rounded-xl border border-gray-100 hover:border-[#1a73e8] transition-colors shadow-sm">
+      {/* Floating Decorative Elements */}
+      <div className="absolute top-10 right-10 w-24 h-24 bg-gradient-to-tr from-blue-400 to-indigo-500 rounded-full mix-blend-screen filter blur-md animate-bounce opacity-60" style={ animationDuration: '4s' }></div>
+      <div className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-tr from-purple-400 to-pink-500 rounded-full mix-blend-screen filter blur-md animate-bounce opacity-60" style={ animationDuration: '5s' }></div>
+
+      {/* Main Glassmorphic Card */}
+      <div className="w-full max-w-md relative z-10 perspective-1000">
+        <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-8 sm:p-10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transform transition-transform duration-500 hover:scale-[1.01]">
+          
+          {/* Logo */}
+          <div className="flex justify-center mb-6">
+            <Link href="/" className="text-3xl font-black tracking-tighter text-white drop-shadow-md">
+              Snap<span className="text-[#3b82f6]">Link</span>
+            </Link>
+          </div>
+
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-extrabold text-white mb-2 tracking-tight">Welcome Back</h2>
+            <p className="text-white/70 font-medium text-sm">Access your digital hub and secure files.</p>
+          </div>
+
+          <div className="mb-6 w-full flex justify-center">
+             <div className="overflow-hidden rounded-xl border border-white/20 hover:border-white/50 transition-colors shadow-lg bg-white/5 backdrop-blur-sm">
                 <GoogleLogin
                   onSuccess={handleGoogleSuccess}
                   onError={() => setError("Google Login Failed")}
+                  theme="filled_black"
+                  shape="rectangular"
+                  size="large"
                 />
              </div>
           </div>
 
-          <div className="relative mb-4">
+          <div className="relative mb-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-100"></div>
+              <div className="w-full border-t border-white/20"></div>
             </div>
             <div className="relative flex justify-center text-xs">
-              <span className="px-4 bg-white text-gray-400 font-bold uppercase tracking-wider">or continue with email</span>
+              <span className="bg-transparent px-4 text-white/50 font-bold uppercase tracking-widest backdrop-blur-md rounded-full">Or continue with email</span>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <div className="relative group">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400 group-focus-within:text-[#1a73e8] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
-              </div>
+          {success && <div className="text-green-400 text-sm font-bold p-4 bg-green-500/10 border border-green-500/20 rounded-2xl flex items-center justify-center gap-2 mb-6"><svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>{success}</div>}
+          {error && <div className="text-red-400 text-sm font-bold p-4 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center justify-center gap-2 mb-6"><svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>{error}</div>}
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            
+                  <div>
+                    <label className="block text-sm font-semibold text-white/90 mb-1.5 ml-1">Full Name</label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full px-5 py-3.5 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all font-medium"
+                      placeholder="Sarah Jenkins"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    />
+                  </div>
+            <div>
+              <label className="block text-sm font-semibold text-white/90 mb-1.5 ml-1">Email Address</label>
               <input
                 type="email"
                 required
-                className="w-full pl-11 pr-4 py-3 rounded-xl bg-gray-50/50 border border-gray-200 focus:bg-white focus:outline-none focus:border-[#1a73e8] focus:ring-2 focus:ring-[#1a73e8]/10 transition-all text-gray-900 font-medium placeholder-gray-400 text-sm"
-                placeholder="Email address"
+                className="w-full px-5 py-3.5 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all font-medium"
+                placeholder="you@company.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
-            
-            <div className="relative group">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400 group-focus-within:text-[#1a73e8] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-              </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-white/90 mb-1.5 ml-1">Password</label>
               <input
                 type="password"
                 required
-                className="w-full pl-11 pr-4 py-3 rounded-xl bg-gray-50/50 border border-gray-200 focus:bg-white focus:outline-none focus:border-[#1a73e8] focus:ring-2 focus:ring-[#1a73e8]/10 transition-all text-gray-900 font-medium placeholder-gray-400 text-sm"
-                placeholder="Password"
+                className="w-full px-5 py-3.5 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all font-medium"
+                placeholder="••••••••"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
 
-            <div className="flex items-center justify-end pb-1">
-              <Link href="/forgot-password" className="text-xs font-bold text-[#1a73e8] hover:underline">Forgot password?</Link>
-            </div>
-
-            {success && <div className="text-green-600 text-xs font-bold p-3 bg-green-50 border border-green-100 rounded-xl flex items-center gap-2"><svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>{success}</div>}
-            {error && <div className="text-red-500 text-xs font-bold p-3 bg-red-50 border border-red-100 rounded-xl flex items-center gap-2"><svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>{error}</div>}
-
             <button
               type="submit"
               disabled={loading}
-              className="group w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-white font-bold text-sm bg-[#1a73e8] hover:bg-[#1557b0] transition-all duration-200 shadow-sm hover:shadow mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full flex justify-center items-center gap-2 py-4 px-4 border border-transparent rounded-2xl shadow-xl text-base font-bold text-gray-900 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-gray-900 transition-all transform hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 mt-2"
             >
-              <span className="flex items-center gap-2">
-                {loading ? "Authenticating..." : "Continue to SnapLink"}
-                {!loading && <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
-              </span>
+              {loading ? (
+                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+              ) : null}
+              {loading ? "Authenticating..." : "Create Account"}
             </button>
           </form>
 
-          <p className="mt-5 text-center text-gray-500 font-medium text-sm">
-            Don't have an account?{" "}
-            <Link href="/register" className="text-[#1a73e8] hover:underline font-bold transition-colors">
-              Sign up for free
+          <p className="mt-8 text-center text-sm font-medium text-white/70">
+            <Link href="/login" className="text-white hover:text-blue-300 transition-colors hover:underline">
+              Already have an account? Sign in
             </Link>
           </p>
-        </div>
-      </div>
-
-      {/* RIGHT SIDE - Branding & Visuals (Wow Moment) */}
-      <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-[#1a73e8] via-[#0d47a1] to-black flex-col justify-between p-12 overflow-hidden">
-        
-        {/* SnapLink Logo - Flex positioned to avoid overlap */}
-        <div className="z-20 w-full">
-          <Link href="/" className="text-2xl font-extrabold tracking-tight text-white inline-block hover:scale-105 transition-transform origin-left drop-shadow-md">
-            Snap<span className="text-blue-300">Link</span>
-          </Link>
-        </div>
-
-        {/* Animated Background Orbs */}
-        <div className="absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-white opacity-10 rounded-full filter blur-[100px] animate-pulse"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[30vw] h-[30vw] bg-purple-500 opacity-20 rounded-full filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-
-        {/* 3D Glassmorphic Container (Shrunk to fit safely) */}
-        <div className="relative z-10 w-full max-w-sm mx-auto perspective-1000 mt-[-40px]">
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
-            
-            <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6 border border-white/30 shadow-inner">
-              <svg className="w-6 h-6 text-white drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-            </div>
-            
-            <h3 className="text-3xl font-extrabold text-white mb-4 tracking-tight leading-tight drop-shadow-sm">Unleash your digital<br/>potential.</h3>
-            
-            <p className="text-blue-100 text-sm leading-relaxed mb-8 font-medium">
-              "Switching to SnapLink was the best decision for our team. The 1GB ephemeral file sharing and stunning 3D vCards have completely elevated our brand."
-            </p>
-            
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-400 to-blue-300 border-2 border-white shadow-lg"></div>
-              <div>
-                <div className="text-white font-bold text-base">Dhyey Raja</div>
-                <div className="text-blue-200 font-medium text-xs">Founder, SnapLink</div>
-              </div>
-            </div>
-          </div>
           
-          {/* Floating decorative elements */}
-          <div className="absolute top-[-30px] right-[-30px] w-24 h-24 bg-gradient-to-tr from-yellow-400 to-orange-500 rounded-full mix-blend-screen filter blur-md animate-bounce shadow-2xl" style={{ animationDuration: '3s' }}></div>
-          <div className="absolute bottom-[-20px] left-[-20px] w-16 h-16 bg-gradient-to-tr from-green-400 to-blue-500 rounded-full mix-blend-screen filter blur-md animate-bounce shadow-2xl" style={{ animationDuration: '4s' }}></div>
         </div>
-
-        {/* Bottom Spacer to balance flex-col */}
-        <div className="h-8 w-full z-10"></div>
       </div>
+      
+      {/* Bottom branding */}
+      <div className="absolute bottom-6 w-full text-center z-0 opacity-40">
+        <p className="text-xs font-bold text-white tracking-widest uppercase">Secure authentication by SnapLink</p>
+      </div>
+
     </div>
   );
 }
