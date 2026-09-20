@@ -52,6 +52,7 @@ def send_welcome_email(to_email: str):
       </body>
     </html>
     """
+    print(f"\n[DEBUG] Password Reset Link for {to_email}: {reset_url}\n")
     return send_email(to_email, subject, body)
 
 def send_file_downloaded_email(to_email: str, filename: str):
@@ -67,6 +68,7 @@ def send_file_downloaded_email(to_email: str, filename: str):
       </body>
     </html>
     """
+    print(f"\n[DEBUG] Password Reset Link for {to_email}: {reset_url}\n")
     return send_email(to_email, subject, body)
 
 def send_password_reset_email(to_email: str, token: str):
@@ -87,4 +89,5 @@ def send_password_reset_email(to_email: str, token: str):
       </body>
     </html>
     """
+    print(f"\n[DEBUG] Password Reset Link for {to_email}: {reset_url}\n")
     return send_email(to_email, subject, body)
