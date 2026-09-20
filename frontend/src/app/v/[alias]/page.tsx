@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import AdOverlay from '@/components/AdOverlay';
 import { useParams } from 'next/navigation';
 import AdBanner from '@/components/AdBanner';
 
@@ -127,7 +128,7 @@ export default function PublicBusinessCard() {
             }
           }} 
         />
-      )}      )}
+      )}
       
       {card.bg_music && card.bg_music !== 'none' && (
         <audio 
