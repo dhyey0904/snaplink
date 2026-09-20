@@ -76,6 +76,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
+                <Link href="/blog" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">Blog</Link>
                 <Link href="/login" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">
                   Sign in
                 </Link>

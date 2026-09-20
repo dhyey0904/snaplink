@@ -42,6 +42,7 @@ export default function Footer() {
               <li><Link href="/dashboard/vcard" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-sm">3D Business Cards</Link></li>
               <li><Link href="/dashboard/files" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-sm">Secure File Transfer</Link></li>
               <li><Link href="/dashboard/api" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-sm">Developer API</Link></li>
+              <li><Link href="/blog" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-sm">Blog & Tutorials</Link></li>
             </ul>
           </div>
 
