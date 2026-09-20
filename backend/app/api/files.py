@@ -11,9 +11,9 @@ from sqlalchemy.orm import Session
 import bcrypt
 
 from app.database.database import get_db
-from app.models.file import File
+from app.models.file import FileShare
 from app.core.email import send_file_downloaded_email
-from fastapi import BackgroundTasksShare
+from fastapi import BackgroundTasks
 from app.schemas.file import FileShareResponse, FileVerifyRequest
 from app.api.deps import get_current_user
 from app.models.user import User
