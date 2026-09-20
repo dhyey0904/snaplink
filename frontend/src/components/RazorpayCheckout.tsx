@@ -29,7 +29,7 @@ export default function RazorpayCheckout() {
       
       // 2. Open Razorpay Checkout modal
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_TeITEkgzaGiCoe",
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_TeIxxkdctC2mH1",
         amount: order.amount,
         currency: order.currency,
         name: "SnapLink Pro",

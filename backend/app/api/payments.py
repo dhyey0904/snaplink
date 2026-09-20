@@ -7,8 +7,8 @@ import hashlib
 
 router = APIRouter()
 
-RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID", "rzp_test_TeITEkgzaGiCoe")
-RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET", "9c0gHg3a4UhDXZ0Kih4ORsN3")
+RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID", "rzp_test_TeIxxkdctC2mH1")
+RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET", "GUlLwr97ni1XZ8cfDoo0Ik6C")
 
 try:
     client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
