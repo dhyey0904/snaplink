@@ -1,33 +1,43 @@
-import { notFound } from "next/navigation";
-import BioPageClient from "./BioPageClient";
+import { Metadata } from 'next';
+import ClientBioPage from './ClientBioPage';
 
-// Revalidate in the background every 60 seconds (ISR)
-// This makes the page load instantly from Vercel's edge cache!
-export const revalidate = 60;
-
-export default async function PublicBioPage({ params }: { params: Promise<{ alias: string }> }) {
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-backend-j69v.onrender.com";
+export async function generateMetadata({ params }: { params: { alias: string } }): Promise<Metadata> {
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
   
   try {
-    const resolvedParams = await params;
-    const res = await fetch(`${backendUrl}/api/bio/public/${resolvedParams.alias}`, {
-      next: { revalidate: 60 }
-    });
-    
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(`RENDER RETURNED: ${res.status}. URL: ${backendUrl}/api/bio/public/${resolvedParams.alias}. Body: ${text}`);
+    const res = await fetch(`${backendUrl}/api/bio/${params.alias}?json=true`, { cache: 'no-store' });
+    if (res.ok) {
+      const data = await res.json();
+      
+      const title = data.title || 'My Bio Links';
+      const description = data.description || 'Check out my links on SnapLink';
+        
+      return {
+        title,
+        description,
+        openGraph: {
+          title,
+          description,
+          images: data.avatar_url ? [{ url: data.avatar_url }] : [],
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title,
+          description,
+          images: data.avatar_url ? [data.avatar_url] : [],
+        }
+      };
     }
-    
-    const bioPage = await res.json();
-    return <BioPageClient bioPage={bioPage} />;
-  } catch (error: any) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-800 p-8">
-        <h2 className="text-xl font-bold text-red-600 mb-4">Error loading page</h2>
-        <p className="font-mono bg-white p-4 rounded border text-sm">{error.message || String(error)}</p>
-      </div>
-    );
+  } catch (e) {
+    console.error("Metadata fetch error:", e);
   }
+
+  return {
+    title: 'SnapLink Bio',
+    description: 'Check out my links on SnapLink'
+  };
 }
 
+export default function Page() {
+  return <ClientBioPage />;
+}
