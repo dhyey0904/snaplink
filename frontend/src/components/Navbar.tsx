@@ -111,7 +111,8 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Sign in</Link>
+                <Link href="/blog" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
+                  <Link href="/login" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Sign in</Link>
                 <Link href="/register" className="block px-3 py-3 text-base font-medium text-blue-600 hover:bg-blue-50 rounded-lg">Get Started</Link>
               </>
             )}
