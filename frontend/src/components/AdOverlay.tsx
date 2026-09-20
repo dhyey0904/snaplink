@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import AdBanner from './AdBanner';
 
@@ -13,22 +11,30 @@ export default function AdOverlay({ onComplete, actionText = "Continuing" }: AdO
 
   useEffect(() => {
     if (timeLeft <= 0) {
-      onComplete();
       return;
     }
     const timer = setTimeout(() => setTimeLeft(prev => prev - 1), 1000);
     return () => clearTimeout(timer);
-  }, [timeLeft]); // Removed onComplete to prevent inline function re-render bugs
-
+  }, [timeLeft]);
 
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#111827] text-white overflow-hidden p-4 sm:p-8">
-      {/* Top Section - Timer */}
+      {/* Top Section - Timer or Button */}
       <div className="w-full flex justify-end mt-4">
-        <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-xl">
-          <svg className="w-5 h-5 text-gray-300 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-          <span className="font-semibold text-lg">{actionText} in <span className="font-black text-[#3b82f6] text-xl w-6 inline-block text-center">{timeLeft}</span>s</span>
-        </div>
+        {timeLeft > 0 ? (
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-xl">
+            <svg className="w-5 h-5 text-gray-300 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            <span className="font-semibold text-lg">{actionText} in <span className="font-black text-[#3b82f6] text-xl w-6 inline-block text-center">{timeLeft}</span>s</span>
+          </div>
+        ) : (
+          <button 
+            onClick={onComplete}
+            className="flex items-center gap-3 bg-[#3b82f6] hover:bg-[#2563eb] text-white px-8 py-3 rounded-full border border-blue-400 shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer font-bold"
+          >
+            Continue
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
+        )}
       </div>
 
       {/* Middle Section - Ad Container */}
