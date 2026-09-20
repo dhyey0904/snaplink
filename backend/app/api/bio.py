@@ -1,3 +1,5 @@
+from PIL import Image
+import io
 from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File
 from sqlalchemy.orm import Session
 from typing import List, Any
@@ -17,14 +19,37 @@ router = APIRouter()
 async def upload_image(file: UploadFile = File(...), current_user: User = Depends(get_current_user)):
     os.makedirs("uploads", exist_ok=True)
     
-    # Generate unique filename
-    file_ext = os.path.splitext(file.filename)[1]
-    unique_filename = f"file_{uuid.uuid4().hex}{file_ext}"
+    # Generate unique filename ending in .jpg to ensure WhatsApp compatibility
+    unique_filename = f"file_{uuid.uuid4().hex}.jpg"
     file_path = os.path.join("uploads", unique_filename)
     
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+    try:
+        # Read the uploaded image into memory
+        contents = await file.read()
         
+        # Open with Pillow
+        image = Image.open(io.BytesIO(contents))
+        
+        # Convert to RGB (in case of PNG with transparency or RGBA)
+        if image.mode in ("RGBA", "P"):
+            image = image.convert("RGB")
+            
+        # Resize if it's too large (WhatsApp prefers max 1200x630, we'll bound by 1200x1200)
+        # Using thumbnail preserves aspect ratio
+        image.thumbnail((1200, 1200), Image.Resampling.LANCZOS)
+        
+        # Save as optimized JPEG (reduces size dramatically, usually well under WhatsApp's 300KB limit)
+        image.save(file_path, format="JPEG", optimize=True, quality=80)
+        
+    except Exception as e:
+        # If pillow fails (maybe not an image), just save the raw file as-is
+        file.file.seek(0)
+        file_ext = os.path.splitext(file.filename)[1]
+        unique_filename = f"file_{uuid.uuid4().hex}{file_ext}"
+        file_path = os.path.join("uploads", unique_filename)
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+            
     # Return the relative path that the frontend can append to the backend URL
     return {"url": f"/uploads/{unique_filename}"}
 
