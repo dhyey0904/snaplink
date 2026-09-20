@@ -146,19 +146,20 @@ class ResetPasswordRequest(BaseModel):
 @router.post("/forgot-password")
 def forgot_password(request: ForgotPasswordRequest, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == request.email).first()
-    if user:
-        from jose import jwt
-        from datetime import datetime
-        # Create a stateless JWT reset token valid for 15 minutes
-        expire = datetime.utcnow() + timedelta(minutes=15)
-        to_encode = {"sub": user.email, "exp": expire, "type": "reset"}
-        encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm="HS256")
+    if not user:
+        raise HTTPException(status_code=404, detail="No account found with that email address.")
         
-        from app.core.email import send_password_reset_email
-        background_tasks.add_task(send_password_reset_email, user.email, encoded_jwt)
+    from jose import jwt
+    from datetime import datetime
+    # Create a stateless JWT reset token valid for 15 minutes
+    expire = datetime.utcnow() + timedelta(minutes=15)
+    to_encode = {"sub": user.email, "exp": expire, "type": "reset"}
+    encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm="HS256")
     
-    # Always return success to prevent email enumeration attacks
-    return {"message": "If an account with that email exists, we sent a password reset link."}
+    from app.core.email import send_password_reset_email
+    background_tasks.add_task(send_password_reset_email, user.email, encoded_jwt)
+
+    return {"message": "Success! A password reset link has been generated."}
 
 @router.post("/reset-password")
 def reset_password(request: ResetPasswordRequest, db: Session = Depends(get_db)):
