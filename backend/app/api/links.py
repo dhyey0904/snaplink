@@ -71,6 +71,9 @@ def create_link(
         short_code=short_code,
         custom_alias=short_code,
         expires_at=link_in.expires_at,
+        og_title=getattr(link_in, 'og_title', None),
+        og_description=getattr(link_in, 'og_description', None),
+        og_image=getattr(link_in, 'og_image', None),
     )
 
     if link_in.password:
