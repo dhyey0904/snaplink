@@ -571,11 +571,17 @@ export default function VCardDashboard() {
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/30 rounded-3xl pointer-events-none"></div>
                             
                             <div className="flex justify-between items-start relative z-10">
-                              {logoUrl ? (
-                                <img src={logoUrl} alt="Logo" className="h-8 max-w-[100px] object-contain rounded" />
-                              ) : (
-                                <div className={`font-bold tracking-widest text-[10px] uppercase ${isDarkText ? 'text-gray-900' : 'text-white'}`}>{company || 'COMPANY'}</div>
-                              )}
+                              <div className="flex items-center gap-2">
+                                {logoUrl && (
+                                  <img src={logoUrl} alt="Logo" className="h-8 max-w-[100px] object-contain rounded" />
+                                )}
+                                {company && (
+                                  <div className={`font-bold tracking-widest text-[10px] uppercase ${isDarkText ? 'text-gray-900' : 'text-white'}`}>{company}</div>
+                                )}
+                                {!logoUrl && !company && (
+                                  <div className={`font-bold tracking-widest text-[10px] uppercase ${isDarkText ? 'text-gray-900' : 'text-white'}`}>COMPANY</div>
+                                )}
+                              </div>
                               
                               {!isAutoSpinning && (
                                 <button onClick={toggleFlip} className={`p-1.5 rounded-full bg-black/10 hover:bg-black/20 backdrop-blur transition-colors ${isDarkText ? 'text-gray-900' : 'text-white'}`}>
