@@ -130,17 +130,7 @@ export default function Login() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             
-                  <div>
-                    <label className="block text-sm font-semibold text-white/90 mb-1.5 ml-1">Full Name</label>
-                    <input
-                      type="text"
-                      required
-                      className="w-full px-5 py-3.5 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all font-medium"
-                      placeholder="Sarah Jenkins"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    />
-                  </div>
+                  
             <div>
               <label className="block text-sm font-semibold text-white/90 mb-1.5 ml-1">Email Address</label>
               <input
