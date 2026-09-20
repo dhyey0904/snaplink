@@ -64,13 +64,13 @@ export default function Register() {
       
       {/* Beautiful Animated Background */}
       <div className="absolute inset-0 bg-[#0a0a0a]"></div>
-      <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-blue-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={ animationDuration: '8s' }></div>
-      <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-purple-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={ animationDuration: '10s' }></div>
-      <div className="absolute top-[40%] left-[20%] w-[40vw] h-[40vw] bg-pink-500/20 rounded-full mix-blend-screen filter blur-[120px] animate-pulse" style={ animationDuration: '12s' }></div>
+      <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-blue-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDuration: "8s" }}></div>
+      <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-purple-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDuration: "10s" }}></div>
+      <div className="absolute top-[40%] left-[20%] w-[40vw] h-[40vw] bg-pink-500/20 rounded-full mix-blend-screen filter blur-[120px] animate-pulse" style={{ animationDuration: "12s" }}></div>
 
       {/* Floating Decorative Elements */}
-      <div className="absolute top-10 right-10 w-24 h-24 bg-gradient-to-tr from-blue-400 to-indigo-500 rounded-full mix-blend-screen filter blur-md animate-bounce opacity-60" style={ animationDuration: '4s' }></div>
-      <div className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-tr from-purple-400 to-pink-500 rounded-full mix-blend-screen filter blur-md animate-bounce opacity-60" style={ animationDuration: '5s' }></div>
+      <div className="absolute top-10 right-10 w-24 h-24 bg-gradient-to-tr from-blue-400 to-indigo-500 rounded-full mix-blend-screen filter blur-md animate-bounce opacity-60" style={{ animationDuration: "4s" }}></div>
+      <div className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-tr from-purple-400 to-pink-500 rounded-full mix-blend-screen filter blur-md animate-bounce opacity-60" style={{ animationDuration: "5s" }}></div>
 
       {/* Main Glassmorphic Card */}
       <div className="w-full max-w-md relative z-10 perspective-1000">
