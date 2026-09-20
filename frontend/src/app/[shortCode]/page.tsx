@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
 import ClientAdPage from './ClientAdPage';
 
-export async function generateMetadata({ params }: { params: { shortCode: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ shortCode: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
   
   try {
+    const resolvedParams = await params;
     // Pass no_analytics=true so the bot fetch doesn't count as a real human click!
-    const res = await fetch(`${backendUrl}/${params.shortCode}?json=true&no_analytics=true`, { cache: 'no-store' });
+    const res = await fetch(`${backendUrl}/${resolvedParams.shortCode}?json=true&no_analytics=true`, { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       
@@ -38,6 +39,6 @@ export async function generateMetadata({ params }: { params: { shortCode: string
   };
 }
 
-export default function Page() {
+export default function Page({ params }: { params: Promise<any> }) {
   return <ClientAdPage />;
 }

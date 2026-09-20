@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
 import ClientVCardPage from './ClientVCardPage';
 
-export async function generateMetadata({ params }: { params: { alias: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ alias: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
   
   try {
-    const res = await fetch(`${backendUrl}/api/vcard/${params.alias}`, { cache: 'no-store' });
+    const resolvedParams = await params;
+    const res = await fetch(`${backendUrl}/api/vcard/${resolvedParams.alias}`, { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       
@@ -40,6 +41,6 @@ export async function generateMetadata({ params }: { params: { alias: string } }
   };
 }
 
-export default function Page() {
+export default function Page({ params }: { params: Promise<any> }) {
   return <ClientVCardPage />;
 }

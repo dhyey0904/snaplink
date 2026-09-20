@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
 import ClientBioPage from './ClientBioPage';
 
-export async function generateMetadata({ params }: { params: { alias: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ alias: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
   
   try {
-    const res = await fetch(`${backendUrl}/api/bio/${params.alias}?json=true`, { cache: 'no-store' });
+    const resolvedParams = await params;
+    const res = await fetch(`${backendUrl}/api/bio/${resolvedParams.alias}?json=true`, { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       
@@ -38,6 +39,6 @@ export async function generateMetadata({ params }: { params: { alias: string } }
   };
 }
 
-export default function Page() {
-  return <ClientBioPage />;
+export default function Page({ params }: { params: Promise<any> }) {
+  return <ClientBioPage params={params} />;
 }

@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
 import ClientFilePage from './ClientFilePage';
 
-export async function generateMetadata({ params }: { params: { shortCode: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ shortCode: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
   
   try {
-    const res = await fetch(`${backendUrl}/api/f/${params.shortCode}?json=true`, { cache: 'no-store' });
+    const resolvedParams = await params;
+    const res = await fetch(`${backendUrl}/api/f/${resolvedParams.shortCode}?json=true`, { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       
@@ -37,6 +38,6 @@ export async function generateMetadata({ params }: { params: { shortCode: string
   };
 }
 
-export default function Page() {
+export default function Page({ params }: { params: Promise<any> }) {
   return <ClientFilePage />;
 }
