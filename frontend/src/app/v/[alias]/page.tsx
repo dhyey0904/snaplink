@@ -44,8 +44,6 @@ export default function PublicBusinessCard() {
     setIsFlipped(!isFlipped);
   };
 
-  
-
   const handleSaveContact = () => {
     if (!card) return;
     const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;${card.name || ''};;;\nFN:${card.name || ''}\nORG:${card.company || ''}\nTITLE:${card.job_title || ''}\nTEL;TYPE=WORK,VOICE:${card.phone || ''}\nTEL;TYPE=CELL,VOICE:${card.whatsapp || ''}\nEMAIL;TYPE=PREF,INTERNET:${card.email || ''}\nURL:${card.resume_url || ''}\nEND:VCARD`;
@@ -129,7 +127,7 @@ export default function PublicBusinessCard() {
             }
           }} 
         />
-      )}
+      )}      )}
       
       {card.bg_music && card.bg_music !== 'none' && (
         <audio 
