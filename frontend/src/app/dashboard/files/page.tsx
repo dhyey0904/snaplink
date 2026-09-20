@@ -137,49 +137,6 @@ export default function Dashboard() {
     setShowAd(true);
   };
 
-  
-  const handleUpgrade = async () => {
-    try {
-      setPaying(true);
-      const order = await fetchAPI("/payment/create-order", { method: "POST" });
-      if (order.is_mock) {
-          await fetchAPI("/payment/verify", {
-              method: "POST",
-              body: JSON.stringify({ razorpay_payment_id: "mock_payment", razorpay_order_id: order.order_id, razorpay_signature: "mock_signature" })
-          });
-          alert("Payment Successful! Welcome to Pro.");
-          window.location.reload();
-          return;
-      }
-      const options = {
-          key: order.key_id,
-          amount: order.amount,
-          currency: order.currency,
-          name: "SnapLink Pro",
-          description: "Pro Access",
-          order_id: order.order_id,
-          handler: async function (response: any) {
-            try {
-              await fetchAPI("/payment/verify", {
-                method: "POST",
-                body: JSON.stringify({ razorpay_payment_id: response.razorpay_payment_id, razorpay_order_id: response.razorpay_order_id, razorpay_signature: response.razorpay_signature })
-              });
-              alert("Payment Successful! Welcome to Pro.");
-              window.location.reload();
-            } catch (err) {
-              alert("Payment verification failed.");
-            }
-          },
-      };
-      const rzp = new (window as any).Razorpay(options);
-      rzp.open();
-    } catch (err: any) {
-      alert("Could not start payment.");
-    } finally {
-      setPaying(false);
-    }
-  };
-
   const executeUpload = async () => {
     setShowAd(false);
     setUploading(true);
@@ -245,7 +202,6 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[#fafafc] flex flex-col font-sans">
       {showAd && <AdOverlay onComplete={executeUpload} actionText="Starting Upload" />}
-      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       <Navbar />
 
       

@@ -245,25 +245,10 @@ export default function VCardDashboard() {
 
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
-      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       <Navbar />
 
       <main className="flex-1 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative z-20 mb-20">
-        
-        <div className="flex flex-col lg:flex-row gap-8 relative">
-          {tier === "free" && (
-            <div className="absolute inset-0 z-30 bg-[#fafafc]/70 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center rounded-3xl m-[-16px]">
-              <div className="w-20 h-20 bg-gradient-to-tr from-[#1a73e8] to-[#6ab04c] rounded-2xl shadow-lg flex items-center justify-center mb-6 transform rotate-3">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-              </div>
-              <h2 className="text-3xl font-black text-gray-900 mb-3 tracking-tight">Interactive 3D vCards are a Pro Feature</h2>
-              <p className="text-gray-600 mb-8 max-w-md text-lg">Upgrade to SnapLink Pro for ₹199/month to generate beautiful, interactive 3D digital business cards.</p>
-              <button onClick={handleUpgrade} disabled={paying} className="bg-[#1a73e8] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#1557b0] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-200 disabled:opacity-50">
-                {paying ? "Processing..." : "Unlock 3D vCards"}
-              </button>
-            </div>
-          )}
-
+        <div className="flex flex-col lg:flex-row gap-8">
           
           {/* LEFT: EDITOR FORM */}
           <div className="w-full lg:w-[60%] flex flex-col gap-6">
