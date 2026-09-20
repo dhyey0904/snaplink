@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
       if (data.og_title || data.og_description || data.og_image) {
         let imageUrl = data.og_image;
         if (imageUrl && !imageUrl.startsWith('http')) {
-          imageUrl = `${frontendUrl}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+          imageUrl = `${backendUrl}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
         }
 
         return {

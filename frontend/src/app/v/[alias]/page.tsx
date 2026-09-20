@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
         
       let imageUrl = data.headshot_url || data.logo_url;
       if (imageUrl && !imageUrl.startsWith('http')) {
-        imageUrl = `${frontendUrl}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+        imageUrl = `${backendUrl}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
       }
 
       return {
