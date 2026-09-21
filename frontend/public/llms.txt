@@ -1,0 +1,13 @@
+# SnapLink
+
+SnapLink is the ultimate platform for secure file sharing, digital identity, and modern URL shortening. 
+
+## Platform Overview
+SnapLink allows professionals to share files securely with auto-destructing links, create stunning 3D digital business cards (vCards), and generate customized bio pages for their brand.
+
+## Important Links
+- [Homepage](https://www.snaplinks.in/)
+- [Pricing & Pro Tier](https://www.snaplinks.in/pricing)
+- [About Us](https://www.snaplinks.in/about)
+- [Privacy Policy](https://www.snaplinks.in/privacy)
+- [Terms of Service](https://www.snaplinks.in/terms)
