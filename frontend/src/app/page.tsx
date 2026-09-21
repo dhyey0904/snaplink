@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import QRCode from 'react-qr-code';
+import dynamic from 'next/dynamic';
+const QRCode = dynamic(() => import('react-qr-code'), { ssr: false });
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
