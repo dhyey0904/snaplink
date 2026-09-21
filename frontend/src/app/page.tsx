@@ -141,17 +141,18 @@ export default function Home() {
                   </p>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                      <input type="text" value={bioName} onChange={e => setBioName(e.target.value)} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
+                      <label htmlFor="bioNameInput" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                      <input id="bioNameInput" type="text" value={bioName} onChange={e => setBioName(e.target.value)} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Theme Color</label>
                       <div className="flex gap-3">
                         {['bg-blue-600', 'bg-purple-600', 'bg-pink-500', 'bg-green-500', 'bg-black'].map(color => (
-                          <button 
-                            key={color} 
-                            onClick={() => setBioColor(color)}
-                            className={`w-8 h-8 rounded-full ${color} ${bioColor === color ? 'ring-4 ring-offset-2 ring-gray-300 transform scale-110' : ''} transition-all shadow-sm`}
+                          <button
+                              key={color}
+                              aria-label={`Select ${color.replace("bg-", "").replace("-600", "").replace("-500", "")} theme`}
+                              onClick={() => setBioColor(color)}
+                              className={`w-8 h-8 rounded-full ${color} ${bioColor === color ? 'ring-4 ring-offset-2 ring-gray-300 transform scale-110' : ''} transition-all shadow-sm`}
                           />
                         ))}
                       </div>
