@@ -33,8 +33,8 @@ export default function Home() {
       <main className="flex-grow">
         {/* HERO SECTION: File Sharing & vCard Focus */}
         <div className="relative overflow-hidden bg-gradient-to-br from-[#1a73e8] to-[#0d47a1] text-white pt-8 pb-16">
-          <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-white opacity-5 rounded-full filter blur-3xl pointer-events-none"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[30rem] h-[30rem] bg-black opacity-10 rounded-full filter blur-2xl pointer-events-none"></div>
+          <div className="absolute top-[-10%] left-[-10%] hidden sm:block w-[40rem] h-[40rem] bg-white opacity-5 rounded-full filter blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] hidden sm:block w-[30rem] h-[30rem] bg-black opacity-10 rounded-full filter blur-2xl pointer-events-none"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-8">
