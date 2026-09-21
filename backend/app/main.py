@@ -88,7 +88,16 @@ try:
         allow_headers=["*"],
     )
     
+    
+    import asyncio
+    from app.tasks.garbage_collector import cleanup_expired_files_task
+
+    @app.on_event("startup")
+    async def startup_event():
+        asyncio.create_task(cleanup_expired_files_task())
+
     @app.get("/")
+
     def read_root():
         return {"message": "Welcome to SnapLink API"}
     
