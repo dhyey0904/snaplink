@@ -9,6 +9,8 @@ from app.models.link import Link
 from app.models.user import User
 from app.schemas.link import LinkCreate, LinkUpdate, LinkResponse
 from app.api.deps import get_current_user
+from app.core.limiter import limiter
+from fastapi import Request
 from app.core.security import get_password_hash
 
 router = APIRouter()
@@ -18,7 +20,9 @@ def generate_short_code(length: int = 6) -> str:
     return ''.join(secrets.choice(alphabet) for _ in range(length))
 
 @router.post("/guest", response_model=LinkResponse)
+@limiter.limit("10/hour")
 def create_guest_link(
+    request: Request,
     link_in: LinkCreate,
     db: Session = Depends(get_db)
 ) -> Any:
@@ -45,7 +49,9 @@ def create_guest_link(
     return db_link
 
 @router.post("/", response_model=LinkResponse)
+@limiter.limit("30/minute")
 def create_link(
+    request: Request,
     link_in: LinkCreate,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)

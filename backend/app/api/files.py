@@ -16,6 +16,7 @@ from app.core.email import send_file_downloaded_email
 from fastapi import BackgroundTasks
 from app.schemas.file import FileShareResponse, FileVerifyRequest
 from app.api.deps import get_current_user
+from app.core.limiter import limiter
 from app.models.user import User
 
 router = APIRouter()
@@ -33,7 +34,9 @@ def generate_short_code(length=6):
     return ''.join(random.choice(chars) for _ in range(length))
 
 @router.post("/upload", response_model=FileShareResponse)
+@limiter.limit("5/hour")
 async def upload_file(
+    request: Request,
     file: UploadFile = File(...),
     password: Optional[str] = Form(None),
     db: Session = Depends(get_db),

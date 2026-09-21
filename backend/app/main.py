@@ -9,6 +9,10 @@ try:
     from app.models import User, Link, Click
     from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard, files, report, payments
     from sqlalchemy import text
+    from slowapi import _rate_limit_exceeded_handler
+    from slowapi.errors import RateLimitExceeded
+    from slowapi.middleware import SlowAPIMiddleware
+    from app.core.limiter import limiter
     
     # Create database tables
     Base.metadata.create_all(bind=engine)
@@ -78,6 +82,11 @@ try:
         description="Backend API for SnapLink URL Shortener",
         version="1.0.0"
     )
+    
+    # Rate Limiter setup
+    app.state.limiter = limiter
+    app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+    app.add_middleware(SlowAPIMiddleware)
     
     # CORS setup
     app.add_middleware(
