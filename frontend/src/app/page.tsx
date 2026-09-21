@@ -40,7 +40,7 @@ export default function Home() {
               
               {/* Hero Text */}
               <div className="w-full lg:w-1/2 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-medium mb-4 backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm sm:text-xs sm:text-base sm:text-sm font-medium mb-4 backdrop-blur-sm">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                   Secure File Sharing & Digital Identity
                 </div>
@@ -77,8 +77,8 @@ export default function Home() {
                         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                       </div>
                       <p className="text-xl font-bold text-gray-800 mb-2">Drop a file here</p>
-                      <p className="text-gray-500 text-sm">Up to 1GB. Self-destructs in 5 mins.</p>
-                      <div className="mt-6 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium text-gray-600">Try dragging any file here!</div>
+                      <p className="text-gray-500 text-base sm:text-sm">Up to 1GB. Self-destructs in 5 mins.</p>
+                      <div className="mt-6 px-4 py-2 bg-gray-100 rounded-lg text-base sm:text-sm font-medium text-gray-600">Try dragging any file here!</div>
                     </>
                   )}
                   {uploadState === 'uploading' && (
@@ -108,7 +108,7 @@ export default function Home() {
                     </div>
                     <div>
                       <div className="text-white font-bold text-xl mb-1">Alex Creator</div>
-                      <div className="text-gray-400 text-sm">CEO, SnapLink</div>
+                      <div className="text-gray-400 text-base sm:text-sm">CEO, SnapLink</div>
                     </div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="w-full lg:w-1/2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-sm font-bold text-blue-700 mb-6 uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-base sm:text-sm font-bold text-blue-700 mb-6 uppercase tracking-wider">
                   Link-in-Bio
                 </div>
                 <h2 className="text-4xl md:text-5xl font-extrabold text-[#202124] mb-6 leading-tight">
@@ -141,11 +141,11 @@ export default function Home() {
                   </p>
                   <div className="space-y-4">
                     <div>
-                      <label htmlFor="bioNameInput" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                      <label htmlFor="bioNameInput" className="block text-base sm:text-sm font-medium text-gray-700 mb-1">Your Name</label>
                       <input id="bioNameInput" type="text" value={bioName} onChange={e => setBioName(e.target.value)} className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Theme Color</label>
+                      <label className="block text-base sm:text-sm font-medium text-gray-700 mb-2">Theme Color</label>
                       <div className="flex gap-3">
                         {['bg-blue-600', 'bg-purple-600', 'bg-pink-500', 'bg-green-500', 'bg-black'].map(color => (
                           <button
@@ -185,7 +185,7 @@ export default function Home() {
                       <p className="text-xl font-bold text-white tracking-tight">{bioName}</p>
                       <svg className="w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
-                    <p className="text-white/80 text-sm mb-8 text-center relative z-10">Digital Creator & Designer</p>
+                    <p className="text-white/80 text-base sm:text-sm mb-8 text-center relative z-10">Digital Creator & Designer</p>
 
                     <div className="w-full space-y-3 relative z-10">
                       {[1,2,3].map(i => (
@@ -223,7 +223,7 @@ export default function Home() {
                 <div className="w-full h-32 border border-gray-200 rounded-xl bg-white shadow-sm flex flex-col justify-center px-6 group-hover:border-yellow-300 transition-colors">
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
-                      <span className="text-sm text-gray-400 line-through">snaplink.com/very-long-ugly-url-1234</span>
+                      <span className="text-base sm:text-sm text-gray-400 line-through">snaplink.com/very-long-ugly-url-1234</span>
                       <span className="text-lg font-bold text-[#1a73e8]">snap.link/launch</span>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500">
@@ -271,7 +271,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Custom URLs</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">Create short, trackable links with custom social media preview cards.</p>
+                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Create short, trackable links with custom social media preview cards.</p>
               </div>
               
               {/* Feature 2 */}
@@ -280,7 +280,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Bio Pages</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">Build beautiful mobile landing pages for your Instagram or TikTok profile.</p>
+                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Build beautiful mobile landing pages for your Instagram or TikTok profile.</p>
               </div>
 
               {/* Feature 3 */}
@@ -289,7 +289,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">File Sharing</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">Share files securely with password protection and auto-expiry.</p>
+                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Share files securely with password protection and auto-expiry.</p>
               </div>
 
               {/* Feature 4 */}
@@ -298,7 +298,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">3D vCards</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
+                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
               </div>
             </div>
           </div>
@@ -313,7 +313,7 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full filter blur-[100px] opacity-20 pointer-events-none"></div>
               
               <div className="flex-1 relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-500/30">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-sm sm:text-xs font-bold uppercase tracking-wider mb-4 border border-blue-500/30">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                   For Developers
                 </div>
@@ -328,7 +328,7 @@ export default function Home() {
                   <span className="text-4xl font-black text-white">₹199</span>
                   <span className="text-gray-400 font-medium">/ month</span>
                 </div>
-                <p className="text-gray-500 text-sm mb-6 font-medium">No hidden fees. Cancel anytime.</p>
+                <p className="text-gray-500 text-base sm:text-sm mb-6 font-medium">No hidden fees. Cancel anytime.</p>
                 
                 <a href="/dashboard/api" className="w-full text-center bg-[#1a73e8] hover:bg-[#1557b0] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                   Purchase API Key
