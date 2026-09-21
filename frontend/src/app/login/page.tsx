@@ -83,21 +83,16 @@ export default function Login() {
         <div className="max-w-md w-full mx-auto">
                     {/* Mobile Only Logo */}
           <div className="lg:hidden mb-8 flex items-center justify-center">
-            <Link href="/" className="text-3xl font-black tracking-tighter text-gray-900">
+            <Link href="/" className="text-5xl font-black tracking-tighter text-gray-900 drop-shadow-sm mb-2">
               Snap<span className="text-[#1a73e8]">Link</span>
             </Link>
           </div>
           
-<h2 className="text-3xl font-extrabold text-gray-900 mb-1">Welcome back</h2>
-          <p className="text-gray-500 font-medium mb-6 text-sm">Enter your details to access your account.</p>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Welcome back</h2>
+              <p className="text-gray-500 font-medium text-sm">Enter your details to access your account.</p>
+            </div>
 
-          <div className="mb-4 w-full flex justify-center transform hover:scale-[1.02] transition-transform">
-             <div className="overflow-hidden rounded-xl border border-gray-100 hover:border-[#1a73e8] transition-colors shadow-sm">
-                <GoogleLogin
-                  onSuccess={handleGoogleSuccess}
-                  onError={() => setError("Google Login Failed")}
-                />
-             </div>
           </div>
 
           <div className="relative mb-4">
@@ -156,6 +151,36 @@ export default function Login() {
               </span>
             </button>
           </form>
+
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200"></div>
+              </div>
+              <div className="relative flex justify-center text-xs">
+                <span className="px-4 bg-[#fafafc] sm:bg-white text-gray-400 font-bold uppercase tracking-wider">or continue with google</span>
+              </div>
+            </div>
+
+            <div className="mb-4 w-full flex justify-center transform hover:scale-[1.02] transition-transform">
+               <div className="overflow-hidden rounded-xl border border-gray-100 hover:border-[#1a73e8] transition-colors shadow-sm bg-white">
+                  <GoogleLogin
+                    onSuccess={handleGoogleSuccess}
+                    onError={() => setError("Google Login Failed")}
+                  />
+               </div>
+            </div>
+
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200"></div>
+              </div>
+              <div className="relative flex justify-center text-xs">
+                <span className="px-4 bg-white text-gray-400 font-bold uppercase tracking-wider">or continue with google</span>
+              </div>
+            </div>
+
+            </div>
+
 
           <p className="mt-5 text-center text-gray-500 font-medium text-sm">
             Don't have an account?{" "}
