@@ -107,6 +107,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <GoogleOAuthProvider clientId="234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleusercontent.com">
+<Script async 
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3444542685708016" 
+crossOrigin="anonymous" strategy="lazyOnload" />
           {children}
         </GoogleOAuthProvider>
         <Analytics />
