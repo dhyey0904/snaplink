@@ -48,7 +48,7 @@ export default function Home() {
                   Secure File Sharing & <br/>3D Digital <span className="text-blue-200">vCards</span>
                 </h1>
                 <p className="text-base md:text-lg font-medium text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                  SnapLink is the ultimate platform for modern professionals. Send 1GB files with self-destructing timers and generate stunning 3D digital business cards instantly.
+                  SnapLink is the ultimate platform for professionals. Send 1GB files with self-destructing timers and generate stunning 3D digital business cards.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                   <Link href="/register" className="px-6 py-3 rounded-xl font-bold text-[#1a73e8] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
