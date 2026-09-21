@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   keywords: ["secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard", "link in bio", "URL shortener"],
   icons: {
     icon: [
-      { url: '/logo.png', type: 'image/png' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' }
     ],
-    apple: [
-      { url: '/logo.png', sizes: '180x180', type: 'image/png' },
-    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   alternates: {
     canonical: "https://www.snaplinks.in/",
