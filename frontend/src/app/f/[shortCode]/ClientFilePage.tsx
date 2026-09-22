@@ -237,7 +237,7 @@ export default function FileDownloadPage() {
                       onChange={(e) => handleChange(e.target.value, index)}
                       onKeyDown={(e) => handleKeyDown(e, index)}
                       onPaste={handlePaste}
-                      className="w-10 h-12 sm:w-14 sm:h-16 text-center text-xl sm:text-3xl font-bold text-gray-900 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-[#1a73e8] focus:ring-0 outline-none transition-all shadow-sm"
+                      className="w-10 h-12 sm:w-14 sm:h-16 text-center text-xl sm:text-3xl font-bold  bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-[#1a73e8] focus:ring-0 outline-none transition-all shadow-sm text-gray-900 placeholder-gray-600"
                     />
                   ))}
                 </div>

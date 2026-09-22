@@ -461,13 +461,13 @@ export default function Dashboard() {
                   <h3 className="font-bold text-gray-900 border-b border-gray-100 pb-2 mb-4">Destination & Routing</h3>
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-1.5">Destination URL <span className="text-red-500">*</span></label>
-                    <input type="url" required value={newUrl} onChange={(e) => setNewUrl(e.target.value)} placeholder="https://example.com/long-url..." className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm" />
+                    <input type="url" required value={newUrl} onChange={(e) => setNewUrl(e.target.value)} placeholder="https://example.com/long-url..." className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500  text-sm text-gray-900 placeholder-gray-600" />
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-1.5">Custom Back-half <span className="text-red-500">*</span></label>
                     <div className="flex rounded-xl overflow-hidden border border-gray-200 focus-within:ring-2 focus-within:ring-blue-500">
                       <span className="inline-flex items-center px-4 bg-gray-100 text-gray-500 text-sm font-medium border-r border-gray-200">snaplinks.in/</span>
-                      <input type="text" required value={customAlias} onChange={(e) => setCustomAlias(e.target.value)} placeholder="my-custom-url" className="block w-full px-4 py-3 bg-gray-50 focus:bg-white focus:outline-none text-gray-900 text-sm" />
+                      <input type="text" required value={customAlias} onChange={(e) => setCustomAlias(e.target.value)} placeholder="my-custom-url" className="block w-full px-4 py-3 bg-gray-50 focus:bg-white focus:outline-none  text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
                 </div>
@@ -481,9 +481,9 @@ export default function Dashboard() {
                     </h3>
                     <div className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
-                        <div><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Source</label><input type="text" value={utmSource} onChange={e => setUtmSource(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" /></div>
-                        <div><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Medium</label><input type="text" value={utmMedium} onChange={e => setUtmMedium(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" /></div>
-                        <div className="col-span-2 text-gray-900 placeholder-gray-600"><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Campaign</label><input type="text" value={utmCampaign} onChange={e => setUtmCampaign(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" /></div>
+                        <div><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Source</label><input type="text" value={utmSource} onChange={e => setUtmSource(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 text-gray-900 placeholder-gray-600" /></div>
+                        <div><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Medium</label><input type="text" value={utmMedium} onChange={e => setUtmMedium(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 text-gray-900 placeholder-gray-600" /></div>
+                        <div className="col-span-2 text-gray-900 placeholder-gray-600"><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Campaign</label><input type="text" value={utmCampaign} onChange={e => setUtmCampaign(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 text-gray-900 placeholder-gray-600" /></div>
                       </div>
                       <div className="pt-2 border-t border-blue-200/50">
                         <label className="block text-xs font-bold text-indigo-800 mb-1">Device Targeting</label>

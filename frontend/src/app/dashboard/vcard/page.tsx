@@ -274,37 +274,37 @@ export default function VCardDashboard() {
                       <span className="inline-flex items-center px-4 bg-gray-50 text-gray-500 sm:text-sm border-r border-gray-200 font-medium">
                         snaplinks.in/v/
                       </span>
-                      <input type="text" required value={alias} onChange={(e) => setAlias(e.target.value)} placeholder="your-name" className="flex-1 block w-full px-4 py-2 bg-white text-gray-900 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold" />
+                      <input type="text" required value={alias} onChange={(e) => setAlias(e.target.value)} placeholder="your-name" className="flex-1 block w-full px-4 py-2 bg-white   focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Full Name</label>
-                      <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Jane Doe" className="block w-full px-4 py-2 bg-white text-gray-900 placeholder-gray-600 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+                      <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Jane Doe" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Job Title</label>
-                      <input type="text" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder="CEO & Founder" className="block w-full px-4 py-2 bg-white text-gray-900 placeholder-gray-600 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+                      <input type="text" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder="CEO & Founder" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Company Name</label>
-                      <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Acme Corp" className="block w-full px-4 py-2 bg-white text-gray-900 placeholder-gray-600 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+                      <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Acme Corp" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Phone</label>
-                      <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+12345678900" className="block w-full px-4 py-2 bg-white text-gray-900 placeholder-gray-600 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+                      <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+12345678900" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">WhatsApp</label>
-                      <input type="tel" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder="+12345678900" className="block w-full px-4 py-2 bg-white text-gray-900 placeholder-gray-600 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+                      <input type="tel" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder="+12345678900" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
-                      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="jane@example.com" className="block w-full px-4 py-2 bg-white text-gray-900 placeholder-gray-600 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+                      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="jane@example.com" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
                 </Accordion>
@@ -351,7 +351,7 @@ export default function VCardDashboard() {
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Resume (PDF URL or File)</label>
                       <div className="flex flex-col sm:flex-row gap-2">
-                        <input type="url" value={resumeUrl} onChange={e => setResumeUrl(e.target.value)} placeholder="https://..." className="flex-1 px-4 py-2.5 bg-white text-gray-900 placeholder-gray-600 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500" />
+                        <input type="url" value={resumeUrl} onChange={e => setResumeUrl(e.target.value)} placeholder="https://..." className="flex-1 px-4 py-2.5 bg-white   border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-600" />
                         <label className="cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold px-6 py-2.5 rounded-lg transition-colors border border-gray-200 flex items-center justify-center text-sm whitespace-nowrap">
                           Upload PDF
                           <input type="file" accept="application/pdf" className="hidden text-gray-900 placeholder-gray-600" onChange={(e) => handleImageUpload(e, setResumeUrl)} />
@@ -364,8 +364,8 @@ export default function VCardDashboard() {
                       <div className="space-y-3">
                         {customLinks.map((link, idx) => (
                           <div key={idx} className="relative flex flex-col sm:flex-row gap-2 sm:items-center bg-gray-50 p-3 pr-10 rounded-lg border border-gray-200">
-                            <input type="text" placeholder="Title (e.g. GitHub)" value={link.title} onChange={e => updateCustomLink(idx, 'title', e.target.value)} className="w-full sm:w-1/3 px-3 py-2 text-sm rounded bg-white text-gray-900 placeholder-gray-600 border border-gray-200" />
-                            <input type="url" placeholder="URL" value={link.url} onChange={e => updateCustomLink(idx, 'url', e.target.value)} className="w-full sm:flex-1 px-3 py-2 text-sm rounded bg-white text-gray-900 placeholder-gray-600 border border-gray-200" />
+                            <input type="text" placeholder="Title (e.g. GitHub)" value={link.title} onChange={e => updateCustomLink(idx, 'title', e.target.value)} className="w-full sm:w-1/3 px-3 py-2 text-sm rounded bg-white   border border-gray-200 text-gray-900 placeholder-gray-600" />
+                            <input type="url" placeholder="URL" value={link.url} onChange={e => updateCustomLink(idx, 'url', e.target.value)} className="w-full sm:flex-1 px-3 py-2 text-sm rounded bg-white   border border-gray-200 text-gray-900 placeholder-gray-600" />
                             <button type="button" onClick={() => removeCustomLink(idx)} className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-red-500 hover:bg-red-50 rounded" title="Remove Link">
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                             </button>

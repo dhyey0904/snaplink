@@ -78,7 +78,7 @@ export default function Page() {
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     placeholder="https://snaplink.com/xYz123" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-gray-900 placeholder-gray-600" 
                   />
                 </div>
                 

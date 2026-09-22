@@ -397,7 +397,7 @@ export default function BioDashboard() {
                     required
                     value={alias}
                     onChange={(e) => setAlias(e.target.value)}
-                    className="flex-1 min-w-0 block w-full px-4 py-3 border-none focus:ring-0 sm:text-sm text-gray-900 font-medium"
+                    className="flex-1 min-w-0 block w-full px-4 py-3 border-none focus:ring-0 sm:text-sm  font-medium text-gray-900 placeholder-gray-600"
                     placeholder="my-name"
                   />
                 </div>
@@ -493,7 +493,7 @@ export default function BioDashboard() {
                                 type="text" 
                                 value={newLinkTitle} 
                                 onChange={(e) => setNewLinkTitle(e.target.value)} 
-                                className="block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow bg-gray-50 focus:bg-white" 
+                                className="block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-600" 
                                 placeholder={newLinkType === 'video' ? "My Latest Vlog" : newLinkType === 'donation' ? "Buy me a coffee" : "Title"} 
                                 required
                               />
@@ -508,7 +508,7 @@ export default function BioDashboard() {
                                     type="file" 
                                     accept="video/*"
                                     onChange={(e) => handleImageUpload(e, setNewLinkUrl)} 
-                                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer border border-gray-200 rounded-xl" 
+                                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer border border-gray-200 rounded-xl text-gray-900 placeholder-gray-600" 
                                   />
                                   
                                 </div>
@@ -517,7 +517,7 @@ export default function BioDashboard() {
                                   type="url" 
                                   value={newLinkUrl} 
                                   onChange={(e) => setNewLinkUrl(e.target.value)} 
-                                  className="block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow bg-gray-50 focus:bg-white" 
+                                  className="block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-600" 
                                   placeholder="https://..." 
                                   required
                                 />
@@ -533,7 +533,7 @@ export default function BioDashboard() {
                                   type="text" 
                                   value={newLinkPrice} 
                                   onChange={(e) => setNewLinkPrice(e.target.value)} 
-                                  className="block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 bg-white" 
+                                  className="block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 bg-white text-gray-900 placeholder-gray-600" 
                                   placeholder="$19.99" 
                                 />
                               </div>
@@ -541,7 +541,7 @@ export default function BioDashboard() {
                                 <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Product Image</label>
                                 <div className="flex gap-2 items-center">
                                   {newLinkImageUrl && <img src={newLinkImageUrl} className="w-10 h-10 rounded-lg object-cover" />}
-                                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, setNewLinkImageUrl)} className="block w-full text-xs text-gray-500 file:mr-2 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-gray-200 file:text-gray-700 cursor-pointer border border-gray-200 rounded-xl" />
+                                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, setNewLinkImageUrl)} className="block w-full text-xs text-gray-500 file:mr-2 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-gray-200 file:text-gray-700 cursor-pointer border border-gray-200 rounded-xl text-gray-900 placeholder-gray-600" />
                                 </div>
                               </div>
                             </div>
@@ -593,13 +593,13 @@ export default function BioDashboard() {
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                           <div>
                             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Page Title</label>
-                            <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900 font-medium" />
+                            <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all  font-medium text-gray-900 placeholder-gray-600" />
                           </div>
                           <div>
                             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Profile Image</label>
                             <div className="flex gap-3 items-center">
                               {profileImageUrl && <img src={profileImageUrl} alt="Preview" className="w-12 h-12 rounded-xl object-cover border border-gray-200 flex-shrink-0" />}
-                              <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, setProfileImageUrl)} className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer border border-gray-200 rounded-xl" />
+                              <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, setProfileImageUrl)} className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer border border-gray-200 rounded-xl text-gray-900 placeholder-gray-600" />
                             </div>
                           </div>
                         </div>
@@ -614,7 +614,7 @@ export default function BioDashboard() {
                           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Contact Email</label>
-                              <input type="email" value={contactEmail} onChange={e => setContactEmail(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900" placeholder="hello@example.com" />
+                              <input type="email" value={contactEmail} onChange={e => setContactEmail(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900 placeholder-gray-600" placeholder="hello@example.com" />
                             </div>
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Resume Upload</label>
@@ -622,7 +622,7 @@ export default function BioDashboard() {
                                   type="file" 
                                   accept=".pdf,.doc,.docx"
                                   onChange={(e) => handleImageUpload(e, setResumeUrl)} 
-                                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer border border-gray-200 rounded-xl bg-gray-50 hover:bg-white transition-all" 
+                                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer border border-gray-200 rounded-xl bg-gray-50 hover:bg-white transition-all text-gray-900 placeholder-gray-600" 
                                 />
                                 {resumeUrl && <p className="text-xs text-green-600 mt-2 font-medium break-all max-w-[200px] truncate">Uploaded: {resumeUrl}</p>}
                             </div>
@@ -634,19 +634,19 @@ export default function BioDashboard() {
                           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Twitter / X</label>
-                              <input type="url" value={twitterUrl} onChange={e => setTwitterUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900" placeholder="https://twitter.com/..." />
+                              <input type="url" value={twitterUrl} onChange={e => setTwitterUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900 placeholder-gray-600" placeholder="https://twitter.com/..." />
                             </div>
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Instagram</label>
-                              <input type="url" value={instagramUrl} onChange={e => setInstagramUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900" placeholder="https://instagram.com/..." />
+                              <input type="url" value={instagramUrl} onChange={e => setInstagramUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900 placeholder-gray-600" placeholder="https://instagram.com/..." />
                             </div>
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">LinkedIn</label>
-                              <input type="url" value={linkedinUrl} onChange={e => setLinkedinUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900" placeholder="https://linkedin.com/in/..." />
+                              <input type="url" value={linkedinUrl} onChange={e => setLinkedinUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900 placeholder-gray-600" placeholder="https://linkedin.com/in/..." />
                             </div>
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">GitHub</label>
-                              <input type="url" value={githubUrl} onChange={e => setGithubUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900" placeholder="https://github.com/..." />
+                              <input type="url" value={githubUrl} onChange={e => setGithubUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900 placeholder-gray-600" placeholder="https://github.com/..." />
                             </div>
                           </div>
                         </div>
@@ -688,7 +688,7 @@ export default function BioDashboard() {
                           <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Brand Color</label>
                           <div className="flex items-center gap-4">
                             <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-16 h-16 rounded-2xl cursor-pointer border-0 shadow-sm text-gray-900 placeholder-gray-600" style={{ backgroundColor: themeColor }} />
-                            <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 max-w-[200px] px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white font-mono uppercase text-gray-900" />
+                            <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 max-w-[200px] px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white font-mono uppercase text-gray-900 placeholder-gray-600" />
                           </div>
                         </div>
 
