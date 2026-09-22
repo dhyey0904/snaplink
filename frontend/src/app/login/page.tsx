@@ -39,7 +39,7 @@ export default function Login() {
       const result = await data.json();
       localStorage.setItem("token", result.access_token);
       setSuccess("Login successful!");
-      setTimeout(() => router.push("/dashboard"), 1500);
+      setTimeout(() => router.push("/dashboard"), 400);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -67,7 +67,7 @@ export default function Login() {
       const data = await response.json();
       localStorage.setItem("token", data.access_token);
       setSuccess("Login successful!");
-      setTimeout(() => router.push("/dashboard"), 1500);
+      setTimeout(() => router.push("/dashboard"), 400);
     } catch (err: any) {
       setError(err.message);
     } finally {

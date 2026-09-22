@@ -51,7 +51,7 @@ export default function Register() {
       const data = await response.json();
       localStorage.setItem("token", data.access_token);
       setSuccess("Account created successfully!");
-      setTimeout(() => router.push("/dashboard"), 1500);
+      setTimeout(() => router.push("/dashboard"), 400);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -65,34 +65,34 @@ export default function Register() {
       {/* LEFT SIDE - Form */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-16 md:px-24 xl:px-32 py-10 lg:py-0 relative z-10 bg-white shadow-[20px_0_40px_rgba(0,0,0,0.1)]">
         <div className="max-w-md w-full mx-auto">
-
-                    {/* Mobile Only Logo */}
+          {/* Mobile Only Logo */}
           <div className="lg:hidden mb-8 flex items-center justify-center">
-            <Link href="/" className="text-3xl font-black tracking-tighter text-gray-900">
+            <Link href="/" className="text-5xl font-black tracking-tighter text-gray-900 drop-shadow-sm mb-2">
               Snap<span className="text-[#1a73e8]">Link</span>
             </Link>
           </div>
           
-<h2 className="text-3xl font-extrabold text-gray-900 mb-1">Create an account</h2>
-          <p className="text-gray-500 font-medium mb-6 text-sm">Join thousands of creators and professionals.</p>
-
-          <div className="mb-4 w-full flex justify-center transform hover:scale-[1.02] transition-transform">
-             <div className="overflow-hidden rounded-xl border border-gray-100 hover:border-[#1a73e8] transition-colors shadow-sm">
-                <GoogleLogin
-                  onSuccess={handleGoogleSuccess}
-                  onError={() => setError("Google Login Failed")}
-                />
-             </div>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Create an account</h2>
+            <p className="text-gray-500 font-medium text-sm">Join thousands of creators and professionals.</p>
           </div>
 
-          <div className="relative mb-4">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-100"></div>
+          {/* Toast Notification */}
+          {success && (
+            <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50 animate-bounce" style={{ animationIterationCount: 1 }}>
+              <div className="bg-white px-6 py-4 rounded-2xl shadow-2xl border border-green-100 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-gray-900 font-bold">{success}</p>
+                  <p className="text-gray-500 text-xs">Redirecting...</p>
+                </div>
+              </div>
             </div>
-            <div className="relative flex justify-center text-xs">
-              <span className="px-4 bg-white text-gray-400 font-bold uppercase tracking-wider">or sign up with email</span>
-            </div>
-          </div>
+          )}
 
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="relative group">
@@ -150,10 +150,28 @@ export default function Register() {
             </button>
           </form>
 
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200"></div>
+            </div>
+            <div className="relative flex justify-center text-xs">
+              <span className="px-4 bg-white text-gray-400 font-bold uppercase tracking-wider">or continue with google</span>
+            </div>
+          </div>
+
+          <div className="mb-4 w-full flex justify-center transform hover:scale-[1.02] transition-transform">
+             <div className="overflow-hidden rounded-xl border border-gray-100 hover:border-[#1a73e8] transition-colors shadow-sm bg-white">
+                <GoogleLogin
+                  onSuccess={handleGoogleSuccess}
+                  onError={() => setError("Google Login Failed")}
+                />
+             </div>
+          </div>
+
           <p className="mt-5 text-center text-gray-500 font-medium text-sm">
             Already have an account?{" "}
             <Link href="/login" className="text-[#1a73e8] hover:underline font-bold transition-colors">
-              Log In instead
+              Log in
             </Link>
           </p>
         </div>
