@@ -113,12 +113,12 @@ export default function Login() {
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400 group-focus-within:text-[#1a73e8] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
+                <svg className="w-5 h-5 text-gray-500 group-focus-within:text-[#1a73e8] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
               </div>
               <input
                 type="email"
                 required
-                className="w-full pl-11 pr-4 py-3 rounded-xl bg-gray-50/50 border border-gray-200 focus:bg-white focus:outline-none focus:border-[#1a73e8] focus:ring-2 focus:ring-[#1a73e8]/10 transition-all text-gray-900 font-medium placeholder-gray-400 text-sm"
+                className="w-full pl-11 pr-4 py-3 rounded-xl bg-gray-50/50 border border-gray-200 focus:bg-white focus:outline-none focus:border-[#1a73e8] focus:ring-2 focus:ring-[#1a73e8]/10 transition-all text-gray-900 font-medium placeholder-gray-600 text-sm"
                 placeholder="Email address"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -127,12 +127,12 @@ export default function Login() {
             
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400 group-focus-within:text-[#1a73e8] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <svg className="w-5 h-5 text-gray-500 group-focus-within:text-[#1a73e8] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
               </div>
               <input
                 type="password"
                 required
-                className="w-full pl-11 pr-4 py-3 rounded-xl bg-gray-50/50 border border-gray-200 focus:bg-white focus:outline-none focus:border-[#1a73e8] focus:ring-2 focus:ring-[#1a73e8]/10 transition-all text-gray-900 font-medium placeholder-gray-400 text-sm"
+                className="w-full pl-11 pr-4 py-3 rounded-xl bg-gray-50/50 border border-gray-200 focus:bg-white focus:outline-none focus:border-[#1a73e8] focus:ring-2 focus:ring-[#1a73e8]/10 transition-all text-gray-900 font-medium placeholder-gray-600 text-sm"
                 placeholder="Password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -162,7 +162,7 @@ export default function Login() {
               <div className="w-full border-t border-gray-200"></div>
             </div>
             <div className="relative flex justify-center text-xs">
-              <span className="px-4 bg-white text-gray-400 font-bold uppercase tracking-wider">or continue with google</span>
+              <span className="px-4 bg-white text-gray-500 font-bold uppercase tracking-wider">or continue with google</span>
             </div>
           </div>
 
