@@ -483,7 +483,7 @@ export default function Dashboard() {
                       <div className="grid grid-cols-2 gap-4">
                         <div><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Source</label><input type="text" value={utmSource} onChange={e => setUtmSource(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" /></div>
                         <div><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Medium</label><input type="text" value={utmMedium} onChange={e => setUtmMedium(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" /></div>
-                        <div className="col-span-2"><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Campaign</label><input type="text" value={utmCampaign} onChange={e => setUtmCampaign(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" /></div>
+                        <div className="col-span-2 text-gray-900 placeholder-gray-600"><label className="block text-xs font-bold text-indigo-800 mb-1">UTM Campaign</label><input type="text" value={utmCampaign} onChange={e => setUtmCampaign(e.target.value)} className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" /></div>
                       </div>
                       <div className="pt-2 border-t border-blue-200/50">
                         <label className="block text-xs font-bold text-indigo-800 mb-1">Device Targeting</label>
@@ -495,7 +495,7 @@ export default function Dashboard() {
                       </div>
                       <div className="pt-2 border-t border-blue-200/50">
                         <label className="block text-xs font-bold text-indigo-800 mb-1">A/B Split Test Destination</label>
-                        <input type="url" value={abSplit} onChange={e => setAbSplit(e.target.value)} placeholder="https://example.com/variant-b" className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" />
+                        <input type="url" value={abSplit} onChange={e => setAbSplit(e.target.value)} placeholder="https://example.com/variant-b" className="block w-full px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 text-gray-900 placeholder-gray-600" />
                         <p className="text-[10px] text-indigo-600 mt-1">Send 50% of traffic to this alternate URL.</p>
                       </div>
                     </div>
@@ -513,7 +513,7 @@ export default function Dashboard() {
                       <div className="space-y-4">
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-1.5">Headline</label>
-                          <input type="text" value={ogTitle} onChange={e => setOgTitle(e.target.value)} placeholder="e.g. My Website" className="block w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm" />
+                          <input type="text" value={ogTitle} onChange={e => setOgTitle(e.target.value)} placeholder="e.g. My Website" className="block w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                         </div>
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-1.5">Description</label>
@@ -522,10 +522,10 @@ export default function Dashboard() {
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-1.5">Preview Image</label>
                           <div className="flex gap-3">
-                            <input type="url" value={ogImage} onChange={e => setOgImage(e.target.value)} placeholder="https://..." className="block w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm" />
+                            <input type="url" value={ogImage} onChange={e => setOgImage(e.target.value)} placeholder="https://..." className="block w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                             <label className="flex-shrink-0 cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold px-4 py-2 rounded-xl transition-colors border border-gray-200 flex items-center justify-center text-sm">
                               <span>Upload</span>
-                              <input type="file" className="hidden text-gray-900" accept="image/*" onChange={(e) => handleImageUpload(e, setOgImage)} />
+                              <input type="file" className="hidden text-gray-900 placeholder-gray-600" accept="image/*" onChange={(e) => handleImageUpload(e, setOgImage)} />
                             </label>
                           </div>
                         </div>
@@ -565,11 +565,11 @@ export default function Dashboard() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-1.5">Password</label>
-                      <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Leave blank for public" className="block w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm" />
+                      <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Leave blank for public" className="block w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-1.5">Expiration Date</label>
-                      <input type="datetime-local" value={expiresAt} onChange={(e) => setExpiresAt(e.target.value)} className="block w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm" />
+                      <input type="datetime-local" value={expiresAt} onChange={(e) => setExpiresAt(e.target.value)} className="block w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
                 </div>

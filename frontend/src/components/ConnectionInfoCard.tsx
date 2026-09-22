@@ -42,7 +42,7 @@ export default function ConnectionInfoCard({ activeFile, timeLeft, handleShare, 
                     type="text" 
                     readOnly 
                     value={activeFile.password || ""}
-                    className="w-full bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-amber-900 font-bold tracking-[0.2em] text-center outline-none text-gray-900"
+                    className="w-full bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-amber-900 font-bold tracking-[0.2em] text-center outline-none text-gray-900 placeholder-gray-600"
                   />
                   {activeFile.password && activeFile.password.length === 6 && (
                     <button 
@@ -88,7 +88,7 @@ export default function ConnectionInfoCard({ activeFile, timeLeft, handleShare, 
                     type="text" 
                     readOnly 
                     value={`${SHORT_LINK_DOMAIN}f/${activeFile.short_code}`} 
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 font-medium outline-none truncate"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3  font-medium outline-none truncate text-gray-900 placeholder-gray-600"
                   />
                   <button 
                     onClick={() => handleCopy(`${SHORT_LINK_DOMAIN}f/${activeFile.short_code}`)}

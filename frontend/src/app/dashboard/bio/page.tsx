@@ -687,7 +687,7 @@ export default function BioDashboard() {
                         <div>
                           <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Brand Color</label>
                           <div className="flex items-center gap-4">
-                            <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-16 h-16 rounded-2xl cursor-pointer border-0 shadow-sm" style={{ backgroundColor: themeColor }} />
+                            <input type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="w-16 h-16 rounded-2xl cursor-pointer border-0 shadow-sm text-gray-900 placeholder-gray-600" style={{ backgroundColor: themeColor }} />
                             <input type="text" value={themeColor} onChange={e => setThemeColor(e.target.value)} className="flex-1 max-w-[200px] px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white font-mono uppercase text-gray-900" />
                           </div>
                         </div>
