@@ -525,7 +525,7 @@ export default function Dashboard() {
                             <input type="url" value={ogImage} onChange={e => setOgImage(e.target.value)} placeholder="https://..." className="block w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 text-sm" />
                             <label className="flex-shrink-0 cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold px-4 py-2 rounded-xl transition-colors border border-gray-200 flex items-center justify-center text-sm">
                               <span>Upload</span>
-                              <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, setOgImage)} />
+                              <input type="file" className="hidden text-gray-900" accept="image/*" onChange={(e) => handleImageUpload(e, setOgImage)} />
                             </label>
                           </div>
                         </div>

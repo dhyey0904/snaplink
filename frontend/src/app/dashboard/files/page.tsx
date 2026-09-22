@@ -220,7 +220,7 @@ export default function Dashboard() {
                 onDrop={handleFileDrop}
                 onClick={() => !uploading && fileInputRef.current?.click()}
               />
-              <input type="file" className="hidden" ref={fileInputRef} onChange={(e) => {
+              <input type="file" className="hidden text-gray-900" ref={fileInputRef} onChange={(e) => {
                 if (e.target.files && e.target.files[0]) {
                   const file = e.target.files[0];
                   if (file.size > 1024 * 1024 * 1024) { alert("File too large. Maximum size is 1GB."); e.target.value = ''; return; }
