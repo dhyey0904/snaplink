@@ -22,6 +22,15 @@ export const metadata: Metadata = {
   description: "SnapLink is the ultimate platform for secure file sharing and digital identity. Share 1GB files with self-destructing links and generate 3D vCards.",
   keywords: ["secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard", "link in bio", "URL shortener"],
 
+  
+  icons: {
+    icon: [
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   alternates: {
     canonical: "https://www.snaplinks.in/",
   },
