@@ -39,10 +39,8 @@ export default function Footer() {
             <ul className="space-y-1">
               <li><Link href="/url-shortener" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">URL Shortener</Link></li>
               <li><Link href="/linktree-alternative" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Linktree Alternative</Link></li>
-              <li><Link href="/qr-code-generator" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">QR Code Generator</Link></li>
               <li><Link href="/digital-business-card" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">3D Business Cards</Link></li>
               <li><Link href="/file-sharing" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Secure File Sharing</Link></li>
-              <li><Link href="/portfolio-builder" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Portfolio Builder</Link></li>
             </ul>
           </div>
 
