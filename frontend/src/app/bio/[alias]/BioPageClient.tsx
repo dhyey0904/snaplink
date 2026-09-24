@@ -152,7 +152,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
   return (
     <>
       <Head>
-        <title>{bioPage.name} - SnapLink</title>
+        <title>{bioPage.title || bioPage.alias} - SnapLink</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
       </Head>
       
@@ -199,7 +199,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
                 <img src={bioPage.profile_image_url} alt="Profile" className={`w-[104px] h-[104px] rounded-full object-cover border-2 ${themeType === 'neo-brutalism' ? 'border-4 border-black rounded-none shadow-[4px_4px_0_0_#000]' : 'border-transparent'}`} style={themeType !== 'neo-brutalism' ? { borderColor: t.profileBg } : {}} />
               ) : (
                 <div className={`w-[104px] h-[104px] flex items-center justify-center text-4xl font-black ${themeType === 'neo-brutalism' ? 'border-4 border-black bg-[#FF90E8] text-black shadow-[4px_4px_0_0_#000]' : 'rounded-full bg-gray-200 text-gray-500'}`} style={themeType !== 'neo-brutalism' && !t.bg.includes('white') ? { backgroundColor: 'rgba(255,255,255,0.1)', color: 'white' } : {}}>
-                  {bioPage.name.charAt(0)}
+                  {(bioPage.title || bioPage.alias || "S").charAt(0)}
                 </div>
               )}
             </div>
@@ -207,25 +207,32 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
 
           {/* Name & Verified Badge */}
           <h1 className={`text-[22px] font-bold tracking-tight flex items-center justify-center mb-1 drop-shadow-sm ${t.text}`}>
-            {bioPage.name}
+            {bioPage.title || bioPage.alias}
             {Icons.verified}
           </h1>
           
           {/* Job Title / Description */}
           <p className={`text-[15px] font-medium mb-4 ${t.textSec}`}>
-            {bioPage.title || 'Creator'}
+            @{bioPage.alias}
           </p>
 
           {/* Long Bio */}
-          {bioPage.description && (
+          {bioPage.bio_text && (
             <p className={`text-center text-[14px] leading-[1.6] mb-8 px-6 max-w-[380px] ${t.textMuted}`}>
-              {bioPage.description}
+              {bioPage.bio_text}
             </p>
           )}
 
           {/* Social Icons Row */}
           {(bioPage.twitter_url || bioPage.instagram_url || bioPage.github_url || bioPage.linkedin_url) && (
             <div className="flex justify-center gap-4 mb-10 w-full px-4">
+              
+              {bioPage.resume_url && (
+                <a href={bioPage.resume_url.startsWith('http') ? bioPage.resume_url : `${backendUrl}${bioPage.resume_url.startsWith('/') ? '' : '/'}${bioPage.resume_url}`} target="_blank" download className={`w-[46px] h-[46px] flex items-center justify-center backdrop-blur-xl transition-all border ${themeType === 'neo-brutalism' ? 'rounded-none' : 'rounded-full'} ${t.socialBg}`} title="Download Resume">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                </a>
+              )}
+
               {bioPage.twitter_url && (
                 <a href={bioPage.twitter_url} target="_blank" className={`w-[46px] h-[46px] flex items-center justify-center backdrop-blur-xl transition-all border ${themeType === 'neo-brutalism' ? 'rounded-none' : 'rounded-full'} ${t.socialBg}`}>
                   {Icons.twitter}
@@ -315,7 +322,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
           {/* Footer Footer Footer */}
           <div className={`mt-14 mb-8 text-center flex flex-col items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity ${t.textMuted}`}>
              <div className="text-[13px] font-medium">
-                Made with <span className="text-red-500 mx-0.5">❤️</span> by {(bioPage.name || bioPage.alias || 'Creator').split(' ')[0]}
+                Made with <span className="text-red-500 mx-0.5">❤️</span> by {(bioPage.title || bioPage.alias || 'Creator').split(' ')[0]}
              </div>
              <div className="text-[11px] opacity-70">
                 © {new Date().getFullYear()} All rights reserved
