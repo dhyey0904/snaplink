@@ -202,6 +202,7 @@ def get_public_bio_page(
         "title": bio_page.title,
         "bio_text": bio_page.bio_text,
         "theme_color": bio_page.theme_color,
+        "theme_type": bio_page.theme_type,
         "profile_image_url": bio_page.profile_image_url,
         "contact_email": bio_page.contact_email,
         "resume_url": bio_page.resume_url,
