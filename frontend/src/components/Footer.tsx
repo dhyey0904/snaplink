@@ -48,7 +48,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-gray-900 mb-4">Resources</h3>
             <ul className="space-y-1">
-              <li><Link href="/dashboard" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Help Center / FAQ</Link></li>
+              <li><Link href="/help" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Help Center / FAQ</Link></li>
               <li><Link href="/dashboard/api" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">API Documentation</Link></li>
               <li>
                 <div className="inline-flex items-center gap-2 text-gray-500 text-sm group cursor-pointer" title="All systems are operating normally">
