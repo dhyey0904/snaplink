@@ -91,7 +91,7 @@ export default function AboutPage() {
               pixel-perfect UI, and developer-first APIs. We are driven by the passion to build tools 
               that actually make your daily workflow easier.
             </p>
-            <a href="https://github.com/dhyey" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors">
+            <a href="https://github.com/dhyey0904" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors">
               Follow on GitHub
             </a>
           </div>
