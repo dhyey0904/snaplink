@@ -29,7 +29,7 @@ With paper cards, a single typo means you have to throw the entire batch in the 
 ## 4. Built-in File Sharing
 Your digital business card can be much more than just an email address and phone number. 
 
-Because SnapLink is built on a powerful ephemeral file-sharing engine, you can attach downloadable assets directly to your digital card. Are you a designer? Attach your PDF portfolio. Are you in sales? Attach your latest pitch deck. Your contacts can securely download these files up to 1GB directly from your 3D card.
+Because SnapLink is built on a powerful ephemeral file-sharing engine, you can attach downloadable assets directly to your digital card. Are you a designer? Attach your PDF portfolio. Are you in sales? Attach your latest pitch deck. Your contacts can securely download these files up to 50MB directly from your 3D card.
 
 ## 5. Track Your Networking ROI
 When you hand out 50 paper cards at a conference, you have no idea if anyone actually looked at them. 

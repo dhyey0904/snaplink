@@ -1,6 +1,6 @@
 ---
 title: "How to Share Large Files Securely Online"
-description: "Learn how to send files larger than 1GB safely over the internet using password protection, self-destructing links, and encryption."
+description: "Learn how to send files larger than 50MB safely over the internet using password protection, self-destructing links, and encryption."
 date: "2026-09-20"
 author: "Dhyey Raja"
 ---

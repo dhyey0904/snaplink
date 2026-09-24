@@ -38,7 +38,7 @@ export default function Page() {
             <p>Unlike other platforms that charge you for basic functionality, our bio link creator allows you to add unlimited links, social profiles, and custom buttons without ever hitting a paywall. Whether you\'re an influencer, a musician, or a small business, you can route your audience exactly where they need to go.</p>
             
             <h3>2. Built-in Secure File Sharing</h3>
-            <p>What truly makes us the best Linktree alternative is our native integration with <strong>secure file sharing</strong>. You can embed downloadable resumes, portfolios, or exclusive digital content directly into your bio page. Your visitors can download up to 1GB files directly from your profile, complete with self-destructing links and password protection.</p>
+            <p>What truly makes us the best Linktree alternative is our native integration with <strong>secure file sharing</strong>. You can embed downloadable resumes, portfolios, or exclusive digital content directly into your bio page. Your visitors can download up to 50MB files directly from your profile, complete with self-destructing links and password protection.</p>
             
             <h3>3. Advanced Analytics</h3>
             <p>Stop guessing if your marketing is working. SnapLink provides detailed click-tracking, geographical data, and referrer analytics so you know exactly which links are driving the most traffic.</p>

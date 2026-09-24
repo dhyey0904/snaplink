@@ -210,7 +210,7 @@ export default function Login() {
             <h3 className="text-3xl font-extrabold text-white mb-4 tracking-tight leading-tight drop-shadow-sm">Unleash your digital<br/>potential.</h3>
             
             <p className="text-blue-100 text-sm leading-relaxed mb-8 font-medium">
-              "Switching to SnapLink was the best decision for our team. The 1GB ephemeral file sharing and stunning 3D vCards have completely elevated our brand."
+              "Switching to SnapLink was the best decision for our team. The 50MB ephemeral file sharing and stunning 3D vCards have completely elevated our brand."
             </p>
             
             <div className="flex items-center gap-4">

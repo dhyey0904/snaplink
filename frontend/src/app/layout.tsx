@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Secure File Sharing & 3D Digital vCards | SnapLink",
-  description: "SnapLink is the ultimate platform for secure file sharing and digital identity. Share 1GB files with self-destructing links and generate 3D vCards.",
+  description: "SnapLink is the ultimate platform for secure file sharing and digital identity. Share 50MB files with self-destructing links and generate 3D vCards.",
   keywords: ["secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard", "link in bio", "URL shortener"],
 
   
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Secure File Sharing & 3D Digital vCards | SnapLink",
-    description: "Share 1GB files securely with auto-destructing links. Create your premium 3D digital business card today.",
+    description: "Share 50MB files securely with auto-destructing links. Create your premium 3D digital business card today.",
     images: ["https://www.snaplinks.in/og-image.jpg"],
   },
   robots: {

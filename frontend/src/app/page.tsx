@@ -50,7 +50,7 @@ export default function Home() {
                   Secure File Sharing & <br/>3D Digital <span className="text-blue-200">vCards</span>
                 </h1>
                 <p className="text-base md:text-lg font-medium text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                  SnapLink is the ultimate platform for professionals. Send 1GB files with self-destructing timers and generate stunning 3D digital business cards.
+                  SnapLink is the ultimate platform for professionals. Send 50MB files with self-destructing timers and generate stunning 3D digital business cards.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                   <Link href="/register" className="px-6 py-3 rounded-xl font-bold text-[#1a73e8] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
@@ -78,7 +78,7 @@ export default function Home() {
                         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                       </div>
                       <p className="text-xl font-bold text-gray-800 mb-2">Drop a file here</p>
-                      <p className="text-gray-500 text-base sm:text-sm">Up to 1GB. Self-destructs in 5 mins.</p>
+                      <p className="text-gray-500 text-base sm:text-sm">Up to 50MB. Self-destructs in 5 mins.</p>
                       <div className="mt-6 px-4 py-2 bg-gray-100 rounded-lg text-base sm:text-sm font-medium text-gray-600">Try dragging any file here!</div>
                     </>
                   )}
@@ -360,7 +360,7 @@ export default function Home() {
               <div className="prose prose-blue max-w-none">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Secure Ephemeral File Sharing Matters</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Data security is more critical now than ever before. When you send sensitive documents, creative assets, or private videos across the internet, you lose control the moment you hit send. SnapLink solves this through our advanced ephemeral file sharing architecture. You can upload files up to 1GB and instantly generate a secure link. Unlike traditional cloud storage platforms that keep your files on their servers forever, SnapLink files are designed to self-destruct. You can set strict expiration timers or configure the file to automatically delete itself the moment it is downloaded by the recipient. This guarantees that your sensitive data never lingers on a server longer than absolutely necessary, providing unparalleled peace of mind for freelancers, legal professionals, and creative agencies.
+                  Data security is more critical now than ever before. When you send sensitive documents, creative assets, or private videos across the internet, you lose control the moment you hit send. SnapLink solves this through our advanced ephemeral file sharing architecture. You can upload files up to 50MB and instantly generate a secure link. Unlike traditional cloud storage platforms that keep your files on their servers forever, SnapLink files are designed to self-destruct. You can set strict expiration timers or configure the file to automatically delete itself the moment it is downloaded by the recipient. This guarantees that your sensitive data never lingers on a server longer than absolutely necessary, providing unparalleled peace of mind for freelancers, legal professionals, and creative agencies.
                 </p>
               </div>
 
@@ -376,7 +376,7 @@ export default function Home() {
                 <dl className="space-y-8">
                   <div>
                     <dt className="text-lg font-bold text-gray-900">How large of a file can I send for free?</dt>
-                    <dd className="mt-2 text-gray-600 leading-relaxed">You can securely upload and share files up to 1GB in size. These files are processed securely and are ready to be shared instantly via a short link.</dd>
+                    <dd className="mt-2 text-gray-600 leading-relaxed">You can securely upload and share files up to 50MB in size. These files are processed securely and are ready to be shared instantly via a short link.</dd>
                   </div>
                   <div>
                     <dt className="text-lg font-bold text-gray-900">Do I need an account to download a file?</dt>
