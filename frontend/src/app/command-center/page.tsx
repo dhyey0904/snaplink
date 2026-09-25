@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import {
-  Mail, Calendar, Github, Linkedin, HardDrive, BarChart3, CreditCard,
+  Mail, Calendar, Terminal, Users, HardDrive, BarChart3, CreditCard,
   CheckSquare, FileText, Bell, Globe, Search, Bot, QrCode, Link2,
   FolderOpen, Activity, Server, Command, MoreHorizontal, Maximize2, Trash2, Pin
 } from "lucide-react";
@@ -21,8 +21,8 @@ interface WidgetConfig {
 const WIDGET_MANIFEST = [
   { id: "gmail", name: "Gmail", icon: <Mail />, color: "text-red-500", bg: "bg-red-50" },
   { id: "calendar", name: "Calendar", icon: <Calendar />, color: "text-blue-500", bg: "bg-blue-50" },
-  { id: "github", name: "GitHub", icon: <Github />, color: "text-gray-800", bg: "bg-gray-100" },
-  { id: "linkedin", name: "LinkedIn", icon: <Linkedin />, color: "text-blue-700", bg: "bg-blue-50" },
+  { id: "github", name: "GitHub", icon: <Terminal />, color: "text-gray-800", bg: "bg-gray-100" },
+  { id: "linkedin", name: "LinkedIn", icon: <Users />, color: "text-blue-700", bg: "bg-blue-50" },
   { id: "drive", name: "Google Drive", icon: <HardDrive />, color: "text-emerald-500", bg: "bg-emerald-50" },
   { id: "website", name: "Website Health", icon: <Globe />, color: "text-teal-500", bg: "bg-teal-50" },
   { id: "analytics", name: "Analytics", icon: <BarChart3 />, color: "text-orange-500", bg: "bg-orange-50" },
