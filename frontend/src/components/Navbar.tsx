@@ -14,7 +14,7 @@ export default function Navbar() {
     router.push("/");
   };
 
-  const isDashboard = pathname?.startsWith('/dashboard');
+  const isDashboard = pathname?.startsWith('/dashboard') || pathname?.startsWith('/command-center');
   const isAdmin = pathname?.startsWith('/admin');
 
   return (
@@ -53,6 +53,10 @@ export default function Navbar() {
               </Link>
             ) : isDashboard ? (
               <>
+                <Link href="/command-center" className={`text-sm font-bold transition-colors py-5 flex items-center gap-1 ${pathname === '/command-center' ? 'text-green-600 border-b-2 border-green-600' : 'text-green-600/70 hover:text-green-600'}`}>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  Snap OS
+                </Link>
                 <Link href="/dashboard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
                   Overview
                 </Link>
@@ -100,6 +104,7 @@ export default function Navbar() {
               </Link>
             ) : isDashboard ? (
               <>
+                <Link href="/command-center" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-bold rounded-lg ${pathname === '/command-center' ? 'bg-green-50 text-green-700' : 'text-green-600 hover:bg-green-50'}`}>Snap OS</Link>
                 <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Overview</Link>
                 <Link href="/dashboard/bio" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/bio' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Bio Page</Link>
                 <Link href="/dashboard/links" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/links' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>URL Shortener</Link>
