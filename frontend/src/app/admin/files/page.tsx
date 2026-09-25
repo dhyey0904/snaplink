@@ -95,54 +95,58 @@ export default function AdminFilesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex items-center justify-between">
-        <div>
-          <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-1">Total Storage Used</p>
-          <h3 className="text-3xl font-black text-gray-900">{formatBytes(totalSize)}</h3>
+      <div className="bg-[#18181B] p-5 rounded-xl border border-[#27272A] flex items-center justify-between overflow-hidden relative">
+        <div className="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-[#2563EB]/10 rounded-full blur-2xl z-0"></div>
+        <div className="relative z-10">
+          <p className="text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider mb-1 flex items-center gap-2">
+            <svg className="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+            System Storage Consumed
+          </p>
+          <h3 className="text-3xl font-bold text-[#F4F4F5]">{formatBytes(totalSize)}</h3>
         </div>
-        <div className="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center">
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+        <div className="w-12 h-12 bg-[#27272A] text-[#F4F4F5] rounded-xl flex items-center justify-center border border-[#3F3F46] relative z-10">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="px-6 py-5 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
-          <h2 className="text-xl font-bold text-gray-900">File Storage Management</h2>
-          <span className="bg-green-100 text-green-700 font-bold px-3 py-1 rounded-lg text-sm">{files.length} Files</span>
+      <div className="bg-[#18181B] rounded-xl border border-[#27272A] overflow-hidden">
+        <div className="px-5 py-4 border-b border-[#27272A] bg-[#18181B] flex justify-between items-center">
+          <h2 className="text-sm font-semibold text-[#F4F4F5]">Allocated Files</h2>
+          <span className="bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] font-mono px-2 py-0.5 rounded text-xs">{files.length} ITEMS</span>
         </div>
         
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider font-bold">
-                <th className="p-4 pl-6">Filename</th>
+              <tr className="bg-[#09090B] text-[#A1A1AA] text-[10px] uppercase tracking-wider font-mono border-b border-[#27272A]">
+                <th className="p-4 pl-5">Filename</th>
                 <th className="p-4">Size</th>
                 <th className="p-4">Owner</th>
                 <th className="p-4 text-center">Downloads</th>
                 <th className="p-4">Expires</th>
-                <th className="p-4 pr-6 text-right">Actions</th>
+                <th className="p-4 pr-5 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 text-sm">
+            <tbody className="divide-y divide-[#27272A] text-sm">
               {files.map((file) => (
-                <tr key={file.id} className="hover:bg-gray-50/50 transition-colors">
-                  <td className="p-4 pl-6 font-bold text-gray-900 truncate max-w-[12rem]" title={file.filename}>
+                <tr key={file.id} className="hover:bg-[#27272A]/30 transition-colors group">
+                  <td className="p-4 pl-5 font-medium text-[#F4F4F5] truncate max-w-[12rem] text-xs" title={file.filename}>
                     {file.filename}
                   </td>
-                  <td className="p-4 text-gray-600 font-medium">
+                  <td className="p-4 text-[#A1A1AA] font-mono text-xs">
                     {formatBytes(file.size_bytes || 0)}
                   </td>
-                  <td className="p-4 font-medium text-gray-700">{file.owner_email}</td>
+                  <td className="p-4 font-medium text-[#F4F4F5]">{file.owner_email}</td>
                   <td className="p-4 text-center">
-                    <span className="bg-gray-100 text-gray-800 px-2.5 py-1 rounded-full font-bold text-xs">{file.downloads || 0}</span>
+                    <span className="bg-[#27272A] text-[#F4F4F5] px-2 py-0.5 rounded border border-[#3F3F46] font-mono text-[10px]">{file.downloads || 0}</span>
                   </td>
-                  <td className="p-4 text-gray-500">
-                    {file.expires_at ? new Date(file.expires_at).toLocaleDateString() : 'Never'}
+                  <td className="p-4 text-[#A1A1AA] font-mono text-xs">
+                    {file.expires_at ? new Date(file.expires_at).toISOString().split('T')[0] : 'NEVER'}
                   </td>
-                  <td className="p-4 pr-6 text-right">
+                  <td className="p-4 pr-5 text-right">
                     <button 
                       onClick={() => handleDeleteFile(file.id, file.filename)}
-                      className="text-red-600 hover:text-red-900 font-bold bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg transition-colors"
+                      className="text-[#EF4444] hover:text-white font-semibold bg-[#EF4444]/10 hover:bg-[#EF4444] border border-[#EF4444]/20 px-3 py-1 rounded transition-all text-xs opacity-0 group-hover:opacity-100"
                     >
                       Delete
                     </button>
