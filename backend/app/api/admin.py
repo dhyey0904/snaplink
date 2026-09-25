@@ -47,3 +47,35 @@ def delete_report(report_id: int, db: Session = Depends(get_db), admin: User = D
     db.delete(report)
     db.commit()
     return {"message": "Report deleted successfully"}
+
+@router.get("/users")
+def get_all_users(db: Session = Depends(get_db), admin: User = Depends(verify_admin)):
+    users = db.query(User).order_by(User.created_at.desc()).all()
+    result = []
+    for user in users:
+        link_count = db.query(func.count(Link.id)).filter(Link.user_id == user.id).scalar() or 0
+        result.append({
+            "id": user.id,
+            "email": user.email,
+            "tier": user.tier,
+            "created_at": user.created_at,
+            "link_count": link_count
+        })
+    return result
+
+@router.delete("/users/{user_id}")
+def delete_user(user_id: int, db: Session = Depends(get_db), admin: User = Depends(verify_admin)):
+    user = db.query(User).filter(User.id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # In a real app we might want to soft delete or delete cascade manually
+    # For now, we will simply delete the user (assuming cascade is setup or letting foreign keys block if not)
+    # Actually, SQLAlchemy might throw IntegrityError if we don't cascade, but we'll attempt it.
+    try:
+        db.delete(user)
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Cannot delete user. They have active resources.")
+    return {"message": "User deleted successfully"}
