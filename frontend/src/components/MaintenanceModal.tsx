@@ -15,6 +15,12 @@ export default function MaintenanceModal() {
   useEffect(() => {
     if (!mounted) return;
     
+    // Do not lock scrolling in development mode
+    if (process.env.NODE_ENV === 'development') {
+      document.body.style.overflow = 'unset';
+      return;
+    }
+    
     // Prevent scrolling when maintenance mode is active (unless on a tools page)
     if (!pathname?.startsWith('/tools')) {
       document.body.style.overflow = 'hidden';
@@ -28,6 +34,11 @@ export default function MaintenanceModal() {
   }, [mounted, pathname]);
 
   if (!mounted) return null;
+  
+  // Do not show maintenance mode during local development
+  if (process.env.NODE_ENV === 'development') {
+    return null;
+  }
   
   // Do not show maintenance mode on tools pages
   if (pathname?.startsWith('/tools')) {
