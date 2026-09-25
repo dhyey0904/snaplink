@@ -84,19 +84,19 @@ export default function AdminLinksPage() {
   }
 
   return (
-    <div className="bg-[#18181B] rounded-xl border border-[#27272A] overflow-hidden">
-      <div className="px-5 py-4 border-b border-[#27272A] bg-[#18181B] flex justify-between items-center">
-        <h2 className="text-sm font-semibold text-[#F4F4F5] flex items-center gap-2">
-          <svg className="w-4 h-4 text-[#10B981]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="px-5 py-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
+        <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
+          <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
           Active Links
         </h2>
-        <span className="bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] font-mono px-2 py-0.5 rounded text-xs">{links.length} ACTIVE</span>
+        <span className="bg-green-50 border border-green-100 text-green-600 font-mono px-2 py-0.5 rounded text-xs">{links.length} ACTIVE</span>
       </div>
       
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-[#09090B] text-[#A1A1AA] text-[10px] uppercase tracking-wider font-mono border-b border-[#27272A]">
+            <tr className="bg-white text-gray-400 text-[10px] uppercase tracking-wider font-mono border-b border-gray-100">
               <th className="p-4 pl-5 w-48">Short Code</th>
               <th className="p-4 w-64 max-w-[16rem]">Target URL</th>
               <th className="p-4">Owner</th>
@@ -105,22 +105,22 @@ export default function AdminLinksPage() {
               <th className="p-4 pr-5 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#27272A] text-sm">
+          <tbody className="divide-y divide-gray-100 text-sm">
             {links.map((link) => (
-              <tr key={link.id} className="hover:bg-[#27272A]/30 transition-colors group">
-                <td className="p-4 pl-5 font-mono text-[#F4F4F5] text-xs">/{link.short_code}</td>
-                <td className="p-4 text-[#A1A1AA] truncate max-w-[16rem] font-mono text-xs" title={link.original_url}>
+              <tr key={link.id} className="hover:bg-gray-50/50 transition-colors group">
+                <td className="p-4 pl-5 font-mono text-gray-900 text-xs">/{link.short_code}</td>
+                <td className="p-4 text-gray-500 truncate max-w-[16rem] font-mono text-xs" title={link.original_url}>
                   {link.original_url}
                 </td>
-                <td className="p-4 font-medium text-[#F4F4F5]">{link.owner_email}</td>
+                <td className="p-4 font-medium text-gray-900">{link.owner_email}</td>
                 <td className="p-4 text-center">
-                  <span className="bg-[#27272A] text-[#F4F4F5] px-2 py-0.5 rounded border border-[#3F3F46] font-mono text-[10px]">{link.clicks}</span>
+                  <span className="bg-gray-50 text-gray-600 px-2 py-0.5 rounded border border-gray-200 font-mono text-[10px]">{link.clicks}</span>
                 </td>
-                <td className="p-4 text-[#A1A1AA] font-mono text-xs">{new Date(link.created_at).toISOString().split('T')[0]}</td>
+                <td className="p-4 text-gray-400 font-mono text-xs">{new Date(link.created_at).toISOString().split('T')[0]}</td>
                 <td className="p-4 pr-5 text-right">
                   <button 
                     onClick={() => handleDeleteLink(link.id, link.short_code)}
-                    className="text-[#EF4444] hover:text-white font-semibold bg-[#EF4444]/10 hover:bg-[#EF4444] border border-[#EF4444]/20 px-3 py-1 rounded transition-all text-xs opacity-0 group-hover:opacity-100"
+                    className="text-red-600 hover:text-red-700 font-semibold bg-red-50 hover:bg-red-100 border border-red-100 px-3 py-1 rounded transition-all text-xs opacity-0 group-hover:opacity-100 shadow-sm"
                   >
                     Purge
                   </button>

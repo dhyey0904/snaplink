@@ -85,19 +85,19 @@ export default function AdminUsersPage() {
   }
 
   return (
-    <div className="bg-[#18181B] rounded-xl border border-[#27272A] overflow-hidden">
-      <div className="px-5 py-4 border-b border-[#27272A] bg-[#18181B] flex justify-between items-center">
-        <h2 className="text-sm font-semibold text-[#F4F4F5] flex items-center gap-2">
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="px-5 py-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
+        <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
           <svg className="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
           User Registry
         </h2>
-        <span className="bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] font-mono px-2 py-0.5 rounded text-xs">{users.length} TOTAL</span>
+        <span className="bg-blue-50 border border-blue-100 text-blue-600 font-mono px-2 py-0.5 rounded text-xs">{users.length} TOTAL</span>
       </div>
       
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-[#09090B] text-[#A1A1AA] text-[10px] uppercase tracking-wider font-mono border-b border-[#27272A]">
+            <tr className="bg-white text-gray-400 text-[10px] uppercase tracking-wider font-mono border-b border-gray-100">
               <th className="p-4 pl-5">UID</th>
               <th className="p-4">Email</th>
               <th className="p-4">Tier</th>
@@ -106,26 +106,26 @@ export default function AdminUsersPage() {
               <th className="p-4 pr-5 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#27272A] text-sm">
+          <tbody className="divide-y divide-gray-100 text-sm">
             {users.map((user) => (
-               <tr key={user.id} className="hover:bg-[#27272A]/30 transition-colors group">
-                <td className="p-4 pl-5 text-[#A1A1AA] font-mono text-xs">{user.id.toString().padStart(4, '0')}</td>
-                <td className="p-4 font-medium text-[#F4F4F5]">{user.email}</td>
+               <tr key={user.id} className="hover:bg-gray-50/50 transition-colors group">
+                <td className="p-4 pl-5 text-gray-400 font-mono text-xs">{user.id.toString().padStart(4, '0')}</td>
+                <td className="p-4 font-medium text-gray-900">{user.email}</td>
                 <td className="p-4">
                   <span className={`px-2 py-0.5 border rounded text-[10px] uppercase font-mono tracking-wider ${
                     user.tier === 'pro' 
-                    ? 'bg-purple-500/10 text-purple-400 border-purple-500/20' 
-                    : 'bg-[#27272A] text-[#A1A1AA] border-[#3F3F46]'
+                    ? 'bg-purple-50 text-purple-600 border-purple-100' 
+                    : 'bg-gray-50 text-gray-500 border-gray-200'
                   }`}>
                     {user.tier === 'pro' ? 'PRO' : 'FREE'}
                   </span>
                 </td>
-                <td className="p-4 text-[#A1A1AA] text-center font-mono">{user.link_count}</td>
-                <td className="p-4 text-[#A1A1AA] font-mono text-xs">{new Date(user.created_at).toISOString().split('T')[0]}</td>
+                <td className="p-4 text-gray-500 text-center font-mono">{user.link_count}</td>
+                <td className="p-4 text-gray-400 font-mono text-xs">{new Date(user.created_at).toISOString().split('T')[0]}</td>
                 <td className="p-4 pr-5 text-right">
                   <button 
                     onClick={() => handleDeleteUser(user.id, user.email)}
-                    className="text-[#EF4444] hover:text-white font-semibold bg-[#EF4444]/10 hover:bg-[#EF4444] border border-[#EF4444]/20 px-3 py-1 rounded transition-all text-xs opacity-0 group-hover:opacity-100"
+                    className="text-red-600 hover:text-red-700 font-semibold bg-red-50 hover:bg-red-100 border border-red-100 px-3 py-1 rounded transition-all text-xs opacity-0 group-hover:opacity-100 shadow-sm"
                   >
                     Terminate
                   </button>
