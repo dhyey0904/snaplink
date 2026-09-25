@@ -273,7 +273,8 @@ export default function SnapOS() {
             </h3>
             <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide snap-x">
               {pinnedWidgets.map(widget => {
-                const meta = WIDGET_MANIFEST.find(m => m.id === widget.id)!;
+                const meta = WIDGET_MANIFEST.find(m => m.id === widget.id);
+                if (!meta) return null;
                 return (
                   <div key={`pin-${widget.id}`} className="snap-start shrink-0 w-64 bg-white border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors relative group shadow-sm">
                     <button 
@@ -316,7 +317,8 @@ export default function SnapOS() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[140px] md:auto-rows-[160px]">
           {gridWidgets.map((widget) => {
-            const meta = WIDGET_MANIFEST.find(m => m.id === widget.id)!;
+            const meta = WIDGET_MANIFEST.find(m => m.id === widget.id);
+                if (!meta) return null;
             const isMenuOpen = activeMenu === widget.id;
 
             return (
