@@ -7,6 +7,7 @@ from app.models.link import Link
 from app.models.bio import BioPage
 from app.models.click import Click
 from app.models.report import Report
+from app.models.file import FileShare
 from app.api.auth import get_current_user
 
 router = APIRouter()
@@ -79,3 +80,67 @@ def delete_user(user_id: int, db: Session = Depends(get_db), admin: User = Depen
         db.rollback()
         raise HTTPException(status_code=400, detail="Cannot delete user. They have active resources.")
     return {"message": "User deleted successfully"}
+
+@router.get('/links')
+def get_all_links(db: Session = Depends(get_db), admin: User = Depends(verify_admin)):
+    links = db.query(Link).order_by(Link.created_at.desc()).all()
+    result = []
+    for link in links:
+        owner = db.query(User).filter(User.id == link.user_id).first()
+        clicks = db.query(func.count(Click.id)).filter(Click.link_id == link.id).scalar() or 0
+        result.append({
+            'id': link.id,
+            'original_url': link.original_url,
+            'short_code': link.custom_alias or link.short_code,
+            'created_at': link.created_at,
+            'clicks': clicks,
+            'owner_email': owner.email if owner else 'Unknown',
+            'is_active': link.is_active
+        })
+    return result
+
+@router.delete('/links/{link_id}')
+def delete_link(link_id: int, db: Session = Depends(get_db), admin: User = Depends(verify_admin)):
+    link = db.query(Link).filter(Link.id == link_id).first()
+    if not link:
+        raise HTTPException(status_code=404, detail='Link not found')
+    db.query(Click).filter(Click.link_id == link.id).delete()
+    db.delete(link)
+    db.commit()
+    return {'message': 'Link deleted successfully'}
+
+@router.get('/files')
+def get_all_files(db: Session = Depends(get_db), admin: User = Depends(verify_admin)):
+    files = db.query(FileShare).order_by(FileShare.created_at.desc()).all()
+    result = []
+    for file in files:
+        owner = db.query(User).filter(User.id == file.user_id).first() if file.user_id else None
+        result.append({
+            'id': file.id,
+            'filename': file.filename,
+            'size_bytes': file.size_bytes,
+            'downloads': file.downloads,
+            'expires_at': file.expires_at,
+            'created_at': file.created_at,
+            'short_code': file.short_code,
+            'owner_email': owner.email if owner else 'Guest'
+        })
+    return result
+
+@router.delete('/files/{file_id}')
+def delete_file(file_id: int, db: Session = Depends(get_db), admin: User = Depends(verify_admin)):
+    import os
+    file = db.query(FileShare).filter(FileShare.id == file_id).first()
+    if not file:
+        raise HTTPException(status_code=404, detail='File not found')
+    
+    # Try to delete from disk
+    try:
+        if os.path.exists(file.file_path):
+            os.remove(file.file_path)
+    except Exception:
+        pass
+        
+    db.delete(file)
+    db.commit()
+    return {'message': 'File deleted successfully'}
