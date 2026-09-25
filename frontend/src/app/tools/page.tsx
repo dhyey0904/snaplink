@@ -2,8 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Free PDF Tools & Document Converters | SnapTools',
-  description: 'Merge, split, compress, watermark, and convert PDF documents for free. 100% browser-based and secure.',
+  title: 'Snap Tools | Free PDF Tools, Document Converters & Web Utilities',
+  description: 'Access Snap Tools to merge, split, compress, watermark, and convert PDF documents for free. 100% browser-based, secure, and part of the Snap OS ecosystem.',
+  keywords: ["Snap Tools", "free PDF tools", "PDF compressor", "merge PDF", "split PDF", "web utilities", "Snap OS"],
+  alternates: {
+    canonical: "https://www.snaplinks.in/tools",
+  },
+  openGraph: {
+    title: 'Snap Tools | Free PDF & Web Utilities',
+    description: 'Merge, split, compress, watermark, and convert PDF documents for free instantly in your browser.',
+    url: 'https://www.snaplinks.in/tools',
+  }
 };
 
 const tools = [

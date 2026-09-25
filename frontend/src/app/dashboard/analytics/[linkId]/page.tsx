@@ -13,6 +13,8 @@ type AnalyticsData = {
   browsers: Record<string, number>;
   devices: Record<string, number>;
   referrers: Record<string, number>;
+  countries: Record<string, number>;
+  cities: Record<string, number>;
   daily_clicks: { date: string, clicks: number }[];
 };
 
@@ -49,6 +51,7 @@ export default function AnalyticsDashboard() {
   const deviceData = Object.entries(data.devices).map(([name, value]) => ({ name, value }));
   const browserData = Object.entries(data.browsers).map(([name, value]) => ({ name, value }));
   const referrerData = Object.entries(data.referrers).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value).slice(0, 5);
+  const countryData = Object.entries(data.countries || {}).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value).slice(0, 5);
 
   const COLORS = ['#1a73e8', '#34a853', '#fbbc04', '#ea4335', '#9333ea'];
 
@@ -59,7 +62,7 @@ export default function AnalyticsDashboard() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* KPI Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-sm font-medium text-[#5f6368] mb-2">Total Clicks</h3>
             <div className="text-4xl font-extrabold text-[#1a73e8]">{data.total_clicks}</div>
@@ -71,6 +74,10 @@ export default function AnalyticsDashboard() {
           <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-sm font-medium text-[#5f6368] mb-2">Top Referrer</h3>
             <div className="text-2xl font-bold text-[#202124]">{referrerData.length > 0 ? referrerData[0].name : "N/A"}</div>
+          </div>
+          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+            <h3 className="text-sm font-medium text-[#5f6368] mb-2">Top Country</h3>
+            <div className="text-2xl font-bold text-[#202124]">{countryData.length > 0 && countryData[0].name !== "Unknown" ? countryData[0].name : (countryData.length > 1 ? countryData[1].name : "N/A")}</div>
           </div>
         </div>
 
@@ -95,7 +102,7 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Charts Row 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-lg font-bold text-[#202124] mb-6">Top Referrers</h3>
             {referrerData.length > 0 ? (
@@ -119,6 +126,29 @@ export default function AnalyticsDashboard() {
             )}
           </div>
           
+          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+            <h3 className="text-lg font-bold text-[#202124] mb-6">Top Countries</h3>
+            {countryData.length > 0 ? (
+              <div className="h-[250px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={countryData} layout="vertical" margin={{top: 0, right: 0, left: 20, bottom: 0}}>
+                    <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#f1f3f4" />
+                    <XAxis type="number" hide />
+                    <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{fill: '#202124', fontSize: 13, fontWeight: 500}} width={100} />
+                    <Tooltip cursor={{fill: '#f8f9fa'}} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }} />
+                    <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={24}>
+                      {countryData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[(index + 2) % COLORS.length]} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <div className="h-[250px] flex items-center justify-center text-[#5f6368]">No location data available.</div>
+            )}
+          </div>
+
           <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-lg font-bold text-[#202124] mb-6">Devices & Browsers</h3>
             <div className="space-y-6">

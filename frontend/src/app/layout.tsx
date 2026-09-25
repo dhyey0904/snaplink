@@ -19,54 +19,44 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Secure File Sharing & 3D Digital vCards | SnapLink",
-  description: "SnapLink is the ultimate platform for secure file sharing and digital identity. Share 50MB files with self-destructing links and generate 3D vCards.",
-  keywords: ["secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard", "link in bio", "URL shortener"],
-
-  
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://www.snaplinks.in'),
+  title: {
+    default: "SnapLink | Advanced URL Shortener & Link-in-Bio",
+    template: "%s | SnapLink",
+  },
+  description: "SnapLink is the ultimate all-in-one workspace featuring Snap OS, deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools for PDF & web utilities.",
+  keywords: ["Snap OS", "Snap Tools", "web operating system", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard"],
+  authors: [{ name: "SnapLink" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.snaplinks.in",
+    siteName: "SnapLink",
+    title: "SnapLink | Advanced URL Shortener & Link-in-Bio",
+    description: "Experience Snap OS: Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "SnapLink Dashboard Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SnapLink | Advanced URL Shortener",
+    description: "Experience Snap OS: Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.",
+    images: ["/og-image.png"],
+  },
   icons: {
     icon: [
       { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
       { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-icon.png',
-  },
-  alternates: {
-    canonical: "https://www.snaplinks.in/",
-  },
-  openGraph: {
-    title: "Secure File Sharing & Digital Identity | SnapLink",
-    description: "Share files securely with passwords and auto-expiry. Generate interactive 3D digital business cards. The ultimate platform for creators and professionals.",
-    url: "https://www.snaplinks.in/",
-    siteName: "SnapLink",
-    images: [
-      {
-        url: "https://www.snaplinks.in/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "SnapLink - File Sharing and Digital Identity",
-      },
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180' },
     ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Secure File Sharing & 3D Digital vCards | SnapLink",
-    description: "Share 50MB files securely with auto-destructing links. Create your premium 3D digital business card today.",
-    images: ["https://www.snaplinks.in/og-image.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
 };
 
@@ -75,6 +65,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'SnapLink',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    description: 'Experience Snap OS: Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.',
+    url: 'https://www.snaplinks.in',
+  };
+
   return (
     <html
       lang="en"
@@ -118,8 +124,13 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <MaintenanceModal />
-        <GoogleOAuthProvider clientId="234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleusercontent.com">
-          {children}
+        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "265865558141-2cp9num2eh4felku1j0fcchmtnej3bai.apps.googleusercontent.com"}>
+          <Script
+          id="schema-org"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
         </GoogleOAuthProvider>
         <Analytics />
         <SpeedInsights />
