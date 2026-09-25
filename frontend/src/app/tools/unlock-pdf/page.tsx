@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
+import { decryptPDF } from 'cryptpdf';
 import Link from 'next/link';
 
 export default function UnlockPDFPage() {
@@ -27,14 +28,20 @@ export default function UnlockPDFPage() {
     
     try {
       const arrayBuffer = await file.arrayBuffer();
+      const pdfBytes = new Uint8Array(arrayBuffer);
       
-      // Load the PDF with the provided password
-      const pdfDoc = await PDFDocument.load(arrayBuffer, { password } as any);
+      let decryptedBytes: Uint8Array;
       
-      // Save it (this saves it WITHOUT the password)
-      const pdfBytes = await pdfDoc.save();
+      try {
+        // Try to decrypt using cryptpdf (for AES-256 Rev 5 PDFs)
+        decryptedBytes = await decryptPDF(pdfBytes, password);
+      } catch (err: any) {
+        // Fallback to pdf-lib for older encryption schemes (RC4, AES-128)
+        const pdfDoc = await PDFDocument.load(arrayBuffer, { password } as any);
+        decryptedBytes = await pdfDoc.save();
+      }
       
-      const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
+      const blob = new Blob([decryptedBytes as any], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
       
