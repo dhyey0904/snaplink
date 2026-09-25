@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import React, { useEffect, useState } from "react";
+import { fetchAPI } from "@/utils/api";
 import {
   Mail, Calendar, CheckSquare, Link2,
   FolderOpen, Search, MoreHorizontal, Trash2, Pin, Command
@@ -50,7 +51,14 @@ export default function SnapOS() {
 
     const saved = localStorage.getItem("snap_os_layout");
     if (saved) {
-      setLayout(JSON.parse(saved));
+      const parsed = JSON.parse(saved);
+      // Force sync with manifest if they are missing core widgets from an old save
+      if (parsed.length < WIDGET_MANIFEST.length) {
+        setLayout(DEFAULT_LAYOUT);
+        localStorage.setItem("snap_os_layout", JSON.stringify(DEFAULT_LAYOUT));
+      } else {
+        setLayout(parsed);
+      }
     } else {
       setLayout(DEFAULT_LAYOUT);
     }
@@ -58,16 +66,9 @@ export default function SnapOS() {
 
     // Fetch real data (SnapLinks + Google)
     const fetchRealData = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) return;
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/os/data", {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        if (res.ok) {
-          const data = await res.json();
-          setRealData(data);
-        }
+        const data = await fetchAPI("/os/data");
+        setRealData(data);
       } catch (err) {
         console.error("Failed to fetch real data", err);
       }
@@ -441,9 +442,18 @@ export default function SnapOS() {
                 )}
 
                 {/* Content Renderer */}
-                <div className="flex-1 overflow-hidden">
-                  {renderWidgetContent(widget.id, widget.size)}
-                </div>
+                <div 
+                    className="flex-1 overflow-hidden cursor-pointer"
+                    onClick={(e) => {
+                      if ((e.target as HTMLElement).tagName === 'BUTTON' || (e.target as HTMLElement).tagName === 'INPUT' || (e.target as HTMLElement).closest('button')) return;
+                      if (widget.id === 'links') window.location.href = '/dashboard/links';
+                      if (widget.id === 'files') window.location.href = '/dashboard/files';
+                      if (widget.id === 'gmail' && realData?.google) window.location.href = 'https://mail.google.com';
+                      if (widget.id === 'calendar' && realData?.google) window.location.href = 'https://calendar.google.com';
+                    }}
+                  >
+                    {renderWidgetContent(widget.id, widget.size)}
+                  </div>
               </div>
             );
           })}
