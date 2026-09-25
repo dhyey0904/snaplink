@@ -144,3 +144,36 @@ def delete_file(file_id: int, db: Session = Depends(get_db), admin: User = Depen
     db.delete(file)
     db.commit()
     return {'message': 'File deleted successfully'}
+
+from app.models.settings import SystemSettings
+from pydantic import BaseModel
+
+class SettingsUpdate(BaseModel):
+    maintenance_mode: bool
+    allow_registrations: bool
+    max_upload_size_mb: int
+
+@router.get("/settings")
+def get_settings(db: Session = Depends(get_db), _: User = Depends(verify_admin)):
+    settings = db.query(SystemSettings).first()
+    if not settings:
+        settings = SystemSettings()
+        db.add(settings)
+        db.commit()
+        db.refresh(settings)
+    return settings
+
+@router.post("/settings")
+def update_settings(update: SettingsUpdate, db: Session = Depends(get_db), _: User = Depends(verify_admin)):
+    settings = db.query(SystemSettings).first()
+    if not settings:
+        settings = SystemSettings()
+        db.add(settings)
+    
+    settings.maintenance_mode = update.maintenance_mode
+    settings.allow_registrations = update.allow_registrations
+    settings.max_upload_size_mb = update.max_upload_size_mb
+    
+    db.commit()
+    db.refresh(settings)
+    return settings
