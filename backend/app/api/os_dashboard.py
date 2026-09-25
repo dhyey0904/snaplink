@@ -16,7 +16,7 @@ router = APIRouter()
 def get_os_dashboard_data(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     # 1. Fetch Native SnapLinks Data
     total_links = db.query(Link).filter(Link.user_id == current_user.id).count()
-    total_clicks = db.query(func.sum(Link.clicks)).filter(Link.user_id == current_user.id).scalar() or 0
+    total_clicks = db.query(Click).join(Link).filter(Link.user_id == current_user.id).count()
     total_files = db.query(FileShare).filter(FileShare.user_id == current_user.id).count()
     
     data = {
