@@ -295,10 +295,12 @@ export default function SnapOS() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#09090B] font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen flex flex-col bg-[#FAFAFA] font-sans selection:bg-blue-500/30">
       
+      <Navbar />
+
       {/* OS Status Bar (Hidden Desktop, visible mobile) */}
-      <div className="md:hidden flex justify-between items-center px-6 pt-4 pb-2 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+      <div className="md:hidden flex justify-between items-center px-6 pt-4 pb-2 text-gray-500 text-[10px] font-bold uppercase tracking-widest border-b border-gray-100">
         <span>Snap OS v1.0</span>
         <span>Secure</span>
       </div>
@@ -309,52 +311,52 @@ export default function SnapOS() {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 p-0.5">
-              <div className="w-full h-full bg-[#09090B] rounded-full border-2 border-[#09090B] overflow-hidden">
+              <div className="w-full h-full bg-white rounded-full border-2 border-white overflow-hidden">
                 <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Dhyey" alt="Avatar" className="w-full h-full object-cover" />
               </div>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">{greeting}, Dhyey</h1>
-              <p className="text-xs text-gray-400 mt-0.5 font-medium flex items-center gap-2">
+              <h1 className="text-2xl font-bold text-gray-900">{greeting}, Dhyey</h1>
+              <p className="text-xs text-gray-500 mt-0.5 font-medium flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                 Everything is running smoothly.
               </p>
             </div>
           </div>
-          <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+          <button className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-gray-700 transition-colors shadow-sm">
             <Search size={18} />
           </button>
         </div>
 
         {/* 2. AI Daily Summary Card */}
-        <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-white/10 rounded-3xl p-6 shadow-2xl mb-8 relative overflow-hidden backdrop-blur-xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow mb-8 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 blur-[80px] rounded-full pointer-events-none"></div>
           
           <div className="flex flex-col sm:flex-row items-start gap-6 relative z-10">
-            <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center shrink-0 border border-white/10 text-blue-400">
+            <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0 border border-blue-100 text-blue-600">
               <Bot size={24} />
             </div>
             <div className="flex-1">
-              <h3 className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                AI Summary <span className="bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-md text-[9px]">LIVE</span>
+              <h3 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3 flex items-center gap-2">
+                AI Summary <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md text-[9px]">LIVE</span>
               </h3>
               
-              <div className="space-y-3 text-sm md:text-base text-gray-300 font-medium leading-relaxed">
+              <div className="space-y-3 text-sm md:text-base text-gray-600 font-medium leading-relaxed">
                 <p className="flex items-start gap-3">
-                  <span className="text-green-400 shrink-0 mt-1"><CheckSquare size={16}/></span>
-                  <span>You slept 7h. Today you have <strong className="text-white">2 Meetings</strong> and <strong className="text-white">3 Important Emails</strong> waiting.</span>
+                  <span className="text-green-500 shrink-0 mt-1"><CheckSquare size={16}/></span>
+                  <span>You slept 7h. Today you have <strong className="text-gray-900">2 Meetings</strong> and <strong className="text-gray-900">3 Important Emails</strong> waiting.</span>
                 </p>
                 <p className="flex items-start gap-3">
-                  <span className="text-green-400 shrink-0 mt-1"><CheckSquare size={16}/></span>
-                  <span><strong className="text-white">₹12,500 Revenue</strong> collected yesterday. GitHub deployment <strong className="text-red-400">failed</strong>.</span>
+                  <span className="text-green-500 shrink-0 mt-1"><CheckSquare size={16}/></span>
+                  <span><strong className="text-gray-900">₹12,500 Revenue</strong> collected yesterday. GitHub deployment <strong className="text-red-500">failed</strong>.</span>
                 </p>
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-lg shadow-blue-900/50">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm">
                   Reply to Client
                 </button>
-                <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all border border-white/5">
+                <button className="bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-xs font-bold transition-all border border-gray-200">
                   Merge PR #54
                 </button>
               </div>
@@ -372,10 +374,10 @@ export default function SnapOS() {
               {pinnedWidgets.map(widget => {
                 const meta = WIDGET_MANIFEST.find(m => m.id === widget.id)!;
                 return (
-                  <div key={`pin-${widget.id}`} className="snap-start shrink-0 w-64 bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-colors relative group">
+                  <div key={`pin-${widget.id}`} className="snap-start shrink-0 w-64 bg-white border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors relative group shadow-sm">
                     <button 
                       onClick={() => togglePin(widget.id)}
-                      className="absolute top-3 right-3 text-gray-500 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute top-3 right-3 text-gray-300 hover:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity"
                     >
                       <Pin size={14} className="fill-current" />
                     </button>
@@ -383,7 +385,7 @@ export default function SnapOS() {
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${meta.bg} ${meta.color}`}>
                         {meta.icon}
                       </div>
-                      <h4 className="font-bold text-white text-sm">{meta.name}</h4>
+                      <h4 className="font-bold text-gray-900 text-sm">{meta.name}</h4>
                     </div>
                     {/* Compact renderer for horizontal feed */}
                     <div className="h-16">
@@ -470,22 +472,22 @@ export default function SnapOS() {
           })}
 
           {/* Add Widget Ghost Card */}
-          <button className="col-span-1 row-span-1 bg-white/5 border-2 border-dashed border-white/20 rounded-3xl flex flex-col items-center justify-center text-white/50 hover:bg-white/10 hover:border-white/40 transition-all group">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-              <span className="text-xl">+</span>
+          <button className="col-span-1 row-span-1 bg-white border-2 border-dashed border-gray-200 rounded-3xl flex flex-col items-center justify-center text-gray-400 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-600 transition-all group">
+            <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <span className="text-xl text-gray-400">+</span>
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider">Add</span>
+            <span className="text-[10px] font-bold uppercase tracking-wider">Add Widget</span>
           </button>
         </div>
 
       </main>
 
       {/* OS Bottom Dock (Mobile Only) */}
-      <div className="md:hidden fixed bottom-4 left-4 right-4 bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-3 flex justify-around items-center z-50">
-        <button className="text-white bg-white/20 p-3 rounded-2xl"><Command size={20}/></button>
-        <button className="text-gray-400 hover:text-white transition-colors p-3"><Mail size={20}/></button>
-        <button className="text-gray-400 hover:text-white transition-colors p-3"><Calendar size={20}/></button>
-        <button className="text-gray-400 hover:text-white transition-colors p-3"><CheckSquare size={20}/></button>
+      <div className="md:hidden fixed bottom-4 left-4 right-4 bg-white/80 backdrop-blur-xl border border-gray-200 shadow-xl rounded-3xl p-3 flex justify-around items-center z-50">
+        <button className="text-blue-600 bg-blue-50 p-3 rounded-2xl"><Command size={20}/></button>
+        <button className="text-gray-400 hover:text-gray-800 transition-colors p-3"><Mail size={20}/></button>
+        <button className="text-gray-400 hover:text-gray-800 transition-colors p-3"><Calendar size={20}/></button>
+        <button className="text-gray-400 hover:text-gray-800 transition-colors p-3"><CheckSquare size={20}/></button>
       </div>
 
     </div>
