@@ -7,7 +7,7 @@ try:
     
     from app.database.database import engine, Base
     from app.models import User, Link, Click
-    from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard, files, report, payments
+    from app.api import auth, links, redirect, analytics, bio, payment, admin, vcard, files, report, payments, integrations
     from sqlalchemy import text
     from slowapi import _rate_limit_exceeded_handler
     from slowapi.errors import RateLimitExceeded
@@ -121,6 +121,7 @@ try:
     app.include_router(files.router, prefix="/api/files", tags=["files"])
     app.include_router(payment.router, prefix="/api/payment", tags=["payment"])
     app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
+    app.include_router(integrations.router, prefix="/api/integrations", tags=["integrations"])
     app.include_router(redirect.router, tags=["redirect"])
     
     

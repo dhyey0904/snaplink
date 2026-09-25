@@ -54,6 +54,8 @@ export default function SnapOS() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [greeting, setGreeting] = useState("Welcome back");
+  const [realData, setRealData] = useState<any>(null);
+  const [isConnecting, setIsConnecting] = useState(false);
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -68,7 +70,45 @@ export default function SnapOS() {
       setLayout(DEFAULT_LAYOUT);
     }
     setIsLoaded(true);
+
+    // Fetch real data
+    const fetchRealData = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      try {
+        const res = await fetch("http://127.0.0.1:8000/api/integrations/google/data", {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setRealData(data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch real data", err);
+      }
+    };
+    fetchRealData();
   }, []);
+
+  const handleConnectGoogle = async () => {
+    setIsConnecting(true);
+    try {
+      const token = localStorage.getItem("token");
+      const res = await fetch("http://127.0.0.1:8000/api/integrations/google/url", {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        window.location.href = data.url;
+      } else {
+        alert("Failed to get Google Auth URL. Ensure you are logged in.");
+        setIsConnecting(false);
+      }
+    } catch (e) {
+      console.error(e);
+      setIsConnecting(false);
+    }
+  };
 
   const saveLayout = (newLayout: WidgetConfig[]) => {
     setLayout(newLayout);
@@ -105,11 +145,13 @@ export default function SnapOS() {
   const renderWidgetContent = (id: string, size: WidgetSize) => {
     switch (id) {
       case "gmail":
+        const unreadCount = realData?.gmail?.unread ?? 3;
+        const isReal = !!realData;
         return (
           <div className="flex flex-col h-full justify-between">
             <div>
-              <p className="text-xs font-bold text-red-500 mb-1 tracking-wider uppercase">Action Required</p>
-              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">3 client emails require a reply.</h4>
+              <p className="text-xs font-bold text-red-500 mb-1 tracking-wider uppercase">Inbox {isReal ? '(Live)' : '(Mock)'}</p>
+              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">{unreadCount} unread emails.</h4>
               {size === "large" || size === "full" ? (
                 <div className="space-y-2 mt-4">
                   <div className="bg-gray-50 rounded-lg p-2 text-xs text-gray-700 flex justify-between">
@@ -124,9 +166,9 @@ export default function SnapOS() {
               ) : null}
             </div>
             {size !== "small" && (
-              <button className="mt-4 w-full bg-red-50 hover:bg-red-100 text-red-600 py-2 rounded-xl text-xs font-bold transition-colors">
-                Reply to ABC Company
-              </button>
+              <a href="https://mail.google.com" target="_blank" className="mt-4 w-full bg-red-50 hover:bg-red-100 text-red-600 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
+                Open Gmail
+              </a>
             )}
           </div>
         );
@@ -148,19 +190,23 @@ export default function SnapOS() {
           </div>
         );
       case "calendar":
+        const isCalReal = !!realData;
+        const nextEvent = realData?.calendar?.[0] || { summary: "Client Sync: Q4 Roadmap", start: "In 45 Minutes" };
+        const followUp = realData?.calendar?.[1] || { summary: "Team Standup", start: "11:30 AM" };
+        
         return (
           <div className="flex flex-col h-full justify-between">
             <div>
-              <p className="text-xs font-bold text-blue-500 mb-1 tracking-wider uppercase">In 45 Minutes</p>
-              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight">Client Sync: Q4 Roadmap</h4>
+              <p className="text-xs font-bold text-blue-500 mb-1 tracking-wider uppercase">Next Event {isCalReal ? '(Live)' : '(Mock)'}</p>
+              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight truncate">{nextEvent.summary}</h4>
               {size === "large" || size === "full" ? (
-                <p className="text-xs text-gray-500 mt-2">Followed by "Team Standup" at 11:30 AM.</p>
+                <p className="text-xs text-gray-500 mt-2 truncate">Followed by "{followUp.summary}".</p>
               ) : null}
             </div>
             {size !== "small" && (
-              <button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl text-xs font-bold transition-colors shadow-sm">
-                Join Google Meet
-              </button>
+              <a href={nextEvent.link || "https://calendar.google.com"} target="_blank" className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl text-xs font-bold transition-colors shadow-sm text-center block">
+                {nextEvent.link ? 'Join Meeting' : 'Open Calendar'}
+              </a>
             )}
           </div>
         );
@@ -353,7 +399,16 @@ export default function SnapOS() {
         {/* 4. Priority Feed (Dynamic Grid) */}
         <div className="flex items-center justify-between mb-4 px-1">
           <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Dashboard Matrix</h3>
-          <button className="text-[10px] font-bold text-blue-500 uppercase tracking-widest hover:text-blue-400">Add Integration +</button>
+          <div className="flex gap-4">
+            <button 
+              onClick={handleConnectGoogle}
+              disabled={isConnecting}
+              className="text-[10px] font-bold text-green-500 uppercase tracking-widest hover:text-green-400"
+            >
+              {isConnecting ? "Connecting..." : "Connect Google"}
+            </button>
+            <button className="text-[10px] font-bold text-blue-500 uppercase tracking-widest hover:text-blue-400">Add Integration +</button>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[140px] md:auto-rows-[160px]">
