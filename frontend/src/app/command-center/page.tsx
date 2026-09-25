@@ -122,21 +122,60 @@ export default function SnapOS() {
     }
   };
 
+  // Local state for interactive tasks widget
+  const [tasks, setTasks] = useState<{id: number, text: string, done: boolean}[]>([]);
+  const [newTaskText, setNewTaskText] = useState("");
+
+  useEffect(() => {
+    const savedTasks = localStorage.getItem("snapos_tasks");
+    if (savedTasks) {
+      setTasks(JSON.parse(savedTasks));
+    } else {
+      setTasks([
+        { id: 1, text: "Welcome to Snap OS", done: true },
+        { id: 2, text: "Create your first short link", done: false }
+      ]);
+    }
+  }, []);
+
+  const toggleTask = (id: number) => {
+    const newTasks = tasks.map(t => t.id === id ? { ...t, done: !t.done } : t);
+    setTasks(newTasks);
+    localStorage.setItem("snapos_tasks", JSON.stringify(newTasks));
+  };
+
+  const addTask = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && newTaskText.trim()) {
+      const newTasks = [...tasks, { id: Date.now(), text: newTaskText, done: false }];
+      setTasks(newTasks);
+      localStorage.setItem("snapos_tasks", JSON.stringify(newTasks));
+      setNewTaskText("");
+    }
+  };
+
+  const removeTask = (id: number) => {
+    const newTasks = tasks.filter(t => t.id !== id);
+    setTasks(newTasks);
+    localStorage.setItem("snapos_tasks", JSON.stringify(newTasks));
+  };
+
   if (!isLoaded) return <div className="min-h-screen bg-black"></div>;
 
   const pinnedWidgets = layout.filter(w => w.pinned);
   const gridWidgets = layout.filter(w => !w.pinned).sort((a, b) => a.order - b.order);
 
+
+
   // Widget Renderer Engine
   const renderWidgetContent = (id: string, size: WidgetSize) => {
     switch (id) {
       case "links":
-        const totalLinks = realData?.links?.total ?? 124;
-        const totalClicks = realData?.links?.clicks ?? 5302;
+        const totalLinks = realData?.links?.total ?? 0;
+        const totalClicks = realData?.links?.clicks ?? 0;
         return (
           <div className="flex flex-col h-full justify-between">
             <div>
-              <p className="text-xs font-bold text-blue-500 mb-1 tracking-wider uppercase">SnapLinks {realData ? '(Live)' : '(Mock)'}</p>
+              <p className="text-xs font-bold text-blue-500 mb-1 tracking-wider uppercase">SnapLinks</p>
               <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">{totalLinks} Total Links</h4>
               {size === "large" || size === "full" ? (
                 <div className="space-y-2 mt-4">
@@ -148,47 +187,42 @@ export default function SnapOS() {
               ) : null}
             </div>
             {size !== "small" && (
-              <a href="/dashboard" className="mt-4 w-full bg-blue-50 hover:bg-blue-100 text-blue-600 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
+              <a href="/dashboard/links" className="mt-4 w-full bg-blue-50 hover:bg-blue-100 text-blue-600 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
                 Manage Links
               </a>
             )}
           </div>
         );
       case "files":
-        const totalFiles = realData?.files?.total ?? 14;
+        const totalFiles = realData?.files?.total ?? 0;
         return (
           <div className="flex flex-col h-full justify-between">
             <div>
-              <p className="text-xs font-bold text-emerald-600 mb-1 tracking-wider uppercase">Files {realData ? '(Live)' : '(Mock)'}</p>
+              <p className="text-xs font-bold text-emerald-600 mb-1 tracking-wider uppercase">Files</p>
               <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">{totalFiles} Secure Files</h4>
             </div>
             {size !== "small" && (
-              <a href="/files" className="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
+              <a href="/dashboard/files" className="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
                 View Files
               </a>
             )}
           </div>
         );
       case "gmail":
-        const unreadCount = realData?.google?.gmail?.unread ?? 3;
-        const isReal = !!realData?.google;
+        const isGoogleConnected = !!realData?.google;
+        const unreadCount = realData?.google?.gmail?.unread ?? 0;
+        
         return (
           <div className="flex flex-col h-full justify-between">
             <div>
-              <p className="text-xs font-bold text-red-500 mb-1 tracking-wider uppercase">Inbox {isReal ? '(Live)' : '(Mock)'}</p>
-              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">{unreadCount} unread emails.</h4>
-              {size === "large" || size === "full" ? (
-                <div className="space-y-2 mt-4">
-                  <div className="bg-gray-50 rounded-lg p-2 text-xs text-gray-700 flex justify-between">
-                    <span className="font-medium truncate mr-2">Invoice #8843 from AWS</span>
-                    <span className="text-gray-400">10m</span>
-                  </div>
-                  <div className="bg-gray-50 rounded-lg p-2 text-xs text-gray-700 flex justify-between">
-                    <span className="font-medium truncate mr-2">Project Brief - Design Flow</span>
-                    <span className="text-gray-400">1h</span>
-                  </div>
-                </div>
-              ) : null}
+              <p className="text-xs font-bold text-red-500 mb-1 tracking-wider uppercase">Inbox</p>
+              {!isGoogleConnected ? (
+                <p className="text-gray-500 text-sm font-medium mt-2">Connect Google to view unread emails.</p>
+              ) : (
+                <>
+                  <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">{unreadCount} unread emails.</h4>
+                </>
+              )}
             </div>
             {size !== "small" && (
               <a href="https://mail.google.com" target="_blank" className="mt-4 w-full bg-red-50 hover:bg-red-100 text-red-600 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
@@ -197,30 +231,71 @@ export default function SnapOS() {
             )}
           </div>
         );
+      case "calendar":
+        const isCalConnected = !!realData?.google;
+        const nextEvent = realData?.google?.calendar?.[0];
+        
+        return (
+          <div className="flex flex-col h-full justify-between">
+            <div>
+              <p className="text-xs font-bold text-blue-500 mb-1 tracking-wider uppercase">Next Event</p>
+              {!isCalConnected ? (
+                <p className="text-gray-500 text-sm font-medium mt-2">Connect Google to sync calendar.</p>
+              ) : !nextEvent ? (
+                <p className="text-gray-500 text-sm font-medium mt-2">No upcoming events today.</p>
+              ) : (
+                <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight truncate">{nextEvent.summary}</h4>
+              )}
+            </div>
+            {size !== "small" && (
+              <a href={nextEvent?.link || "https://calendar.google.com"} target="_blank" className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl text-xs font-bold transition-colors shadow-sm text-center block">
+                {nextEvent?.link ? 'Join Meeting' : 'Open Calendar'}
+              </a>
+            )}
+          </div>
+        );
       case "tasks":
         return (
           <div className="flex flex-col h-full justify-between">
             <div>
-              <p className="text-xs font-bold text-indigo-500 mb-1 tracking-wider uppercase">Tasks (7 Pending)</p>
-              <ul className="space-y-2 mt-2">
-                <li className="flex items-center gap-2 text-sm font-medium text-gray-700 line-through opacity-50"><CheckSquare size={14}/> Morning review</li>
-                <li className="flex items-center gap-2 text-sm font-bold text-gray-900"><div className="w-3.5 h-3.5 border-2 border-gray-300 rounded-sm"></div> Publish LinkedIn Post</li>
-                {size === "large" && <li className="flex items-center gap-2 text-sm font-bold text-gray-900"><div className="w-3.5 h-3.5 border-2 border-gray-300 rounded-sm"></div> Renew domain name</li>}
+              <p className="text-xs font-bold text-indigo-500 mb-1 tracking-wider uppercase">Tasks ({tasks.filter(t => !t.done).length} Pending)</p>
+              <ul className="space-y-2 mt-3 max-h-[100px] overflow-y-auto pr-1">
+                {tasks.map(t => (
+                  <li key={t.id} className="flex items-center gap-2 group">
+                    <button onClick={() => toggleTask(t.id)} className="shrink-0 flex items-center justify-center w-4 h-4 border-2 border-indigo-200 rounded text-indigo-600 focus:outline-none focus:border-indigo-500">
+                      {t.done && <CheckSquare size={14} className="text-indigo-600 absolute" />}
+                    </button>
+                    <span className={`text-sm font-bold truncate flex-1 ${t.done ? 'text-gray-400 line-through' : 'text-gray-800'}`}>
+                      {t.text}
+                    </span>
+                    <button onClick={() => removeTask(t.id)} className="text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100">
+                      <Trash2 size={12}/>
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
+            {size !== "small" && (
+              <div className="mt-4">
+                <input 
+                  type="text" 
+                  value={newTaskText}
+                  onChange={(e) => setNewTaskText(e.target.value)}
+                  onKeyDown={addTask}
+                  placeholder="Add a task & press Enter" 
+                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-xs font-medium focus:outline-none focus:border-indigo-500 focus:bg-white transition-colors"
+                />
+              </div>
+            )}
           </div>
         );
       default:
-        return (
-          <div className="flex flex-col h-full justify-center items-center text-center opacity-50">
-            <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Connected</span>
-            <p className="text-sm font-medium text-gray-600">Syncing live data...</p>
-          </div>
-        );
+        return null;
     }
   };
 
   // Convert logical size to Tailwind CSS grid classes
+
   const getSizeClass = (size: WidgetSize) => {
     switch(size) {
       case "small": return "col-span-1 row-span-1";
