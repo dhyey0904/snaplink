@@ -53,8 +53,14 @@ export default function SnapOS() {
   const [layout, setLayout] = useState<WidgetConfig[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [greeting, setGreeting] = useState("Welcome back");
 
   useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) setGreeting("Good morning");
+    else if (hour < 18) setGreeting("Good afternoon");
+    else setGreeting("Good evening");
+
     const saved = localStorage.getItem("snap_os_layout");
     if (saved) {
       setLayout(JSON.parse(saved));
