@@ -1,11 +1,10 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
-  Mail, Calendar, Terminal, Users, HardDrive, BarChart3, CreditCard,
-  CheckSquare, FileText, Bell, Globe, Search, Bot, QrCode, Link2,
-  FolderOpen, Activity, Server, Command, MoreHorizontal, Maximize2, Trash2, Pin
+  Mail, Calendar, CheckSquare, Link2,
+  FolderOpen, Search, MoreHorizontal, Trash2, Pin, Command
 } from "lucide-react";
 
 type WidgetSize = "small" | "medium" | "large" | "full";
