@@ -2,8 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database.database import get_db
 from app.models.user import User
-from app.models.link import Link, Click
-from app.models.files import File
+from app.models.link import Link
+from app.models.click import Click
+from app.models.file import File
 from app.api.auth import get_current_user
 from sqlalchemy import func
 import requests
