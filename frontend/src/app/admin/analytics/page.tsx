@@ -39,7 +39,7 @@ export default function AnalyticsPage() {
               <div className="w-full relative bg-gray-50 rounded-t-lg transition-all duration-300 overflow-hidden h-full flex items-end">
                 <div 
                   className="w-full bg-blue-500 rounded-t-lg group-hover:bg-blue-600 transition-all duration-500 relative"
-                  style={{ height: \`\${(val / max) * 100}%\` }}
+                  style={{ height: `${(val / max) * 100}%` }}
                 >
                   {/* Glass highlight effect inside bar */}
                   <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent"></div>
@@ -72,7 +72,7 @@ export default function AnalyticsPage() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-24 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-500 rounded-full" style={{ width: \`\${item.pct}%\` }}></div>
+                    <div className="h-full bg-blue-500 rounded-full" style={{ width: `${item.pct}%` }}></div>
                   </div>
                   <span className="font-mono font-bold text-gray-900 text-sm">{item.count}</span>
                 </div>
