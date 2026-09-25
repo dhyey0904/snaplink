@@ -4,7 +4,7 @@ from app.database.database import get_db
 from app.models.user import User
 from app.models.link import Link
 from app.models.click import Click
-from app.models.file import File
+from app.models.file import FileShare
 from app.api.auth import get_current_user
 from sqlalchemy import func
 import requests
@@ -17,7 +17,7 @@ def get_os_dashboard_data(db: Session = Depends(get_db), current_user: User = De
     # 1. Fetch Native SnapLinks Data
     total_links = db.query(Link).filter(Link.user_id == current_user.id).count()
     total_clicks = db.query(func.sum(Link.clicks)).filter(Link.user_id == current_user.id).scalar() or 0
-    total_files = db.query(File).filter(File.user_id == current_user.id).count()
+    total_files = db.query(FileShare).filter(FileShare.user_id == current_user.id).count()
     
     data = {
         "links": {
