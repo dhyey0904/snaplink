@@ -21,8 +21,19 @@ export default function MaintenanceModal() {
       return;
     }
     
-    // Prevent scrolling when maintenance mode is active (unless on a tools page)
-    if (!pathname?.startsWith('/tools')) {
+    // Check if the current page requires the backend
+    const requiresBackend = 
+      pathname === '/login' ||
+      pathname === '/register' ||
+      pathname === '/forgot-password' ||
+      pathname === '/reset-password' ||
+      pathname?.startsWith('/dashboard') ||
+      pathname?.startsWith('/admin') ||
+      pathname?.startsWith('/v/') ||
+      pathname?.startsWith('/f/') ||
+      pathname?.startsWith('/analytics/');
+
+    if (requiresBackend) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -40,8 +51,20 @@ export default function MaintenanceModal() {
     return null;
   }
   
-  // Do not show maintenance mode on tools pages
-  if (pathname?.startsWith('/tools')) {
+  // Check if the current page requires the backend
+  const requiresBackend = 
+    pathname === '/login' ||
+    pathname === '/register' ||
+    pathname === '/forgot-password' ||
+    pathname === '/reset-password' ||
+    pathname?.startsWith('/dashboard') ||
+    pathname?.startsWith('/admin') ||
+    pathname?.startsWith('/v/') ||
+    pathname?.startsWith('/f/') ||
+    pathname?.startsWith('/analytics/');
+
+  // If page doesn't require backend, hide maintenance modal
+  if (!requiresBackend) {
     return null;
   }
 

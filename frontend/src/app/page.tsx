@@ -120,6 +120,56 @@ export default function Home() {
         </div>
 
 
+        {/* SNAPTOOLS SECTION */}
+        <section id="snaptools" className="py-24 bg-white relative overflow-hidden border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 text-base sm:text-sm font-bold text-pink-700 mb-6 uppercase tracking-wider">
+                100% Free Tools
+              </div>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#202124] mb-6 leading-tight">
+                Introducing SnapTools
+              </h2>
+              <p className="text-[#5f6368] text-xl max-w-2xl mx-auto leading-relaxed">
+                A powerful suite of document tools that run entirely in your browser. No server uploads. Completely secure and unlimited.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link href="/tools/merge-pdf" className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="w-12 h-12 bg-blue-500 text-white rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Merge PDF</h3>
+                <p className="text-gray-600 text-base sm:text-sm">Combine multiple PDFs into one document quickly.</p>
+              </Link>
+              
+              <Link href="/tools/compress-pdf" className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Compress PDF</h3>
+                <p className="text-gray-600 text-base sm:text-sm">Reduce file size without losing quality.</p>
+              </Link>
+
+              <Link href="/tools/protect-pdf" className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="w-12 h-12 bg-indigo-500 text-white rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Protect PDF</h3>
+                <p className="text-gray-600 text-base sm:text-sm">Encrypt PDFs with AES-256 directly in browser.</p>
+              </Link>
+
+              <Link href="/tools" className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all group flex flex-col justify-center items-center text-center">
+                <div className="w-16 h-16 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#1a73e8] group-hover:text-white transition-colors">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">View All 12 Tools</h3>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section id="features" className="py-24 bg-gray-50 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-16">
