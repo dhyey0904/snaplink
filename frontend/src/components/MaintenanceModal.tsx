@@ -49,13 +49,13 @@ export default function MaintenanceModal() {
         </p>
         
         <div className="bg-gray-50 rounded-2xl p-4 mb-6 border border-gray-100 text-left">
-          <Link href="/tools/watermark-pdf" className="flex items-center gap-3 p-3 hover:bg-white rounded-xl transition-colors group">
+          <Link href="/tools" className="flex items-center gap-3 p-3 hover:bg-white rounded-xl transition-colors group">
             <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <div>
-              <p className="font-bold text-gray-900 text-sm">Add Watermark to PDF</p>
-              <p className="text-xs text-gray-500">Securely stamp text on any PDF document in your browser.</p>
+              <p className="font-bold text-gray-900 text-sm">Open Free SnapTools</p>
+              <p className="text-xs text-gray-500">Merge, watermark, and edit PDFs for free.</p>
             </div>
           </Link>
         </div>
