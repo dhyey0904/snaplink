@@ -40,11 +40,11 @@ const WIDGET_MANIFEST = [
 ];
 
 const DEFAULT_LAYOUT: WidgetConfig[] = [
-  { id: "gmail", size: "medium", pinned: false, order: 1 },
-  { id: "github", size: "medium", pinned: false, order: 2 },
-  { id: "calendar", size: "medium", pinned: true, order: 3 },
-  { id: "revenue", size: "small", pinned: false, order: 4 },
-  { id: "website", size: "small", pinned: false, order: 5 },
+  { id: "links", size: "medium", pinned: true, order: 1 },
+  { id: "files", size: "small", pinned: false, order: 2 },
+  { id: "gmail", size: "medium", pinned: false, order: 3 },
+  { id: "calendar", size: "medium", pinned: true, order: 4 },
+  { id: "revenue", size: "small", pinned: false, order: 5 },
   { id: "drive", size: "large", pinned: false, order: 6 },
   { id: "tasks", size: "medium", pinned: true, order: 7 }
 ];
@@ -71,12 +71,12 @@ export default function SnapOS() {
     }
     setIsLoaded(true);
 
-    // Fetch real data
+    // Fetch real data (SnapLinks + Google)
     const fetchRealData = async () => {
       const token = localStorage.getItem("token");
       if (!token) return;
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/integrations/google/data", {
+        const res = await fetch("http://127.0.0.1:8000/api/os/data", {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.ok) {
@@ -144,9 +144,48 @@ export default function SnapOS() {
   // Widget Renderer Engine
   const renderWidgetContent = (id: string, size: WidgetSize) => {
     switch (id) {
+      case "links":
+        const totalLinks = realData?.links?.total ?? 124;
+        const totalClicks = realData?.links?.clicks ?? 5302;
+        return (
+          <div className="flex flex-col h-full justify-between">
+            <div>
+              <p className="text-xs font-bold text-blue-500 mb-1 tracking-wider uppercase">SnapLinks {realData ? '(Live)' : '(Mock)'}</p>
+              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">{totalLinks} Total Links</h4>
+              {size === "large" || size === "full" ? (
+                <div className="space-y-2 mt-4">
+                  <div className="bg-blue-50 rounded-lg p-2 text-xs text-blue-700 flex justify-between">
+                    <span className="font-medium truncate mr-2">Total Clicks</span>
+                    <span className="font-bold">{totalClicks}</span>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+            {size !== "small" && (
+              <a href="/dashboard" className="mt-4 w-full bg-blue-50 hover:bg-blue-100 text-blue-600 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
+                Manage Links
+              </a>
+            )}
+          </div>
+        );
+      case "files":
+        const totalFiles = realData?.files?.total ?? 14;
+        return (
+          <div className="flex flex-col h-full justify-between">
+            <div>
+              <p className="text-xs font-bold text-emerald-600 mb-1 tracking-wider uppercase">Files {realData ? '(Live)' : '(Mock)'}</p>
+              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">{totalFiles} Secure Files</h4>
+            </div>
+            {size !== "small" && (
+              <a href="/files" className="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
+                View Files
+              </a>
+            )}
+          </div>
+        );
       case "gmail":
-        const unreadCount = realData?.gmail?.unread ?? 3;
-        const isReal = !!realData;
+        const unreadCount = realData?.google?.gmail?.unread ?? 3;
+        const isReal = !!realData?.google;
         return (
           <div className="flex flex-col h-full justify-between">
             <div>
@@ -190,9 +229,9 @@ export default function SnapOS() {
           </div>
         );
       case "calendar":
-        const isCalReal = !!realData;
-        const nextEvent = realData?.calendar?.[0] || { summary: "Client Sync: Q4 Roadmap", start: "In 45 Minutes" };
-        const followUp = realData?.calendar?.[1] || { summary: "Team Standup", start: "11:30 AM" };
+        const isCalReal = !!realData?.google;
+        const nextEvent = realData?.google?.calendar?.[0] || { summary: "Client Sync: Q4 Roadmap", start: "In 45 Minutes" };
+        const followUp = realData?.google?.calendar?.[1] || { summary: "Team Standup", start: "11:30 AM" };
         
         return (
           <div className="flex flex-col h-full justify-between">
