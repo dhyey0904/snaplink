@@ -18,35 +18,21 @@ interface WidgetConfig {
 }
 
 // Master list of all possible OS Widgets
+// Master list of all possible OS Widgets
 const WIDGET_MANIFEST = [
-  { id: "gmail", name: "Gmail", icon: <Mail />, color: "text-red-500", bg: "bg-red-50" },
-  { id: "calendar", name: "Calendar", icon: <Calendar />, color: "text-blue-500", bg: "bg-blue-50" },
-  { id: "github", name: "GitHub", icon: <Terminal />, color: "text-gray-800", bg: "bg-gray-100" },
-  { id: "linkedin", name: "LinkedIn", icon: <Users />, color: "text-blue-700", bg: "bg-blue-50" },
-  { id: "drive", name: "Google Drive", icon: <HardDrive />, color: "text-emerald-500", bg: "bg-emerald-50" },
-  { id: "website", name: "Website Health", icon: <Globe />, color: "text-teal-500", bg: "bg-teal-50" },
-  { id: "analytics", name: "Analytics", icon: <BarChart3 />, color: "text-orange-500", bg: "bg-orange-50" },
-  { id: "revenue", name: "Finance", icon: <CreditCard />, color: "text-purple-500", bg: "bg-purple-50" },
-  { id: "tasks", name: "Tasks", icon: <CheckSquare />, color: "text-indigo-500", bg: "bg-indigo-50" },
-  { id: "notes", name: "Notes", icon: <FileText />, color: "text-yellow-600", bg: "bg-yellow-50" },
-  { id: "notifications", name: "Alerts", icon: <Bell />, color: "text-rose-500", bg: "bg-rose-50" },
-  { id: "seo", name: "SEO", icon: <Search />, color: "text-cyan-500", bg: "bg-cyan-50" },
-  { id: "assistant", name: "AI Assistant", icon: <Bot />, color: "text-blue-600", bg: "bg-blue-50" },
-  { id: "qr", name: "QR Codes", icon: <QrCode />, color: "text-slate-700", bg: "bg-slate-100" },
   { id: "links", name: "Link Manager", icon: <Link2 />, color: "text-blue-500", bg: "bg-blue-50" },
   { id: "files", name: "File Manager", icon: <FolderOpen />, color: "text-emerald-600", bg: "bg-emerald-50" },
-  { id: "server", name: "Server", icon: <Server />, color: "text-gray-600", bg: "bg-gray-100" },
-  { id: "quick", name: "Quick Actions", icon: <Command />, color: "text-pink-500", bg: "bg-pink-50" }
+  { id: "gmail", name: "Gmail", icon: <Mail />, color: "text-red-500", bg: "bg-red-50" },
+  { id: "calendar", name: "Calendar", icon: <Calendar />, color: "text-blue-500", bg: "bg-blue-50" },
+  { id: "tasks", name: "Tasks", icon: <CheckSquare />, color: "text-indigo-500", bg: "bg-indigo-50" },
 ];
 
 const DEFAULT_LAYOUT: WidgetConfig[] = [
   { id: "links", size: "medium", pinned: true, order: 1 },
-  { id: "files", size: "small", pinned: false, order: 2 },
+  { id: "files", size: "medium", pinned: false, order: 2 },
   { id: "gmail", size: "medium", pinned: false, order: 3 },
   { id: "calendar", size: "medium", pinned: true, order: 4 },
-  { id: "revenue", size: "small", pinned: false, order: 5 },
-  { id: "drive", size: "large", pinned: false, order: 6 },
-  { id: "tasks", size: "medium", pinned: true, order: 7 }
+  { id: "tasks", size: "medium", pinned: true, order: 5 }
 ];
 
 export default function SnapOS() {
@@ -211,94 +197,6 @@ export default function SnapOS() {
             )}
           </div>
         );
-      case "github":
-        return (
-          <div className="flex flex-col h-full justify-between">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                <p className="text-xs font-bold text-gray-600 tracking-wider uppercase">Deployment Failed</p>
-              </div>
-              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight">2 pull requests are waiting.</h4>
-            </div>
-            {size !== "small" && (
-              <button className="mt-4 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-xl text-xs font-bold transition-colors">
-                Review PR #54
-              </button>
-            )}
-          </div>
-        );
-      case "calendar":
-        const isCalReal = !!realData?.google;
-        const nextEvent = realData?.google?.calendar?.[0] || { summary: "Client Sync: Q4 Roadmap", start: "In 45 Minutes" };
-        const followUp = realData?.google?.calendar?.[1] || { summary: "Team Standup", start: "11:30 AM" };
-        
-        return (
-          <div className="flex flex-col h-full justify-between">
-            <div>
-              <p className="text-xs font-bold text-blue-500 mb-1 tracking-wider uppercase">Next Event {isCalReal ? '(Live)' : '(Mock)'}</p>
-              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight truncate">{nextEvent.summary}</h4>
-              {size === "large" || size === "full" ? (
-                <p className="text-xs text-gray-500 mt-2 truncate">Followed by "{followUp.summary}".</p>
-              ) : null}
-            </div>
-            {size !== "small" && (
-              <a href={nextEvent.link || "https://calendar.google.com"} target="_blank" className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl text-xs font-bold transition-colors shadow-sm text-center block">
-                {nextEvent.link ? 'Join Meeting' : 'Open Calendar'}
-              </a>
-            )}
-          </div>
-        );
-      case "revenue":
-        return (
-          <div className="flex flex-col h-full justify-center">
-            <p className="text-xs font-bold text-purple-500 mb-1 tracking-wider uppercase">Today's Revenue</p>
-            <h4 className="text-2xl font-black text-gray-900">₹12,500</h4>
-            {size !== "small" && (
-              <div className="mt-2 text-xs font-bold text-green-500 flex items-center gap-1 bg-green-50 w-max px-2 py-1 rounded-md">
-                <Activity size={12} /> +14.5% vs yesterday
-              </div>
-            )}
-          </div>
-        );
-      case "drive":
-        return (
-          <div className="flex flex-col h-full justify-between">
-            <div>
-              <div className="flex justify-between items-center mb-1">
-                <p className="text-xs font-bold text-emerald-600 tracking-wider uppercase">Storage</p>
-                <span className="text-xs font-bold text-gray-500">82%</span>
-              </div>
-              <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
-                <div className="h-full bg-emerald-500 w-[82%]"></div>
-              </div>
-              <h4 className="text-gray-900 font-bold text-sm leading-tight">Running out of space in Workspace Drive.</h4>
-            </div>
-            {size !== "small" && (
-              <button className="mt-4 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 py-2 rounded-xl text-xs font-bold transition-colors">
-                Clean up large files
-              </button>
-            )}
-          </div>
-        );
-      case "website":
-      case "analytics":
-        return (
-          <div className="flex flex-col h-full justify-between">
-            <div>
-              <p className="text-xs font-bold text-orange-500 mb-1 tracking-wider uppercase">Traffic Alert</p>
-              <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight">Traffic increased by 24%.</h4>
-              {(size === "large" || size === "full") && (
-                <p className="text-xs text-gray-500 mt-2">However, /pricing page load time dropped to 4.2s.</p>
-              )}
-            </div>
-            {size !== "small" && (
-              <button className="mt-4 w-full bg-orange-50 hover:bg-orange-100 text-orange-700 py-2 rounded-xl text-xs font-bold transition-colors">
-                Optimize /pricing
-              </button>
-            )}
-          </div>
-        );
       case "tasks":
         return (
           <div className="flex flex-col h-full justify-between">
@@ -365,42 +263,6 @@ export default function SnapOS() {
           <button className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-gray-700 transition-colors shadow-sm">
             <Search size={18} />
           </button>
-        </div>
-
-        {/* 2. AI Daily Summary Card */}
-        <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow mb-8 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 blur-[80px] rounded-full pointer-events-none"></div>
-          
-          <div className="flex flex-col sm:flex-row items-start gap-6 relative z-10">
-            <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0 border border-blue-100 text-blue-600">
-              <Bot size={24} />
-            </div>
-            <div className="flex-1">
-              <h3 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3 flex items-center gap-2">
-                AI Summary <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md text-[9px]">LIVE</span>
-              </h3>
-              
-              <div className="space-y-3 text-sm md:text-base text-gray-600 font-medium leading-relaxed">
-                <p className="flex items-start gap-3">
-                  <span className="text-green-500 shrink-0 mt-1"><CheckSquare size={16}/></span>
-                  <span>You slept 7h. Today you have <strong className="text-gray-900">2 Meetings</strong> and <strong className="text-gray-900">3 Important Emails</strong> waiting.</span>
-                </p>
-                <p className="flex items-start gap-3">
-                  <span className="text-green-500 shrink-0 mt-1"><CheckSquare size={16}/></span>
-                  <span><strong className="text-gray-900">₹12,500 Revenue</strong> collected yesterday. GitHub deployment <strong className="text-red-500">failed</strong>.</span>
-                </p>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm">
-                  Reply to Client
-                </button>
-                <button className="bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-xs font-bold transition-all border border-gray-200">
-                  Merge PR #54
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* 3. Pinned Widgets (Horizontal Carousel) */}
