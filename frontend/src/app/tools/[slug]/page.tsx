@@ -20,12 +20,13 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  if (!SUPPORTED_CONVERSIONS.includes(params.slug)) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  if (!SUPPORTED_CONVERSIONS.includes(resolvedParams.slug)) {
     return {};
   }
   
-  const [from, to] = params.slug.split('-to-');
+  const [from, to] = resolvedParams.slug.split('-to-');
   const fromUpper = from.toUpperCase();
   const toUpper = to.toUpperCase();
   
@@ -40,12 +41,13 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function DynamicConversionPage({ params }: { params: { slug: string } }) {
-  if (!SUPPORTED_CONVERSIONS.includes(params.slug)) {
+export default async function DynamicConversionPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  if (!SUPPORTED_CONVERSIONS.includes(resolvedParams.slug)) {
     notFound();
   }
 
-  const [from, to] = params.slug.split('-to-');
+  const [from, to] = resolvedParams.slug.split('-to-');
 
-  return <ClientConverter from={from} to={to} slug={params.slug} />;
+  return <ClientConverter from={from} to={to} slug={resolvedParams.slug} />;
 }

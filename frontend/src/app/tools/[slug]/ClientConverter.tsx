@@ -115,7 +115,7 @@ export default function ClientConverter({ from, to, slug }: ClientConverterProps
           <div className="mb-8">
             <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">1. Select {fromUpper} File(s)</label>
             <div className="border-2 border-dashed border-purple-300 rounded-2xl p-8 text-center hover:bg-purple-50 transition-colors cursor-pointer relative">
-              <input type="file" accept={fromMime} multiple onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+              <input type="file" accept={`${fromMime},.${from}${from === 'jpg' ? ',.jpeg' : ''}`} multiple onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
               {files.length > 0 ? (
                 <div className="text-purple-600 font-bold flex flex-col items-center justify-center gap-2">
                   <div className="flex -space-x-4 mb-2">
