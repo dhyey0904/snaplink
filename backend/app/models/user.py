@@ -15,9 +15,5 @@ class User(Base):
     api_key_vcard = Column(String, unique=True, index=True, nullable=True)
     api_key_files = Column(String, unique=True, index=True, nullable=True)
     
-    # OAuth Tokens for Snap OS
-    google_access_token = Column(String, nullable=True)
-    google_refresh_token = Column(String, nullable=True)
-    
     tier = Column(String, default="free")
     created_at = Column(DateTime(timezone=True), server_default=func.now())

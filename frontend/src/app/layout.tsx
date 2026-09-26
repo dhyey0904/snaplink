@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     default: "SnapLink | Advanced URL Shortener & Link-in-Bio",
     template: "%s | SnapLink",
   },
-  description: "SnapLink is the ultimate all-in-one workspace featuring Snap OS, deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools for PDF & web utilities.",
-  keywords: ["Snap OS", "Snap Tools", "web operating system", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard"],
+  description: "SnapLink is the ultimate all-in-one workspace featuring deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools for PDF & web utilities.",
+  keywords: ["Snap Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard"],
   authors: [{ name: "SnapLink" }],
   openGraph: {
     type: "website",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://www.snaplinks.in",
     siteName: "SnapLink",
     title: "SnapLink | Advanced URL Shortener & Link-in-Bio",
-    description: "Experience Snap OS: Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.",
+    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.",
     images: [
       {
         url: "/og-image.png",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SnapLink | Advanced URL Shortener",
-    description: "Experience Snap OS: Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.",
+    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -77,7 +77,7 @@ export default function RootLayout({
       price: '0',
       priceCurrency: 'USD',
     },
-    description: 'Experience Snap OS: Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.',
+    description: 'Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.',
     url: 'https://www.snaplinks.in',
   };
 
