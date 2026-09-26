@@ -52,14 +52,17 @@ export default function Home() {
                 <p className="text-base md:text-lg font-medium text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
                   SnapLink is the ultimate all-in-one workspace. Convert images, manipulate PDFs, send self-destructing files, shorten URLs, and generate 3D business cards.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center">
                   <Link href="/tools" className="px-6 py-3 rounded-xl font-bold text-[#1a73e8] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
-                    Explore SnapTools
+                    Use Tools Instantly
                   </Link>
                   <Link href="/register" className="px-6 py-3 rounded-xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-colors text-base">
-                    Sign up free
+                    Sign up for App
                   </Link>
                 </div>
+                <p className="text-blue-200 text-sm mt-3 text-center lg:text-left font-medium">
+                  * No account or signup required to use SnapTools.
+                </p>
               </div>
 
               {/* Interactive Split Mockup (Dropzone + vCard) */}
@@ -131,7 +134,7 @@ export default function Home() {
                 Introducing SnapTools Suite
               </h2>
               <p className="text-[#5f6368] text-xl max-w-2xl mx-auto leading-relaxed">
-                A powerful suite of document and image tools that run entirely in your browser. Fast, secure, and limitless conversions with zero server uploads.
+                A powerful suite of document and image tools that run entirely in your browser. Fast, secure, and limitless conversions with zero server uploads. <strong className="text-gray-900">No signup required.</strong>
               </p>
             </div>
             
