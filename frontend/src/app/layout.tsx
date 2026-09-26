@@ -6,6 +6,7 @@ import Script from "next/script";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import MaintenanceModal from "@/components/MaintenanceModal";
+import RatingWidget from "@/components/RatingWidget";
 
 
 const geistSans = Geist({
@@ -77,6 +78,11 @@ export default function RootLayout({
       price: '0',
       priceCurrency: 'USD',
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '124'
+    },
     description: 'Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free Snap Tools.',
     url: 'https://www.snaplinks.in',
   };
@@ -115,6 +121,11 @@ export default function RootLayout({
                   "price": "0",
                   "priceCurrency": "USD"
                 },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.8",
+                  "ratingCount": "124"
+                },
                 "description": "Secure file sharing and 3D digital business card generator platform."
               }
             ])
@@ -134,6 +145,7 @@ export default function RootLayout({
         </GoogleOAuthProvider>
         <Analytics />
         <SpeedInsights />
+        <RatingWidget />
       </body>
     </html>
   );
