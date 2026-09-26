@@ -73,7 +73,7 @@ export default function ToolsHubPage() {
       </div>
 
       {/* Tools Grouped By Category */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 relative z-10 space-y-16">
         {categories.map((category) => (
           <div key={category} className="mb-12">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 px-2">{category}</h2>
