@@ -13,7 +13,7 @@ import CalculatorWidget from "@/components/widgets/CalculatorWidget";
 import QuickLinkWidget from "@/components/widgets/QuickLinkWidget";
 import {
   Mail, Calendar, CheckSquare, Link2,
-  FolderOpen, Search, MoreHorizontal, Trash2, Pin, Command, GripHorizontal, X, Plus, User, Clock as ClockIcon, Zap, Calculator as CalculatorIcon, Timer
+  FolderOpen, Search, MoreHorizontal, Trash2, Pin, Command, GripHorizontal, X, Plus, User, Clock as ClockIcon, Zap, Calculator as CalculatorIcon, Timer, Wrench
 } from "lucide-react";
 
 type WidgetSize = "small" | "medium" | "tall" | "large" | "full";
@@ -38,7 +38,8 @@ const WIDGET_MANIFEST = [
   { id: "pomodoro", name: "Focus Timer", type: "productivity", size: "small", icon: <Timer />, color: "text-rose-600", bg: "bg-rose-100" },
   { id: "calculator", name: "Calculator", type: "productivity", size: "medium", icon: <CalculatorIcon />, color: "text-teal-600", bg: "bg-teal-100" },
   { id: "clock", name: "Clock", type: "personal", size: "small", icon: <ClockIcon />, color: "text-slate-600", bg: "bg-slate-100" },
-  { id: "bio", name: "Bio Page", type: "core", size: "medium", icon: <User />, color: "text-fuchsia-600", bg: "bg-fuchsia-100" }
+  { id: "bio", name: "Bio Page", type: "core", size: "medium", icon: <User />, color: "text-fuchsia-600", bg: "bg-fuchsia-100" },
+    { id: "tools", name: "Snap Tools", type: "core", size: "medium", icon: <Wrench />, color: "text-red-500", bg: "bg-red-50" }
 ];
 
 const DEFAULT_LAYOUT: WidgetConfig[] = [
@@ -101,7 +102,7 @@ function SortableWidget({ widget, meta, isMenuOpen, setActiveMenu, updateWidgetS
 
       {/* Widget Context Menu Overlay */}
       {isMenuOpen && (
-        <div className="absolute inset-0 bg-white/95 backdrop-blur-md z-20 flex flex-col gap-2 justify-center animate-in fade-in zoom-in-95 duration-100 pointer-events-auto">
+        <div className="absolute inset-0 bg-white/95 backdrop-blur-md z-20 p-4 flex flex-col gap-2 justify-center animate-in fade-in zoom-in-95 duration-100 pointer-events-auto">
           <h5 className="text-xs font-bold text-gray-400 uppercase tracking-wider text-center mb-2">{meta.name} Options</h5>
           <div className="grid grid-cols-2 gap-2">
             <button onClick={() => updateWidgetSize(widget.id, "small")} className="bg-gray-50 hover:bg-gray-100 text-xs font-bold py-2 rounded-lg text-gray-700">Small 1x1</button>
@@ -126,7 +127,7 @@ function SortableWidget({ widget, meta, isMenuOpen, setActiveMenu, updateWidgetS
 
       {/* Content Renderer */}
       <div 
-        className="flex-1 h-full w-full pt-14 overflow-hidden cursor-pointer pointer-events-auto flex flex-col"
+        className="flex-1 h-full w-full px-5 pb-5 pt-14 overflow-hidden cursor-pointer pointer-events-auto flex flex-col"
         onClick={(e) => {
           if ((e.target as HTMLElement).tagName === 'BUTTON' || (e.target as HTMLElement).tagName === 'INPUT' || (e.target as HTMLElement).closest('button')) return;
           if (widget.id === 'links') window.location.href = '/dashboard/links';
@@ -449,7 +450,7 @@ export default function SnapOS() {
       
         case "notes":
           return (
-            <div className="flex flex-col h-full bg-[#fefce8]">
+            <div className="flex flex-col h-full bg-transparent">
               <textarea 
                 value={notes} 
                 onChange={handleNoteChange} 
@@ -464,6 +465,20 @@ export default function SnapOS() {
             <div className="flex flex-col h-full items-center justify-center">
               <div className="text-3xl font-light text-slate-800 tracking-tight">{time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
               <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">{time.toLocaleDateString([], {weekday: 'short', month: 'short', day: 'numeric'})}</div>
+            </div>
+          );
+        case "tools":
+          return (
+            <div className="flex flex-col h-full justify-between">
+              <div>
+                <p className="text-xs font-bold text-red-500 mb-1 tracking-wider uppercase">PDF Utilities</p>
+                <h4 className="text-gray-900 font-bold text-sm md:text-base leading-tight mb-2">7+ Free Tools</h4>
+              </div>
+              {size !== "small" && (
+                <a href="/tools" className="mt-4 w-full bg-red-50 hover:bg-red-100 text-red-700 py-2 rounded-xl text-xs font-bold transition-colors text-center block">
+                  Open Snap Tools
+                </a>
+              )}
             </div>
           );
         case "bio":
@@ -546,7 +561,7 @@ default:
                 const meta = WIDGET_MANIFEST.find(m => m.id === widget.id);
                 if (!meta) return null;
                 return (
-                  <div key={`pin-${widget.id}`} className="snap-start shrink-0 w-64 bg-white border border-gray-200 rounded-2xl hover:border-gray-300 transition-colors relative group shadow-sm">
+                  <div key={`pin-${widget.id}`} className="snap-start shrink-0 w-64 bg-white border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors relative group shadow-sm overflow-hidden h-[160px] flex flex-col">
                     <button 
                       onClick={() => togglePin(widget.id)}
                       className="absolute top-3 right-3 text-gray-300 hover:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -596,7 +611,7 @@ default:
             return (
               <div 
                 key={widget.id} 
-                className={`bg-white rounded-3xl border border-gray-100 shadow-sm relative group overflow-hidden transition-all duration-300 hover:shadow-md ${getSizeClass(widget.size)} flex flex-col`}
+                className={`rounded-3xl p-5 border shadow-sm relative group overflow-hidden transition-all duration-300 hover:shadow-md ${getSizeClass(widget.size)} flex flex-col ${widget.id === "notes" ? "bg-[#fefce8] border-yellow-200" : "bg-white border-gray-100"}`}
               >
                 {/* Widget Header */}
                 <div className="flex justify-between items-start mb-3 shrink-0">
@@ -618,7 +633,7 @@ default:
 
                 {/* Widget Context Menu Overlay */}
                 {isMenuOpen && (
-                  <div className="absolute inset-0 bg-white/95 backdrop-blur-md z-20 flex flex-col gap-2 justify-center animate-in fade-in zoom-in-95 duration-100">
+                  <div className="absolute inset-0 bg-white/95 backdrop-blur-md z-20 p-4 flex flex-col gap-2 justify-center animate-in fade-in zoom-in-95 duration-100">
                     <h5 className="text-xs font-bold text-gray-400 uppercase tracking-wider text-center mb-2">{meta.name} Options</h5>
                     <div className="grid grid-cols-2 gap-2">
                       <button onClick={() => updateWidgetSize(widget.id, "small")} className="bg-gray-50 hover:bg-gray-100 text-xs font-bold py-2 rounded-lg text-gray-700">Small 1x1</button>
@@ -669,11 +684,11 @@ default:
       </main>
 
       {/* OS Bottom Dock (Mobile Only) */}
-      <div className="md:hidden fixed bottom-4 left-4 right-4 bg-white/80 backdrop-blur-xl border border-gray-200 shadow-xl rounded-3xl flex justify-around items-center z-50">
-        <button className="text-blue-600 bg-blue-50 rounded-2xl"><Command size={20}/></button>
-        <button className="text-gray-400 hover:text-gray-800 transition-colors"><Mail size={20}/></button>
-        <button className="text-gray-400 hover:text-gray-800 transition-colors"><Calendar size={20}/></button>
-        <button className="text-gray-400 hover:text-gray-800 transition-colors"><CheckSquare size={20}/></button>
+      <div className="md:hidden fixed bottom-4 left-4 right-4 bg-white/80 backdrop-blur-xl border border-gray-200 shadow-xl rounded-3xl p-3 flex justify-around items-center z-50">
+        <button className="text-blue-600 bg-blue-50 p-3 rounded-2xl"><Command size={20}/></button>
+        <button className="text-gray-400 hover:text-gray-800 transition-colors p-3"><Mail size={20}/></button>
+        <button className="text-gray-400 hover:text-gray-800 transition-colors p-3"><Calendar size={20}/></button>
+        <button className="text-gray-400 hover:text-gray-800 transition-colors p-3"><CheckSquare size={20}/></button>
       </div>
 
       {/* Widget Marketplace Modal */}

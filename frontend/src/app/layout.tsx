@@ -124,7 +124,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <MaintenanceModal />
-        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "265865558141-2cp9num2eh4felku1j0fcchmtnej3bai.apps.googleusercontent.com"}>
+        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleusercontent.com"}>
           <Script
           id="schema-org"
           type="application/ld+json"
