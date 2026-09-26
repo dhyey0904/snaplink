@@ -53,7 +53,9 @@ export default function Navbar() {
               </Link>
             ) : isDashboard ? (
               <>
-
+                <Link href="/tools" className={`text-sm font-medium transition-colors py-5 ${pathname === '/tools' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                  SnapTools
+                </Link>
                 <Link href="/dashboard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
                   Overview
                 </Link>
@@ -78,6 +80,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
+                <Link href="/tools" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">SnapTools</Link>
                 <Link href="/blog" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">Blog</Link>
                 <Link href="/login" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">
                   Sign in
@@ -101,7 +104,7 @@ export default function Navbar() {
               </Link>
             ) : isDashboard ? (
               <>
-
+                <Link href="/tools" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/tools' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>SnapTools</Link>
                 <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Overview</Link>
                 <Link href="/dashboard/bio" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/bio' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Bio Page</Link>
                 <Link href="/dashboard/links" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/links' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>URL Shortener</Link>
@@ -114,6 +117,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
+                <Link href="/tools" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>SnapTools</Link>
                 <Link href="/blog" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
                   <Link href="/login" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Sign in</Link>
                 <Link href="/register" className="block px-3 py-3 text-base font-medium text-blue-600 hover:bg-blue-50 rounded-lg">Get Started</Link>
