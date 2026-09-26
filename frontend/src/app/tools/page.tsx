@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Snap Tools | Free PDF Tools, Document Converters & Web Utilities',
@@ -56,7 +57,7 @@ export default function ToolsHubPage() {
   const categories = Array.from(new Set(tools.map(t => t.category)));
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] font-sans pb-20">
+    <div className="min-h-screen bg-[#f8f9fa] font-sans flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 py-6 px-8 flex justify-between items-center sticky top-0 z-50">
         <Link href="/" className="font-black text-2xl tracking-tighter text-[#1a73e8]">SnapTools</Link>
@@ -73,7 +74,7 @@ export default function ToolsHubPage() {
       </div>
 
       {/* Tools Grouped By Category */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20 relative z-10 space-y-16 flex-grow">
         {categories.map((category) => (
           <div key={category} className="mb-12">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 px-2">{category}</h2>
@@ -103,6 +104,7 @@ export default function ToolsHubPage() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Multi-Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           
           {/* Column 1: Brand & Mission */}
           <div className="flex flex-col gap-4">
@@ -41,6 +41,17 @@ export default function Footer() {
               <li><Link href="/linktree-alternative" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Bio Page</Link></li>
               <li><Link href="/digital-business-card" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">3D Business Cards</Link></li>
               <li><Link href="/file-sharing" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Secure File Sharing</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 2.5: SnapTools */}
+          <div>
+            <h3 className="font-bold text-gray-900 mb-4">SnapTools (Free)</h3>
+            <ul className="space-y-1">
+              <li><Link href="/tools" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Tools Hub (23+ Tools)</Link></li>
+              <li><Link href="/tools" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">Image Converters</Link></li>
+              <li><Link href="/tools" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">PDF Utilities</Link></li>
+              <li><Link href="/tools" className="text-gray-500 hover:text-[#1a73e8] transition-colors text-base py-2 inline-block w-full">File Security</Link></li>
             </ul>
           </div>
 
