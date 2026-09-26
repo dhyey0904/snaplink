@@ -41,23 +41,23 @@ export default function Home() {
               
               {/* Hero Text */}
               <div className="w-full lg:w-1/2 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm sm:text-xs sm:text-base sm:text-sm font-medium mb-4 backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-4 backdrop-blur-sm">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                  Secure File Sharing & Digital Identity
+                  20+ Free Web Tools & File Sharing
                 </div>
                 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
-                  Secure File Sharing & <br/>3D Digital <span className="text-blue-200">vCards</span>
+                  Free Web Tools & <br/>Secure <span className="text-blue-200">File Sharing</span>
                 </h1>
                 <p className="text-base md:text-lg font-medium text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                  SnapLink is the ultimate platform for professionals. Send 50MB files with self-destructing timers and generate stunning 3D digital business cards.
+                  SnapLink is the ultimate all-in-one workspace. Convert images, manipulate PDFs, send self-destructing files, shorten URLs, and generate 3D business cards.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                  <Link href="/register" className="px-6 py-3 rounded-xl font-bold text-[#1a73e8] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
-                    Get Started Free
+                  <Link href="/tools" className="px-6 py-3 rounded-xl font-bold text-[#1a73e8] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
+                    Explore SnapTools
                   </Link>
-                  <Link href="#features" className="px-6 py-3 rounded-xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-colors text-base">
-                    See how it works
+                  <Link href="/register" className="px-6 py-3 rounded-xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-colors text-base">
+                    Sign up free
                   </Link>
                 </div>
               </div>
