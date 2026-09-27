@@ -124,7 +124,7 @@ export default function Home() {
 
 
         {/* SNAPTOOLS SECTION */}
-        <section id="snaptools" className="py-24 bg-white relative overflow-hidden border-t border-gray-100">
+        <section id="snaptools" className="py-24 bg-gradient-to-b from-white to-blue-50/50 relative overflow-hidden border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 text-base sm:text-sm font-bold text-pink-700 mb-6 uppercase tracking-wider">
@@ -141,7 +141,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
               {/* Tool Category 1 */}
-              <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 animate-float">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center">
                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
@@ -159,7 +159,7 @@ export default function Home() {
               </div>
 
               {/* Tool Category 2 */}
-              <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 transform md:-translate-y-4 relative">
+              <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 transform relative animate-float delay-200">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-4 py-1 rounded-full text-sm shadow-lg">NEW</div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center">
@@ -178,7 +178,7 @@ export default function Home() {
               </div>
 
               {/* Tool Category 3 */}
-              <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 animate-float delay-400">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center">
                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
