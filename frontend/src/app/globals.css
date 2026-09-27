@@ -53,3 +53,13 @@ body {
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+
+@keyframes live-bars {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.2); }
+}
+
+.animate-live-bars {
+  animation: live-bars 1.5s infinite ease-in-out;
+  transform-origin: bottom;
+}

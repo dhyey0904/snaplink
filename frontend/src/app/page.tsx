@@ -323,12 +323,12 @@ export default function Home() {
                   Track every click, scan, and download. Get detailed insights on referrers, devices, and locations without the bloated complexity of Google Analytics.
                 </p>
                 {/* Mini Chart Mockup */}
-                <div className="w-full h-32 flex items-end justify-between px-4 pb-2 border-b-2 border-l-2 border-gray-200 relative">
-                  <div className="w-8 bg-blue-200 rounded-t-sm h-[30%] group-hover:h-[40%] transition-all duration-500"></div>
-                  <div className="w-8 bg-blue-300 rounded-t-sm h-[50%] group-hover:h-[60%] transition-all duration-500 delay-75"></div>
-                  <div className="w-8 bg-blue-400 rounded-t-sm h-[40%] group-hover:h-[80%] transition-all duration-500 delay-150"></div>
-                  <div className="w-8 bg-blue-500 rounded-t-sm h-[70%] group-hover:h-[90%] transition-all duration-500 delay-200"></div>
-                  <div className="w-8 bg-[#1a73e8] rounded-t-sm h-[90%] group-hover:h-[100%] transition-all duration-500 delay-300"></div>
+                <div className="w-full h-32 flex items-end justify-between px-4 pb-2 border-b-2 border-l-2 border-gray-200 relative overflow-hidden">
+                  <div className="w-8 bg-blue-200 rounded-t-sm h-[30%] animate-live-bars"></div>
+                  <div className="w-8 bg-blue-300 rounded-t-sm h-[50%] animate-live-bars delay-100"></div>
+                  <div className="w-8 bg-blue-400 rounded-t-sm h-[40%] animate-live-bars delay-200"></div>
+                  <div className="w-8 bg-blue-500 rounded-t-sm h-[70%] animate-live-bars delay-300"></div>
+                  <div className="w-8 bg-[#1a73e8] rounded-t-sm h-[80%] animate-live-bars delay-400"></div>
                 </div>
               </div>
 
