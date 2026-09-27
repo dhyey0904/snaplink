@@ -183,17 +183,47 @@ export default function Navbar() {
               <Link href="/tools/split-pdf" className="text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">Split PDF</Link>
               <Link href="/tools/compress-pdf" className="text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">Compress PDF</Link>
               
+              {/* Convert PDF Dropdown */}
               <div className="relative group cursor-pointer flex items-center h-[46px]">
-                <div className="flex items-center gap-1 text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">
+                <div className="flex items-center gap-1 text-[13px] font-bold text-gray-800 group-hover:text-[#1a73e8] tracking-wider uppercase transition-colors">
                   Convert PDF
-                  <svg className="w-3 h-3 text-gray-500 group-hover:text-[#1a73e8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                  <svg className="w-3 h-3 text-gray-500 group-hover:text-[#1a73e8] group-hover:-rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                
+                {/* Dropdown Menu */}
+                <div className="absolute top-[46px] left-1/2 -translate-x-1/2 w-52 bg-white border border-gray-100 shadow-xl rounded-b-xl py-2 hidden group-hover:block z-50">
+                  <div className="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-50 mb-1">To PDF</div>
+                  <Link href="/tools/jpg-to-pdf" className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8]">JPG to PDF</Link>
+                  <Link href="#" className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8]">Word to PDF</Link>
+                  
+                  <div className="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-y border-gray-50 mt-1 mb-1">From PDF</div>
+                  <Link href="/tools/pdf-to-jpg" className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8]">PDF to JPG</Link>
+                  <Link href="#" className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8]">PDF to Word</Link>
                 </div>
               </div>
               
+              {/* All PDF Tools Dropdown */}
               <div className="relative group cursor-pointer flex items-center h-[46px]">
-                <div className="flex items-center gap-1 text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">
+                <div className="flex items-center gap-1 text-[13px] font-bold text-gray-800 group-hover:text-[#1a73e8] tracking-wider uppercase transition-colors">
                   All PDF Tools
-                  <svg className="w-3 h-3 text-gray-500 group-hover:text-[#1a73e8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                  <svg className="w-3 h-3 text-gray-500 group-hover:text-[#1a73e8] group-hover:-rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+
+                {/* Mega Menu Dropdown */}
+                <div className="absolute top-[46px] right-0 w-[420px] bg-white border border-gray-100 shadow-xl rounded-b-xl p-4 hidden group-hover:block z-50">
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-1">
+                    <div className="col-span-2 px-2 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-50 mb-2">Organize & Optimize</div>
+                    <Link href="/tools/merge-pdf" className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8] rounded-md transition-colors">Merge PDF</Link>
+                    <Link href="/tools/split-pdf" className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8] rounded-md transition-colors">Split PDF</Link>
+                    <Link href="/tools/compress-pdf" className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8] rounded-md transition-colors">Compress PDF</Link>
+                    <Link href="/tools/rotate-pdf" className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8] rounded-md transition-colors">Rotate PDF</Link>
+                    
+                    <div className="col-span-2 px-2 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-50 mt-2 mb-2">Edit & Security</div>
+                    <Link href="/tools/watermark-pdf" className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8] rounded-md transition-colors">Watermark PDF</Link>
+                    <Link href="/tools/page-numbers" className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8] rounded-md transition-colors">Page Numbers</Link>
+                    <Link href="#" className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8] rounded-md transition-colors">Unlock PDF</Link>
+                    <Link href="#" className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-[#1a73e8] rounded-md transition-colors">Protect PDF</Link>
+                  </div>
                 </div>
               </div>
             </div>
