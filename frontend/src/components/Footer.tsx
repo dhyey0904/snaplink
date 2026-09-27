@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         
         {/* Top Section: Links & App Stores */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
           
           {/* Column 1: Product */}
           <div>
@@ -30,16 +30,6 @@ export default function Footer() {
               <li><Link href="/file-sharing" className="hover:text-[#1a73e8] transition-colors">File Sharing</Link></li>
               <li><Link href="/digital-business-card" className="hover:text-[#1a73e8] transition-colors">3D vCard</Link></li>
               <li><Link href="/blog" className="hover:text-[#1a73e8] transition-colors">Blog</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Solutions */}
-          <div>
-            <h3 className="text-gray-900 font-bold mb-4 tracking-wide text-sm">SOLUTIONS</h3>
-            <ul className="space-y-3 text-sm">
-              <li><Link href="/business" className="hover:text-[#1a73e8] transition-colors">Business</Link></li>
-              <li><Link href="/creators" className="hover:text-[#1a73e8] transition-colors">Creators</Link></li>
-              <li><Link href="/education" className="hover:text-[#1a73e8] transition-colors">Education</Link></li>
             </ul>
           </div>
 
