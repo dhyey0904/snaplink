@@ -60,9 +60,25 @@ export default function ToolsHubPage() {
       <Navbar />
       
       {/* Hero */}
-      <div className="bg-white py-16 px-4 text-center shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] relative z-10">
-        <h1 className="text-4xl md:text-[42px] font-black tracking-tight text-gray-900 mb-5">The ultimate toolkit for PDFs and Images</h1>
-        <p className="text-[19px] text-gray-500 max-w-4xl mx-auto font-medium">SnapTools gives you everything you need in one unified space. Compress, merge, and split PDFs, or instantly convert modern images like AVIF and WebP. 100% free, blazingly fast, and completely private.</p>
+      <div className="relative overflow-hidden bg-white border-b border-gray-100 py-24 px-4 text-center z-10">
+        {/* Ambient background glows */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full overflow-hidden -z-10 pointer-events-none">
+          <div className="absolute top-[-20%] left-[0%] w-96 h-96 bg-[#1a73e8]/15 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-[-20%] right-[0%] w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-sm font-bold tracking-wide mb-8 text-[#1a73e8]">
+          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> 100% Free Forever
+        </div>
+        
+        <h1 className="text-5xl md:text-[56px] font-black tracking-tight mb-7 leading-tight">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a73e8] via-purple-600 to-[#1a73e8] animate-text-shimmer bg-[length:200%_auto]">The ultimate toolkit</span> <br className="hidden sm:block" />
+          <span className="text-gray-900">for PDFs and Images</span>
+        </h1>
+        
+        <p className="text-xl text-gray-500 max-w-3xl mx-auto font-medium leading-relaxed">
+          SnapTools gives you everything you need in one unified space. Compress, merge, and split PDFs, or instantly convert modern images like AVIF and WebP. Blazingly fast, and completely private.
+        </p>
       </div>
 
       {/* Massive Single Grid */}
