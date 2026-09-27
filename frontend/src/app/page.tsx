@@ -421,55 +421,101 @@ export default function Home() {
 
       
         {/* --- SEO RICH CONTENT SECTION (Word Count Boost) --- */}
-        <section className="w-full py-24 bg-white border-t border-gray-100">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <section className="w-full py-24 bg-gray-50 border-t border-gray-100">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Everything You Need to Know About SnapLink</h2>
-              <p className="text-lg text-gray-600">The most comprehensive guide to our file sharing, URL shortening, and digital identity tools.</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Everything You Need to Know About SnapLink</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">The most comprehensive guide to our file sharing, URL shortening, and digital identity tools.</p>
             </div>
 
-            <div className="space-y-12">
-              <div className="prose prose-blue max-w-none">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">What is SnapLink?</h3>
-                <p className="text-gray-600 leading-relaxed">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+              {/* Card 1 */}
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">What is SnapLink?</h3>
+                <p className="text-gray-600 leading-relaxed text-sm text-justify">
                   SnapLink is the internet's premier all-in-one platform designed for modern professionals, creators, and developers who need complete control over their digital footprint. Whether you are looking to securely transfer large files, create beautiful biolink pages, or shorten long ugly URLs into manageable, trackable links, SnapLink provides a seamless, lightning-fast experience. In today's fast-paced digital economy, managing your brand and ensuring data privacy shouldn't require five different subscriptions. We combine secure ephemeral file sharing, advanced link analytics, and cutting-edge 3D digital business cards into one centralized dashboard.
                 </p>
               </div>
 
-              <div className="prose prose-blue max-w-none">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Secure Ephemeral File Sharing Matters</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Data security is more critical now than ever before. When you send sensitive documents, creative assets, or private videos across the internet, you lose control the moment you hit send. SnapLink solves this through our advanced ephemeral file sharing architecture. You can upload files up to 50MB and instantly generate a secure link. Unlike traditional cloud storage platforms that keep your files on their servers forever, SnapLink files are designed to self-destruct. You can set strict expiration timers or configure the file to automatically delete itself the moment it is downloaded by the recipient. This guarantees that your sensitive data never lingers on a server longer than absolutely necessary, providing unparalleled peace of mind for freelancers, legal professionals, and creative agencies.
+              {/* Card 2 */}
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Secure Ephemeral Sharing</h3>
+                <p className="text-gray-600 leading-relaxed text-sm text-justify">
+                  Data security is more critical now than ever before. When you send sensitive documents, creative assets, or private videos across the internet, you lose control the moment you hit send. SnapLink solves this through our advanced ephemeral file sharing architecture. You can upload files up to 50MB and instantly generate a secure link. Unlike traditional cloud storage platforms that keep your files on their servers forever, SnapLink files are designed to self-destruct. You can set strict expiration timers or configure the file to automatically delete itself the moment it is downloaded, providing unparalleled peace of mind.
                 </p>
               </div>
 
-              <div className="prose prose-blue max-w-none">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">The Future of Networking: 3D Digital vCards</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Paper business cards are outdated, expensive to reprint, and terrible for the environment. Standard "Link in Bio" pages are often boring and fail to capture attention. SnapLink introduces the next generation of digital identity: the 3D Digital vCard. Our platform allows you to generate a fully interactive, three-dimensional profile that houses all your important links, social media profiles, portfolios, and contact information. When someone visits your SnapLink bio, they aren't just reading a list of links—they are experiencing a premium, interactive digital environment that elevates your personal brand. It\'s the perfect tool for influencers looking to consolidate sponsorships, or executives wanting a modern way to share their contact details at networking events.
+              {/* Card 3 */}
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">The Future: 3D vCards</h3>
+                <p className="text-gray-600 leading-relaxed text-sm text-justify">
+                  Paper business cards are outdated, expensive to reprint, and terrible for the environment. Standard "Link in Bio" pages are often boring and fail to capture attention. SnapLink introduces the next generation of digital identity: the 3D Digital vCard. Our platform allows you to generate a fully interactive, three-dimensional profile that houses all your important links, social media profiles, portfolios, and contact information. When someone visits your SnapLink bio, they experience a premium, interactive digital environment that elevates your personal brand for networking events and sponsorships.
                 </p>
               </div>
+            </div>
 
-              <div className="mt-16 pt-16 border-t border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h3>
-                <dl className="space-y-8">
-                  <div>
-                    <dt className="text-lg font-bold text-gray-900">How large of a file can I send for free?</dt>
-                    <dd className="mt-2 text-gray-600 leading-relaxed">You can securely upload and share files up to 50MB in size. These files are processed securely and are ready to be shared instantly via a short link.</dd>
-                  </div>
-                  <div>
-                    <dt className="text-lg font-bold text-gray-900">Do I need an account to download a file?</dt>
-                    <dd className="mt-2 text-gray-600 leading-relaxed">No! The people you send your files to do not need to create an account or download any special software. They simply click your secure SnapLink, enter the password if you set one, and the download begins immediately in their web browser.</dd>
-                  </div>
-                  <div>
-                    <dt className="text-lg font-bold text-gray-900">What analytics do you provide for shortened links?</dt>
-                    <dd className="mt-2 text-gray-600 leading-relaxed">Our advanced analytics dashboard tracks everything you need to know about your link performance. We provide real-time click tracking, geographical location data, device and browser breakdowns, and referring sources, empowering you to optimize your marketing campaigns effectively.</dd>
-                  </div>
-                  <div>
-                    <dt className="text-lg font-bold text-gray-900">Is the Developer API suitable for enterprise use?</dt>
-                    <dd className="mt-2 text-gray-600 leading-relaxed">Yes. Our Developer API is built on a highly scalable infrastructure designed to handle thousands of requests per second. It allows you to programmatically generate short links, configure AB testing routes, and automate file sharing directly from your own software applications.</dd>
-                  </div>
-                </dl>
+            {/* Interactive FAQ Section */}
+            <div className="max-w-3xl mx-auto">
+              <h3 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">Frequently Asked Questions</h3>
+              <div className="space-y-4">
+                
+                <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
+                    <span>How large of a file can I send for free?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    </span>
+                  </summary>
+                  <p className="text-gray-600 px-6 pb-6 leading-relaxed">
+                    You can securely upload and share files up to 50MB in size. These files are processed securely and are ready to be shared instantly via a short link.
+                  </p>
+                </details>
+
+                <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
+                    <span>Do I need an account to download a file?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    </span>
+                  </summary>
+                  <p className="text-gray-600 px-6 pb-6 leading-relaxed">
+                    No! The people you send your files to do not need to create an account or download any special software. They simply click your secure SnapLink, enter the password if you set one, and the download begins immediately in their web browser.
+                  </p>
+                </details>
+
+                <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
+                    <span>What analytics do you provide for shortened links?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    </span>
+                  </summary>
+                  <p className="text-gray-600 px-6 pb-6 leading-relaxed">
+                    Our advanced analytics dashboard tracks everything you need to know about your link performance. We provide real-time click tracking, geographical location data, device and browser breakdowns, and referring sources, empowering you to optimize your marketing campaigns effectively.
+                  </p>
+                </details>
+
+                <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
+                    <span>Is the Developer API suitable for enterprise use?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    </span>
+                  </summary>
+                  <p className="text-gray-600 px-6 pb-6 leading-relaxed">
+                    Yes. Our Developer API is built on a highly scalable infrastructure designed to handle thousands of requests per second. It allows you to programmatically generate short links, configure AB testing routes, and automate file sharing directly from your own software applications.
+                  </p>
+                </details>
+
               </div>
             </div>
           </div>
