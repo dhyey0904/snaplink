@@ -104,7 +104,7 @@ export default function Home() {
 
                 {/* 3D vCard Mockup */}
                 <div className="flex-1 perspective-1000 flex items-center justify-center p-4">
-                  <div className="w-full max-w-[200px] aspect-[5/8] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl p-5 flex flex-col justify-between transform rotate-y-[-15deg] rotate-x-[10deg] hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 border border-gray-700 relative overflow-hidden group">
+                  <div className="w-full max-w-[200px] aspect-[5/8] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl p-5 flex flex-col justify-between transform animate-spin-vcard hover:[animation-play-state:paused] border border-gray-700 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
                     <div className="flex justify-between items-start">
                       <div className="w-12 h-12 bg-white/10 rounded-full border border-white/20"></div>

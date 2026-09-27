@@ -25,3 +25,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes spin-vcard {
+  0% { transform: rotateY(0deg) rotateX(15deg); }
+  50% { transform: rotateY(180deg) rotateX(-5deg); }
+  100% { transform: rotateY(360deg) rotateX(15deg); }
+}
+
+.animate-spin-vcard {
+  animation: spin-vcard 15s infinite linear;
+  transform-style: preserve-3d;
+}
