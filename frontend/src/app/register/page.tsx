@@ -51,7 +51,7 @@ export default function Register() {
       const data = await response.json();
       localStorage.setItem("token", data.access_token);
       setSuccess("Account created successfully!");
-      setTimeout(() => router.push("/dashboard"), 400);
+      setTimeout(() => router.replace("/dashboard"), 400);
     } catch (err: any) {
       setError(err.message);
     } finally {
