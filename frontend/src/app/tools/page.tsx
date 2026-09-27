@@ -60,14 +60,14 @@ export default function ToolsHubPage() {
       <Navbar />
       
       {/* Hero */}
-      <div className="relative overflow-hidden bg-white border-b border-gray-100 py-24 px-4 text-center z-10">
-        {/* Ambient background glows */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full overflow-hidden -z-10 pointer-events-none">
-          <div className="absolute top-[-20%] left-[0%] w-96 h-96 bg-[#1a73e8]/15 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-[-20%] right-[0%] w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div className="relative overflow-hidden bg-white border-b border-gray-100 pt-12 pb-20 px-4 text-center z-10 w-full">
+        {/* Ambient background glows - Full Width */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+          <div className="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] bg-[#1a73e8]/15 rounded-full blur-[100px]"></div>
+          <div className="absolute -bottom-[20%] -right-[10%] w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[100px]"></div>
         </div>
         
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-sm font-bold tracking-wide mb-8 text-[#1a73e8]">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-sm font-bold tracking-wide mb-6 text-[#1a73e8] shadow-sm relative">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> 100% Free Forever
         </div>
         
