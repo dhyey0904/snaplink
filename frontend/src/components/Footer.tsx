@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 text-gray-500 font-sans mt-auto">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <footer className="bg-white border-t border-gray-100 text-gray-500 font-sans mt-auto relative z-10">
+      <div className="max-w-5xl mx-auto px-6 py-16">
         
-        {/* Top Section: Links & App Stores */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
+        {/* Top Section: Links */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           
           {/* Column 1: Product */}
           <div>
@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section: Separator, Language, Social, Copyright */}
-        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+        <div className="border-t border-gray-200 pt-8 flex flex-col items-center justify-center gap-6 text-sm">
           
           {/* Social Icons */}
           <div className="flex items-center gap-5">
