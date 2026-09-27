@@ -96,13 +96,6 @@ export default function Footer() {
         {/* Bottom Section: Separator, Language, Social, Copyright */}
         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
           
-          {/* Language Selector */}
-          <div className="flex items-center gap-2 border border-gray-300 rounded px-3 py-1.5 cursor-pointer hover:bg-gray-50 transition-colors">
-            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-            <span className="text-gray-700 font-medium">English</span>
-            <svg className="w-3 h-3 text-gray-500 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-          </div>
-
           {/* Social Icons */}
           <div className="flex items-center gap-5">
             <a href="https://twitter.com/snaplinks" className="text-gray-400 hover:text-[#1a73e8] transition-colors">
