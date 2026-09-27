@@ -61,28 +61,30 @@ export default function Navbar() {
               </Link>
             ) : isDashboard ? (
               <>
-                <Link href="/tools" className={`text-sm font-medium transition-colors py-5 ${pathname === '/tools' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                <Link href="/tools" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname === '/tools' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
                   SnapTools
                 </Link>
                 <Link href="/dashboard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
                   Overview
                 </Link>
                 <Link href="/dashboard/bio" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/bio' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
-                  Bio Page
+                  Bio
                 </Link>
                 <Link href="/dashboard/links" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/links' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
-                  URL Shortener
+                  Links
                 </Link>
                 <Link href="/dashboard/vcard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/vcard' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
-                  Business Card
+                  vCard
                 </Link>
                 <Link href="/dashboard/files" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/files' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
-                  File Sharing
+                  Files
                 </Link>
                 <Link href="/dashboard/api" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/api' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
-                  API Access
+                  API
                 </Link>
-                <button onClick={handleLogout} className="text-sm font-medium text-[#5f6368] hover:text-[#d93025] transition-colors ml-4">
+                <div className="w-px h-6 bg-gray-200 mx-1"></div>
+                <button onClick={handleLogout} className="text-sm font-bold bg-gray-100 text-gray-700 px-4 py-2 rounded-full hover:bg-red-50 hover:text-red-600 transition-colors flex items-center gap-2">
+                  <div className="w-6 h-6 bg-[#1a73e8] text-white rounded-full flex items-center justify-center text-[10px]">U</div>
                   Logout
                 </button>
               </>
@@ -117,14 +119,23 @@ export default function Navbar() {
               <>
                 <Link href="/tools" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/tools' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>SnapTools</Link>
                 <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Overview</Link>
-                <Link href="/dashboard/bio" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/bio' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Bio Page</Link>
-                <Link href="/dashboard/links" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/links' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>URL Shortener</Link>
-                <Link href="/dashboard/vcard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/vcard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Business Card</Link>
-                <Link href="/dashboard/files" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/files' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>File Sharing</Link>
-                <Link href="/dashboard/api" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/api' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>API Access</Link>
-                <button onClick={handleLogout} className="w-full text-left block px-3 py-3 text-base font-medium text-red-600 hover:bg-red-50 rounded-lg mt-4 border-t border-gray-100">
-                  Logout
-                </button>
+                <Link href="/dashboard/bio" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/bio' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Bio</Link>
+                <Link href="/dashboard/links" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/links' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Links</Link>
+                <Link href="/dashboard/vcard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/vcard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>vCard</Link>
+                <Link href="/dashboard/files" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/files' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Files</Link>
+                <Link href="/dashboard/api" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/api' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>API</Link>
+                <div className="border-t border-gray-100 mt-4 pt-4">
+                  <div className="flex items-center gap-3 px-3 pb-3">
+                    <div className="w-8 h-8 bg-[#1a73e8] text-white rounded-full flex items-center justify-center font-bold text-xs">U</div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-gray-900">User</span>
+                      <span className="text-xs text-gray-500">Free Plan</span>
+                    </div>
+                  </div>
+                  <button onClick={handleLogout} className="w-full text-left block px-3 py-3 text-base font-medium text-red-600 hover:bg-red-50 rounded-lg">
+                    Logout
+                  </button>
+                </div>
               </>
             ) : (
               <>
