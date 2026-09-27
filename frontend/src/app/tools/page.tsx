@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
   title: 'Snap Tools | Free PDF Tools, Document Converters & Web Utilities',
@@ -54,55 +55,42 @@ const tools = [
 ];
 
 export default function ToolsHubPage() {
-  const categories = Array.from(new Set(tools.map(t => t.category)));
-
   return (
-    <div className="min-h-screen bg-[#f8f9fa] font-sans flex flex-col">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 py-6 px-8 flex justify-between items-center sticky top-0 z-50">
-        <Link href="/" className="font-black text-2xl tracking-tighter text-[#1a73e8]">SnapTools</Link>
-        <div className="flex items-center gap-4">
-          <Link href="/login" className="text-gray-600 font-semibold hover:text-gray-900 transition-colors">Log in</Link>
-          <Link href="/register" className="bg-[#1a73e8] hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full shadow-md transition-all">Sign up</Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#f3f4f6] font-sans flex flex-col">
+      <Navbar />
       
       {/* Hero */}
-      <div className="bg-[#1a73e8] text-white py-20 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Every tool you need in one place</h1>
-        <p className="text-xl opacity-90 max-w-2xl mx-auto font-medium">All our tools are 100% FREE, fast, and completely private. We never store your files on our servers.</p>
+      <div className="bg-white py-16 px-4 text-center shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] relative z-10">
+        <h1 className="text-4xl md:text-[42px] font-black tracking-tight text-gray-900 mb-5">Every tool you need to work with PDFs in one place</h1>
+        <p className="text-[19px] text-gray-500 max-w-4xl mx-auto font-medium">Every tool you need to use PDFs, at your fingertips. All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.</p>
       </div>
 
-      {/* Tools Grouped By Category */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20 relative z-10 space-y-16 flex-grow">
-        {categories.map((category) => (
-          <div key={category} className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 px-2">{category}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {tools.filter(t => t.category === category).map((tool) => (
-                <Link 
-                  key={tool.id} 
-                  href={tool.href}
-                  className={`bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group ${tool.pro ? 'opacity-80' : 'hover:-translate-y-1'}`}
-                  title={tool.pro ? 'Backend currently undergoing maintenance. Check back Oct 1st.' : ''}
-                >
-                  <div className="flex justify-between items-start mb-6">
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-lg ${tool.color} group-hover:scale-110 transition-transform`}>
-                      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={tool.icon}></path>
-                      </svg>
-                    </div>
-                    {tool.pro && (
-                      <span className="bg-gray-100 text-gray-500 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-md">Oct 1st</span>
-                    )}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{tool.name}</h3>
-                  <p className="text-sm text-gray-500 font-medium leading-relaxed">{tool.desc}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        ))}
+      {/* Massive Single Grid */}
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-24 relative z-0 flex-grow w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+          {tools.map((tool) => {
+            const textColorClass = tool.color.replace('bg-', 'text-');
+            return (
+              <Link 
+                key={tool.id} 
+                href={tool.href}
+                className={`bg-white rounded-md p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 flex flex-col items-center text-center group min-h-[200px] ${tool.pro ? 'opacity-90' : ''}`}
+                title={tool.pro ? 'Backend currently undergoing maintenance. Check back Oct 1st.' : ''}
+              >
+                <div className="mb-5 relative">
+                  <svg className={`w-[52px] h-[52px] ${textColorClass} group-hover:scale-110 transition-transform duration-300`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={tool.icon}></path>
+                  </svg>
+                  {tool.pro && (
+                    <span className="absolute -top-1 -right-8 bg-gray-100 text-gray-400 text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded">Oct 1</span>
+                  )}
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2.5 leading-tight group-hover:text-gray-900">{tool.name}</h3>
+                <p className="text-[13px] text-gray-500 leading-relaxed font-medium">{tool.desc}</p>
+              </Link>
+            )
+          })}
+        </div>
       </div>
       <Footer />
     </div>
