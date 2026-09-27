@@ -2,14 +2,42 @@
 
 import React, { useEffect } from 'react';
 
+// Extend window object for our custom flag
+declare global {
+  interface Window {
+    adsbygoogle: any;
+    _adsense_push_pending?: boolean;
+  }
+}
+
 export default function AdSidebar({ slot = "1234567890" }: { slot?: string }) {
   useEffect(() => {
-    try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense error", e);
-    }
+    // Only push if there are unfilled ads and we aren't already pushing
+    const timer = setTimeout(() => {
+      try {
+        const unfilled = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status="done"])');
+        
+        if (unfilled.length > 0 && !window._adsense_push_pending) {
+          window._adsense_push_pending = true;
+          
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          
+          // Reset flag after AdSense has had time to process the DOM
+          setTimeout(() => {
+            window._adsense_push_pending = false;
+          }, 500);
+        }
+      } catch (e: any) {
+        // Silently catch the "already have ads" error as it's harmless
+        if (e.message && e.message.includes('already have ads')) {
+           console.warn("AdSense layout shift prevented");
+        } else {
+           console.error("AdSense error", e);
+        }
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
