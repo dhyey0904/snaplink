@@ -173,6 +173,33 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Secondary Tools Navbar (iLovePDF style) */}
+      {pathname?.startsWith('/tools') && (
+        <div className="w-full bg-white border-t border-[#dadce0] shadow-sm hidden md:block">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center gap-10 h-[46px]">
+              <Link href="/tools/merge-pdf" className="text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">Merge PDF</Link>
+              <Link href="/tools/split-pdf" className="text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">Split PDF</Link>
+              <Link href="/tools/compress-pdf" className="text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">Compress PDF</Link>
+              
+              <div className="relative group cursor-pointer flex items-center h-[46px]">
+                <div className="flex items-center gap-1 text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">
+                  Convert PDF
+                  <svg className="w-3 h-3 text-gray-500 group-hover:text-[#1a73e8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+              </div>
+              
+              <div className="relative group cursor-pointer flex items-center h-[46px]">
+                <div className="flex items-center gap-1 text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">
+                  All PDF Tools
+                  <svg className="w-3 h-3 text-gray-500 group-hover:text-[#1a73e8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
