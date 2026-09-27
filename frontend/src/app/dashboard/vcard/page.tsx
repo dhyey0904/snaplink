@@ -76,7 +76,7 @@ export default function VCardDashboard() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      router.push("/login");
+      router.replace("/login");
       return;
     }
 

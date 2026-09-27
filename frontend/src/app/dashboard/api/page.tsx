@@ -23,7 +23,7 @@ export default function ApiDashboard() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      router.push("/login");
+      router.replace("/login");
       return;
     }
     loadUser();

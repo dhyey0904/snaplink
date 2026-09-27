@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const APPS = [
   {
@@ -64,9 +65,14 @@ const APPS = [
 ];
 
 export default function Dashboard() {
+  const router = useRouter();
   const [greeting, setGreeting] = useState("Welcome back");
 
   useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.replace("/login");
+      return;
+    }
     const hour = new Date().getHours();
     if (hour < 12) setGreeting("Good morning");
     else if (hour < 18) setGreeting("Good afternoon");

@@ -62,7 +62,7 @@ export default function Dashboard() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      router.push("/login");
+      router.replace("/login");
       return;
     }
 
@@ -73,7 +73,7 @@ export default function Dashboard() {
       } catch (err) {
         console.error(err);
         if ((err as Error).message.includes("validate credentials")) {
-          router.push("/login");
+          router.replace("/login");
         }
       } finally {
         setLoading(false);
