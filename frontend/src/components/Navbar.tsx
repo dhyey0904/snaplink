@@ -82,11 +82,11 @@ export default function Navbar() {
               </Link>
             ) : isDashboard ? (
               <>
-                <Link href="/tools" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname === '/tools' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
-                  SnapTools
-                </Link>
                 <Link href="/dashboard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
                   Overview
+                </Link>
+                <Link href="/tools" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname === '/tools' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                  SnapTools
                 </Link>
                 <Link href="/dashboard/bio" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/bio' ? 'text-[#1a73e8] border-b-2 border-[#1a73e8]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
                   Bio
@@ -137,8 +137,8 @@ export default function Navbar() {
               </Link>
             ) : isDashboard ? (
               <>
-                <Link href="/tools" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/tools' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>SnapTools</Link>
                 <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Overview</Link>
+                <Link href="/tools" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/tools' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>SnapTools</Link>
                 <Link href="/dashboard/bio" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/bio' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Bio</Link>
                 <Link href="/dashboard/links" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/links' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Links</Link>
                 <Link href="/dashboard/vcard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/vcard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>vCard</Link>
