@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         
         {/* Top Section: Links & App Stores */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           
           {/* Column 1: Product */}
           <div>
@@ -70,25 +70,6 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
-          </div>
-
-          {/* Column 6: App Stores */}
-          <div className="hidden lg:flex flex-col gap-3">
-            <a href="#" className="border border-gray-200 rounded-lg p-2 flex items-center gap-3 hover:bg-gray-50 transition-colors opacity-75 cursor-not-allowed" title="Coming soon">
-              <svg className="w-6 h-6 text-gray-700" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414C17.523 15.3414 16.208 18.0674 14.887 20.3014C14.17 21.5124 13.565 22.8984 12.102 22.9234C10.686 22.9484 10.222 22.0624 8.653 22.0624C7.054 22.0624 6.516 22.9484 5.228 22.8984C3.89 22.8484 3.123 21.2824 2.457 20.1474C1.037 17.7474 0 14.3924 0 11.5834C0 7.8484 2.298 5.7664 4.882 5.7164C6.273 5.6914 7.424 6.6744 8.272 6.6744C9.117 6.6744 10.518 5.5394 12.181 5.6154C13.064 5.6404 14.73 5.9684 15.82 7.5614C15.727 7.6114 13.504 8.9024 13.504 11.4584C13.504 14.4374 16.141 15.4214 16.236 15.4714C16.183 15.5894 17.523 15.3414 17.523 15.3414ZM12.015 3.7904C12.785 2.8564 13.278 1.5454 13.136 0.234375C11.979 0.284375 10.589 1.0174 9.789 1.9514C9.102 2.7334 8.513 4.0954 8.683 5.3784C9.972 5.4794 11.246 4.7234 12.015 3.7904Z"/></svg>
-              <div>
-                <div className="text-[9px] uppercase leading-none text-gray-500">Download on the</div>
-                <div className="text-sm font-semibold text-gray-900 leading-tight">App Store</div>
-              </div>
-            </a>
-            
-            <a href="#" className="border border-gray-200 rounded-lg p-2 flex items-center gap-3 hover:bg-gray-50 transition-colors opacity-75 cursor-not-allowed" title="Coming soon">
-              <svg className="w-6 h-6 text-gray-700" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.609 22.186c-.161.16-.368.24-.593.24a.837.837 0 0 1-.84-.84c0-.225.08-.432.24-.593l9.59-9.593L2.416 1.814A.837.837 0 0 1 1.576.974c0-.225.08-.432.24-.593C1.976.22 2.183.14 2.408.14c.225 0 .432.08.593.24l.608.608v.826zm16.782.608c.16.161.24.368.24.593v17.97c0 .225-.08.432-.24.593l-.608.608-10.183-10.183L19.783 1.814l.608.608z" opacity="0"/><path d="M17.521 15.347L13.805 12l3.716-3.347 4.148 2.215a.86.86 0 0 1 .458.745v.774a.86.86 0 0 1-.458.745l-4.148 2.215zM2.416 1.814L13.197 11.45 2.416 22.186a.837.837 0 0 1-1.186-1.186L11.414 12 1.23 1.814a.837.837 0 0 1 1.186-1.186z"/></svg>
-              <div>
-                <div className="text-[9px] uppercase leading-none text-gray-500">GET IT ON</div>
-                <div className="text-sm font-semibold text-gray-900 leading-tight">Google Play</div>
-              </div>
-            </a>
           </div>
 
         </div>
