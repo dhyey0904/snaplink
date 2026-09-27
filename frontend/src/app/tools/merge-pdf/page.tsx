@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 
 export default function MergePDFPage() {
   const [files, setFiles] = useState<File[]>([]);
@@ -117,7 +118,9 @@ export default function MergePDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+

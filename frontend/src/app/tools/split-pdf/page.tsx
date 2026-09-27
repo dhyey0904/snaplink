@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 
 export default function SplitPDFPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -164,7 +165,9 @@ export default function SplitPDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+

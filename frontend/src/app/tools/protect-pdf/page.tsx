@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { encryptPDF } from 'cryptpdf';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 
 export default function ProtectPDFPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -119,7 +120,9 @@ export default function ProtectPDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+

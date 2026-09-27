@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 import JSZip from 'jszip';
 import Script from 'next/script';
 
@@ -165,7 +166,9 @@ export default function PDFToJPGPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+

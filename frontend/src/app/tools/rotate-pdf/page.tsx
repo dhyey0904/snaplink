@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { PDFDocument, degrees } from 'pdf-lib';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 
 export default function RotatePDFPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -132,7 +133,9 @@ export default function RotatePDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+

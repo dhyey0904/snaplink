@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { PDFDocument, rgb, degrees } from 'pdf-lib';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 
 export default function WatermarkPDFPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -146,7 +147,9 @@ export default function WatermarkPDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+

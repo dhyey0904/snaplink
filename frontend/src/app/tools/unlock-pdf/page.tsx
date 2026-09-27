@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import { decryptPDF } from 'cryptpdf';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 
 export default function UnlockPDFPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -132,7 +133,9 @@ export default function UnlockPDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+

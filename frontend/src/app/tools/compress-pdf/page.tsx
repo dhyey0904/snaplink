@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 
 export default function CompressPDFPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -139,7 +140,9 @@ export default function CompressPDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+

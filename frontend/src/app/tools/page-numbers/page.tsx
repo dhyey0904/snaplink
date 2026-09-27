@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import Link from 'next/link';
+import AdBanner from '@/components/AdBanner';
 
 export default function PageNumbersPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -194,7 +195,9 @@ export default function PageNumbersPage() {
             )}
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
 }
+
