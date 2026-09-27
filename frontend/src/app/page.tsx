@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   // Bio builder mock state
-  const [bioName, setBioName] = useState('Alex Creator');
+  const [bioName, setBioName] = useState('Dhyey Raja');
   const [bioColor, setBioColor] = useState('bg-blue-600');
 
   // File Dropzone mock state
