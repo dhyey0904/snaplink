@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
-import AdBanner from '@/components/AdBanner';
+import AdSidebar from '@/components/AdSidebar';
 
 export default function ImageToPDFPage() {
   const [files, setFiles] = useState<File[]>([]);
@@ -69,7 +69,13 @@ export default function ImageToPDFPage() {
     <div className="min-h-screen bg-gray-50 font-sans">
       <Navbar />
       
-      <main className="max-w-3xl mx-auto pt-8 pb-12 px-4">
+            <div className="max-w-[1400px] mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+        {/* Left Ad */}
+        <div className="hidden xl:block w-[300px] shrink-0">
+          <AdSidebar />
+        </div>
+        
+        <main className="flex-grow max-w-3xl w-full">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Image to PDF</h1>
           <p className="text-lg text-gray-600">Convert JPG and PNG images into a PDF document instantly in your browser.</p>
@@ -132,11 +138,17 @@ export default function ImageToPDFPage() {
             )}
           </div>
         </div>
-        <AdBanner />
-      </main>
+        </main>
+        
+        {/* Right Ad */}
+        <div className="hidden xl:block w-[300px] shrink-0">
+          <AdSidebar />
+        </div>
+      </div>
     </div>
   );
 }
+
 
 
 

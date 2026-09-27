@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
-import AdBanner from '@/components/AdBanner';
+import AdSidebar from '@/components/AdSidebar';
 import JSZip from 'jszip';
 import Script from 'next/script';
 
@@ -98,7 +98,13 @@ export default function PDFToJPGPage() {
       
       <Navbar />
       
-      <main className="max-w-3xl mx-auto pt-8 pb-12 px-4">
+            <div className="max-w-[1400px] mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+        {/* Left Ad */}
+        <div className="hidden xl:block w-[300px] shrink-0">
+          <AdSidebar />
+        </div>
+        
+        <main className="flex-grow max-w-3xl w-full">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">PDF to JPG</h1>
           <p className="text-lg text-gray-600">Convert each page of your PDF into high-quality JPG images securely in your browser.</p>
@@ -164,11 +170,17 @@ export default function PDFToJPGPage() {
             )}
           </div>
         </div>
-        <AdBanner />
-      </main>
+        </main>
+        
+        {/* Right Ad */}
+        <div className="hidden xl:block w-[300px] shrink-0">
+          <AdSidebar />
+        </div>
+      </div>
     </div>
   );
 }
+
 
 
 
