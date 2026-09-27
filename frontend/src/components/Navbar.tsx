@@ -9,8 +9,10 @@ export default function Navbar() {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     setIsAuthenticated(!!localStorage.getItem("token"));
   }, [pathname]); // Re-check on route change just in case
 
@@ -56,7 +58,7 @@ export default function Navbar() {
               </span>
             </Link>
             
-            <div className="flex items-center gap-2 sm:hidden">
+            <div className={`flex items-center gap-2 sm:hidden transition-opacity duration-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
               {/* Mobile SnapTools Link (Landing Page Only) */}
               {!isAdmin && !isDashboard && (
                 <Link href="/tools" className="flex items-center gap-1 text-[13px] font-bold text-[#1a73e8] mr-1">
@@ -81,7 +83,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Links (Exact Original) */}
-          <div className="hidden sm:flex md:flex items-center gap-4 lg:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide mt-3 sm:mt-0 pb-1 sm:pb-0 w-full sm:w-auto">
+          <div className={`hidden sm:flex md:flex items-center gap-4 lg:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide mt-3 sm:mt-0 pb-1 sm:pb-0 w-full sm:w-auto transition-opacity duration-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
             {isAdmin ? (
               <Link href="/dashboard" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 Exit Admin
