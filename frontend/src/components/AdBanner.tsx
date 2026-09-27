@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function AdBanner() {
   return (
-    <div className="w-full max-w-[728px] mx-auto mt-16 mb-8 flex justify-center">
+    <div className="w-full max-w-[728px] mx-auto mt-8 mb-4 flex justify-center">
       <div className="w-full h-[90px] bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm relative overflow-hidden group hover:bg-gray-50 transition-colors">
         <span className="absolute top-1 right-2 text-[9px] uppercase tracking-wider font-bold text-gray-400">Advertisement</span>
         <div className="flex flex-col items-center">

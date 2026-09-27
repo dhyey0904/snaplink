@@ -69,8 +69,8 @@ export default function WatermarkPDFPage() {
     <div className="min-h-screen bg-gray-50 font-sans">
       <Navbar />
       
-      <main className="max-w-3xl mx-auto py-16 px-4">
-        <div className="text-center mb-12">
+      <main className="max-w-3xl mx-auto pt-8 pb-12 px-4">
+        <div className="text-center mb-8">
           <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Add Watermark to PDF</h1>
           <p className="text-lg text-gray-600">Stamp an image or text over your PDF in seconds. 100% free and runs securely in your browser—no files uploaded to our servers.</p>
         </div>
@@ -150,5 +150,6 @@ export default function WatermarkPDFPage() {
     </div>
   );
 }
+
 
 

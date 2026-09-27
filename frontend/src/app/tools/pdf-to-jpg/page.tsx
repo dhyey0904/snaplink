@@ -98,8 +98,8 @@ export default function PDFToJPGPage() {
       
       <Navbar />
       
-      <main className="max-w-3xl mx-auto py-16 px-4">
-        <div className="text-center mb-12">
+      <main className="max-w-3xl mx-auto pt-8 pb-12 px-4">
+        <div className="text-center mb-8">
           <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">PDF to JPG</h1>
           <p className="text-lg text-gray-600">Convert each page of your PDF into high-quality JPG images securely in your browser.</p>
         </div>
@@ -169,5 +169,6 @@ export default function PDFToJPGPage() {
     </div>
   );
 }
+
 
 

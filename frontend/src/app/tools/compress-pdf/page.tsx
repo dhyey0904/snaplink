@@ -66,8 +66,8 @@ export default function CompressPDFPage() {
     <div className="min-h-screen bg-gray-50 font-sans">
       <Navbar />
       
-      <main className="max-w-3xl mx-auto py-16 px-4">
-        <div className="text-center mb-12">
+      <main className="max-w-3xl mx-auto pt-8 pb-12 px-4">
+        <div className="text-center mb-8">
           <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Compress PDF</h1>
           <p className="text-lg text-gray-600">Optimize and reduce PDF file structure size instantly in your browser.</p>
         </div>
@@ -143,5 +143,6 @@ export default function CompressPDFPage() {
     </div>
   );
 }
+
 
 
