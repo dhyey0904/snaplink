@@ -18,7 +18,7 @@ export default function Navbar() {
   const isAdmin = pathname?.startsWith('/admin');
 
   return (
-    <nav className="w-full border-b border-[#dadce0] bg-white sticky top-0 z-50">
+    <nav className="w-full border-b border-[#dadce0] bg-white/80 backdrop-blur-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex sm:flex-row justify-between sm:h-16 items-center py-3 sm:py-0">
           
@@ -80,13 +80,17 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/tools" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">SnapTools</Link>
+                <Link href="/tools" className="flex items-center gap-2 text-sm font-bold text-[#1a73e8] hover:text-[#1557b0] transition-colors">
+                  SnapTools <span className="bg-blue-100 text-[#1a73e8] text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">Free</span>
+                </Link>
+                <Link href="/#features" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">Features</Link>
                 <Link href="/blog" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">Blog</Link>
-                <Link href="/login" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">
+                <div className="w-px h-4 bg-gray-300 mx-2 hidden sm:block"></div>
+                <Link href="/login" className="text-sm font-bold text-[#5f6368] hover:text-[#202124] transition-colors">
                   Sign in
                 </Link>
-                <Link href="/register" className="text-sm font-medium bg-[#1a73e8] text-white px-5 py-2.5 rounded-full hover:bg-[#1557b0] transition-colors focus:ring-4 focus:ring-[#1a73e8]/20">
-                  Get Started
+                <Link href="/register" className="text-sm font-bold bg-[#1a73e8] text-white px-5 py-2.5 rounded-full hover:bg-[#1557b0] transition-colors shadow-md hover:shadow-lg focus:ring-4 focus:ring-[#1a73e8]/20">
+                  Sign up
                 </Link>
               </>
             )}
@@ -117,10 +121,13 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/tools" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>SnapTools</Link>
+                <Link href="/tools" className="flex items-center gap-2 px-3 py-3 text-base font-bold text-blue-600 bg-blue-50/50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
+                  SnapTools <span className="bg-blue-100 text-blue-700 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">Free</span>
+                </Link>
+                <Link href="/#features" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Features</Link>
                 <Link href="/blog" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
-                  <Link href="/login" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Sign in</Link>
-                <Link href="/register" className="block px-3 py-3 text-base font-medium text-blue-600 hover:bg-blue-50 rounded-lg">Get Started</Link>
+                <Link href="/login" className="block px-3 py-3 text-base font-bold text-gray-700 hover:bg-gray-50 rounded-lg mt-2 border-t border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Sign in</Link>
+                <Link href="/register" className="block px-3 py-3 text-base font-bold text-white bg-[#1a73e8] hover:bg-[#1557b0] text-center rounded-lg shadow-sm" onClick={() => setIsMobileMenuOpen(false)}>Sign up</Link>
               </>
             )}
           </div>
