@@ -68,28 +68,25 @@ export default function ToolsHubPage() {
       {/* Massive Single Grid */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-24 relative z-0 flex-grow w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-          {tools.map((tool) => {
-            const textColorClass = tool.color.replace('bg-', 'text-');
-            return (
-              <Link 
-                key={tool.id} 
-                href={tool.href}
-                className={`bg-white rounded-md p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 flex flex-col items-center text-center group min-h-[200px] ${tool.pro ? 'opacity-90' : ''}`}
-                title={tool.pro ? 'Backend currently undergoing maintenance. Check back Oct 1st.' : ''}
-              >
-                <div className="mb-5 relative">
-                  <svg className={`w-[52px] h-[52px] ${textColorClass} group-hover:scale-110 transition-transform duration-300`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={tool.icon}></path>
-                  </svg>
-                  {tool.pro && (
-                    <span className="absolute -top-1 -right-8 bg-gray-100 text-gray-400 text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded">Oct 1</span>
-                  )}
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2.5 leading-tight group-hover:text-gray-900">{tool.name}</h3>
-                <p className="text-[13px] text-gray-500 leading-relaxed font-medium">{tool.desc}</p>
-              </Link>
-            )
-          })}
+          {tools.map((tool) => (
+            <Link 
+              key={tool.id} 
+              href={tool.href}
+              className={`bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#1a73e8]/30 flex flex-col items-center text-center group min-h-[220px] ${tool.pro ? 'opacity-90' : ''}`}
+              title={tool.pro ? 'Backend currently undergoing maintenance. Check back Oct 1st.' : ''}
+            >
+              <div className="mb-5 relative w-[68px] h-[68px] rounded-2xl bg-blue-50 text-[#1a73e8] flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-100 group-hover:shadow-md transition-all duration-300">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={tool.icon}></path>
+                </svg>
+                {tool.pro && (
+                  <span className="absolute -top-2 -right-6 bg-gray-100 text-gray-400 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm">Oct 1</span>
+                )}
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2.5 leading-tight group-hover:text-[#1a73e8] transition-colors">{tool.name}</h3>
+              <p className="text-[14px] text-gray-500 leading-relaxed font-medium">{tool.desc}</p>
+            </Link>
+          ))}
         </div>
       </div>
       <Footer />
