@@ -83,8 +83,7 @@ export default function Navbar() {
                   API
                 </Link>
                 <div className="w-px h-6 bg-gray-200 mx-1"></div>
-                <button onClick={handleLogout} className="text-sm font-bold bg-gray-100 text-gray-700 px-4 py-2 rounded-full hover:bg-red-50 hover:text-red-600 transition-colors flex items-center gap-2">
-                  <div className="w-6 h-6 bg-[#1a73e8] text-white rounded-full flex items-center justify-center text-[10px]">U</div>
+                <button onClick={handleLogout} className="text-sm font-bold bg-gray-100 text-gray-700 px-5 py-2 rounded-full hover:bg-red-50 hover:text-red-600 transition-colors">
                   Logout
                 </button>
               </>
