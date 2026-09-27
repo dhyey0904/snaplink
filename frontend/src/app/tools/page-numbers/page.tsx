@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 import AdBanner from '@/components/AdBanner';
 
 export default function PageNumbersPage() {
@@ -92,10 +93,7 @@ export default function PageNumbersPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans pb-20">
-      <header className="bg-white shadow-sm py-6 px-8 flex justify-between items-center">
-        <Link href="/tools" className="font-black text-2xl tracking-tighter text-[#1a73e8]">SnapTools</Link>
-        <span className="bg-teal-100 text-teal-700 font-bold px-3 py-1 rounded-full text-xs">Free Tool</span>
-      </header>
+      <Navbar />
       
       <main className="max-w-3xl mx-auto py-16 px-4">
         <div className="text-center mb-12">
@@ -200,4 +198,5 @@ export default function PageNumbersPage() {
     </div>
   );
 }
+
 
