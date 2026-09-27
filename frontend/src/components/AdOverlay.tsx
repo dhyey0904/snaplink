@@ -42,7 +42,7 @@ export default function AdOverlay({ onComplete, actionText = "Continuing" }: AdO
         <div className="w-full h-full max-h-[400px] bg-black/50 border-2 border-dashed border-white/20 rounded-2xl flex flex-col items-center justify-center p-2 relative overflow-hidden">
           <span className="absolute text-white/30 font-bold uppercase tracking-widest text-xs z-0 pointer-events-none">Advertisement</span>
           <div className="w-full h-full relative z-10 flex items-center justify-center">
-            <AdBanner dataAdSlot="5555555555" />
+            <AdBanner slot="5555555555" />
           </div>
         </div>
       </div>
