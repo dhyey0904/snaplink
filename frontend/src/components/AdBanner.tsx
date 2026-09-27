@@ -1,17 +1,42 @@
-import React from 'react';
+"use client";
 
-export default function AdBanner() {
+import React, { useEffect } from 'react';
+
+export default function AdBanner({ slot = "0987654321" }: { slot?: string }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      try {
+        const unfilled = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status="done"])');
+        
+        if (unfilled.length > 0 && !window._adsense_push_pending) {
+          window._adsense_push_pending = true;
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          setTimeout(() => {
+            window._adsense_push_pending = false;
+          }, 500);
+        }
+      } catch (e: any) {
+        if (!e.message?.includes('already have ads')) {
+           console.error("AdSense error", e);
+        }
+      }
+    }, 150); // Slightly longer timeout than sidebar to prioritize sidebar loading
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="w-full max-w-[728px] mx-auto mt-8 mb-4 flex justify-center">
-      <div className="w-full h-[90px] bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm relative overflow-hidden group hover:bg-gray-50 transition-colors">
-        <span className="absolute top-1 right-2 text-[9px] uppercase tracking-wider font-bold text-gray-400">Advertisement</span>
-        <div className="flex flex-col items-center">
-          <svg className="w-6 h-6 mb-1 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-          </svg>
-          <span className="opacity-60 font-medium">Ad Space (728x90)</span>
-        </div>
-      </div>
+    <div className="w-full max-w-[728px] mx-auto mt-10 mb-2 flex justify-center relative bg-gray-50 border border-gray-100 rounded-xl overflow-hidden min-h-[100px] xl:hidden">
+      {/* Fallback styling placeholder */}
+      <span className="absolute top-1 right-2 text-[9px] uppercase tracking-wider font-bold text-gray-300 pointer-events-none z-0">Advertisement</span>
+      
+      {/* Real AdSense Ad Unit - Responsive */}
+      <ins className="adsbygoogle relative z-10 w-full"
+           style={{ display: 'block' }}
+           data-ad-client="ca-pub-3444542685708016"
+           data-ad-slot={slot}
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { PDFDocument } from 'pdf-lib';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import AdSidebar from '@/components/AdSidebar';
+import AdBanner from '@/components/AdBanner';
 
 export default function ImageToPDFPage() {
   const [files, setFiles] = useState<File[]>([]);
@@ -138,6 +139,7 @@ export default function ImageToPDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
         </main>
         
         {/* Right Ad */}
@@ -148,6 +150,7 @@ export default function ImageToPDFPage() {
     </div>
   );
 }
+
 
 
 

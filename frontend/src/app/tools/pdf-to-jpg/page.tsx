@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import AdSidebar from '@/components/AdSidebar';
+import AdBanner from '@/components/AdBanner';
 import JSZip from 'jszip';
 import Script from 'next/script';
 
@@ -170,6 +171,7 @@ export default function PDFToJPGPage() {
             )}
           </div>
         </div>
+        <AdBanner />
         </main>
         
         {/* Right Ad */}
@@ -180,6 +182,7 @@ export default function PDFToJPGPage() {
     </div>
   );
 }
+
 
 
 

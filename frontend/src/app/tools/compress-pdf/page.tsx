@@ -5,6 +5,7 @@ import { PDFDocument } from 'pdf-lib';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import AdSidebar from '@/components/AdSidebar';
+import AdBanner from '@/components/AdBanner';
 
 export default function CompressPDFPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -144,6 +145,7 @@ export default function CompressPDFPage() {
             )}
           </div>
         </div>
+        <AdBanner />
         </main>
         
         {/* Right Ad */}
@@ -154,6 +156,7 @@ export default function CompressPDFPage() {
     </div>
   );
 }
+
 
 
 
