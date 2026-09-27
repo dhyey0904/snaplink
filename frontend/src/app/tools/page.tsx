@@ -23,11 +23,11 @@ const tools = [
   // Top Priority / Most Used
   { category: 'PDF Utilities', id: 'merge', name: 'Merge PDF', desc: 'Combine multiple PDFs into one unified document.', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10', color: 'bg-red-500', href: '/tools/merge-pdf' },
   { category: 'PDF Utilities', id: 'split', name: 'Split PDF', desc: 'Extract pages from your PDF or save each page as a separate PDF.', icon: 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4', color: 'bg-orange-500', href: '/tools/split-pdf' }, 
-  { category: 'PDF Utilities', id: 'compress', name: 'Compress PDF', desc: 'Reduce file size while optimizing for maximal PDF quality.', icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12', color: 'bg-green-500', href: '/tools/compress-pdf' },
+  { category: 'PDF Utilities', id: 'compress', name: 'Compress PDF', desc: 'Reduce file size while optimizing for maximal PDF quality.', icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12', color: 'bg-green-500', href: '/tools/compress-pdf', requiresServer: true },
   
   // High Priority Converters
-  { category: 'Convert from PDF', id: 'pdf-to-word', name: 'PDF to Word', desc: 'Convert your PDF to an editable Word document (DOCX).', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true },
-  { category: 'Convert to PDF', id: 'word-to-pdf', name: 'Word to PDF', desc: 'Make DOC and DOCX files easy to read by converting them to PDF.', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true },
+  { category: 'Convert from PDF', id: 'pdf-to-word', name: 'PDF to Word', desc: 'Convert your PDF to an editable Word document (DOCX).', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true, requiresServer: true },
+  { category: 'Convert to PDF', id: 'word-to-pdf', name: 'Word to PDF', desc: 'Make DOC and DOCX files easy to read by converting them to PDF.', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true, requiresServer: true },
   { category: 'Convert from PDF', id: 'pdf-to-jpg', name: 'PDF to JPG', desc: 'Extract all images contained in a PDF or convert each page to a JPG.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-yellow-500', href: '/tools/pdf-to-jpg' },
   { category: 'Convert to PDF', id: 'img2pdf', name: 'Image to PDF', desc: 'Convert JPG and PNG images into a PDF document.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-emerald-500', href: '/tools/image-to-pdf' },
   
@@ -90,15 +90,15 @@ export default function ToolsHubPage() {
             <Link 
               key={tool.id} 
               href={tool.href}
-              className={`bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#1a73e8]/30 flex flex-col items-center text-center group min-h-[220px] ${tool.pro ? 'opacity-90' : ''}`}
-              title={tool.pro ? 'Backend currently undergoing maintenance. Check back Oct 1st.' : ''}
+              className={`bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#1a73e8]/30 flex flex-col items-center text-center group min-h-[220px] ${tool.requiresServer ? 'opacity-95' : ''}`}
+              title={tool.requiresServer ? 'Backend currently undergoing maintenance. Available Oct 2nd.' : ''}
             >
               <div className="mb-5 relative w-[68px] h-[68px] rounded-2xl bg-blue-50 text-[#1a73e8] flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-100 group-hover:shadow-md transition-all duration-300">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={tool.icon}></path>
                 </svg>
-                {tool.pro && (
-                  <span className="absolute -top-2 -right-6 bg-gray-100 text-gray-400 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm">Oct 1</span>
+                {tool.requiresServer && (
+                  <span className="absolute -top-2 -right-6 bg-amber-50 text-amber-600 border border-amber-200 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">Oct 2</span>
                 )}
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2.5 leading-tight group-hover:text-[#1a73e8] transition-colors">{tool.name}</h3>
