@@ -20,23 +20,25 @@ export const metadata = {
 const tools = [
   // PDF Utilities
   { category: 'PDF Utilities', id: 'merge', name: 'Merge PDF', desc: 'Combine multiple PDFs into one unified document.', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10', color: 'bg-red-500', href: '/tools/merge-pdf' },
+  // Top Priority / Most Used
+  { category: 'PDF Utilities', id: 'merge', name: 'Merge PDF', desc: 'Combine multiple PDFs into one unified document.', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10', color: 'bg-red-500', href: '/tools/merge-pdf' },
   { category: 'PDF Utilities', id: 'split', name: 'Split PDF', desc: 'Extract pages from your PDF or save each page as a separate PDF.', icon: 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4', color: 'bg-orange-500', href: '/tools/split-pdf' }, 
   { category: 'PDF Utilities', id: 'compress', name: 'Compress PDF', desc: 'Reduce file size while optimizing for maximal PDF quality.', icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12', color: 'bg-green-500', href: '/tools/compress-pdf' },
-  { category: 'PDF Utilities', id: 'rotate', name: 'Rotate PDF', desc: 'Rotate your PDFs the way you need them.', icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', color: 'bg-purple-500', href: '/tools/rotate-pdf' },
-  { category: 'PDF Utilities', id: 'numbers', name: 'Page Numbers', desc: 'Add page numbers into PDFs with ease.', icon: 'M7 20l4-16m2 16l4-16M6 9h14M4 15h14', color: 'bg-teal-500', href: '/tools/page-numbers' },
-  { category: 'PDF Utilities', id: 'watermark', name: 'Watermark PDF', desc: 'Stamp an image or text over your PDF in seconds.', icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z', color: 'bg-gray-800', href: '/tools/watermark-pdf' },
   
-  // PDF Security
+  // High Priority Converters
+  { category: 'Convert from PDF', id: 'pdf-to-word', name: 'PDF to Word', desc: 'Convert your PDF to an editable Word document (DOCX).', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true },
+  { category: 'Convert to PDF', id: 'word-to-pdf', name: 'Word to PDF', desc: 'Make DOC and DOCX files easy to read by converting them to PDF.', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true },
+  { category: 'Convert from PDF', id: 'pdf-to-jpg', name: 'PDF to JPG', desc: 'Extract all images contained in a PDF or convert each page to a JPG.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-yellow-500', href: '/tools/pdf-to-jpg' },
+  { category: 'Convert to PDF', id: 'img2pdf', name: 'Image to PDF', desc: 'Convert JPG and PNG images into a PDF document.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-emerald-500', href: '/tools/image-to-pdf' },
+  
+  // Security Tools
   { category: 'PDF Security', id: 'unlock', name: 'Unlock PDF', desc: 'Remove PDF password security, giving you the freedom to use your PDFs.', icon: 'M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z', color: 'bg-pink-500', href: '/tools/unlock-pdf' },
   { category: 'PDF Security', id: 'protect', name: 'Protect PDF', desc: 'Encrypt your PDF with a password to keep sensitive data confidential.', icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z', color: 'bg-indigo-500', href: '/tools/protect-pdf' },
   
-  // Convert to PDF
-  { category: 'Convert to PDF', id: 'img2pdf', name: 'Image to PDF', desc: 'Convert JPG and PNG images into a PDF document.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-emerald-500', href: '/tools/image-to-pdf' },
-  { category: 'Convert to PDF', id: 'word-to-pdf', name: 'Word to PDF', desc: 'Make DOC and DOCX files easy to read by converting them to PDF.', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true },
-  
-  // Convert from PDF
-  { category: 'Convert from PDF', id: 'pdf-to-jpg', name: 'PDF to JPG', desc: 'Extract all images contained in a PDF or convert each page to a JPG.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-yellow-500', href: '/tools/pdf-to-jpg' },
-  { category: 'Convert from PDF', id: 'pdf-to-word', name: 'PDF to Word', desc: 'Convert your PDF to an editable Word document (DOCX).', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true },
+  // Lower Priority Utilities
+  { category: 'PDF Utilities', id: 'rotate', name: 'Rotate PDF', desc: 'Rotate your PDFs the way you need them.', icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', color: 'bg-purple-500', href: '/tools/rotate-pdf' },
+  { category: 'PDF Utilities', id: 'watermark', name: 'Watermark PDF', desc: 'Stamp an image or text over your PDF in seconds.', icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z', color: 'bg-gray-800', href: '/tools/watermark-pdf' },
+  { category: 'PDF Utilities', id: 'numbers', name: 'Page Numbers', desc: 'Add page numbers into PDFs with ease.', icon: 'M7 20l4-16m2 16l4-16M6 9h14M4 15h14', color: 'bg-teal-500', href: '/tools/page-numbers' },
 
   // Image Converters
   { category: 'Image Converters', id: 'jpg-to-png', name: 'JPG to PNG', desc: 'Convert JPG images to transparent PNGs instantly.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-purple-500', href: '/tools/jpg-to-png' },
