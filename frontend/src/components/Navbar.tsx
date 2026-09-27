@@ -29,20 +29,28 @@ export default function Navbar() {
               </span>
             </Link>
             
-            {/* Mobile Hamburger Icon */}
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle mobile menu"
-              className="block sm:hidden md:hidden lg:hidden text-gray-500 hover:text-gray-700 p-2 focus:outline-none"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+            <div className="flex items-center gap-2 sm:hidden">
+              {/* Mobile SnapTools Link (Landing Page Only) */}
+              {!isAdmin && !isDashboard && (
+                <Link href="/tools" className="flex items-center gap-1 text-[13px] font-bold text-[#1a73e8] mr-1">
+                  SnapTools <span className="bg-blue-100 text-[#1a73e8] text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full">Free</span>
+                </Link>
+              )}
+              {/* Mobile Hamburger Icon */}
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+                className="text-gray-500 hover:text-gray-700 p-2 focus:outline-none"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Desktop Links (Exact Original) */}
@@ -120,9 +128,6 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/tools" className="flex items-center gap-2 px-3 py-3 text-base font-bold text-blue-600 bg-blue-50/50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
-                  SnapTools <span className="bg-blue-100 text-blue-700 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">Free</span>
-                </Link>
                 <Link href="/blog" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
                 <Link href="/login" className="block px-3 py-3 text-base font-bold text-gray-700 hover:bg-gray-50 rounded-lg mt-2 border-t border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Sign in</Link>
                 <Link href="/register" className="block px-3 py-3 text-base font-bold text-white bg-[#1a73e8] hover:bg-[#1557b0] text-center rounded-lg shadow-sm" onClick={() => setIsMobileMenuOpen(false)}>Sign up</Link>
