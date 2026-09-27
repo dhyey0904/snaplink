@@ -41,18 +41,18 @@ export default function Home() {
               
               {/* Hero Text */}
               <div className="w-full lg:w-1/2 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-4 backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-4 backdrop-blur-sm animate-fade-in-up">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                   20+ Free Web Tools & File Sharing
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight animate-fade-in-up delay-100">
                   Free Web Tools & <br/>Secure <span className="text-blue-200">File Sharing</span>
                 </h1>
-                <p className="text-base md:text-lg font-medium text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                <p className="text-base md:text-lg font-medium text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed animate-fade-in-up delay-200">
                   SnapLink is the ultimate all-in-one workspace. Convert images, manipulate PDFs, send self-destructing files, shorten URLs, and generate 3D business cards.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center animate-fade-in-up delay-300">
                   <Link href="/tools" className="px-6 py-3 rounded-xl font-bold text-[#1a73e8] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
                     Use Tools Instantly
                   </Link>
@@ -60,13 +60,13 @@ export default function Home() {
                     Sign up
                   </Link>
                 </div>
-                <p className="text-blue-200 text-sm mt-3 text-center lg:text-left font-medium">
+                <p className="text-blue-200 text-sm mt-3 text-center lg:text-left font-medium animate-fade-in-up delay-400">
                   * No account or signup required to use SnapTools.
                 </p>
               </div>
 
               {/* Interactive Split Mockup (Dropzone + vCard) */}
-              <div className="w-full lg:w-1/2 flex flex-col sm:flex-row gap-6">
+              <div className="w-full lg:w-1/2 flex flex-col sm:flex-row gap-6 animate-fade-in-up delay-500">
                 
                 {/* File Dropzone Mockup */}
                 <div 
