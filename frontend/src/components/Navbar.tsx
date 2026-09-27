@@ -2,19 +2,25 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    setIsAuthenticated(!!localStorage.getItem("token"));
+  }, [pathname]); // Re-check on route change just in case
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    setIsAuthenticated(false);
     router.push("/");
   };
 
-  const isDashboard = pathname?.startsWith('/dashboard');
+  const isDashboard = pathname?.startsWith('/dashboard') || isAuthenticated;
   const isAdmin = pathname?.startsWith('/admin');
 
   return (
