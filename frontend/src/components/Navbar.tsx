@@ -11,19 +11,22 @@ export default function Navbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
+  const [isDashboard, setIsDashboard] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
   useEffect(() => {
     setIsMounted(true);
     setIsAuthenticated(!!localStorage.getItem("token"));
+    setIsDashboard(pathname?.startsWith('/dashboard') || !!localStorage.getItem("token"));
+    setIsAdmin(pathname?.startsWith('/admin') || false);
   }, [pathname]); // Re-check on route change just in case
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
+    setIsDashboard(false);
     router.push("/");
   };
-
-  const isDashboard = pathname?.startsWith('/dashboard') || isAuthenticated;
-  const isAdmin = pathname?.startsWith('/admin');
 
   return (
     <nav className="w-full border-b border-[#dadce0] bg-white/80 backdrop-blur-md sticky top-0 z-50">
