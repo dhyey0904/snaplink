@@ -50,3 +50,47 @@ async def pdf_to_word(background_tasks: BackgroundTasks, file: UploadFile = File
     except Exception as e:
         cleanup_files(pdf_path, docx_path)
         raise HTTPException(status_code=500, detail=str(e))
+import pymupdf
+
+@router.post("/compress-pdf")
+async def compress_pdf(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+    if not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="File must be a PDF")
+        
+    file_id = str(uuid.uuid4())
+    pdf_path = os.path.join(TEMP_DIR, f"{file_id}.pdf")
+    compressed_path = os.path.join(TEMP_DIR, f"{file_id}_compressed.pdf")
+    
+    try:
+        # Save uploaded PDF
+        with open(pdf_path, "wb") as f:
+            content = await file.read()
+            f.write(content)
+            
+        # Compress using PyMuPDF (maximum garbage collection, image & font deflate, object streams)
+        doc = pymupdf.open(pdf_path)
+        doc.save(
+            compressed_path,
+            garbage=4,
+            deflate=1,
+            deflate_images=1,
+            deflate_fonts=1,
+            clean=1,
+            use_objstms=1,
+            compression_effort=1
+        )
+        doc.close()
+        
+        # Schedule cleanup
+        background_tasks.add_task(cleanup_files, pdf_path, compressed_path)
+        
+        original_name = file.filename.rsplit('.', 1)[0]
+        return FileResponse(
+            compressed_path,
+            media_type="application/pdf",
+            filename=f"{original_name}_compressed.pdf"
+        )
+        
+    except Exception as e:
+        cleanup_files(pdf_path, compressed_path)
+        raise HTTPException(status_code=500, detail=str(e))

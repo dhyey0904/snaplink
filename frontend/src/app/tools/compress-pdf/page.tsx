@@ -34,25 +34,27 @@ export default function CompressPDFPage() {
     setIsProcessing(true);
     
     try {
-      const arrayBuffer = await file.arrayBuffer();
+      const formData = new FormData();
+      formData.append('file', file);
       
-      // Load the PDF
-      const pdfDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+      const response = await fetch('http://127.0.0.1:8000/api/tools/compress-pdf', {
+        method: 'POST',
+        body: formData,
+      });
       
-      // Save with Object Streams (Compresses structure and metadata natively in the browser)
-      // Note: True image downsampling requires a backend (Ghostscript/ImageMagick)
-      // This approach provides structural optimization which is safe to run in-browser
-      const pdfBytes = await pdfDoc.save({ useObjectStreams: true });
+      if (!response.ok) {
+        throw new Error('Compression failed on the server');
+      }
       
-      setNewSize(pdfBytes.byteLength);
+      const blob = await response.blob();
+      setNewSize(blob.size);
       
-      const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
       
     } catch (err) {
       console.error(err);
-      alert("Error compressing PDF. Ensure it is a valid, unprotected PDF.");
+      alert("Error compressing PDF. Ensure the backend server is running and the file is a valid PDF.");
     } finally {
       setIsProcessing(false);
     }
@@ -125,7 +127,7 @@ export default function CompressPDFPage() {
                 {isProcessing ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    Compressing Structure...
+                    Applying Maximum Compression...
                   </>
                 ) : (
                   <>
