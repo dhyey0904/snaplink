@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-100 text-gray-500 font-sans mt-auto relative z-10">
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="max-w-5xl mx-auto px-6 py-8">
         
         {/* Top Section: Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
@@ -84,8 +84,10 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="text-gray-500">
-            &copy; {new Date().getFullYear()} SnapLink &reg; - Your Digital Workspace
+          <div className="text-gray-500 text-center flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <span>&copy; {new Date().getFullYear()} SnapLink &reg; - Your Digital Workspace</span>
+            <span className="hidden md:inline-block w-1 h-1 bg-gray-300 rounded-full"></span>
+            <span>Designed by <a href="https://github.com/dhyey0904" target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-700 hover:text-[#1a73e8] transition-colors">Dhyey Raja</a></span>
           </div>
         </div>
         
