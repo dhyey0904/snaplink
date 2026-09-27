@@ -61,8 +61,8 @@ export default function ToolsHubPage() {
       
       {/* Hero */}
       <div className="bg-white py-16 px-4 text-center shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] relative z-10">
-        <h1 className="text-4xl md:text-[42px] font-black tracking-tight text-gray-900 mb-5">Every tool you need to work with PDFs in one place</h1>
-        <p className="text-[19px] text-gray-500 max-w-4xl mx-auto font-medium">Every tool you need to use PDFs, at your fingertips. All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.</p>
+        <h1 className="text-4xl md:text-[42px] font-black tracking-tight text-gray-900 mb-5">The ultimate toolkit for PDFs and Images</h1>
+        <p className="text-[19px] text-gray-500 max-w-4xl mx-auto font-medium">SnapTools gives you everything you need in one unified space. Compress, merge, and split PDFs, or instantly convert modern images like AVIF and WebP. 100% free, blazingly fast, and completely private.</p>
       </div>
 
       {/* Massive Single Grid */}
