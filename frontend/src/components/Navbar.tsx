@@ -24,8 +24,9 @@ export default function Navbar() {
           
           <div className="flex justify-between items-center w-full sm:w-auto">
             <Link href={isAdmin ? "/admin" : isDashboard ? "/dashboard" : "/"} className="flex-shrink-0 flex items-center group">
-              <span className="text-2xl font-bold tracking-tight text-[#202124] group-hover:scale-105 transition-transform duration-300">
-                Snap<span className={isAdmin ? "text-[#ea4335]" : "text-transparent bg-clip-text bg-gradient-to-r from-[#1a73e8] via-purple-500 to-[#1a73e8] animate-text-shimmer"}>{isAdmin ? "Admin" : "Link"}</span>
+              <span className="text-2xl font-bold tracking-tight text-[#202124] group-hover:scale-105 transition-transform duration-300 flex">
+                <span className="inline-block animate-word-wave">Snap</span>
+                <span className={`inline-block animate-word-wave delay-300 ${isAdmin ? "text-[#ea4335]" : "text-[#1a73e8]"}`}>{isAdmin ? "Admin" : "Link"}</span>
               </span>
             </Link>
             
