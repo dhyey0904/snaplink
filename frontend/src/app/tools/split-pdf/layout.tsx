@@ -1,15 +1,19 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Split PDF Files Online Free | SnapTools',
-  description: 'Extract pages from your PDF or save each page as a separate PDF file.',
-  keywords: ['split pdf', 'free', 'SnapTools', 'online', 'pdf tool'],
+  title: 'Split PDF file | SnapTools',
+  description: 'Split a PDF file by page ranges or extract all PDF pages to multiple PDF files effortlessly.',
   openGraph: {
-    title: 'Split PDF Files Online Free | SnapTools',
-    description: 'Extract pages from your PDF or save each page as a separate PDF file.',
+    title: 'Split PDF file | SnapTools',
+    description: 'Split a PDF file by page ranges or extract all PDF pages to multiple PDF files effortlessly.',
+    url: 'https://www.snaplinks.in/tools/split-pdf',
   }
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ToolLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

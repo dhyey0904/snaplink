@@ -1,15 +1,19 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Merge PDF Files Online Free | SnapTools',
-  description: 'Combine multiple PDFs into a single document easily and securely in your browser.',
-  keywords: ['merge pdf', 'free', 'SnapTools', 'online', 'pdf tool'],
+  title: 'Merge PDF files | SnapTools',
+  description: 'Combine PDFs in the order you want with the easiest PDF merger available. 100% free and secure.',
   openGraph: {
-    title: 'Merge PDF Files Online Free | SnapTools',
-    description: 'Combine multiple PDFs into a single document easily and securely in your browser.',
+    title: 'Merge PDF files | SnapTools',
+    description: 'Combine PDFs in the order you want with the easiest PDF merger available. 100% free and secure.',
+    url: 'https://www.snaplinks.in/tools/merge-pdf',
   }
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ToolLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

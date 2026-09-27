@@ -1,15 +1,19 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Image to PDF Converter Free | SnapTools',
-  description: 'Convert JPG, PNG, and other images to PDF format instantly in your browser.',
-  keywords: ['image to pdf', 'free', 'SnapTools', 'online', 'pdf tool'],
+  title: 'JPG to PDF | SnapTools',
+  description: 'Convert JPG images to PDF in seconds. Easily adjust orientation and margins for your document.',
   openGraph: {
-    title: 'Image to PDF Converter Free | SnapTools',
-    description: 'Convert JPG, PNG, and other images to PDF format instantly in your browser.',
+    title: 'JPG to PDF | SnapTools',
+    description: 'Convert JPG images to PDF in seconds. Easily adjust orientation and margins for your document.',
+    url: 'https://www.snaplinks.in/tools/image-to-pdf',
   }
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ToolLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

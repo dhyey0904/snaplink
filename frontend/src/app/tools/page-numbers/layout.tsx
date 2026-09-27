@@ -1,15 +1,19 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Add Page Numbers to PDF Free | SnapTools',
-  description: 'Easily insert page numbers into your PDF documents for free.',
-  keywords: ['page numbers', 'free', 'SnapTools', 'online', 'pdf tool'],
+  title: 'Add Page Numbers to PDF | SnapTools',
+  description: 'Add page numbers into PDFs with ease. Choose your positions, dimensions, and typography.',
   openGraph: {
-    title: 'Add Page Numbers to PDF Free | SnapTools',
-    description: 'Easily insert page numbers into your PDF documents for free.',
+    title: 'Add Page Numbers to PDF | SnapTools',
+    description: 'Add page numbers into PDFs with ease. Choose your positions, dimensions, and typography.',
+    url: 'https://www.snaplinks.in/tools/page-numbers',
   }
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ToolLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

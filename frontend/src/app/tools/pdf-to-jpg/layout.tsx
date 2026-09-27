@@ -1,15 +1,19 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Convert PDF to JPG Online Free | SnapTools',
-  description: 'Extract images from PDF or convert PDF pages to high-quality JPG images.',
-  keywords: ['pdf to jpg', 'free', 'SnapTools', 'online', 'pdf tool'],
+  title: 'PDF to JPG | SnapTools',
+  description: 'Extract all images contained in a PDF or convert each page to a JPG file instantly.',
   openGraph: {
-    title: 'Convert PDF to JPG Online Free | SnapTools',
-    description: 'Extract images from PDF or convert PDF pages to high-quality JPG images.',
+    title: 'PDF to JPG | SnapTools',
+    description: 'Extract all images contained in a PDF or convert each page to a JPG file instantly.',
+    url: 'https://www.snaplinks.in/tools/pdf-to-jpg',
   }
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ToolLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

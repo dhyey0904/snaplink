@@ -1,15 +1,19 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Add Watermark to PDF Free | SnapTools',
-  description: 'Stamp text or image watermarks onto your PDF documents instantly.',
-  keywords: ['watermark pdf', 'free', 'SnapTools', 'online', 'pdf tool'],
+  title: 'Watermark PDF | SnapTools',
+  description: 'Stamp an image or text over your PDF in seconds. Choose the typography, transparency and position.',
   openGraph: {
-    title: 'Add Watermark to PDF Free | SnapTools',
-    description: 'Stamp text or image watermarks onto your PDF documents instantly.',
+    title: 'Watermark PDF | SnapTools',
+    description: 'Stamp an image or text over your PDF in seconds. Choose the typography, transparency and position.',
+    url: 'https://www.snaplinks.in/tools/watermark-pdf',
   }
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ToolLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

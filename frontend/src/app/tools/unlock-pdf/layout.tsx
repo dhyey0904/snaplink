@@ -1,15 +1,19 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Unlock PDF - Remove Password Free | SnapTools',
-  description: 'Remove passwords and security restrictions from your PDF files.',
-  keywords: ['unlock pdf', 'free', 'SnapTools', 'online', 'pdf tool'],
+  title: 'Unlock PDF files | SnapTools',
+  description: 'Remove PDF password security, giving you the freedom to use your PDFs as you want.',
   openGraph: {
-    title: 'Unlock PDF - Remove Password Free | SnapTools',
-    description: 'Remove passwords and security restrictions from your PDF files.',
+    title: 'Unlock PDF files | SnapTools',
+    description: 'Remove PDF password security, giving you the freedom to use your PDFs as you want.',
+    url: 'https://www.snaplinks.in/tools/unlock-pdf',
   }
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ToolLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

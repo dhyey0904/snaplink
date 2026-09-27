@@ -1,15 +1,19 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Compress PDF Online Free | SnapTools',
-  description: 'Reduce PDF file size online for free without losing quality. Secure, fast, and browser-based.',
-  keywords: ['compress pdf', 'free', 'SnapTools', 'online', 'pdf tool'],
+  title: 'Compress PDF files | SnapTools',
+  description: 'Compress PDF file to get the same PDF quality but less filesize. Optimize your PDFs for web.',
   openGraph: {
-    title: 'Compress PDF Online Free | SnapTools',
-    description: 'Reduce PDF file size online for free without losing quality. Secure, fast, and browser-based.',
+    title: 'Compress PDF files | SnapTools',
+    description: 'Compress PDF file to get the same PDF quality but less filesize. Optimize your PDFs for web.',
+    url: 'https://www.snaplinks.in/tools/compress-pdf',
   }
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ToolLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }
