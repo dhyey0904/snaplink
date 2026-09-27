@@ -80,10 +80,27 @@ export default function Dashboard() {
 
 
       <main className="flex-1 max-w-7xl mx-auto px-6 sm:px-12 w-full py-8 lg:py-12 relative z-20 mb-20">
-        <div className="mb-12">
-          <h2 className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-2">{greeting}, Creator</h2>
-          <h1 className="text-4xl md:text-5xl font-black text-[#202124] tracking-tight">Your Workspace</h1>
-          <p className="text-[#5f6368] text-lg mt-4 max-w-2xl">
+        <div className="mb-16 relative">
+          {/* Subtle background ambient glow behind the text */}
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-32 bg-blue-400/20 rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+          
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <h2 className="text-xs font-bold tracking-widest uppercase text-gray-600">
+              {greeting}, Creator <span className="inline-block origin-[70%_70%] animate-[wave_2.5s_infinite]">👋</span>
+            </h2>
+          </div>
+          
+          <h1 className="text-6xl md:text-7xl font-black tracking-tight mb-6">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a73e8] via-purple-500 to-[#1a73e8] animate-text-shimmer bg-[length:200%_auto]">
+              Your Workspace
+            </span>
+          </h1>
+          
+          <p className="text-[#5f6368] text-xl max-w-2xl leading-relaxed">
             Access your tools, manage links, and grow your audience from one unified dashboard.
           </p>
         </div>
