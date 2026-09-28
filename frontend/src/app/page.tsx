@@ -104,16 +104,29 @@ export default function Home() {
 
                 {/* 3D vCard Mockup */}
                 <div className="flex-1 perspective-1000 flex items-center justify-center p-4">
-                  <div className="w-full max-w-[200px] aspect-[5/8] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl p-5 flex flex-col justify-between transform animate-spin-vcard hover:[animation-play-state:paused] border border-gray-700 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
-                    <div className="flex justify-between items-start">
-                      <div className="w-12 h-12 bg-white/10 rounded-full border border-white/20"></div>
-                      <svg className="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <div className="w-full max-w-[200px] aspect-[5/8] transform animate-spin-vcard hover:[animation-play-state:paused] relative">
+                    
+                    {/* Front Face */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl p-5 flex flex-col justify-between border border-gray-700 overflow-hidden group [backface-visibility:hidden]">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
+                      <div className="flex justify-between items-start">
+                        <div className="w-12 h-12 bg-white/10 rounded-full border border-white/20"></div>
+                        <svg className="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      </div>
+                      <div>
+                        <div className="text-white font-bold text-xl mb-1">Dhyey Raja</div>
+                        <div className="text-gray-400 text-base sm:text-sm">CEO, SnapLink</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-white font-bold text-xl mb-1">Dhyey Raja</div>
-                      <div className="text-gray-400 text-base sm:text-sm">CEO, SnapLink</div>
+
+                    {/* Back Face */}
+                    <div className="absolute inset-0 bg-gradient-to-bl from-gray-900 via-black to-gray-900 rounded-3xl shadow-2xl p-5 flex flex-col items-center justify-center border border-gray-700 overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                      <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-4 border border-white/10">
+                        <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-500">S</span>
+                      </div>
+                      <div className="text-gray-500 text-xs font-mono tracking-widest uppercase">NFC Enabled</div>
                     </div>
+
                   </div>
                 </div>
 
