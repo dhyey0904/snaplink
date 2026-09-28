@@ -12,13 +12,13 @@ export async function generateMetadata(
   try {
     const res = await fetch(`${backendUrl}/${params.shortCode}?json=true&no_analytics=true`, { cache: 'no-store' });
     if (!res.ok) {
-      return { title: 'SnapLink Redirect' };
+      return { title: 'SnapLinks Redirect' };
     }
     
     const data = await res.json();
     
-    const title = data.og_title || 'SnapLink Redirect';
-    const description = data.og_description || 'You have been sent a secure short link via SnapLink.';
+    const title = data.og_title || 'SnapLinks Redirect';
+    const description = data.og_description || 'You have been sent a secure short link via SnapLinks.';
     
     return {
       title: title,
@@ -36,7 +36,7 @@ export async function generateMetadata(
       },
     };
   } catch (e) {
-    return { title: 'SnapLink Redirect' };
+    return { title: 'SnapLinks Redirect' };
   }
 }
 

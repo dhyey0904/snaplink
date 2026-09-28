@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "SnapLink"
+    PROJECT_NAME: str = "SnapLinks"
     DATABASE_URL: str
     SECRET_KEY: str
     ALGORITHM: str = "HS256"

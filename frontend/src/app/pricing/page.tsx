@@ -1,8 +1,8 @@
 import RazorpayCheckout from "@/components/RazorpayCheckout";
 
 export const metadata = {
-  title: "Pricing | SnapLink Pro",
-  description: "Upgrade to SnapLink Pro for unlimited features.",
+  title: "Pricing | SnapLinks Pro",
+  description: "Upgrade to SnapLinks Pro for unlimited features.",
 };
 
 export default function PricingPage() {

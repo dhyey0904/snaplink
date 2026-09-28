@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PDF to JPG | SnapLink',
+  title: 'PDF to JPG | SnapLinks',
   description: 'Extract all images contained in a PDF or convert each page to a JPG file instantly.',
   openGraph: {
-    title: 'PDF to JPG | SnapLink',
+    title: 'PDF to JPG | SnapLinks',
     description: 'Extract all images contained in a PDF or convert each page to a JPG file instantly.',
-    url: 'https://www.snaplink.in/tools/pdf-to-jpg',
+    url: 'https://www.snaplinks.in/tools/pdf-to-jpg',
   }
 };
 

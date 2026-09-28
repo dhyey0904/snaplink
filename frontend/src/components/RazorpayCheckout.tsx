@@ -32,8 +32,8 @@ export default function RazorpayCheckout() {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_TeIxxkdctC2mH1",
         amount: order.amount,
         currency: order.currency,
-        name: "SnapLink Supporter",
-        description: "Support SnapLink (Lifetime Supporter)",
+        name: "SnapLinks Supporter",
+        description: "Support SnapLinks (Lifetime Supporter)",
         order_id: order.id,
         handler: async function (response: any) {
           // 3. Verify payment signature on backend
@@ -60,7 +60,7 @@ export default function RazorpayCheckout() {
           }
         },
         prefill: {
-          name: "SnapLink User",
+          name: "SnapLinks User",
           email: "user@example.com",
           contact: "9999999999"
         },
@@ -88,8 +88,8 @@ export default function RazorpayCheckout() {
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       
       <div>
-        <h2 className="text-2xl font-bold text-white mb-2">SnapLink Supporter</h2>
-        <p className="text-slate-400">Support the development of SnapLink and keep our tools free for everyone.</p>
+        <h2 className="text-2xl font-bold text-white mb-2">SnapLinks Supporter</h2>
+        <p className="text-slate-400">Support the development of SnapLinks and keep our tools free for everyone.</p>
       </div>
       
       <div className="text-4xl font-extrabold text-white">

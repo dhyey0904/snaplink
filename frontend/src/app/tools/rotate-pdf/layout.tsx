@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Rotate PDF files | SnapLink',
+  title: 'Rotate PDF files | SnapLinks',
   description: 'Rotate your PDFs the way you need them. Rotate multiple PDFs at once instantly.',
   openGraph: {
-    title: 'Rotate PDF files | SnapLink',
+    title: 'Rotate PDF files | SnapLinks',
     description: 'Rotate your PDFs the way you need them. Rotate multiple PDFs at once instantly.',
-    url: 'https://www.snaplink.in/tools/rotate-pdf',
+    url: 'https://www.snaplinks.in/tools/rotate-pdf',
   }
 };
 

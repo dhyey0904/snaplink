@@ -20,34 +20,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://www.snaplink.in'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://www.snaplinks.in'),
   title: {
-    default: "SnapLink | Advanced URL Shortener & Link-in-Bio",
-    template: "%s | SnapLink",
+    default: "SnapLinks | Advanced URL Shortener & Link-in-Bio",
+    template: "%s | SnapLinks",
   },
-  description: "SnapLink is the ultimate all-in-one workspace featuring deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLink Tools for PDF & web utilities.",
-  keywords: ["SnapLink Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard"],
-  authors: [{ name: "SnapLink" }],
+  description: "SnapLinks is the ultimate all-in-one workspace featuring deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools for PDF & web utilities.",
+  keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard"],
+  authors: [{ name: "SnapLinks" }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.snaplink.in",
-    siteName: "SnapLink",
-    title: "SnapLink | Advanced URL Shortener & Link-in-Bio",
-    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLink Tools.",
+    url: "https://www.snaplinks.in",
+    siteName: "SnapLinks",
+    title: "SnapLinks | Advanced URL Shortener & Link-in-Bio",
+    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SnapLink Dashboard Preview",
+        alt: "SnapLinks Dashboard Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SnapLink | Advanced URL Shortener",
-    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLink Tools.",
+    title: "SnapLinks | Advanced URL Shortener",
+    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.",
     images: ["/og-image.png"],
   },
 };
@@ -61,7 +61,7 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'SnapLink',
+    name: 'SnapLinks',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Any',
     offers: {
@@ -74,8 +74,8 @@ export default function RootLayout({
       ratingValue: '4.8',
       ratingCount: '124'
     },
-    description: 'Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLink Tools.',
-    url: 'https://www.snaplink.in',
+    description: 'Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.',
+    url: 'https://www.snaplinks.in',
   };
 
   return (
@@ -93,18 +93,18 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "Organization",
-                "name": "SnapLink",
-                "url": "https://www.snaplink.in/",
-                "logo": "https://www.snaplink.in/logo.png",
+                "name": "SnapLinks",
+                "url": "https://www.snaplinks.in/",
+                "logo": "https://www.snaplinks.in/logo.png",
                 "sameAs": [
-                  "https://twitter.com/snaplink",
-                  "https://instagram.com/snaplink"
+                  "https://twitter.com/snaplinks",
+                  "https://instagram.com/snaplinks"
                 ]
               },
               {
                 "@context": "https://schema.org",
                 "@type": "SoftwareApplication",
-                "name": "SnapLink",
+                "name": "SnapLinks",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Web",
                 "offers": {

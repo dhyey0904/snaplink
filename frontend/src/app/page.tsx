@@ -50,7 +50,7 @@ export default function Home() {
                   Free Web Tools & <br/>Secure <span className="text-blue-200">File Sharing</span>
                 </h1>
                 <p className="text-base md:text-lg font-medium text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed animate-fade-in-up delay-200">
-                  SnapLink is the ultimate all-in-one workspace. Convert images, manipulate PDFs, send self-destructing files, shorten URLs, and generate 3D business cards.
+                  SnapLinks is the ultimate all-in-one workspace. Convert images, manipulate PDFs, send self-destructing files, shorten URLs, and generate 3D business cards.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center animate-fade-in-up delay-300">
                   <Link href="/tools" className="px-6 py-3 rounded-xl font-bold text-[#1a73e8] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
@@ -115,7 +115,7 @@ export default function Home() {
                       </div>
                       <div>
                         <div className="text-white font-bold text-xl mb-1">Dhyey Raja</div>
-                        <div className="text-gray-400 text-base sm:text-sm">CEO, SnapLink</div>
+                        <div className="text-gray-400 text-base sm:text-sm">CEO, SnapLinks</div>
                       </div>
                     </div>
 
@@ -223,7 +223,7 @@ export default function Home() {
                   Stop using boring generic bios.
                 </h2>
                 <p className="text-[#5f6368] text-xl mb-10 leading-relaxed">
-                  SnapLink offers beautiful, animated, and fully customizable Biolink pages. Let your personality shine with mesh gradients, verified badges, and dynamic cards.
+                  SnapLinks offers beautiful, animated, and fully customizable Biolink pages. Let your personality shine with mesh gradients, verified badges, and dynamic cards.
                 </p>
                 
                 {/* Live Builder Controls */}
@@ -354,7 +354,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-[#202124]">Everything you need, in one place.</h2>
-              <p className="text-[#5f6368] text-lg max-w-2xl mx-auto">SnapLink replaces your fragmented tools with one seamless, incredibly powerful dashboard.</p>
+              <p className="text-[#5f6368] text-lg max-w-2xl mx-auto">SnapLinks replaces your fragmented tools with one seamless, incredibly powerful dashboard.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -412,7 +412,7 @@ export default function Home() {
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-white">Developer API Access</h2>
                 <p className="text-gray-400 text-lg max-w-2xl">
-                  Integrate SnapLink' powerful URL shortening and file sharing capabilities directly into your own applications. Generate links programmatically at scale.
+                  Integrate SnapLinks' powerful URL shortening and file sharing capabilities directly into your own applications. Generate links programmatically at scale.
                 </p>
               </div>
               
@@ -437,7 +437,7 @@ export default function Home() {
         <section className="w-full py-24 bg-gray-50 border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Everything You Need to Know About SnapLink</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Everything You Need to Know About SnapLinks</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">The most comprehensive guide to our file sharing, URL shortening, and digital identity tools.</p>
             </div>
 
@@ -447,9 +447,9 @@ export default function Home() {
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">What is SnapLink?</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">What is SnapLinks?</h3>
                 <p className="text-gray-600 leading-relaxed text-sm text-justify">
-                  SnapLink is the internet's premier all-in-one platform designed for modern professionals, creators, and developers who need complete control over their digital footprint. Whether you are looking to securely transfer large files, create beautiful biolink pages, or shorten long ugly URLs into manageable, trackable links, SnapLink provides a seamless, lightning-fast experience. In today's fast-paced digital economy, managing your brand and ensuring data privacy shouldn't require five different subscriptions. We combine secure ephemeral file sharing, advanced link analytics, and cutting-edge 3D digital business cards into one centralized dashboard.
+                  SnapLinks is the internet's premier all-in-one platform designed for modern professionals, creators, and developers who need complete control over their digital footprint. Whether you are looking to securely transfer large files, create beautiful biolink pages, or shorten long ugly URLs into manageable, trackable links, SnapLinks provides a seamless, lightning-fast experience. In today's fast-paced digital economy, managing your brand and ensuring data privacy shouldn't require five different subscriptions. We combine secure ephemeral file sharing, advanced link analytics, and cutting-edge 3D digital business cards into one centralized dashboard.
                 </p>
               </div>
 
@@ -460,7 +460,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Secure Ephemeral Sharing</h3>
                 <p className="text-gray-600 leading-relaxed text-sm text-justify">
-                  Data security is more critical now than ever before. When you send sensitive documents, creative assets, or private videos across the internet, you lose control the moment you hit send. SnapLink solves this through our advanced ephemeral file sharing architecture. You can upload files up to 50MB and instantly generate a secure link. Unlike traditional cloud storage platforms that keep your files on their servers forever, SnapLink files are designed to self-destruct. You can set strict expiration timers or configure the file to automatically delete itself the moment it is downloaded, providing unparalleled peace of mind.
+                  Data security is more critical now than ever before. When you send sensitive documents, creative assets, or private videos across the internet, you lose control the moment you hit send. SnapLinks solves this through our advanced ephemeral file sharing architecture. You can upload files up to 50MB and instantly generate a secure link. Unlike traditional cloud storage platforms that keep your files on their servers forever, SnapLinks files are designed to self-destruct. You can set strict expiration timers or configure the file to automatically delete itself the moment it is downloaded, providing unparalleled peace of mind.
                 </p>
               </div>
 
@@ -471,7 +471,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">The Future: 3D vCards</h3>
                 <p className="text-gray-600 leading-relaxed text-sm text-justify">
-                  Paper business cards are outdated, expensive to reprint, and terrible for the environment. Standard "Link in Bio" pages are often boring and fail to capture attention. SnapLink introduces the next generation of digital identity: the 3D Digital vCard. Our platform allows you to generate a fully interactive, three-dimensional profile that houses all your important links, social media profiles, portfolios, and contact information. When someone visits your SnapLink bio, they experience a premium, interactive digital environment that elevates your personal brand for networking events and sponsorships.
+                  Paper business cards are outdated, expensive to reprint, and terrible for the environment. Standard "Link in Bio" pages are often boring and fail to capture attention. SnapLinks introduces the next generation of digital identity: the 3D Digital vCard. Our platform allows you to generate a fully interactive, three-dimensional profile that houses all your important links, social media profiles, portfolios, and contact information. When someone visits your SnapLinks bio, they experience a premium, interactive digital environment that elevates your personal brand for networking events and sponsorships.
                 </p>
               </div>
             </div>
@@ -501,7 +501,7 @@ export default function Home() {
                     </span>
                   </summary>
                   <p className="text-gray-600 px-6 pb-6 leading-relaxed">
-                    No! The people you send your files to do not need to create an account or download any special software. They simply click your secure SnapLink, enter the password if you set one, and the download begins immediately in their web browser.
+                    No! The people you send your files to do not need to create an account or download any special software. They simply click your secure SnapLinks, enter the password if you set one, and the download begins immediately in their web browser.
                   </p>
                 </details>
 

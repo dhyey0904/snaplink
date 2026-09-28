@@ -390,7 +390,7 @@ export default function BioDashboard() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Your Alias</label>
                 <div className="flex rounded-xl shadow-sm overflow-hidden border border-gray-200 focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
                   <span className="inline-flex items-center px-4 bg-gray-50 text-gray-500 sm:text-sm border-r border-gray-200 font-medium">
-                    snaplink.in/bio/
+                    snaplinks.in/bio/
                   </span>
                   <input
                     type="text"
@@ -421,7 +421,7 @@ export default function BioDashboard() {
                 </div>
                 <div className="flex items-center gap-2 w-full sm:w-auto mt-2 sm:mt-0">
                   <a href={`/bio/${bioPage.alias}`} target="_blank" className="bg-gray-50 hover:bg-gray-100 text-gray-700 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg font-medium flex items-center justify-center gap-2 text-sm border border-gray-200 transition-colors flex-1 sm:flex-none min-w-0">
-                    <span className="truncate">snaplink.in/bio/{bioPage.alias}</span>
+                    <span className="truncate">snaplinks.in/bio/{bioPage.alias}</span>
                     <svg className="w-4 h-4 text-gray-400 flex-shrink-0 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                   </a>
                   <button onClick={() => setQrModalUrl(`${typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'}/bio/${bioPage.alias}`)} className="bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg font-medium flex items-center justify-center gap-2 text-sm border border-blue-100 transition-colors flex-shrink-0" title="Share QR">
@@ -789,7 +789,7 @@ export default function BioDashboard() {
                           </div>
 
                           <h2 className={`font-bold text-lg tracking-tight mb-0.5 ${t.text}`}>{title}</h2>
-                          <p className={`text-xs font-medium mb-3 ${t.textSec}`}>snaplink.in/bio/{alias}</p>
+                          <p className={`text-xs font-medium mb-3 ${t.textSec}`}>snaplinks.in/bio/{alias}</p>
                           
                           {bioText && (
                             <p className={`text-center text-[13px] leading-[1.5] mb-5 ${t.textMuted}`}>
