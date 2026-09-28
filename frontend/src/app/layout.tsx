@@ -5,8 +5,6 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import "./globals.css";
 import EasterEggs from "@/components/EasterEggs";
-import SnapDuck from "@/components/SnapDuck";
-
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import MaintenanceModal from "@/components/MaintenanceModal";
 import RatingWidget from "@/components/RatingWidget";
@@ -129,7 +127,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <EasterEggs />
-        <SnapDuck />
         <MaintenanceModal />
         <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleusercontent.com"}>
           <Script
