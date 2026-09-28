@@ -257,7 +257,7 @@ export default function Dashboard() {
                 </div>
               ) : (
                 <div className="mt-8 text-center z-0">
-                  <p className="text-sm font-medium text-gray-500">Maximum file size: <span className="text-gray-700 font-bold">1024MB</span></p>
+                  <p className="text-sm font-medium text-gray-500">Maximum file size: <span className="text-gray-700 font-bold">50MB</span></p>
                   <p className="text-xs text-gray-400 mt-1">Files automatically expire in 5 minutes.</p>
                 </div>
               )}
