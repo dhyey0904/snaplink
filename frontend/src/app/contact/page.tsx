@@ -4,10 +4,10 @@ import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Contact Us | SnapLinks",
-  description: "Get in touch with the SnapLinks team for support, business inquiries, or general questions.",
+  title: "Contact Us | SnapLink",
+  description: "Get in touch with the SnapLink team for support, business inquiries, or general questions.",
   alternates: {
-    canonical: "https://www.snaplinks.in/contact",
+    canonical: "https://www.snaplink.in/contact",
   },
 };
 
@@ -24,7 +24,7 @@ export default function ContactPage() {
             Get in <span className="text-[#1a73e8]">Touch</span>
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Have a question about SnapLinks, need technical support, or want to explore a partnership? We'd love to hear from you.
+            Have a question about SnapLink, need technical support, or want to explore a partnership? We'd love to hear from you.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email Support</h3>
               <p className="text-gray-600 mb-4">For all technical support, billing inquiries, and general questions.</p>
-              <a href="mailto:hello.snaplinks@gmail.com" className="text-[#1a73e8] font-bold hover:underline">hello.snaplinks@gmail.com</a>
+              <a href="mailto:hello.snaplink@gmail.com" className="text-[#1a73e8] font-bold hover:underline">hello.snaplink@gmail.com</a>
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
@@ -65,7 +65,7 @@ export default function ContactPage() {
             <div className="relative z-10">
               <h3 className="text-3xl font-bold mb-4">Open Source & Development</h3>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed text-justify">
-                Interested in our developer APIs, open source contributions, or exploring the architecture behind SnapLinks? Let's build together.
+                Interested in our developer APIs, open source contributions, or exploring the architecture behind SnapLink? Let's build together.
               </p>
               
               <div className="space-y-4">
@@ -79,13 +79,13 @@ export default function ContactPage() {
                   </div>
                 </a>
                 
-                <a href="https://www.instagram.com/snaplinks_2026/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-2xl border border-white/10">
+                <a href="https://www.instagram.com/snaplink_2026/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/20 transition-colors rounded-2xl border border-white/10">
                   <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                   </svg>
                   <div>
                     <div className="font-bold">Follow on Instagram</div>
-                    <div className="text-sm text-gray-400">@snaplinks_2026</div>
+                    <div className="text-sm text-gray-400">@snaplink_2026</div>
                   </div>
                 </a>
               </div>

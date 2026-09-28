@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Merge PDF files | SnapLinks',
+  title: 'Merge PDF files | SnapLink',
   description: 'Combine PDFs in the order you want with the easiest PDF merger available. 100% free and secure.',
   openGraph: {
-    title: 'Merge PDF files | SnapLinks',
+    title: 'Merge PDF files | SnapLink',
     description: 'Combine PDFs in the order you want with the easiest PDF merger available. 100% free and secure.',
-    url: 'https://www.snaplinks.in/tools/merge-pdf',
+    url: 'https://www.snaplink.in/tools/merge-pdf',
   }
 };
 

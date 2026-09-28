@@ -79,7 +79,7 @@ export default function MaintenanceModal() {
         </div>
         <h2 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">Scheduled Maintenance</h2>
         <p className="text-gray-600 text-base leading-relaxed mb-6">
-          SnapLinks is currently upgrading its core servers. While we are under maintenance, please enjoy our brand new 100% free, unlimited, browser-based tools:
+          SnapLink is currently upgrading its core servers. While we are under maintenance, please enjoy our brand new 100% free, unlimited, browser-based tools:
         </p>
         
         <div className="bg-gray-50 rounded-2xl p-4 mb-6 border border-gray-100 text-left">

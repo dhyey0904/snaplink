@@ -37,7 +37,7 @@ export default function AdPage() {
           throw new Error(data.detail || "Link not found");
         }
         
-        // Anti-Double-Ad Logic: If the destination is an internal SnapLinks vCard or File,
+        // Anti-Double-Ad Logic: If the destination is an internal SnapLink vCard or File,
         // it already has its own AdOverlay. Instantly redirect to prevent showing two ads back-to-back!
         try {
           const dest = new URL(data.original_url);

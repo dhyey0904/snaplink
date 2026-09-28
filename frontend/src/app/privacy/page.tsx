@@ -4,10 +4,10 @@ import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | SnapLinks",
-  description: "Learn how SnapLinks collects, uses, and protects your data. We are committed to your privacy and secure file sharing.",
+  title: "Privacy Policy | SnapLink",
+  description: "Learn how SnapLink collects, uses, and protects your data. We are committed to your privacy and secure file sharing.",
   alternates: {
-    canonical: "https://www.snaplinks.in/privacy",
+    canonical: "https://www.snaplink.in/privacy",
   },
 };
 
@@ -28,13 +28,13 @@ export default function PrivacyPolicy() {
         <div className="prose prose-lg prose-blue max-w-none text-gray-600 text-justify prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-p:leading-relaxed prose-li:leading-relaxed">
           
           <p>
-            At SnapLinks ("we," "us," or "our"), we are committed to protecting your personal information and your right to privacy. 
+            At SnapLink ("we," "us," or "our"), we are committed to protecting your personal information and your right to privacy. 
             This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website 
-            (www.snaplinks.in) and use our suite of services, including our URL shortener, ephemeral file sharing, and 3D digital vCards.
+            (www.snaplink.in) and use our suite of services, including our URL shortener, ephemeral file sharing, and 3D digital vCards.
           </p>
 
           <div className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-sm">
-            <strong>Legal Disclaimer:</strong> SnapLinks is currently operating as an independent, unregistered project and is not a registered corporate entity. By using this service, you acknowledge that the creators and developers assume no legal liability for any data breaches, loss of information, or damages. You use the platform entirely at your own risk.
+            <strong>Legal Disclaimer:</strong> SnapLink is currently operating as an independent, unregistered project and is not a registered corporate entity. By using this service, you acknowledge that the creators and developers assume no legal liability for any data breaches, loss of information, or damages. You use the platform entirely at your own risk.
           </div>
 
           <h2>1. Information We Collect</h2>
@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
           </ul>
 
           <h2>2. How We Handle Your Files (Ephemeral Storage)</h2>
-          <p>SnapLinks is built on the principle of secure, temporary data transfer. When you upload a file using our Secure File Sharing feature:</p>
+          <p>SnapLink is built on the principle of secure, temporary data transfer. When you upload a file using our Secure File Sharing feature:</p>
           <ul>
             <li><strong>Encryption:</strong> Files are encrypted in transit using industry-standard TLS encryption.</li>
             <li><strong>No Content Inspection:</strong> We do not actively monitor, read, or monetize the contents of the files you upload, unless explicitly required by law enforcement.</li>
@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
 
           <h2>7. Contact Us</h2>
           <p>If you have questions or comments about this Privacy Policy, you may email us at:</p>
-          <p className="font-bold text-gray-900">hello.snaplinks@gmail.com</p>
+          <p className="font-bold text-gray-900">hello.snaplink@gmail.com</p>
         </div>
       </main>
 

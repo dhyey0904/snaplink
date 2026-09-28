@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
       
       const title = data.filename ? `Download ${data.filename}` : 'Secure File Transfer';
       const sizeStr = data.size ? ` (${(data.size / 1024 / 1024).toFixed(2)} MB)` : '';
-      const description = `Download securely via SnapLinks${sizeStr}`;
+      const description = `Download securely via SnapLink${sizeStr}`;
         
       return {
         title,
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
   }
 
   return {
-    title: 'SnapLinks File',
+    title: 'SnapLink File',
     description: 'Secure File Transfer'
   };
 }

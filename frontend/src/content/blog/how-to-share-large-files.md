@@ -12,7 +12,7 @@ Here is exactly how you can share large files securely online, ensuring they nev
 ## 1. Use Ephemeral (Self-Destructing) Links
 The most secure file is one that no longer exists after it has served its purpose. When sharing sensitive data like financial records or intellectual property, use a platform that automatically destroys the file after it is downloaded.
 
-With **SnapLinks**, you can set a strict download limit. Once the recipient downloads the file, the link automatically expires and the data is purged from the servers forever.
+With **SnapLink**, you can set a strict download limit. Once the recipient downloads the file, the link automatically expires and the data is purged from the servers forever.
 
 ## 2. Enforce Password Protection
 Never send sensitive files via an open link. A secure file-sharing service should allow you to lock the file behind a strong, custom password. You can share the link via email, and securely text the password to the recipient via WhatsApp or Signal.
@@ -20,9 +20,9 @@ Never send sensitive files via an open link. A secure file-sharing service shoul
 ## 3. Monitor Access with Analytics
 How do you know if your client actually downloaded the invoice? Or if an unauthorized third party intercepted the link? 
 
-By using SnapLinks's built-in analytics dashboard, you can track exactly when your file was accessed, how many times it was downloaded, and from what geographical location.
+By using SnapLink's built-in analytics dashboard, you can track exactly when your file was accessed, how many times it was downloaded, and from what geographical location.
 
 ### Conclusion
 Sharing large files shouldn't mean compromising on security. By utilizing password-protected, auto-expiring links, you retain complete control over your digital identity and data.
 
-Ready to secure your workflow? [Create a free SnapLinks account today](/register) and start sharing files with absolute confidence.
+Ready to secure your workflow? [Create a free SnapLink account today](/register) and start sharing files with absolute confidence.

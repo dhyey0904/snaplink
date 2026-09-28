@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog | SnapLinks',
+  title: 'Blog | SnapLink',
   description: 'Insights, tutorials, and news about secure file sharing, digital identity, and modern web tools.',
 };
 
@@ -36,7 +36,7 @@ export default async function BlogIndex() {
       
       <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-black text-[#202124] tracking-tight mb-4">SnapLinks Blog</h1>
+          <h1 className="text-5xl font-black text-[#202124] tracking-tight mb-4">SnapLink Blog</h1>
           <p className="text-xl text-[#5f6368] max-w-2xl mx-auto">Insights on digital identity, secure sharing, and productivity.</p>
         </div>
         

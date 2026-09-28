@@ -466,7 +466,7 @@ export default function Dashboard() {
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-1.5">Custom Back-half <span className="text-red-500">*</span></label>
                     <div className="flex rounded-xl overflow-hidden border border-gray-200 focus-within:ring-2 focus-within:ring-blue-500">
-                      <span className="inline-flex items-center px-4 bg-gray-100 text-gray-500 text-sm font-medium border-r border-gray-200">snaplinks.in/</span>
+                      <span className="inline-flex items-center px-4 bg-gray-100 text-gray-500 text-sm font-medium border-r border-gray-200">snaplink.in/</span>
                       <input type="text" required value={customAlias} onChange={(e) => setCustomAlias(e.target.value)} placeholder="my-custom-url" className="block w-full px-4 py-3 bg-gray-50 focus:bg-white focus:outline-none  text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
@@ -548,10 +548,10 @@ export default function Dashboard() {
                               <div className="p-2.5">
                                 <h3 className="font-semibold text-[#111b21] text-xs truncate leading-tight mb-1">{ogTitle || "My Website"}</h3>
                                 <p className="text-[#667781] text-[10px] line-clamp-2 leading-snug">{ogDescription || "Check this out!"}</p>
-                                <p className="text-[#667781] text-[9px] mt-1.5 uppercase">snaplinks.in</p>
+                                <p className="text-[#667781] text-[9px] mt-1.5 uppercase">snaplink.in</p>
                               </div>
                             </div>
-                            <p className="text-[#027eb5] text-xs p-1.5 break-all hover:underline cursor-pointer">https://snaplinks.in/{customAlias || "alias"}</p>
+                            <p className="text-[#027eb5] text-xs p-1.5 break-all hover:underline cursor-pointer">https://snaplink.in/{customAlias || "alias"}</p>
                           </div>
                         </div>
                       </div>

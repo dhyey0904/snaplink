@@ -4,10 +4,10 @@ import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Help Center & FAQ | SnapLinks",
-  description: "Find answers to frequently asked questions, learn how to use SnapLinks, and contact support.",
+  title: "Help Center & FAQ | SnapLink",
+  description: "Find answers to frequently asked questions, learn how to use SnapLink, and contact support.",
   alternates: {
-    canonical: "https://www.snaplinks.in/help",
+    canonical: "https://www.snaplink.in/help",
   },
 };
 
@@ -18,13 +18,13 @@ export default function HelpCenterPage() {
       questions: [
         { q: "How large of a file can I send?", a: "Currently, you can securely upload and share files up to 50MB in size. We enforce this limit to ensure lightning-fast global transfers and guaranteed uptime on our free tier." },
         { q: "What happens when a file expires?", a: "When a file reaches its self-destruct timer or download limit, it is permanently and irreversibly deleted from our servers. The link will remain active but will display a 'File Expired' message." },
-        { q: "Do people need an account to download my files?", a: "No, recipients do not need a SnapLinks account to download files. They simply click your link and enter the password (if you set one)." }
+        { q: "Do people need an account to download my files?", a: "No, recipients do not need a SnapLink account to download files. They simply click your link and enter the password (if you set one)." }
       ]
     },
     {
       category: "URL Shortener & Links",
       questions: [
-        { q: "Can I customize my shortened link?", a: "Yes! When generating a link, you can provide a custom alias (e.g., snaplinks.in/your-brand) to make your link memorable." },
+        { q: "Can I customize my shortened link?", a: "Yes! When generating a link, you can provide a custom alias (e.g., snaplink.in/your-brand) to make your link memorable." },
         { q: "What analytics do you track?", a: "We track total clicks, geographic location of the clicks, device types, browser types, and referring websites to help you measure the success of your links." },
         { q: "Can I change the destination of a shortened link?", a: "Yes, all links generated through your dashboard are dynamic. You can edit the destination URL at any time without having to generate or share a new short link." }
       ]
@@ -96,7 +96,7 @@ export default function HelpCenterPage() {
             <p className="text-blue-100 mb-8 max-w-xl mx-auto">
               If you couldn't find the answer to your question in our FAQ, our support team is ready to assist you.
             </p>
-            <a href="mailto:hello.snaplinks@gmail.com" className="inline-block bg-white text-[#1a73e8] px-8 py-3 rounded-xl font-bold shadow hover:bg-gray-50 transition-colors">
+            <a href="mailto:hello.snaplink@gmail.com" className="inline-block bg-white text-[#1a73e8] px-8 py-3 rounded-xl font-bold shadow hover:bg-gray-50 transition-colors">
               Contact Support
             </a>
           </div>
