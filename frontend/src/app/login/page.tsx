@@ -89,7 +89,7 @@ export default function Login() {
         <div className="max-w-md w-full mx-auto">
           {/* Mobile Only Logo */}
           <div className="lg:hidden mb-8 flex items-center justify-center">
-            <Link href="/" className="flex text-5xl font-black tracking-tighter text-[#202124] drop-shadow-sm mb-2 group">
+            <Link href="/" className="flex flex-row items-center justify-center text-4xl font-extrabold tracking-tight text-[#202124] drop-shadow-sm mb-2 group">
                 <span className="flex">
                   <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
                   <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>
