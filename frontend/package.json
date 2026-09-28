@@ -18,6 +18,7 @@
     "canvas-confetti": "^1.9.4",
     "cryptpdf": "^0.1.1",
     "file-saver": "^2.0.5",
+    "framer-motion": "^13.4.4",
     "gray-matter": "^4.0.3",
     "jszip": "^3.10.2",
     "lucide-react": "^1.48.0",
