@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-gray-500 text-center flex flex-col md:flex-row items-center gap-2 md:gap-4">
-            <span>&copy; {new Date().getFullYear()} SnapLink - Your Digital Workspace</span>
+            <span>&copy; {new Date().getFullYear()} SnapLinks - Your Digital Workspace</span>
             <span className="hidden md:inline-block w-1 h-1 bg-gray-300 rounded-full"></span>
             <span>Designed by <a href="https://github.com/dhyey0904" target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-700 hover:text-[#1a73e8] transition-colors">Dhyey Raja</a></span>
           </div>

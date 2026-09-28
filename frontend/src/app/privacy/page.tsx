@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | SnapLink",
-  description: "Learn how SnapLink collects, uses, and protects your data. We are committed to your privacy and secure file sharing.",
+  title: "Privacy Policy | SnapLinks",
+  description: "Learn how SnapLinks collects, uses, and protects your data. We are committed to your privacy and secure file sharing.",
   alternates: {
     canonical: "https://www.snaplinks.in/privacy",
   },
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
         <div className="prose prose-lg prose-blue max-w-none text-gray-600 prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-p:leading-relaxed prose-li:leading-relaxed">
           
           <p>
-            At SnapLink ("we," "us," or "our"), we are committed to protecting your personal information and your right to privacy. 
+            At SnapLinks ("we," "us," or "our"), we are committed to protecting your personal information and your right to privacy. 
             This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website 
             (www.snaplinks.in) and use our suite of services, including our URL shortener, ephemeral file sharing, and 3D digital vCards.
           </p>
@@ -42,7 +42,7 @@ export default function PrivacyPolicy() {
           </ul>
 
           <h2>2. How We Handle Your Files (Ephemeral Storage)</h2>
-          <p>SnapLink is built on the principle of secure, temporary data transfer. When you upload a file using our Secure File Sharing feature:</p>
+          <p>SnapLinks is built on the principle of secure, temporary data transfer. When you upload a file using our Secure File Sharing feature:</p>
           <ul>
             <li><strong>Encryption:</strong> Files are encrypted in transit using industry-standard TLS encryption.</li>
             <li><strong>No Content Inspection:</strong> We do not actively monitor, read, or monetize the contents of the files you upload, unless explicitly required by law enforcement.</li>

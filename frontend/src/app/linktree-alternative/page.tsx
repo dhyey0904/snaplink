@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import SEOLandingLayout from '@/components/SEOLandingLayout';
 
 export const metadata: Metadata = {
-  title: "Best Linktree Alternative | SnapLink",
+  title: "Best Linktree Alternative | SnapLinks",
   description: "Create a free, beautiful Link in Bio page with built-in file sharing and advanced analytics. The ultimate Linktree alternative.",
   alternates: {
     canonical: "https://www.snaplinks.in/linktree-alternative",
@@ -29,10 +29,10 @@ export default function Page() {
             </div>
         
       }
-      contentTitle="Why SnapLink is the Ultimate Linktree Alternative"
+      contentTitle="Why SnapLinks is the Ultimate Linktree Alternative"
       content={
         <>
-            <p>If you\'re looking for a <strong>Linktree alternative</strong>, you've likely realized that standard "link in bio" pages are often too expensive, lack customization, or simply look boring. SnapLink changes the game by combining a powerful <strong>Bio Link Creator</strong> with enterprise-grade file sharing.</p>
+            <p>If you\'re looking for a <strong>Linktree alternative</strong>, you've likely realized that standard "link in bio" pages are often too expensive, lack customization, or simply look boring. SnapLinks changes the game by combining a powerful <strong>Bio Link Creator</strong> with enterprise-grade file sharing.</p>
             
             <h3>1. Unlimited Links for Free</h3>
             <p>Unlike other platforms that charge you for basic functionality, our bio link creator allows you to add unlimited links, social profiles, and custom buttons without ever hitting a paywall. Whether you\'re an influencer, a musician, or a small business, you can route your audience exactly where they need to go.</p>
@@ -41,14 +41,14 @@ export default function Page() {
             <p>What truly makes us the best Linktree alternative is our native integration with <strong>secure file sharing</strong>. You can embed downloadable resumes, portfolios, or exclusive digital content directly into your bio page. Your visitors can download up to 50MB files directly from your profile, complete with self-destructing links and password protection.</p>
             
             <h3>3. Advanced Analytics</h3>
-            <p>Stop guessing if your marketing is working. SnapLink provides detailed click-tracking, geographical data, and referrer analytics so you know exactly which links are driving the most traffic.</p>
+            <p>Stop guessing if your marketing is working. SnapLinks provides detailed click-tracking, geographical data, and referrer analytics so you know exactly which links are driving the most traffic.</p>
             
             <h3>4. 3D Digital vCards</h3>
             <p>Standard links are boring. Upgrade your digital identity by enabling a 3D interactive vCard on your bio page, allowing potential clients and collaborators to interact with your brand in a completely new way.</p>
         </>
       }
       faqs={[
-        { q: 'Is SnapLink really free to use?', a: 'Yes! You can create a fully functional link in bio page, add unlimited links, and share files completely free of charge.' }, { q: 'How do I switch from Linktree?', a: 'Switching is incredibly easy. Just create a free SnapLink account, claim your custom alias (e.g., snaplinks.in/yourname), and copy your existing links over. Then, update your Instagram or TikTok bio!' }, { q: 'Can I track how many people click my links?', a: 'Absolutely. We provide a comprehensive analytics dashboard that tracks every single click, helping you understand your audience better.' }
+        { q: 'Is SnapLinks really free to use?', a: 'Yes! You can create a fully functional link in bio page, add unlimited links, and share files completely free of charge.' }, { q: 'How do I switch from Linktree?', a: 'Switching is incredibly easy. Just create a free SnapLinks account, claim your custom alias (e.g., snaplinks.in/yourname), and copy your existing links over. Then, update your Instagram or TikTok bio!' }, { q: 'Can I track how many people click my links?', a: 'Absolutely. We provide a comprehensive analytics dashboard that tracks every single click, helping you understand your audience better.' }
       ]}
     />
   );

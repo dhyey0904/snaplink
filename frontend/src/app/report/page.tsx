@@ -52,7 +52,7 @@ export default function Page() {
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <h1 className="text-4xl md:text-5xl font-black text-[#202124] tracking-tight mb-8">Report Abuse</h1>
         <div className="prose prose-lg prose-blue max-w-none text-[#5f6368]">
-          <p className="text-xl mb-6">We take platform abuse very seriously. If you have discovered a SnapLink URL that redirects to malware, phishing, or illegal content, please report it immediately.</p>
+          <p className="text-xl mb-6">We take platform abuse very seriously. If you have discovered a SnapLinks URL that redirects to malware, phishing, or illegal content, please report it immediately.</p>
           
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 mt-8">
             {success ? (
@@ -61,7 +61,7 @@ export default function Page() {
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Report Submitted Successfully</h3>
-                <p className="text-gray-500 mb-6">Thank you for helping keep SnapLink safe. Our trust and safety team will review this link shortly.</p>
+                <p className="text-gray-500 mb-6">Thank you for helping keep SnapLinks safe. Our trust and safety team will review this link shortly.</p>
                 <button onClick={() => setSuccess(false)} className="px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-colors">
                   Submit Another Report
                 </button>
@@ -71,7 +71,7 @@ export default function Page() {
                 {error && <div className="p-4 bg-red-50 text-red-600 border border-red-100 rounded-xl font-medium">{error}</div>}
                 
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Offending SnapLink URL</label>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Offending SnapLinks URL</label>
                   <input 
                     type="url" 
                     required

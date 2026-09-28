@@ -157,7 +157,7 @@ export default function Login() {
               className="group w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-white font-bold text-sm bg-[#1a73e8] hover:bg-[#1557b0] transition-all duration-200 shadow-sm hover:shadow mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               <span className="flex items-center gap-2">
-                {loading ? "Authenticating..." : "Continue to SnapLink"}
+                {loading ? "Authenticating..." : "Continue to SnapLinks"}
                 {!loading && <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
               </span>
             </button>
@@ -193,7 +193,7 @@ export default function Login() {
       {/* RIGHT SIDE - Branding & Visuals (Wow Moment) */}
       <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-[#1a73e8] via-[#0d47a1] to-black flex-col justify-between p-12 overflow-hidden">
         
-        {/* SnapLink Logo - Flex positioned to avoid overlap */}
+        {/* SnapLinks Logo - Flex positioned to avoid overlap */}
         <div className="z-20 w-full">
           <Link href="/" className="text-2xl font-extrabold tracking-tight text-white inline-block hover:scale-105 transition-transform origin-left drop-shadow-md">
             Snap<span className="text-blue-300">Link</span>
@@ -216,14 +216,14 @@ export default function Login() {
             <h3 className="text-3xl font-extrabold text-white mb-4 tracking-tight leading-tight drop-shadow-sm">Unleash your digital<br/>potential.</h3>
             
             <p className="text-blue-100 text-sm leading-relaxed mb-8 font-medium">
-              "Switching to SnapLink was the best decision for our team. The 50MB ephemeral file sharing and stunning 3D vCards have completely elevated our brand."
+              "Switching to SnapLinks was the best decision for our team. The 50MB ephemeral file sharing and stunning 3D vCards have completely elevated our brand."
             </p>
             
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-400 to-blue-300 border-2 border-white shadow-lg"></div>
               <div>
                 <div className="text-white font-bold text-base">Dhyey Raja</div>
-                <div className="text-blue-200 font-medium text-xs">Founder, SnapLink</div>
+                <div className="text-blue-200 font-medium text-xs">Founder, SnapLinks</div>
               </div>
             </div>
           </div>

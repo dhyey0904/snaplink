@@ -56,6 +56,7 @@ export default function Navbar() {
                     <span className="inline-block animate-word-wave" style={{ animationDelay: '500ms' }}>i</span>
                     <span className="inline-block animate-word-wave" style={{ animationDelay: '600ms' }}>n</span>
                     <span className="inline-block animate-word-wave" style={{ animationDelay: '700ms' }}>k</span>
+                    <span className="inline-block animate-word-wave" style={{ animationDelay: '800ms' }}>s</span>
                   </span>
                 )}
               </span>

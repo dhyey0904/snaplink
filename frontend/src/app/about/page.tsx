@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "About Us | SnapLink",
-  description: "Learn about SnapLink's mission to unify digital identity, secure file sharing, and link management for modern professionals.",
+  title: "About Us | SnapLinks",
+  description: "Learn about SnapLinks's mission to unify digital identity, secure file sharing, and link management for modern professionals.",
   alternates: {
     canonical: "https://www.snaplinks.in/about",
   },
@@ -24,7 +24,7 @@ export default function AboutPage() {
             Simplifying the <span className="text-[#1a73e8]">Digital World</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            SnapLink is the ultimate unified workspace for creators, developers, and professionals. 
+            SnapLinks is the ultimate unified workspace for creators, developers, and professionals. 
             We are building the internet's most powerful tools for digital identity and data transfer.
           </p>
         </section>
@@ -39,9 +39,9 @@ export default function AboutPage() {
                 across half a dozen platforms just to share large files, shorten URLs, and host a digital business card. 
               </p>
               <p>
-                We built SnapLink because we believed there had to be a better way. We envisioned a single, 
+                We built SnapLinks because we believed there had to be a better way. We envisioned a single, 
                 unified platform that combined enterprise-grade ephemeral file sharing with deep link analytics 
-                and stunning 3D digital profiles. Today, SnapLink empowers thousands of users to take back 
+                and stunning 3D digital profiles. Today, SnapLinks empowers thousands of users to take back 
                 control of their digital footprint—seamlessly, powerfully, and affordably.
               </p>
             </div>
@@ -87,7 +87,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-extrabold mb-8">Designed & Engineered by Dhyey</h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-              SnapLink is proudly built by Dhyey with a relentless focus on enterprise-grade reliability, 
+              SnapLinks is proudly built by Dhyey with a relentless focus on enterprise-grade reliability, 
               pixel-perfect UI, and developer-first APIs. We are driven by the passion to build tools 
               that actually make your daily workflow easier.
             </p>

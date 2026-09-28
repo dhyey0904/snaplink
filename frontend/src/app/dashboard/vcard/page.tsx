@@ -659,11 +659,11 @@ export default function VCardDashboard() {
                         </div>
                       </div>
                       
-                      {/* Powered By SnapLink */}
+                      {/* Powered By SnapLinks */}
                       <div className="absolute bottom-3 inset-x-0 flex justify-center z-20 pointer-events-none">
                         <div className="flex items-center gap-1 opacity-60">
                           <span className="text-[8px] text-white font-medium uppercase tracking-widest">Powered by</span>
-                          <span className="text-[8px] text-white font-black tracking-tight">SnapLink</span>
+                          <span className="text-[8px] text-white font-black tracking-tight">SnapLinks</span>
                         </div>
                       </div>
 

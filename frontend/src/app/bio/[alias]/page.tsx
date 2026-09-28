@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
       const data = await res.json();
       
       const title = data.title || 'My Bio Links';
-      const description = data.description || 'Check out my links on SnapLink';
+      const description = data.description || 'Check out my links on SnapLinks';
       
       let imageUrl = data.avatar_url;
       if (imageUrl && !imageUrl.startsWith('http')) {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
           title,
           description,
           type: 'profile',
-          siteName: 'SnapLink',
+          siteName: 'SnapLinks',
           url: `${frontendUrl}/bio/${resolvedParams.alias}`,
           images: imageUrl ? [
             {
@@ -48,8 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
   } catch (e) {}
 
   return {
-    title: 'SnapLink Bio',
-    description: 'Check out my links on SnapLink'
+    title: 'SnapLinks Bio',
+    description: 'Check out my links on SnapLinks'
   };
 }
 

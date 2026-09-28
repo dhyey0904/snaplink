@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import SEOLandingLayout from '@/components/SEOLandingLayout';
 
 export const metadata: Metadata = {
-  title: "3D Digital Business Card | SnapLink",
+  title: "3D Digital Business Card | SnapLinks",
   description: "Create a stunning, interactive 3D digital business card. The ultimate modern alternative to paper and NFC cards.",
   alternates: {
     canonical: "https://www.snaplinks.in/digital-business-card",
@@ -36,20 +36,20 @@ export default function Page() {
       contentTitle="The Modern Alternative to Paper and NFC Cards"
       content={
         <>
-            <p>Networking has evolved, but the way we share contact information hasn\'t. Paper business cards get thrown away, and expensive physical NFC cards get lost. SnapLink introduces the ultimate solution: a fully hosted, interactive <strong>3D Digital Business Card</strong>.</p>
+            <p>Networking has evolved, but the way we share contact information hasn\'t. Paper business cards get thrown away, and expensive physical NFC cards get lost. SnapLinks introduces the ultimate solution: a fully hosted, interactive <strong>3D Digital Business Card</strong>.</p>
             
             <h3>A Premium Interactive Experience</h3>
-            <p>When you share your SnapLink profile, visitors don't just see a flat webpage. They are greeted with a stunning 3D rendering of a business card that reacts to their mouse movements and gyroscope (on mobile). This level of polish instantly elevates your personal brand and leaves a lasting impression on potential clients and partners.</p>
+            <p>When you share your SnapLinks profile, visitors don't just see a flat webpage. They are greeted with a stunning 3D rendering of a business card that reacts to their mouse movements and gyroscope (on mobile). This level of polish instantly elevates your personal brand and leaves a lasting impression on potential clients and partners.</p>
             
             <h3>Everything in One Place</h3>
             <p>Your digital business card houses much more than just your phone number. It serves as a central hub for your email, LinkedIn, Twitter, company website, and even downloadable files like your resume or media kit. It is the ultimate networking tool for modern professionals.</p>
             
             <h3>Instantly Shareable via QR</h3>
-            <p>You never have to worry about carrying physical cards again. Simply open your SnapLink dashboard on your phone and display your unique QR code. Anyone you meet at a conference or networking event can simply point their camera at your phone and instantly access your 3D digital card.</p>
+            <p>You never have to worry about carrying physical cards again. Simply open your SnapLinks dashboard on your phone and display your unique QR code. Anyone you meet at a conference or networking event can simply point their camera at your phone and instantly access your 3D digital card.</p>
         </>
       }
       faqs={[
-        { q: 'Do I need to buy a physical NFC card to use this?', a: 'No! SnapLink digital business cards are entirely software-based. You can share them instantly via a URL link, a QR code, or by adding the link to your social media bios.' }, { q: 'Can people save my contact info to their phone?', a: 'Yes, you can easily link a downloadable vCard (.vcf) file to your SnapLink profile, allowing visitors to save your phone number and email directly to their contacts app with one tap.' }, { q: 'Is the 3D effect supported on all phones?', a: 'The 3D interactive effect utilizes modern WebGL and CSS transforms, which are fully supported on virtually all modern iOS and Android smartphones.' }
+        { q: 'Do I need to buy a physical NFC card to use this?', a: 'No! SnapLinks digital business cards are entirely software-based. You can share them instantly via a URL link, a QR code, or by adding the link to your social media bios.' }, { q: 'Can people save my contact info to their phone?', a: 'Yes, you can easily link a downloadable vCard (.vcf) file to your SnapLinks profile, allowing visitors to save your phone number and email directly to their contacts app with one tap.' }, { q: 'Is the 3D effect supported on all phones?', a: 'The 3D interactive effect utilizes modern WebGL and CSS transforms, which are fully supported on virtually all modern iOS and Android smartphones.' }
       ]}
     />
   );

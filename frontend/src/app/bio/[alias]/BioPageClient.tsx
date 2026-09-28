@@ -152,7 +152,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
   return (
     <>
       <Head>
-        <title>{bioPage.title || bioPage.alias} - SnapLink</title>
+        <title>{bioPage.title || bioPage.alias} - SnapLinks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
       </Head>
       

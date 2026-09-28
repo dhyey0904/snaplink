@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
         }
 
         return {
-          title: data.og_title || 'SnapLink',
-          description: data.og_description || 'Secure link protected by SnapLink',
+          title: data.og_title || 'SnapLinks',
+          description: data.og_description || 'Secure link protected by SnapLinks',
           openGraph: {
-            title: data.og_title || 'SnapLink',
-            description: data.og_description || 'Secure link protected by SnapLink',
+            title: data.og_title || 'SnapLinks',
+            description: data.og_description || 'Secure link protected by SnapLinks',
             type: 'website',
-            siteName: 'SnapLink',
+            siteName: 'SnapLinks',
             url: `${frontendUrl}/${resolvedParams.shortCode}`,
             images: imageUrl ? [
               {
@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
           },
           twitter: {
             card: 'summary_large_image',
-            title: data.og_title || 'SnapLink',
-            description: data.og_description || 'Secure link protected by SnapLink',
+            title: data.og_title || 'SnapLinks',
+            description: data.og_description || 'Secure link protected by SnapLinks',
             images: imageUrl ? [imageUrl] : [],
           }
         };
@@ -47,8 +47,8 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
   } catch (e) {}
 
   return {
-    title: 'SnapLink',
-    description: 'Secure link protected by SnapLink'
+    title: 'SnapLinks',
+    description: 'Secure link protected by SnapLinks'
   };
 }
 

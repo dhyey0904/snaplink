@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Help Center & FAQ | SnapLink",
-  description: "Find answers to frequently asked questions, learn how to use SnapLink, and contact support.",
+  title: "Help Center & FAQ | SnapLinks",
+  description: "Find answers to frequently asked questions, learn how to use SnapLinks, and contact support.",
   alternates: {
     canonical: "https://www.snaplinks.in/help",
   },
@@ -18,7 +18,7 @@ export default function HelpCenterPage() {
       questions: [
         { q: "How large of a file can I send?", a: "Currently, you can securely upload and share files up to 50MB in size. We enforce this limit to ensure lightning-fast global transfers and guaranteed uptime on our free tier." },
         { q: "What happens when a file expires?", a: "When a file reaches its self-destruct timer or download limit, it is permanently and irreversibly deleted from our servers. The link will remain active but will display a 'File Expired' message." },
-        { q: "Do people need an account to download my files?", a: "No, recipients do not need a SnapLink account to download files. They simply click your link and enter the password (if you set one)." }
+        { q: "Do people need an account to download my files?", a: "No, recipients do not need a SnapLinks account to download files. They simply click your link and enter the password (if you set one)." }
       ]
     },
     {
