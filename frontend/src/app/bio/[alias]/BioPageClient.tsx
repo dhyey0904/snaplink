@@ -286,8 +286,15 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
                 const titleClass = `text-[15.5px] tracking-tight mb-0.5 ${isFeatured ? (themeType === 'solid' ? 'text-black' : 'text-white') : t.linkText} ${themeType === 'neo-brutalism' ? 'font-black uppercase' : 'font-bold'}`;
                 const subtitleClass = `text-[12px] ${isFeatured ? (themeType === 'solid' ? 'text-black/70' : 'text-white/80') : t.linkSub} ${themeType === 'neo-brutalism' ? 'font-bold text-black/70' : 'font-medium'}`;
 
-                const subtitle = getDomainSubtitle(link.url);
+                                const subtitle = getDomainSubtitle(link.url);
                 const icon = getIconForUrl(link.url);
+
+                const isVideo = link.link_type === 'video';
+                const isProduct = link.link_type === 'product';
+                let metadata: any = {};
+                try {
+                  if (link.metadata_json) metadata = JSON.parse(link.metadata_json);
+                } catch(e) {}
 
                 return (
                   <a 
@@ -295,20 +302,64 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
                     href={link.url} 
                     target="_blank"
                     onClick={(e) => handleLinkClick(e, link)}
-                    className={cardClass}
+                    className={cardClass + (isVideo || isProduct ? ' !flex-col !items-start !p-3' : '')}
                   >
-                    <div className="flex items-center">
-                      <div className={iconContainerClass} style={!isFeatured && themeType === 'dark-glass' ? { background: themeColor, color: 'white' } : {}}>
-                         {icon}
+                    {isVideo ? (
+                      <div className="w-full">
+                        <div className="flex items-center px-1 mb-3">
+                          <div className={iconContainerClass} style={!isFeatured && themeType === 'dark-glass' ? { background: themeColor, color: 'white' } : {}}>
+                             {icon}
+                          </div>
+                          <div className="flex flex-col text-left justify-center">
+                            <span className={titleClass}>{link.title}</span>
+                            <span className={subtitleClass}>{subtitle}</span>
+                          </div>
+                        </div>
+                        <div className="w-full aspect-video rounded-[14px] overflow-hidden bg-black/10 relative pointer-events-auto" onClick={(e) => e.preventDefault()}>
+                           {link.url.includes('youtube') || link.url.includes('youtu.be') ? (
+                             <iframe width="100%" height="100%" src={link.url.replace('watch?v=', 'embed/').replace('youtu.be/', 'youtube.com/embed/')} title="Video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                           ) : (
+                             <video src={link.url} controls className="w-full h-full object-cover"></video>
+                           )}
+                        </div>
                       </div>
-                      <div className="flex flex-col text-left justify-center">
-                        <span className={titleClass}>{link.title}</span>
-                        <span className={subtitleClass}>{subtitle}</span>
+                    ) : isProduct ? (
+                      <div className="w-full flex items-center justify-between">
+                        <div className="flex items-center">
+                          {metadata.image_url ? (
+                             <img src={metadata.image_url} alt="product" className="w-[52px] h-[52px] object-cover rounded-xl mr-3 shadow-sm border border-black/5" />
+                          ) : (
+                             <div className={iconContainerClass} style={!isFeatured && themeType === 'dark-glass' ? { background: themeColor, color: 'white' } : {}}>
+                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                             </div>
+                          )}
+                          <div className="flex flex-col text-left justify-center">
+                            <span className={titleClass}>{link.title}</span>
+                            <span className={subtitleClass}>{subtitle}</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center">
+                          {metadata.price && (
+                            <div className={`font-black px-3 py-1.5 rounded-lg text-sm mr-1 ${isFeatured ? (themeType === 'solid' ? 'bg-black/10 text-black' : 'bg-white/20 text-white') : t.iconBg}`}>${metadata.price}</div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex-shrink-0 ml-4 pl-2">
-                      <svg className={`w-[18px] h-[18px] ${isFeatured ? (themeType === 'solid' ? 'text-black' : 'text-white') : t.textMuted}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path></svg>
-                    </div>
+                    ) : (
+                      <>
+                        <div className="flex items-center">
+                          <div className={iconContainerClass} style={!isFeatured && themeType === 'dark-glass' ? { background: themeColor, color: 'white' } : {}}>
+                             {icon}
+                          </div>
+                          <div className="flex flex-col text-left justify-center">
+                            <span className={titleClass}>{link.title}</span>
+                            <span className={subtitleClass}>{subtitle}</span>
+                          </div>
+                        </div>
+                        <div className="flex-shrink-0 ml-4 pl-2">
+                          <svg className={`w-[18px] h-[18px] ${isFeatured ? (themeType === 'solid' ? 'text-black' : 'text-white') : t.textMuted}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                      </>
+                    )}
                   </a>
                 );
               })
