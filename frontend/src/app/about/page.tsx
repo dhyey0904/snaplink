@@ -33,7 +33,7 @@ export default function AboutPage() {
         <section className="bg-white py-20 border-y border-gray-100">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Our Story</h2>
-            <div className="prose prose-lg prose-blue max-w-none text-gray-600 text-center mx-auto">
+            <div className="prose prose-lg prose-blue max-w-none text-gray-600 text-justify text-center mx-auto">
               <p>
                 The internet is fragmented. Modern professionals are forced to juggle expensive subscriptions 
                 across half a dozen platforms just to share large files, shorten URLs, and host a digital business card. 

@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg prose-blue max-w-none text-gray-600 prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-p:leading-relaxed prose-li:leading-relaxed">
+        <div className="prose prose-lg prose-blue max-w-none text-gray-600 text-justify prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-p:leading-relaxed prose-li:leading-relaxed">
           
           <p>
             At SnapLinks ("we," "us," or "our"), we are committed to protecting your personal information and your right to privacy. 
