@@ -89,9 +89,21 @@ export default function Login() {
         <div className="max-w-md w-full mx-auto">
           {/* Mobile Only Logo */}
           <div className="lg:hidden mb-8 flex items-center justify-center">
-            <Link href="/" className="text-5xl font-black tracking-tighter text-gray-900 drop-shadow-sm mb-2">
-              Snap<span className="text-[#1a73e8]">Link</span>
-            </Link>
+            <Link href="/" className="flex text-5xl font-black tracking-tighter text-[#202124] drop-shadow-sm mb-2 group">
+                <span className="flex">
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '200ms' }}>a</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '300ms' }}>p</span>
+                </span>
+                <span className="text-[#1a73e8] flex">
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '400ms' }}>L</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '500ms' }}>i</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '600ms' }}>n</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '700ms' }}>k</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '800ms' }}>s</span>
+                </span>
+              </Link>
           </div>
           
           <div className="text-center mb-8">
@@ -195,9 +207,21 @@ export default function Login() {
         
         {/* SnapLinks Logo - Flex positioned to avoid overlap */}
         <div className="z-20 w-full">
-          <Link href="/" className="text-2xl font-extrabold tracking-tight text-white inline-block hover:scale-105 transition-transform origin-left drop-shadow-md">
-            Snap<span className="text-blue-300">Link</span>
-          </Link>
+          <Link href="/" className="flex text-3xl font-extrabold tracking-tight text-white hover:scale-105 transition-transform origin-left drop-shadow-md group">
+              <span className="flex">
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '200ms' }}>a</span>
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '300ms' }}>p</span>
+              </span>
+              <span className="text-blue-300 flex">
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '400ms' }}>L</span>
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '500ms' }}>i</span>
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '600ms' }}>n</span>
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '700ms' }}>k</span>
+                <span className="inline-block animate-word-wave" style={{ animationDelay: '800ms' }}>s</span>
+              </span>
+            </Link>
         </div>
 
         {/* Animated Background Orbs */}
