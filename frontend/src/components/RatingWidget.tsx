@@ -24,9 +24,11 @@ export default function RatingWidget() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ stars: rating, feedback })
-      }).catch(e => console.error(e));
+      }).catch(() => {
+        // Silently fail in development to prevent Next.js error overlay when backend is suspended
+      });
     } catch (e) {
-      console.error(e);
+      // Silently fail
     }
   };
 
