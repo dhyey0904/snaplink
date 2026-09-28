@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full border-b border-[#dadce0] bg-white/80 backdrop-blur-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex sm:flex-row justify-between sm:h-16 items-center py-3 sm:py-0">
           
           <div className="flex justify-between items-center w-full sm:w-auto">
@@ -182,7 +182,7 @@ export default function Navbar() {
       {/* Secondary Tools Navbar (iLovePDF style) */}
       {pathname?.startsWith('/tools') && (
         <div className="w-full bg-white border-t border-[#dadce0] shadow-sm hidden md:block">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-10 h-[46px]">
               <Link href="/tools/merge-pdf" className="text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">Merge PDF</Link>
               <Link href="/tools/split-pdf" className="text-[13px] font-bold text-gray-800 hover:text-[#1a73e8] tracking-wider uppercase transition-colors">Split PDF</Link>
