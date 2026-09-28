@@ -70,6 +70,59 @@ export default function EasterEggs() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Mobile Secret Prompt (Long-press on Logo)
+  useEffect(() => {
+    let pressTimer: NodeJS.Timeout;
+
+    const checkCode = (code: string | null) => {
+      if (!code) return;
+      const lowerCode = code.toLowerCase().trim();
+      if (lowerCode === EASTER_EGGS.SNAP) triggerEgg('snap', 5000, '🎉 You found a hidden Easter Egg!');
+      else if (lowerCode === EASTER_EGGS.COFFEE) triggerEgg('coffee', 10000, '☕ Coffee Mode Activated');
+      else if (lowerCode === EASTER_EGGS.MATRIX) triggerEgg('matrix', 15000, '🟢 Matrix Mode Activated');
+      else if (lowerCode === EASTER_EGGS.PARTY) triggerEgg('party', 8000, '🎊 Party Mode');
+      else if (lowerCode === EASTER_EGGS.NOT_FOUND) triggerEgg('404', 5000, '');
+      else if (lowerCode === EASTER_EGGS.UNICORN) triggerEgg('unicorn', 8000, '🦄 Unicorn Mode');
+      else if (lowerCode === EASTER_EGGS.DEVELOPER) triggerEgg('developer', 8000, '');
+    };
+
+    const handleStart = (e: TouchEvent | MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('[id^="snaplinks-logo"]') !== null) {
+        pressTimer = setTimeout(() => {
+          const code = window.prompt("Enter Secret Code (Easter Egg):");
+          checkCode(code);
+        }, 1200); // 1.2 second long press
+      }
+    };
+
+    const handleEnd = () => {
+      if (pressTimer) clearTimeout(pressTimer);
+    };
+
+    const handleContextMenu = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('[id^="snaplinks-logo"]') !== null) {
+        e.preventDefault(); // Prevent "Save Image" popup so prompt can show
+      }
+    };
+
+    window.addEventListener('touchstart', handleStart);
+    window.addEventListener('touchend', handleEnd);
+    window.addEventListener('mousedown', handleStart);
+    window.addEventListener('mouseup', handleEnd);
+    window.addEventListener('contextmenu', handleContextMenu);
+
+    return () => {
+      window.removeEventListener('touchstart', handleStart);
+      window.removeEventListener('touchend', handleEnd);
+      window.removeEventListener('mousedown', handleStart);
+      window.removeEventListener('mouseup', handleEnd);
+      window.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, []);
+
+
   const triggerEgg = (mode: string, duration: number, toast: string) => {
     setActiveMode(mode);
     activeModeRef.current = mode;

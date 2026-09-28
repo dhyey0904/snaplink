@@ -74,7 +74,7 @@ export default function Register() {
         <div className="max-w-md w-full mx-auto">
           {/* Mobile Only Logo */}
           <div className="lg:hidden mb-8 flex items-center justify-center">
-            <Link href="/" className="flex flex-row items-center justify-center text-4xl font-extrabold tracking-tight text-[#202124] drop-shadow-sm mb-2 group">
+            <Link href="/" id="snaplinks-logo-mobile" className="flex flex-row items-center justify-center text-4xl font-extrabold tracking-tight text-[#202124] drop-shadow-sm mb-2 group">
                 <span className="flex">
                   <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
                   <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>
@@ -201,7 +201,7 @@ export default function Register() {
         
         {/* SnapLinks Logo - Flex positioned to avoid overlap */}
         <div className="z-20 w-full">
-          <Link href="/" className="flex text-3xl font-extrabold tracking-tight text-white hover:scale-105 transition-transform origin-left drop-shadow-md group">
+          <Link href="/" id="snaplinks-logo-desktop" className="flex text-3xl font-extrabold tracking-tight text-white hover:scale-105 transition-transform origin-left drop-shadow-md group">
               <span className="flex">
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>

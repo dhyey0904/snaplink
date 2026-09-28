@@ -34,7 +34,7 @@ export default function Navbar() {
         <div className="flex sm:flex-row justify-between sm:h-16 items-center py-3 sm:py-0">
           
           <div className="flex justify-between items-center w-full sm:w-auto">
-            <Link href={isAdmin ? "/admin" : isDashboard ? "/dashboard" : "/"} className="flex-shrink-0 flex items-center group">
+            <Link href={isAdmin ? "/admin" : isDashboard ? "/dashboard" : "/"} id="snaplinks-logo" className="flex-shrink-0 flex items-center group">
               <span className="text-2xl font-bold tracking-tight text-[#202124] group-hover:scale-105 transition-transform duration-300 flex">
                 <span className="flex">
                   <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
