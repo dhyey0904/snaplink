@@ -139,6 +139,13 @@ export default function Home() {
         {/* SNAPTOOLS SECTION */}
         <section id="snaptools" className="py-24 bg-gradient-to-b from-white to-blue-50/50 relative overflow-hidden border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-center lg:justify-start mb-8 animate-fade-in-up">
+              <Link href="/labs/vibe" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-medium hover:bg-white/20 transition-all hover:scale-105 backdrop-blur-md shadow-[0_0_20px_rgba(255,0,255,0.15)] group">
+                <span className="bg-gradient-to-r from-[#ff00ff] to-[#00ffff] bg-clip-text text-transparent font-bold">New release</span>
+                <span className="w-1 h-1 rounded-full bg-white/40"></span>
+                Discover your Internet Vibe ID™ <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+              </Link>
+            </div>
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 text-base sm:text-sm font-bold text-pink-700 mb-6 uppercase tracking-wider">
                 100% Free Tools
