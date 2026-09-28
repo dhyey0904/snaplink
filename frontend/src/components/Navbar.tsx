@@ -134,6 +134,9 @@ export default function Navbar() {
                 <Link href="/tools" className="flex items-center gap-2 text-sm font-bold text-[#1a73e8] hover:text-[#1557b0] transition-colors">
                   SnapTools <span className="bg-blue-100 text-[#1a73e8] text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">Free</span>
                 </Link>
+                <Link href="/play" className="text-sm font-bold text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1">
+                  <span>🎮</span> Play
+                </Link>
                 <Link href="/blog" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">Blog</Link>
                 <div className="w-px h-4 bg-gray-300 mx-2 hidden sm:block"></div>
                 <Link href="/login" className="text-sm font-bold text-[#5f6368] hover:text-[#202124] transition-colors">
@@ -180,6 +183,9 @@ export default function Navbar() {
               </>
             ) : (
               <>
+                <Link href="/play" className="block px-3 py-3 text-base font-bold text-purple-600 hover:bg-purple-50 rounded-lg flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                  <span>🎮</span> SnapPlay
+                </Link>
                 <Link href="/blog" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
                 <Link href="/login" className="block px-3 py-3 text-base font-bold text-gray-700 hover:bg-gray-50 rounded-lg mt-2 border-t border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Sign in</Link>
                 <Link href="/register" className="block px-3 py-3 text-base font-bold text-white bg-[#1a73e8] hover:bg-[#1557b0] text-center rounded-lg shadow-sm" onClick={() => setIsMobileMenuOpen(false)}>Sign up</Link>
