@@ -85,9 +85,9 @@ export default function Footer() {
             <span>&copy; {new Date().getFullYear()} SnapLinks - Your Digital Workspace</span>
             <span className="hidden md:inline-block w-1 h-1 bg-gray-300 rounded-full"></span>
             <span>Designed by <a href="https://github.com/dhyey0904" target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-700 hover:text-[#1a73e8] transition-colors">Dhyey Raja</a></span>
-          </div>
+          
+          <div className="text-gray-300 text-[10px] mt-4 opacity-50 hover:opacity-100 transition-opacity select-none cursor-default text-center w-full block">Some secrets are hidden in plain sight...</div>
         </div>
-        
       </div>
     </footer>
   );
