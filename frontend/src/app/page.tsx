@@ -124,7 +124,7 @@ export default function Home() {
                       <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-4 border border-white/10">
                         <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-500">S</span>
                       </div>
-                      <div className="text-gray-500 text-xs font-mono tracking-widest uppercase">NFC Enabled</div>
+                      <div className="text-gray-500 text-xs font-mono tracking-widest uppercase">Digital vCard</div>
                     </div>
 
                   </div>
