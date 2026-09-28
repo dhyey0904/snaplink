@@ -95,7 +95,7 @@ export default function RootLayout({
                 "@type": "Organization",
                 "name": "SnapLinks",
                 "url": "https://www.snaplinks.in/",
-                "logo": "https://www.snaplinks.in/logo.png",
+                "logo": "https://www.snaplinks.in/logo.svg",
                 "sameAs": [
                   "https://twitter.com/snaplinks",
                   "https://instagram.com/snaplinks"
