@@ -123,8 +123,8 @@ export default function Dashboard() {
     e.preventDefault();
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       const file = e.dataTransfer.files[0];
-      if (file.size > 1024 * 1024 * 1024) {
-        alert("File too large. Maximum size is 1GB.");
+      if (file.size > 50 * 1024 * 1024) {
+        alert("File too large. Maximum size is 50MB.");
         return;
       }
       setSelectedFile(file);
@@ -223,7 +223,7 @@ export default function Dashboard() {
               <input type="file" className="hidden text-gray-900 placeholder-gray-600" ref={fileInputRef} onChange={(e) => {
                 if (e.target.files && e.target.files[0]) {
                   const file = e.target.files[0];
-                  if (file.size > 1024 * 1024 * 1024) { alert("File too large. Maximum size is 1GB."); e.target.value = ''; return; }
+                  if (file.size > 50 * 1024 * 1024) { alert("File too large. Maximum size is 50MB."); e.target.value = ''; return; }
                   setSelectedFile(file);
                 }
               }} />

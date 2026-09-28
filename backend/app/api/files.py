@@ -25,7 +25,7 @@ RATE_LIMITS = defaultdict(lambda: {"attempts": 0, "locked_until": None})
 
 
 UPLOAD_DIR = "uploads"
-MAX_FILE_SIZE = 1024 * 1024 * 1024  # 1024 MB
+MAX_FILE_SIZE = 50 * 1024 * 1024  # 50 MB
 
 import string
 import random
@@ -51,7 +51,7 @@ async def upload_file(
     file.file.seek(0)
     
     if file_size > MAX_FILE_SIZE:
-        raise HTTPException(status_code=400, detail="File too large. Maximum size is 1024MB.")
+        raise HTTPException(status_code=400, detail="File too large. Maximum size is 50MB.")
         
     # Generate unique filename
     file_uuid = str(uuid.uuid4())
