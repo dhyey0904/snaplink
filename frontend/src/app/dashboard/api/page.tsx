@@ -166,7 +166,7 @@ export default function ApiDashboard() {
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12 relative z-20 mb-20">
         <div className="w-full">
           {tier === "free" ? (
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <div className="mb-16 text-center">
                 <h2 className="text-sm font-bold tracking-widest uppercase text-[#1a73e8] mb-3">Developer API</h2>
                 <h1 className="text-4xl md:text-6xl font-black text-[#202124] tracking-tight">Automate Everything</h1>

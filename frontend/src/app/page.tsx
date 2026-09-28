@@ -422,7 +422,7 @@ export default function Home() {
       
         {/* --- SEO RICH CONTENT SECTION (Word Count Boost) --- */}
         <section className="w-full py-24 bg-gray-50 border-t border-gray-100">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Everything You Need to Know About SnapLink</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">The most comprehensive guide to our file sharing, URL shortening, and digital identity tools.</p>

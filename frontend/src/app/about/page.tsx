@@ -19,7 +19,7 @@ export default function AboutPage() {
       <main className="flex-1 w-full pt-32 pb-24">
         
         {/* Hero Section */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20">
           <h1 className="text-5xl md:text-6xl font-black text-gray-900 tracking-tight mb-6">
             Simplifying the <span className="text-[#1a73e8]">Digital World</span>
           </h1>

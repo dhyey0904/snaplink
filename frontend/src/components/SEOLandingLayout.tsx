@@ -24,7 +24,7 @@ export default function SEOLandingLayout({ title, subtitle, InteractiveWidget, c
       
       <main className="flex-grow pt-24 pb-16">
         {/* Hero Section */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-16">
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight mb-6">{title}</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">{subtitle}</p>
           

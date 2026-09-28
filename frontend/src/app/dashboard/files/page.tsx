@@ -206,7 +206,7 @@ export default function Dashboard() {
 
       
 
-      <main className="flex-1 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12 relative z-20 mb-20">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12 relative z-20 mb-20">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           
           {/* Left Column */}

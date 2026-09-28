@@ -247,7 +247,7 @@ export default function VCardDashboard() {
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
       <Navbar />
 
-      <main className="flex-1 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative z-20 mb-20">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative z-20 mb-20">
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* LEFT: EDITOR FORM */}

@@ -96,7 +96,7 @@ export default function PageNumbersPage() {
     <div className="min-h-screen bg-gray-50 font-sans pb-20">
       <Navbar />
       
-            <div className="max-w-[1400px] mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+            <div className="max-w-7xl mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad */}
         <div className="hidden xl:block w-[300px] shrink-0">
           <AdSidebar />

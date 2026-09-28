@@ -379,7 +379,7 @@ export default function BioDashboard() {
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
       <Navbar />
 
-      <main className="flex-1 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12">
         {!bioPage ? (
           <div className="bg-white rounded-3xl shadow-xl p-10 text-center max-w-xl mx-auto mt-10 relative overflow-hidden">
             <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
