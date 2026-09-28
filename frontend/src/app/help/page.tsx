@@ -80,7 +80,7 @@ export default function HelpCenterPage() {
                   {section.questions.map((faq, fIdx) => (
                     <div key={fIdx} className="border-b border-gray-100 last:border-0 pb-6 last:pb-0">
                       <h3 className="text-lg font-bold text-gray-900 mb-2">{faq.q}</h3>
-                      <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                      <p className="text-gray-600 leading-relaxed text-justify">{faq.a}</p>
                     </div>
                   ))}
                 </div>

@@ -50,7 +50,7 @@ export default async function BlogIndex() {
                   <span>{post.frontmatter.author}</span>
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#1a73e8] transition-colors">{post.frontmatter.title}</h2>
-                <p className="text-gray-600 leading-relaxed">{post.frontmatter.description}</p>
+                <p className="text-gray-600 leading-relaxed text-justify">{post.frontmatter.description}</p>
                 <div className="mt-6 flex items-center text-[#1a73e8] font-bold text-sm uppercase tracking-wider">
                   Read Article
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>

@@ -49,7 +49,7 @@ export default async function BlogPost({ params }: any) {
             </div>
           </header>
 
-          <article className="prose prose-lg prose-blue max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-[#1a73e8] prose-a:no-underline hover:prose-a:underline">
+          <article className="prose prose-lg text-justify prose-blue max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-[#1a73e8] prose-a:no-underline hover:prose-a:underline">
             <ReactMarkdown>{content}</ReactMarkdown>
           </article>
           
