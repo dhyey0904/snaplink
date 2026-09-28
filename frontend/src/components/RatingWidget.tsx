@@ -1,21 +1,36 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
 
 export default function RatingWidget() {
+  const [isMounted, setIsMounted] = useState(false);
+  const [hasRated, setHasRated] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [feedback, setFeedback] = useState("");
 
+  useEffect(() => {
+    if (localStorage.getItem("snaplink_has_rated")) {
+      setHasRated(true);
+    }
+    setIsMounted(true);
+  }, []);
+
   const handleSubmit = () => {
     if (rating === 0) return;
     
+    // Save to local storage so it never shows again
+    localStorage.setItem("snaplink_has_rated", "true");
+    
     // Optimistic UI update to prevent hanging while backend wakes up
     setSubmitted(true);
-    setTimeout(() => setIsOpen(false), 3000);
+    setTimeout(() => {
+      setIsOpen(false);
+      setHasRated(true); // Completely unmounts the widget
+    }, 3000);
 
     try {
       const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
@@ -31,6 +46,8 @@ export default function RatingWidget() {
       // Silently fail
     }
   };
+
+  if (!isMounted || hasRated) return null;
 
   if (!isOpen && !submitted) {
     return (
