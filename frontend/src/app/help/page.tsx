@@ -96,7 +96,7 @@ export default function HelpCenterPage() {
             <p className="text-blue-100 mb-8 max-w-xl mx-auto">
               If you couldn't find the answer to your question in our FAQ, our support team is ready to assist you.
             </p>
-            <a href="mailto:support@snaplinks.in" className="inline-block bg-white text-[#1a73e8] px-8 py-3 rounded-xl font-bold shadow hover:bg-gray-50 transition-colors">
+            <a href="mailto:hello.snaplinks@gmail.com" className="inline-block bg-white text-[#1a73e8] px-8 py-3 rounded-xl font-bold shadow hover:bg-gray-50 transition-colors">
               Contact Support
             </a>
           </div>
