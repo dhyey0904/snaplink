@@ -24,7 +24,7 @@ def send_email(to_email: str, subject: str, html_body: str):
                     "Content-Type": "application/json"
                 },
                 json={
-                    "from": "SnapLinks <onboarding@resend.dev>",
+                    "from": "SnapLink <onboarding@resend.dev>",
                     "to": [to_email],
                     "subject": subject,
                     "html": html_body
@@ -47,7 +47,7 @@ def send_email(to_email: str, subject: str, html_body: str):
         
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
-    msg["From"] = f"SnapLinks <{SMTP_USER}>"
+    msg["From"] = f"SnapLink <{SMTP_USER}>"
     msg["To"] = to_email
 
     part = MIMEText(html_body, "html")
@@ -67,13 +67,13 @@ def send_email(to_email: str, subject: str, html_body: str):
         return False
 
 def send_welcome_email(to_email: str):
-    subject = "Welcome to SnapLinks!"
+    subject = "Welcome to SnapLink!"
     body = """
     <html>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-        <h2 style="color: #1a73e8;">Welcome to SnapLinks!</h2>
+        <h2 style="color: #1a73e8;">Welcome to SnapLink!</h2>
         <p>Hi there,</p>
-        <p>Thank you for creating an account on SnapLinks. You now have access to the ultimate digital identity and secure file-sharing platform.</p>
+        <p>Thank you for creating an account on SnapLink. You now have access to the ultimate digital identity and secure file-sharing platform.</p>
         <p>Here are a few things you can do to get started:</p>
         <ul>
           <li><strong>Create a secure short link</strong> with password protection.</li>
@@ -81,42 +81,42 @@ def send_welcome_email(to_email: str):
           <li><strong>Generate a 3D digital vCard</strong> to share your professional profile.</li>
         </ul>
         <p>We're thrilled to have you onboard.</p>
-        <p>Cheers,<br>The SnapLinks Team</p>
+        <p>Cheers,<br>The SnapLink Team</p>
       </body>
     </html>
     """
     return send_email(to_email, subject, body)
 
 def send_file_downloaded_email(to_email: str, filename: str):
-    subject = "Your file has been downloaded! | SnapLinks"
+    subject = "Your file has been downloaded! | SnapLink"
     body = f"""
     <html>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <h2 style="color: #10b981;">File Download Alert</h2>
         <p>Hi there,</p>
-        <p>Great news! Your file <strong>{filename}</strong> was just successfully downloaded via SnapLinks.</p>
-        <p>You can track all activity and analytics for your files in your SnapLinks Dashboard.</p>
-        <p>Cheers,<br>The SnapLinks Team</p>
+        <p>Great news! Your file <strong>{filename}</strong> was just successfully downloaded via SnapLink.</p>
+        <p>You can track all activity and analytics for your files in your SnapLink Dashboard.</p>
+        <p>Cheers,<br>The SnapLink Team</p>
       </body>
     </html>
     """
     return send_email(to_email, subject, body)
 
 def send_password_reset_email(to_email: str, token: str):
-    subject = "Reset your SnapLinks password"
-    # Using snaplinks.in explicitly, or environment variable
-    reset_url = f"https://www.snaplinks.in/reset-password?token={token}"
+    subject = "Reset your SnapLink password"
+    # Using snaplink.in explicitly, or environment variable
+    reset_url = f"https://www.snaplink.in/reset-password?token={token}"
     body = f"""
     <html>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <h2 style="color: #1a73e8;">Reset Your Password</h2>
         <p>Hi there,</p>
-        <p>We received a request to reset the password for your SnapLinks account. If you made this request, please click the button below to choose a new password:</p>
+        <p>We received a request to reset the password for your SnapLink account. If you made this request, please click the button below to choose a new password:</p>
         <div style="margin: 30px 0;">
           <a href="{reset_url}" style="background-color: #1a73e8; color: white; padding: 12px 24px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">Reset Password</a>
         </div>
         <p>If you didn't request a password reset, you can safely ignore this email.</p>
-        <p>Cheers,<br>The SnapLinks Team</p>
+        <p>Cheers,<br>The SnapLink Team</p>
       </body>
     </html>
     """

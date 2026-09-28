@@ -77,7 +77,7 @@ export default function ApiDashboard() {
         key: order.key_id, 
         amount: order.amount,
         currency: order.currency,
-        name: "SnapLinks Pro",
+        name: "SnapLink Pro",
         description: "Pro API Access",
         order_id: order.order_id,
         handler: async function (response: any) {
@@ -185,7 +185,7 @@ export default function ApiDashboard() {
                       </li>
                       <li className="flex items-start text-[#5f6368]">
                         <svg className="w-6 h-6 text-[#1a73e8] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span><strong className="text-[#202124]">Custom Integrations:</strong> Connect SnapLinks directly into your bots or internal tools.</span>
+                        <span><strong className="text-[#202124]">Custom Integrations:</strong> Connect SnapLink directly into your bots or internal tools.</span>
                       </li>
                       <li className="flex items-start text-[#5f6368]">
                         <svg className="w-6 h-6 text-[#1a73e8] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>

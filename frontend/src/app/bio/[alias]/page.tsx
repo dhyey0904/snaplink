@@ -3,7 +3,7 @@ import ClientBioPage from './ClientBioPage';
 
 export async function generateMetadata({ params }: { params: Promise<{ alias: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
-  const frontendUrl = "https://www.snaplinks.in";
+  const frontendUrl = "https://www.snaplink.in";
   
   try {
     const resolvedParams = await params;
@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
       const data = await res.json();
       
       const title = data.title || 'My Bio Links';
-      const description = data.description || 'Check out my links on SnapLinks';
+      const description = data.description || 'Check out my links on SnapLink';
       
       let imageUrl = data.avatar_url;
       if (imageUrl && !imageUrl.startsWith('http')) {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
           title,
           description,
           type: 'profile',
-          siteName: 'SnapLinks',
+          siteName: 'SnapLink',
           url: `${frontendUrl}/bio/${resolvedParams.alias}`,
           images: imageUrl ? [
             {
@@ -48,8 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
   } catch (e) {}
 
   return {
-    title: 'SnapLinks Bio',
-    description: 'Check out my links on SnapLinks'
+    title: 'SnapLink Bio',
+    description: 'Check out my links on SnapLink'
   };
 }
 

@@ -38,7 +38,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col shadow-sm`}>
         <div className="h-16 flex items-center px-6 border-b border-gray-100">
           <Link href="/admin" className="text-xl font-bold flex items-center gap-2 tracking-tight">
-            <span className="text-[#2563EB]">SnapLinks</span>OS
+            <span className="text-[#2563EB]">SnapLink</span>OS
           </Link>
           <div className="ml-auto flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>

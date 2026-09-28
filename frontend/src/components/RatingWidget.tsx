@@ -75,7 +75,7 @@ export default function RatingWidget() {
   return (
     <div className="fixed bottom-6 left-6 bg-white border border-gray-200 shadow-2xl rounded-2xl p-5 z-[100] w-72 animate-in slide-in-from-bottom-5">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="font-bold text-gray-800">Enjoying SnapLinks?</h3>
+        <h3 className="font-bold text-gray-800">Enjoying SnapLink?</h3>
         <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-gray-600 font-bold text-lg">&times;</button>
       </div>
       

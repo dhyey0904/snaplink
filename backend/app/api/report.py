@@ -17,4 +17,4 @@ def create_report(report: ReportCreate, db: Session = Depends(get_db)):
     db.add(db_report)
     db.commit()
     db.refresh(db_report)
-    return {"message": "Report submitted successfully. Thank you for keeping SnapLinks safe."}
+    return {"message": "Report submitted successfully. Thank you for keeping SnapLink safe."}

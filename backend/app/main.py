@@ -86,8 +86,8 @@ try:
             pass
     
     app = FastAPI(
-        title="SnapLinks API",
-        description="Backend API for SnapLinks URL Shortener",
+        title="SnapLink API",
+        description="Backend API for SnapLink URL Shortener",
         version="1.0.0"
     )
     
@@ -116,7 +116,7 @@ try:
     @app.get("/")
 
     def read_root():
-        return {"message": "Welcome to SnapLinks API"}
+        return {"message": "Welcome to SnapLink API"}
     
     os.makedirs("uploads", exist_ok=True)
     app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")

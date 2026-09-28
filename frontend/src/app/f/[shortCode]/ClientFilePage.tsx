@@ -174,7 +174,7 @@ export default function FileDownloadPage() {
         </div>
         <h1 className="text-3xl font-bold text-[#202124] mb-2 tracking-tight">File Unavailable</h1>
         <p className="text-lg text-[#5f6368] text-center max-w-md">{error}</p>
-        <a href="https://www.snaplinks.in" className="mt-8 px-6 py-3 bg-[#202124] text-white font-bold rounded-full hover:bg-black transition-colors shadow-md">Get SnapLinks</a>
+        <a href="https://www.snaplink.in" className="mt-8 px-6 py-3 bg-[#202124] text-white font-bold rounded-full hover:bg-black transition-colors shadow-md">Get SnapLink</a>
       </div>
     );
   }
@@ -183,7 +183,7 @@ export default function FileDownloadPage() {
     <div className="min-h-screen bg-[#fafafc] flex flex-col items-center justify-center font-sans overflow-hidden relative">
       {showAd && <AdOverlay onComplete={executeDownload} actionText="Downloading Securely" />}
       
-      {/* SnapLinks Brand Header */}
+      {/* SnapLink Brand Header */}
       <div className="w-full flex justify-center sm:justify-start sm:pl-8 mb-8 sm:absolute sm:top-8 sm:mb-0 z-20 relative">
         <div className="flex items-center">
           <span className="text-2xl font-black tracking-tighter text-[#202124]">Snap<span className="text-[#1a73e8]">Link</span></span>
@@ -265,7 +265,7 @@ export default function FileDownloadPage() {
                 </button>
                 
                 <p className="mt-8 text-xs text-[#5f6368] uppercase tracking-wider font-bold opacity-70">
-                  Secured by SnapLinks 
+                  Secured by SnapLink 
                 </p>
               </div>
             )}

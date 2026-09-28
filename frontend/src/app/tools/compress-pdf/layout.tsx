@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Compress PDF files | SnapLinks',
+  title: 'Compress PDF files | SnapLink',
   description: 'Compress PDF file to get the same PDF quality but less filesize. Optimize your PDFs for web.',
   openGraph: {
-    title: 'Compress PDF files | SnapLinks',
+    title: 'Compress PDF files | SnapLink',
     description: 'Compress PDF file to get the same PDF quality but less filesize. Optimize your PDFs for web.',
-    url: 'https://www.snaplinks.in/tools/compress-pdf',
+    url: 'https://www.snaplink.in/tools/compress-pdf',
   }
 };
 

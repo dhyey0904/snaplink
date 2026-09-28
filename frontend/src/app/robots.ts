@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/dashboard/', '/f/', '/api/', '/reset-password'],
     },
-    sitemap: 'https://www.snaplinks.in/sitemap.xml',
+    sitemap: 'https://www.snaplink.in/sitemap.xml',
   }
 }

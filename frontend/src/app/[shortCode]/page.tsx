@@ -3,7 +3,7 @@ import ClientAdPage from './ClientAdPage';
 
 export async function generateMetadata({ params }: { params: Promise<{ shortCode: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
-  const frontendUrl = "https://www.snaplinks.in";
+  const frontendUrl = "https://www.snaplink.in";
   
   try {
     const resolvedParams = await params;
@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
         }
 
         return {
-          title: data.og_title || 'SnapLinks',
-          description: data.og_description || 'Secure link protected by SnapLinks',
+          title: data.og_title || 'SnapLink',
+          description: data.og_description || 'Secure link protected by SnapLink',
           openGraph: {
-            title: data.og_title || 'SnapLinks',
-            description: data.og_description || 'Secure link protected by SnapLinks',
+            title: data.og_title || 'SnapLink',
+            description: data.og_description || 'Secure link protected by SnapLink',
             type: 'website',
-            siteName: 'SnapLinks',
+            siteName: 'SnapLink',
             url: `${frontendUrl}/${resolvedParams.shortCode}`,
             images: imageUrl ? [
               {
@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
           },
           twitter: {
             card: 'summary_large_image',
-            title: data.og_title || 'SnapLinks',
-            description: data.og_description || 'Secure link protected by SnapLinks',
+            title: data.og_title || 'SnapLink',
+            description: data.og_description || 'Secure link protected by SnapLink',
             images: imageUrl ? [imageUrl] : [],
           }
         };
@@ -47,8 +47,8 @@ export async function generateMetadata({ params }: { params: Promise<{ shortCode
   } catch (e) {}
 
   return {
-    title: 'SnapLinks',
-    description: 'Secure link protected by SnapLinks'
+    title: 'SnapLink',
+    description: 'Secure link protected by SnapLink'
   };
 }
 

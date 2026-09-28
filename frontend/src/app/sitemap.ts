@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.snaplinks.in'
+  const baseUrl = 'https://www.snaplink.in'
   
   return [
     {

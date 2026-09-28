@@ -4,10 +4,10 @@ import type { Metadata } from 'next';
 import SEOLandingLayout from '@/components/SEOLandingLayout';
 
 export const metadata: Metadata = {
-  title: "Secure File Sharing | SnapLinks",
+  title: "Secure File Sharing | SnapLink",
   description: "Share files up to 50MB securely with auto-destructing links and password protection. The ultimate ephemeral file transfer tool.",
   alternates: {
-    canonical: "https://www.snaplinks.in/file-sharing",
+    canonical: "https://www.snaplink.in/file-sharing",
   },
 };
 
@@ -30,20 +30,20 @@ export default function Page() {
       contentTitle="The Safest Way to Share Large Files Online"
       content={
         <>
-            <p>Traditional cloud storage platforms were built to store your files forever, not to share them temporarily. When you email an attachment or share a standard cloud link, you lose control of that data indefinitely. SnapLinks's <strong>Secure File Sharing</strong> architecture is built entirely on the concept of ephemeral (temporary) storage.</p>
+            <p>Traditional cloud storage platforms were built to store your files forever, not to share them temporarily. When you email an attachment or share a standard cloud link, you lose control of that data indefinitely. SnapLink's <strong>Secure File Sharing</strong> architecture is built entirely on the concept of ephemeral (temporary) storage.</p>
             
             <h3>Share Large Files up to 50MB</h3>
-            <p>Whether you\'re sending high-resolution photography, massive video renders, or extensive PDF reports, SnapLinks handles it effortlessly. Upload files up to 50MB directly from your browser with lightning-fast speeds.</p>
+            <p>Whether you\'re sending high-resolution photography, massive video renders, or extensive PDF reports, SnapLink handles it effortlessly. Upload files up to 50MB directly from your browser with lightning-fast speeds.</p>
             
             <h3>Self-Destructing Links</h3>
-            <p>Privacy is our priority. SnapLinks allows you to configure files to <strong>automatically self-destruct</strong>. You can set a file to delete itself the moment it is downloaded by the recipient, or set a strict time limit (e.g., 24 hours). Once the file is deleted, it is permanently scrubbed from our servers, leaving absolutely zero trace.</p>
+            <p>Privacy is our priority. SnapLink allows you to configure files to <strong>automatically self-destruct</strong>. You can set a file to delete itself the moment it is downloaded by the recipient, or set a strict time limit (e.g., 24 hours). Once the file is deleted, it is permanently scrubbed from our servers, leaving absolutely zero trace.</p>
             
             <h3>Password Protection & Analytics</h3>
             <p>For highly sensitive legal documents or intellectual property, you can encrypt your download page with a secure password. Furthermore, our analytics dashboard will notify you exactly when your file was downloaded, giving you complete visibility into the transfer process.</p>
         </>
       }
       faqs={[
-        { q: 'What happens when a file self-destructs?', a: 'When a file reaches its expiration timer or download limit, it is permanently and irreversibly deleted from our storage servers. The short link will display a \'File Expired\' message to anyone who clicks it.' }, { q: 'Do I need to install any software to upload or download?', a: 'No! SnapLinks operates entirely within your web browser. Neither the sender nor the receiver needs to install any applications.' }, { q: 'Are my files secure during transfer?', a: 'Yes. All file transfers are secured using industry-standard SSL/TLS encryption, ensuring your data cannot be intercepted while in transit.' }
+        { q: 'What happens when a file self-destructs?', a: 'When a file reaches its expiration timer or download limit, it is permanently and irreversibly deleted from our storage servers. The short link will display a \'File Expired\' message to anyone who clicks it.' }, { q: 'Do I need to install any software to upload or download?', a: 'No! SnapLink operates entirely within your web browser. Neither the sender nor the receiver needs to install any applications.' }, { q: 'Are my files secure during transfer?', a: 'Yes. All file transfers are secured using industry-standard SSL/TLS encryption, ensuring your data cannot be intercepted while in transit.' }
       ]}
     />
   );

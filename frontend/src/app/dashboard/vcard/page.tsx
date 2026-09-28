@@ -272,7 +272,7 @@ export default function VCardDashboard() {
                     <label className="block text-sm font-bold text-gray-700 mb-2">Custom Alias</label>
                     <div className="flex rounded-lg overflow-hidden border border-gray-200">
                       <span className="inline-flex items-center px-4 bg-gray-50 text-gray-500 sm:text-sm border-r border-gray-200 font-medium">
-                        snaplinks.in/v/
+                        snaplink.in/v/
                       </span>
                       <input type="text" required value={alias} onChange={(e) => setAlias(e.target.value)} placeholder="your-name" className="flex-1 block w-full px-4 py-2 bg-white   focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold text-gray-900 placeholder-gray-600" />
                     </div>
@@ -659,11 +659,11 @@ export default function VCardDashboard() {
                         </div>
                       </div>
                       
-                      {/* Powered By SnapLinks */}
+                      {/* Powered By SnapLink */}
                       <div className="absolute bottom-3 inset-x-0 flex justify-center z-20 pointer-events-none">
                         <div className="flex items-center gap-1 opacity-60">
                           <span className="text-[8px] text-white font-medium uppercase tracking-widest">Powered by</span>
-                          <span className="text-[8px] text-white font-black tracking-tight">SnapLinks</span>
+                          <span className="text-[8px] text-white font-black tracking-tight">SnapLink</span>
                         </div>
                       </div>
 

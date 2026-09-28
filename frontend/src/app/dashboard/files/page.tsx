@@ -107,7 +107,7 @@ export default function Dashboard() {
     if (navigator.share && window.isSecureContext) {
       try {
         await navigator.share({
-          title: 'Shared File on SnapLinks',
+          title: 'Shared File on SnapLink',
           text: `Download ${activeFile.filename}`,
           url: url
         });

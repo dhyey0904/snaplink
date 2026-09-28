@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: any) {
   const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), 'src/content/blog', resolvedParams.slug + '.md'), 'utf-8');
   const { data } = matter(markdownWithMeta);
   return {
-    title: `${data.title} | SnapLinks Blog`,
+    title: `${data.title} | SnapLink Blog`,
     description: data.description,
   };
 }
