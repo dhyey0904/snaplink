@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Split PDF file | SnapTools',
+  title: 'Split PDF file | SnapLinks',
   description: 'Split a PDF file by page ranges or extract all PDF pages to multiple PDF files effortlessly.',
   openGraph: {
-    title: 'Split PDF file | SnapTools',
+    title: 'Split PDF file | SnapLinks',
     description: 'Split a PDF file by page ranges or extract all PDF pages to multiple PDF files effortlessly.',
     url: 'https://www.snaplinks.in/tools/split-pdf',
   }

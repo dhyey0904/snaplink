@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Unlock PDF files | SnapTools',
+  title: 'Unlock PDF files | SnapLinks',
   description: 'Remove PDF password security, giving you the freedom to use your PDFs as you want.',
   openGraph: {
-    title: 'Unlock PDF files | SnapTools',
+    title: 'Unlock PDF files | SnapLinks',
     description: 'Remove PDF password security, giving you the freedom to use your PDFs as you want.',
     url: 'https://www.snaplinks.in/tools/unlock-pdf',
   }
