@@ -32,8 +32,8 @@ export default function RazorpayCheckout() {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_TeIxxkdctC2mH1",
         amount: order.amount,
         currency: order.currency,
-        name: "SnapLinks Pro",
-        description: "Upgrade to SnapLinks Pro (Lifetime)",
+        name: "SnapLinks Supporter",
+        description: "Support SnapLinks (Lifetime Supporter)",
         order_id: order.id,
         handler: async function (response: any) {
           // 3. Verify payment signature on backend
@@ -51,7 +51,7 @@ export default function RazorpayCheckout() {
             });
             
             if (verifyRes.ok) {
-              setStatus("Payment Successful! You are now a Pro user.");
+              setStatus("Payment Successful! Thank you for supporting us.");
             } else {
               setStatus("Payment verification failed.");
             }
@@ -88,8 +88,8 @@ export default function RazorpayCheckout() {
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       
       <div>
-        <h2 className="text-2xl font-bold text-white mb-2">SnapLinks Pro</h2>
-        <p className="text-slate-400">Unlock unlimited file size, permanent storage, and custom domains.</p>
+        <h2 className="text-2xl font-bold text-white mb-2">SnapLinks Supporter</h2>
+        <p className="text-slate-400">Support the development of SnapLinks and keep our tools free for everyone.</p>
       </div>
       
       <div className="text-4xl font-extrabold text-white">
@@ -101,7 +101,7 @@ export default function RazorpayCheckout() {
         disabled={loading}
         className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full transition-all disabled:opacity-50"
       >
-        {loading ? "Processing..." : "Upgrade to Pro"}
+        {loading ? "Processing..." : "Support Us"}
       </button>
       
       {status && (
