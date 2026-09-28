@@ -510,7 +510,18 @@ export default function BioDashboard() {
                                     onChange={(e) => handleImageUpload(e, setNewLinkUrl)} 
                                     className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer border border-gray-200 rounded-xl text-gray-900 placeholder-gray-600" 
                                   />
-                                  
+                                  <div className="relative flex items-center justify-center">
+                                    <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200"></div></div>
+                                    <div className="relative px-4 bg-white text-xs text-gray-400 font-bold uppercase">OR</div>
+                                  </div>
+                                  <input 
+                                    type="url" 
+                                    value={newLinkUrl} 
+                                    onChange={(e) => setNewLinkUrl(e.target.value)} 
+                                    className="block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-600" 
+                                    placeholder="https://youtube.com/watch?v=..." 
+                                    required={!newLinkUrl.includes('res.cloudinary.com')}
+                                  />
                                 </div>
                               ) : (
                                 <input 
