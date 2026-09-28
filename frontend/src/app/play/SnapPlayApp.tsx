@@ -230,7 +230,7 @@ export default function SnapPlayApp() {
             {/* Shareable Card */}
             <div 
               ref={cardRef}
-              className="w-full aspect-[9/16] max-h-[60vh] rounded-[2rem] bg-[#0a0a0a] shadow-2xl relative overflow-hidden border border-white/20 flex flex-col justify-between p-6"
+              className="w-[320px] h-[568px] shrink-0 mx-auto rounded-[2rem] bg-[#0a0a0a] shadow-2xl relative overflow-hidden border border-white/20 flex flex-col justify-between p-6"
             >
               <div className="absolute inset-0 z-0">
                 <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] bg-blue-600/20 rounded-full blur-[60px]"></div>
