@@ -519,13 +519,13 @@ export default function Home() {
 
                 <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
                   <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
-                    <span>Is the Developer API suitable for enterprise use?</span>
+                    <span>Is the Developer API suitable for production use?</span>
                     <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                     </span>
                   </summary>
                   <p className="text-gray-600 px-6 pb-6 leading-relaxed">
-                    Yes. Our Developer API is built on a highly scalable infrastructure designed to handle thousands of requests per second. It allows you to programmatically generate short links, configure AB testing routes, and automate file sharing directly from your own software applications.
+                    Yes. Our Developer API is built on a highly scalable infrastructure designed to handle your programmatic needs efficiently. It allows you to programmatically generate short links, configure AB testing routes, and automate file sharing directly from your own software applications.
                   </p>
                 </details>
 

@@ -40,8 +40,8 @@ export default function AboutPage() {
               </p>
               <p>
                 We built SnapLinks because we believed there had to be a better way. We envisioned a single, 
-                unified platform that combined enterprise-grade ephemeral file sharing with deep link analytics 
-                and stunning 3D digital profiles. Today, SnapLinks empowers thousands of users to take back 
+                unified platform that combined high-quality ephemeral file sharing with deep link analytics 
+                and stunning 3D digital profiles. Today, SnapLinks empowers our users to take back 
                 control of their digital footprint—seamlessly, powerfully, and affordably.
               </p>
             </div>
@@ -68,7 +68,7 @@ export default function AboutPage() {
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Lightning Fast</h3>
-              <p className="text-gray-600">Performance is a feature. Our global edge infrastructure ensures your files upload instantly and your links route without delay.</p>
+              <p className="text-gray-600">Performance is a feature. Our cloud hosting ensures your files upload instantly and your links route without delay.</p>
             </div>
 
             {/* Value 3 */}
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Beautiful Simplicity</h3>
-              <p className="text-gray-600">Enterprise software doesn't have to be ugly. We obsess over clean UI, intuitive user experiences, and frictionless design.</p>
+              <p className="text-gray-600">Software doesn't have to be ugly. We obsess over clean UI, intuitive user experiences, and frictionless design.</p>
             </div>
           </div>
         </section>
@@ -87,7 +87,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-extrabold mb-8">Designed & Engineered by Dhyey</h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-              SnapLinks is proudly built by Dhyey with a relentless focus on enterprise-grade reliability, 
+              SnapLinks is proudly built by Dhyey with a relentless focus on high-quality reliability, 
               pixel-perfect UI, and developer-first APIs. We are driven by the passion to build tools 
               that actually make your daily workflow easier.
             </p>
