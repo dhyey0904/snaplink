@@ -23,19 +23,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://www.snaplinks.in'),
   title: {
-    default: "SnapLinks | Advanced URL Shortener & Link-in-Bio",
+    default: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & Tools",
     template: "%s | SnapLinks",
   },
-  description: "SnapLinks is the ultimate all-in-one workspace featuring deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools for PDF & web utilities.",
-  keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "ephemeral file transfer", "digital business card", "3D vcard"],
+  description: "SnapLinks is the ultimate all-in-one workspace featuring deep link shortening, Link-in-Bio, secure file sharing, free PDF tools, SnapPlay daily challenges, and viral experiences like Internet Vibe ID.",
+  keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "SnapPlay", "daily challenges", "mini-games", "Internet Vibe ID", "digital business card", "3D vcard"],
   authors: [{ name: "SnapLinks" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.snaplinks.in",
     siteName: "SnapLinks",
-    title: "SnapLinks | Advanced URL Shortener & Link-in-Bio",
-    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.",
+    title: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & Tools",
+    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, SnapPlay daily challenges, and free tools.",
     images: [
       {
         url: "/og-image.png",
