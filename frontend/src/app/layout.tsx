@@ -4,6 +4,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import "./globals.css";
+import EasterEggs from "@/components/EasterEggs";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import MaintenanceModal from "@/components/MaintenanceModal";
 import RatingWidget from "@/components/RatingWidget";
