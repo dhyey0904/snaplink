@@ -3,7 +3,7 @@ import ClientVCardPage from './ClientVCardPage';
 
 export async function generateMetadata({ params }: { params: Promise<{ alias: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
-  const frontendUrl = "https://www.snaplink.in";
+  const frontendUrl = "https://www.snaplinks.in";
   
   try {
     const resolvedParams = await params;
@@ -11,10 +11,10 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
     if (res.ok) {
       const data = await res.json();
       
-      const title = data.name ? `${data.name} - Digital vCard` : 'SnapLink Digital vCard';
+      const title = data.name ? `${data.name} - Digital vCard` : 'SnapLinks Digital vCard';
       const description = data.job_title 
         ? `${data.job_title}${data.company ? ` at ${data.company}` : ''}`
-        : 'View my 3D Digital vCard on SnapLink';
+        : 'View my 3D Digital vCard on SnapLinks';
         
       let imageUrl = data.headshot_url || data.logo_url;
       if (imageUrl && !imageUrl.startsWith('http')) {
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
           title,
           description,
           type: 'profile',
-          siteName: 'SnapLink',
+          siteName: 'SnapLinks',
           url: `${frontendUrl}/v/${resolvedParams.alias}`,
           images: imageUrl ? [
             {
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ alias: st
   } catch (e) {}
 
   return {
-    title: 'SnapLink Digital vCard',
+    title: 'SnapLinks Digital vCard',
     description: 'View my 3D Digital vCard'
   };
 }

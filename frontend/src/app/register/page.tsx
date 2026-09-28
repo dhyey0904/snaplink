@@ -187,7 +187,7 @@ export default function Register() {
       {/* RIGHT SIDE - Branding & Visuals (Wow Moment) */}
       <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-[#0d47a1] via-[#1a73e8] to-purple-900 flex-col justify-between p-12 overflow-hidden">
         
-        {/* SnapLink Logo - Flex positioned to avoid overlap */}
+        {/* SnapLinks Logo - Flex positioned to avoid overlap */}
         <div className="z-20 w-full">
           <Link href="/" className="text-2xl font-extrabold tracking-tight text-white inline-block hover:scale-105 transition-transform origin-left drop-shadow-md">
             Snap<span className="text-blue-300">Link</span>

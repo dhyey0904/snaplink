@@ -74,7 +74,7 @@ def redirect_to_original(short_code: str, request: Request, background_tasks: Ba
         if not pwd or not verify_password(pwd, link.password_hash):
             if request.query_params.get("json") == "true":
                 raise HTTPException(status_code=401, detail="Password required or incorrect")
-            return RedirectResponse(url=f"https://snaplink.in/unlock/{short_code}")
+            return RedirectResponse(url=f"https://snaplinks.in/unlock/{short_code}")
             
     # Record the click in the background (Fast Redirect)
     if request.query_params.get("no_analytics") != "true":
