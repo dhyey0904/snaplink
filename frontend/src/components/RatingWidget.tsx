@@ -10,18 +10,21 @@ export default function RatingWidget() {
   const [submitted, setSubmitted] = useState(false);
   const [feedback, setFeedback] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (rating === 0) return;
     
+    // Optimistic UI update to prevent hanging while backend wakes up
+    setSubmitted(true);
+    setTimeout(() => setIsOpen(false), 3000);
+
     try {
       const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
-      await fetch(`${backendUrl}/api/rating`, {
+      // Fire and forget
+      fetch(`${backendUrl}/api/rating`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ stars: rating, feedback })
-      });
-      setSubmitted(true);
-      setTimeout(() => setIsOpen(false), 3000);
+      }).catch(e => console.error(e));
     } catch (e) {
       console.error(e);
     }
@@ -44,7 +47,7 @@ export default function RatingWidget() {
       <div className="fixed bottom-6 left-6 bg-white border border-gray-200 shadow-xl rounded-2xl p-4 z-[100] animate-in slide-in-from-bottom-5">
         <p className="text-green-600 font-bold flex items-center gap-2">
           <Star className="w-5 h-5 fill-green-600" />
-          Thank you!
+          Thank you for your feedback!
         </p>
       </div>
     );
@@ -79,7 +82,7 @@ export default function RatingWidget() {
 
       <textarea
         placeholder="Tell us what you think! (optional)"
-        className="w-full text-sm border border-gray-200 rounded-lg p-2 mb-3 focus:outline-none focus:ring-2 focus:ring-[#1a73e8]"
+        className="w-full text-sm text-gray-900 font-medium placeholder:text-gray-400 placeholder:font-normal border border-gray-200 rounded-lg p-3 mb-3 focus:outline-none focus:ring-2 focus:ring-[#1a73e8]"
         value={feedback}
         onChange={(e) => setFeedback(e.target.value)}
         rows={2}
