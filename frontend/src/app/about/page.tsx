@@ -91,9 +91,13 @@ export default function AboutPage() {
               pixel-perfect UI, and developer-first APIs. We are driven by the passion to build tools 
               that actually make your daily workflow easier.
             </p>
-            <a href="https://github.com/dhyey0904" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors">
+            <a href="https://github.com/dhyey0904" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors mb-12">
               Follow on GitHub
             </a>
+            
+            <div className="pt-10 border-t border-gray-800 text-sm text-gray-500 max-w-3xl mx-auto">
+              <p><strong>Legal Disclaimer:</strong> SnapLinks is currently operating as an independent, unregistered project and is not a registered corporate entity. The platform and all services are provided "as-is" without any warranties. The creators and developers hold no legal liability for data loss, service interruptions, or any damages arising from the use of this website. You use SnapLinks entirely at your own risk.</p>
+            </div>
           </div>
         </section>
 

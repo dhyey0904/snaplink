@@ -37,8 +37,10 @@ export default function TermsOfService() {
             If you do not agree to all the terms and conditions, you may not access the Services.</strong>
           </p>
 
-          <h2>1. Description of Services</h2>
-          <p>SnapLinks provides a unified digital workspace that allows users to create shortened URLs, host digital bio pages (vCards), and securely transfer large files. The Services are provided "as is," and we reserve the right to modify, suspend, or discontinue any feature at any time without prior notice.</p>
+          <h2>1. Description of Services & Legal Disclaimer</h2>
+          <p><strong>Disclaimer: SnapLinks is currently operating as an independent, unregistered project and is not a registered corporate entity.</strong></p>
+          <p>The platform and all associated services are provided strictly on an "AS IS" and "AS AVAILABLE" basis, without any warranties of any kind, either express or implied. By using this website, you explicitly agree that the creators and developers of SnapLinks hold absolutely no legal liability for any damages, data loss, business interruptions, or any other issues arising from your use of the service. You use SnapLinks entirely at your own risk, and agree to hold the creators harmless from any and all legal claims or lawsuits.</p>
+          <p>SnapLinks provides a unified digital workspace that allows users to create shortened URLs, host digital bio pages (vCards), and securely transfer large files. We reserve the right to modify, suspend, or discontinue any feature at any time without prior notice.</p>
 
           <h2>2. User Accounts & Security</h2>
           <p>To access certain features, you must create a SnapLinks account. You are strictly responsible for maintaining the confidentiality of your account credentials (including passwords) and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account. We are not liable for any loss or damage arising from your failure to protect your login information.</p>

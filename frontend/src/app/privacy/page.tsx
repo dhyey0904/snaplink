@@ -33,6 +33,10 @@ export default function PrivacyPolicy() {
             (www.snaplinks.in) and use our suite of services, including our URL shortener, ephemeral file sharing, and 3D digital vCards.
           </p>
 
+          <div className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-sm">
+            <strong>Legal Disclaimer:</strong> SnapLinks is currently operating as an independent, unregistered project and is not a registered corporate entity. By using this service, you acknowledge that the creators and developers assume no legal liability for any data breaches, loss of information, or damages. You use the platform entirely at your own risk.
+          </div>
+
           <h2>1. Information We Collect</h2>
           <p>We collect information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products, or otherwise when you contact us. The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use.</p>
           <ul>
