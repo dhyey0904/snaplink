@@ -75,7 +75,7 @@ export default function TermsOfService() {
 
           <h2>10. Contact Information</h2>
           <p>If you have any questions, concerns, or legal inquiries regarding these Terms of Service, please contact us at:</p>
-          <p className="font-bold text-gray-900">legal@snaplinks.in</p>
+          <p className="font-bold text-gray-900">hello.snaplinks@gmail.com</p>
         </div>
       </main>
 

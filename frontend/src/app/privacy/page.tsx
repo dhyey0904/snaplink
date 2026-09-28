@@ -83,7 +83,7 @@ export default function PrivacyPolicy() {
 
           <h2>7. Contact Us</h2>
           <p>If you have questions or comments about this Privacy Policy, you may email us at:</p>
-          <p className="font-bold text-gray-900">privacy@snaplinks.in</p>
+          <p className="font-bold text-gray-900">hello.snaplinks@gmail.com</p>
         </div>
       </main>
 
