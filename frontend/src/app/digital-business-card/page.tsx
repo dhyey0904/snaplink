@@ -49,7 +49,7 @@ export default function Page() {
         </>
       }
       faqs={[
-        { q: 'Do I need to buy a physical NFC card to use this?', a: 'No! SnapLinks digital business cards are entirely software-based. You can share them instantly via a URL link, a QR code, or by adding the link to your social media bios.' }, { q: 'Can people save my contact info to their phone?', a: 'Yes, you can easily link a downloadable vCard (.vcf) file to your SnapLinks profile, allowing visitors to save your phone number and email directly to their contacts app with one tap.' }, { q: 'Is the 3D effect supported on all phones?', a: 'The 3D interactive effect utilizes modern WebGL and CSS transforms, which are fully supported on virtually all modern iOS and Android smartphones.' }
+        { q: 'Is this a physical card that you will ship to me?', a: 'No, we do not sell physical cards! SnapLinks provides a 100% digital card that lives on your phone. To share your contact details, you simply show your QR code on your screen or send your profile link to the other person.' }, { q: 'Can people save my contact info to their phone?', a: 'Yes, you can easily link a downloadable vCard (.vcf) file to your SnapLinks profile, allowing visitors to save your phone number and email directly to their contacts app with one tap.' }, { q: 'Is the 3D effect supported on all phones?', a: 'The 3D interactive effect utilizes modern WebGL and CSS transforms, which are fully supported on virtually all modern iOS and Android smartphones.' }
       ]}
     />
   );
