@@ -14,7 +14,8 @@ const themes = {
       .text-[#1557b0] { color: #0f0 !important; }
       * { border-radius: 0 !important; box-shadow: none !important; }
     `,
-    particles: 'matrix'
+    particles: 'matrix',
+    isTemporary: false
   },
   Tuesday: {
     name: "Nature Tuesday",
@@ -25,14 +26,16 @@ const themes = {
       .bg-[#1557b0] { background-color: #16a34a !important; }
       .border-[#1557b0] { border-color: #16a34a !important; }
     `,
-    particles: 'leaves'
+    particles: 'leaves',
+    isTemporary: false
   },
   Wednesday: {
     name: "Mystery Wednesday",
     css: `
       body { filter: invert(0.8) hue-rotate(90deg); background-color: #111 !important; }
     `,
-    particles: 'none'
+    particles: 'none',
+    isTemporary: false
   },
   Thursday: {
     name: "Retro Thursday",
@@ -41,7 +44,8 @@ const themes = {
       .bg-white { background-color: #ccc !important; border: 4px solid #fff !important; }
       * { border-radius: 0 !important; }
     `,
-    particles: 'pixels'
+    particles: 'pixels',
+    isTemporary: false
   },
   Friday: {
     name: "Party Friday",
@@ -49,7 +53,8 @@ const themes = {
       body { background: linear-gradient(45deg, #ff00ff, #00ffff) !important; }
       .bg-white { background-color: rgba(255,255,255,0.8) !important; backdrop-filter: blur(10px); }
     `,
-    particles: 'confetti'
+    particles: 'confetti',
+    isTemporary: false
   },
   Saturday: {
     name: "Galaxy Saturday",
@@ -59,33 +64,46 @@ const themes = {
       .text-gray-900, .text-gray-800, .text-gray-700 { color: #fff !important; }
       .text-gray-600, .text-gray-500, .text-gray-400 { color: #ccc !important; }
     `,
-    particles: 'stars'
+    particles: 'stars',
+    isTemporary: false
   },
   Sunday: {
     name: "Minimal Sunday",
     css: `
       body { background-color: #fafafa !important; filter: grayscale(100%); }
     `,
-    particles: 'none'
+    particles: 'none',
+    isTemporary: false
   }
 };
 
-const specialEvents: Record<string, {name: string, css: string, particles: string}> = {
-  "halloween": { name: "Halloween", css: `body { background-color: #000 !important; } .bg-white { background-color: #111 !important; } .text-gray-900 { color: #f97316 !important; }`, particles: 'bats' },
-  "christmas": { name: "Christmas", css: `body { background-color: #fff !important; }`, particles: 'snow' },
-  "diwali": { name: "Happy Diwali", css: `body { background: linear-gradient(135deg, #1a0b2e, #4a1c40) !important; color: #fbbf24 !important; } .bg-white { background-color: rgba(0,0,0,0.5) !important; border-color: #fbbf24 !important; } .text-gray-900, .text-gray-800 { color: #fbbf24 !important; }`, particles: 'diwali' },
-  "navratri": { name: "Happy Navratri", css: `body { background: linear-gradient(45deg, #ec4899, #8b5cf6, #3b82f6) !important; } .bg-white { background-color: rgba(255,255,255,0.9) !important; border: 2px solid #ec4899 !important; }`, particles: 'navratri' },
-  "holi": { name: "Happy Holi", css: `body { background: linear-gradient(to right, #ff0080, #ff8c00, #40e0d0, #ff0080) !important;  } .bg-white { background-color: rgba(255,255,255,0.85) !important; border-radius: 40px !important; }`, particles: 'holi' },
-  "pongal": { name: "Happy Pongal", css: `body { background-color: #fef3c7 !important; } .bg-white { background-color: #fffbeb !important; border-color: #f59e0b !important; } .text-[#1557b0] { color: #16a34a !important; }`, particles: 'pongal' },
-  "eid": { name: "Eid Mubarak", css: `body { background-color: #022c22 !important; color: #fef08a !important; } .bg-white { background-color: #064e3b !important; border-color: #fef08a !important; } .text-gray-900, .text-gray-800 { color: #fef08a !important; } .text-[#1557b0] { color: #fef08a !important; }`, particles: 'eid' },
-  "newyear": { name: "Happy New Year", css: `body { background-color: #000 !important; color: #fbbf24 !important; } .bg-white { background-color: #111 !important; border: 1px solid #fbbf24 !important; } .text-gray-900, .text-gray-800 { color: #fbbf24 !important; }`, particles: 'newyear' },
-  "matrix": { name: "Enter the Matrix", css: `body { background-color: #000 !important; font-family: "Courier New", monospace !important; color: #0f0 !important; } .bg-white { background-color: #000 !important; border: 1px solid #0f0 !important; } .text-gray-900, .text-gray-800 { color: #0f0 !important; } * { border-radius: 0 !important; }`, particles: 'matrix' }
+// Festivals now ONLY trigger temporary particles and text, NO CSS overrides!
+const specialEvents: Record<string, {name: string, css: string, particles: string, isTemporary: boolean}> = {
+  "halloween": { name: "Halloween", css: ``, particles: 'halloween', isTemporary: true },
+  "christmas": { name: "Christmas", css: ``, particles: 'christmas', isTemporary: true },
+  "diwali": { name: "Happy Diwali", css: ``, particles: 'diwali', isTemporary: true },
+  "navratri": { name: "Happy Navratri", css: ``, particles: 'navratri', isTemporary: true },
+  "holi": { name: "Happy Holi", css: ``, particles: 'holi', isTemporary: true },
+  "pongal": { name: "Happy Pongal", css: ``, particles: 'pongal', isTemporary: true },
+  "eid": { name: "Eid Mubarak", css: ``, particles: 'eid', isTemporary: true },
+  "newyear": { name: "Happy New Year", css: ``, particles: 'newyear', isTemporary: true },
+  "matrix": { name: "Enter the Matrix", css: ``, particles: 'matrix_temp', isTemporary: true }
 };
 
 export default function DailyThemeEngine() {
   const [theme, setTheme] = useState<any>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [, setKeySequence] = useState("");
+
+  // Automatically clear temporary themes after 10 seconds
+  useEffect(() => {
+    if (theme && theme.isTemporary) {
+      const timer = setTimeout(() => {
+        setTheme(null);
+      }, 10000); // 10 seconds total
+      return () => clearTimeout(timer);
+    }
+  }, [theme]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -121,7 +139,12 @@ export default function DailyThemeEngine() {
 
         if (foundTheme) {
           setTheme(foundTheme);
-          setIsVisible(true);
+          // Only show the banner for permanent themes
+          if (!foundTheme.isTemporary) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+          }
         }
         
         return newSeq;
@@ -136,10 +159,11 @@ export default function DailyThemeEngine() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: theme.css }} />
+      {theme.css && <style dangerouslySetInnerHTML={{ __html: theme.css }} />}
+      
       <ThemeParticles type={theme.particles} />
       
-      {isVisible && (
+      {isVisible && !theme.isTemporary && (
         <div className="fixed bottom-4 left-4 right-4 sm:right-auto z-[9999] bg-white text-gray-900 px-4 py-3 rounded-2xl shadow-2xl border border-gray-200 flex flex-col gap-2 sm:max-w-sm animate-fade-in-up">
           <div className="flex items-center justify-between gap-4">
             <span className="font-bold text-sm">✨ Secret Theme Unlocked: {theme.name}</span>

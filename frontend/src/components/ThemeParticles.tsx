@@ -1,8 +1,18 @@
 "use client";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function ThemeParticles({ type }: { type: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [showText, setShowText] = useState(true);
+
+  // Text fades out after 5 seconds
+  useEffect(() => {
+    setShowText(true);
+    const timer = setTimeout(() => {
+      setShowText(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [type]);
 
   useEffect(() => {
     if (!canvasRef.current || type === 'none') return;
@@ -23,7 +33,9 @@ export default function ThemeParticles({ type }: { type: string }) {
       'pongal': ['🌾', '🌞', '🥥', '🍯'],
       'eid': ['🌙', '🌟', '✨', '🕌'],
       'christmas': ['❄️', '🎄', '🎁', '⛄'],
-      'newyear': ['🎆', '🥂', '🎉', '🎊']
+      'newyear': ['🎆', '🥂', '🎉', '🎊'],
+      'halloween': ['🎃', '🦇', '👻', '🕷️'],
+      'matrix_temp': ['0', '1']
     };
 
     if (type === 'stars') {
@@ -73,6 +85,7 @@ export default function ThemeParticles({ type }: { type: string }) {
           ctx.translate(p.x, p.y);
           ctx.rotate((p.angle * Math.PI) / 180);
           ctx.font = `${p.size}px Arial`;
+          ctx.fillStyle = type === 'matrix_temp' ? '#16a34a' : '#000';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
           ctx.fillText(p.symbol, 0, 0);
@@ -107,15 +120,17 @@ export default function ThemeParticles({ type }: { type: string }) {
         className="fixed inset-0 pointer-events-none z-[999]" 
         aria-hidden="true" 
       />
-      <div className="fixed inset-0 pointer-events-none flex items-center justify-center opacity-[0.03] z-[-2] overflow-hidden">
-        <h1 className="text-[12vw] font-black whitespace-nowrap text-center leading-none">
-          {type === 'diwali' ? 'HAPPY DIWALI' :
-           type === 'holi' ? 'HAPPY HOLI' :
-           type === 'navratri' ? 'HAPPY NAVRATRI' :
-           type === 'pongal' ? 'HAPPY PONGAL' :
-           type === 'eid' ? 'EID MUBARAK' :
-           type === 'christmas' ? 'MERRY CHRISTMAS' :
-           type === 'newyear' ? 'HAPPY NEW YEAR' : ''}
+      <div className={`fixed inset-0 pointer-events-none flex items-center justify-center z-[998] overflow-hidden transition-all duration-1000 ${showText ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}>
+        <h1 className="text-[10vw] font-black whitespace-nowrap text-center leading-none text-transparent bg-clip-text bg-gradient-to-br from-blue-600 via-purple-600 to-red-600 drop-shadow-2xl">
+          {type === 'diwali' ? 'HAPPY DIWALI!' :
+           type === 'holi' ? 'HAPPY HOLI!' :
+           type === 'navratri' ? 'HAPPY NAVRATRI!' :
+           type === 'pongal' ? 'HAPPY PONGAL!' :
+           type === 'eid' ? 'EID MUBARAK!' :
+           type === 'christmas' ? 'MERRY CHRISTMAS!' :
+           type === 'newyear' ? 'HAPPY NEW YEAR!' :
+           type === 'halloween' ? 'HAPPY HALLOWEEN!' :
+           type === 'matrix_temp' ? 'ENTER THE MATRIX' : ''}
         </h1>
       </div>
     </>
