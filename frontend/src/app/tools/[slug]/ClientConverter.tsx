@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
+import AdSidebar from '@/components/AdSidebar';
+import AdBanner from '@/components/AdBanner';
 
 interface ClientConverterProps {
   from: string;
@@ -100,12 +103,15 @@ export default function ClientConverter({ from, to, slug }: ClientConverterProps
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans pb-20">
-      <header className="bg-white shadow-sm py-6 px-8 flex justify-between items-center">
-        <Link href="/tools" className="font-black text-2xl tracking-tighter text-[#1a73e8]">SnapTools</Link>
-        <span className="bg-purple-100 text-purple-700 font-bold px-3 py-1 rounded-full text-xs">Free Tool</span>
-      </header>
+      <Navbar />
       
-      <main className="max-w-3xl mx-auto py-16 px-4">
+      <div className="max-w-7xl mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+        {/* Left Ad */}
+        <div className="hidden xl:block w-[300px] shrink-0">
+          <AdSidebar />
+        </div>
+        
+        <main className="flex-grow max-w-3xl w-full">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">{fromUpper} to {toUpper}</h1>
           <p className="text-lg text-gray-600">Convert {fromUpper} images to {toUpper} format instantly and securely in your browser.</p>
@@ -182,7 +188,15 @@ export default function ClientConverter({ from, to, slug }: ClientConverterProps
             )}
           </div>
         </div>
-      </main>
+        
+        <AdBanner />
+        </main>
+        
+        {/* Right Ad */}
+        <div className="hidden xl:block w-[300px] shrink-0">
+          <AdSidebar />
+        </div>
+      </div>
     </div>
   );
 }
