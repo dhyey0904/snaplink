@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import * as htmlToImage from 'html-to-image';
 import confetti from 'canvas-confetti';
 import Link from 'next/link';
 
@@ -37,8 +36,7 @@ export default function SnapPlayApp() {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(0);
   const timerRef = useRef<any>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-
+  
   // --- GAME SPECIFIC STATES ---
   // Reflex & Precision
   const [targetPos, setTargetPos] = useState({ top: 50, left: 50 });
@@ -245,17 +243,7 @@ export default function SnapPlayApp() {
     }
   };
 
-  const downloadCard = async () => {
-    if (!cardRef.current) return;
-    try {
-      const dataUrl = await htmlToImage.toPng(cardRef.current, { quality: 1, pixelRatio: 3 });
-      const link = document.createElement('a');
-      link.download = `snapplay-${dailyGame.id}.png`;
-      link.href = dataUrl;
-      link.click();
-    } catch (err) {}
-  };
-
+  
   return (
     <div className="flex-1 flex flex-col w-full h-full relative z-10 pt-4 pb-8">
       
@@ -424,67 +412,26 @@ export default function SnapPlayApp() {
         {gameState === 'result' && (
           <motion.div 
             key="result"
-            initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-            className="flex-1 flex flex-col items-center justify-center w-full"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            className="flex-1 flex flex-col items-center justify-center text-center"
           >
-            <div 
-              ref={cardRef}
-              className="w-[320px] h-[568px] shrink-0 mx-auto rounded-[2rem] bg-[#0a0a0a] shadow-2xl relative overflow-hidden border border-white/20 flex flex-col justify-between p-6"
-            >
-              <div className="absolute inset-0 z-0">
-                <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] bg-blue-600/20 rounded-full blur-[60px]"></div>
-                <div className="absolute bottom-[-20%] left-[-20%] w-[80%] h-[80%] bg-purple-600/20 rounded-full blur-[60px]"></div>
-              </div>
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex items-center gap-2 mb-8">
-                  <span className="text-xl">🎮</span>
-                  <span className="text-[10px] font-black tracking-widest uppercase">SnapPlay</span>
-                </div>
-                
-                <div>
-                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-bold mb-1">Daily Challenge</div>
-                  <h2 className="text-3xl font-black uppercase tracking-tight">{dailyGame.name}</h2>
-                </div>
-                
-                <div className="my-auto text-center py-8">
-                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-bold mb-2">Final Score</div>
-                  <div className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400">{score}</div>
-                </div>
-                
-                <div className="space-y-3 bg-white/5 p-4 rounded-2xl backdrop-blur-md border border-white/10">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-white/50 uppercase font-bold tracking-wider">Avg Reaction</span>
-                    <span className="text-white font-mono">{hits > 0 ? (reactionTotal / hits / 1000).toFixed(2) : '0.00'}s</span>
-                  </div>
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-white/50 uppercase font-bold tracking-wider">World Rank</span>
-                    <span className="text-white font-mono">#{Math.floor(Math.random() * 500) + 1}</span>
-                  </div>
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-white/50 uppercase font-bold tracking-wider">Streak</span>
-                    <span className="text-orange-400 font-bold font-mono">🔥 {streak} Days</span>
-                  </div>
-                </div>
-
-                <div className="mt-6 flex justify-between items-end">
-                  <div className="text-xs font-bold">Can you beat me?</div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold opacity-50">snaplinks.in</div>
-                </div>
+            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/50 mb-8">
+              Daily Challenge
+            </div>
+            
+            <h1 className="text-5xl font-black mb-4 tracking-tighter text-white">{dailyGame.name}</h1>
+            <p className="text-gray-400 mb-12 text-lg">Challenge Complete!</p>
+            
+            <div className="flex gap-6 mb-12">
+              <div className="text-center">
+                <span className="block text-6xl font-black text-white">{score}</span>
+                <span className="text-xs uppercase tracking-wider text-gray-500 font-bold">Final Score</span>
               </div>
             </div>
 
-            <div className="w-full max-w-[320px] flex gap-3 mt-6">
-              <button 
-                onClick={downloadCard}
-                className="flex-1 py-4 bg-white text-black font-bold rounded-xl shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
-              >
-                Share to Story
-              </button>
-            </div>
             <button 
               onClick={() => setGameState('menu')}
-              className="mt-4 text-white/50 text-sm font-medium hover:text-white transition-colors"
+              className="w-full max-w-[320px] py-4 bg-white text-black font-black text-lg rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-[0_0_40px_rgba(255,255,255,0.2)]"
             >
               Play Again
             </button>
