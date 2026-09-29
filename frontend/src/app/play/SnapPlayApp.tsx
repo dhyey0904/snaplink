@@ -6,7 +6,7 @@ import * as htmlToImage from 'html-to-image';
 import confetti from 'canvas-confetti';
 import Link from 'next/link';
 
-const WEEKLY_GAMES = [
+const LIBRARY_GAMES = [
   { id: 'math', day: 0, name: 'Speed Math', desc: 'Solve as many simple math equations as you can in 20 seconds!', duration: 20 },
   { id: 'reflex', day: 1, name: 'Reflex Rush', desc: 'Tap the large targets as fast as possible!', duration: 15 },
   { id: 'precision', day: 2, name: 'Precision Click', desc: 'Hit the tiny moving circles!', duration: 15 },
@@ -17,8 +17,15 @@ const WEEKLY_GAMES = [
 ];
 
 function getDailyGame() {
-  const day = new Date().getDay(); // 0 = Sunday, 1 = Monday
-  return WEEKLY_GAMES.find(g => g.day === day) || WEEKLY_GAMES[1];
+  // Use the date string to generate a daily hash so the sequence is completely random over 365 days
+  // This prevents "Mondays always being the same game"
+  const dateStr = new Date().toISOString().split('T')[0];
+  let hash = 0;
+  for (let i = 0; i < dateStr.length; i++) {
+    hash = Math.imul(31, hash) + dateStr.charCodeAt(i) | 0;
+  }
+  const gameIndex = Math.abs(hash) % LIBRARY_GAMES.length;
+  return LIBRARY_GAMES[gameIndex];
 }
 
 export default function SnapPlayApp() {
