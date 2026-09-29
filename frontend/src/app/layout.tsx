@@ -4,7 +4,6 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import "./globals.css";
-import SnowEffect from "@/components/SnowEffect";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import MaintenanceModal from "@/components/MaintenanceModal";
@@ -168,8 +167,7 @@ export default function RootLayout({
         <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3444542685708016" crossOrigin="anonymous" strategy="lazyOnload" />
       </head>
       <body className="min-h-full flex flex-col">
-                <SnowEffect />
-        <MaintenanceModal />
+              <MaintenanceModal />
         <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleusercontent.com"}>
           <Script
           id="schema-org"
