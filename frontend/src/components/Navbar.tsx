@@ -82,6 +82,8 @@ export default function Navbar() {
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle mobile menu"
+                aria-expanded={isMobileMenuOpen}
+                aria-label="Toggle mobile menu"
                 className="text-gray-500 hover:text-gray-700 p-2 focus:outline-none"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
