@@ -6,21 +6,19 @@ import * as htmlToImage from 'html-to-image';
 import confetti from 'canvas-confetti';
 import Link from 'next/link';
 
-// --- GAMES ---
-const GAMES = [
-  { id: 'reflex', name: 'Reflex Rush', desc: 'Tap the targets as fast as possible before time runs out!', duration: 15 },
-  { id: 'precision', name: 'Precision Click', desc: 'Hit the tiny moving circles!', duration: 20 },
-  { id: 'memory', name: 'Memory Match', desc: 'Remember the pattern!', duration: 30 },
+const WEEKLY_GAMES = [
+  { id: 'math', day: 0, name: 'Speed Math', desc: 'Solve as many simple math equations as you can in 20 seconds!', duration: 20 },
+  { id: 'reflex', day: 1, name: 'Reflex Rush', desc: 'Tap the large targets as fast as possible!', duration: 15 },
+  { id: 'precision', day: 2, name: 'Precision Click', desc: 'Hit the tiny moving circles!', duration: 15 },
+  { id: 'memory', day: 3, name: 'Memory Match', desc: 'Remember the highlighted squares and click them!', duration: 20 },
+  { id: 'color', day: 4, name: 'Color Rush', desc: 'Find and click the slightly different colored square.', duration: 15 },
+  { id: 'emoji', day: 5, name: 'Find the Odd Emoji', desc: 'Spot the one emoji that doesn\'t belong.', duration: 15 },
+  { id: 'number', day: 6, name: 'Number Memory', desc: 'Memorize the number, then type it back.', duration: 20 },
 ];
 
 function getDailyGame() {
-  const dateStr = new Date().toISOString().split('T')[0];
-  let hash = 0;
-  for (let i = 0; i < dateStr.length; i++) hash = Math.imul(31, hash) + dateStr.charCodeAt(i) | 0;
-  
-  // Pick game deterministically
-  const gameIndex = Math.abs(hash) % GAMES.length;
-  return { ...GAMES[gameIndex], seed: hash };
+  const day = new Date().getDay(); // 0 = Sunday, 1 = Monday
+  return WEEKLY_GAMES.find(g => g.day === day) || WEEKLY_GAMES[1];
 }
 
 export default function SnapPlayApp() {
@@ -28,25 +26,34 @@ export default function SnapPlayApp() {
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'result'>('menu');
   const [dailyGame, setDailyGame] = useState<any>(null);
   
-  // Stats
   const [streak, setStreak] = useState(0);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(0);
-  
-  // Game 1: Reflex Rush state
-  const [targetPos, setTargetPos] = useState({ top: 50, left: 50 });
-  const [reactionTotal, setReactionTotal] = useState(0);
-  const [hits, setHits] = useState(0);
-  const lastTargetTime = useRef(0);
   const timerRef = useRef<any>(null);
-
   const cardRef = useRef<HTMLDivElement>(null);
+
+  // --- GAME SPECIFIC STATES ---
+  // Reflex & Precision
+  const [targetPos, setTargetPos] = useState({ top: 50, left: 50 });
+  const lastTargetTime = useRef(0);
+  const [hits, setHits] = useState(0);
+  const [reactionTotal, setReactionTotal] = useState(0);
+
+  // Math
+  const [mathQ, setMathQ] = useState({ q: '', options: [] as number[], ans: 0 });
+
+  // Grid Games (Color, Emoji, Memory)
+  const [gridData, setGridData] = useState<any>(null);
+  const [memoryPhase, setMemoryPhase] = useState<'showing' | 'guessing'>('showing');
+  const [userSelection, setUserSelection] = useState<number[]>([]);
+
+  // Number
+  const [numTarget, setNumTarget] = useState('');
+  const [numInput, setNumInput] = useState('');
 
   useEffect(() => {
     setIsMounted(true);
     setDailyGame(getDailyGame());
-    
-    // Load streak
     const s = localStorage.getItem('snapplay_streak');
     if (s) setStreak(parseInt(s));
   }, []);
@@ -59,8 +66,21 @@ export default function SnapPlayApp() {
     setReactionTotal(0);
     setTimeLeft(dailyGame.duration);
     setGameState('playing');
-    lastTargetTime.current = Date.now();
-    moveTarget();
+    
+    // Initialize specific game
+    if (dailyGame.id === 'reflex' || dailyGame.id === 'precision') {
+      moveTarget();
+    } else if (dailyGame.id === 'math') {
+      generateMath();
+    } else if (dailyGame.id === 'color') {
+      generateColor();
+    } else if (dailyGame.id === 'emoji') {
+      generateEmoji();
+    } else if (dailyGame.id === 'number') {
+      generateNumber(3);
+    } else if (dailyGame.id === 'memory') {
+      generateMemory(3);
+    }
 
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => {
@@ -73,33 +93,10 @@ export default function SnapPlayApp() {
     }, 1000);
   };
 
-  const moveTarget = () => {
-    setTargetPos({
-      top: 15 + Math.random() * 70,
-      left: 15 + Math.random() * 70
-    });
-    lastTargetTime.current = Date.now();
-  };
-
-  const hitTarget = () => {
-    const reaction = Date.now() - lastTargetTime.current;
-    setReactionTotal(prev => prev + reaction);
-    setHits(prev => prev + 1);
-    
-    // Calculate points (faster = more points)
-    let points = 100;
-    if (reaction < 300) points = 500;
-    else if (reaction < 500) points = 300;
-    
-    setScore(prev => prev + points);
-    moveTarget();
-  };
-
   const endGame = () => {
     clearInterval(timerRef.current);
     setGameState('result');
     
-    // Update streak if first win today (simplified for prototype)
     const todayStr = new Date().toISOString().split('T')[0];
     const lastPlayed = localStorage.getItem('snapplay_last');
     if (lastPlayed !== todayStr) {
@@ -110,8 +107,135 @@ export default function SnapPlayApp() {
       });
       localStorage.setItem('snapplay_last', todayStr);
     }
-
     confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+  };
+
+  // --- GAME LOGIC ---
+
+  const moveTarget = () => {
+    setTargetPos({ top: 10 + Math.random() * 80, left: 10 + Math.random() * 80 });
+    lastTargetTime.current = Date.now();
+  };
+
+  const hitTarget = () => {
+    const reaction = Date.now() - lastTargetTime.current;
+    setReactionTotal(prev => prev + reaction);
+    setHits(prev => prev + 1);
+    
+    let points = 100;
+    if (reaction < 400) points = 300;
+    if (reaction < 250) points = 500;
+    
+    setScore(prev => prev + points);
+    moveTarget();
+  };
+
+  const generateMath = () => {
+    const a = Math.floor(Math.random() * 20) + 1;
+    const b = Math.floor(Math.random() * 20) + 1;
+    const ans = a + b;
+    const ops = [ans, ans + 1, ans - 2].sort(() => Math.random() - 0.5);
+    setMathQ({ q: `${a} + ${b} = ?`, options: ops, ans });
+    lastTargetTime.current = Date.now();
+  };
+
+  const answerMath = (val: number) => {
+    if (val === mathQ.ans) {
+      const reaction = Date.now() - lastTargetTime.current;
+      setReactionTotal(prev => prev + reaction);
+      setHits(prev => prev + 1);
+      setScore(prev => prev + 300);
+      generateMath();
+    } else {
+      setScore(prev => Math.max(0, prev - 100)); // Penalty
+    }
+  };
+
+  const generateColor = () => {
+    const hue = Math.floor(Math.random() * 360);
+    const target = Math.floor(Math.random() * 9);
+    setGridData({ hue, target });
+    lastTargetTime.current = Date.now();
+  };
+
+  const answerGrid = (idx: number, type: string) => {
+    if (idx === gridData.target) {
+      const reaction = Date.now() - lastTargetTime.current;
+      setReactionTotal(prev => prev + reaction);
+      setHits(prev => prev + 1);
+      setScore(prev => prev + 300);
+      if (type === 'color') generateColor();
+      if (type === 'emoji') generateEmoji();
+    } else {
+      setScore(prev => Math.max(0, prev - 100));
+    }
+  };
+
+  const generateEmoji = () => {
+    const pairs = [
+      ['🍎', '🍅'], ['😀', '😃'], ['🐶', '🦊'], ['🚗', '🚕'], ['🌟', '⭐']
+    ];
+    const pair = pairs[Math.floor(Math.random() * pairs.length)];
+    const target = Math.floor(Math.random() * 16);
+    setGridData({ base: pair[0], odd: pair[1], target });
+    lastTargetTime.current = Date.now();
+  };
+
+  const generateNumber = (len: number) => {
+    let n = '';
+    for(let i=0; i<len; i++) n += Math.floor(Math.random() * 10);
+    setNumTarget(n);
+    setNumInput('');
+    setMemoryPhase('showing');
+    setTimeout(() => {
+      setMemoryPhase('guessing');
+      lastTargetTime.current = Date.now();
+    }, 1500);
+  };
+
+  const submitNumber = () => {
+    if (numInput === numTarget) {
+      setScore(prev => prev + 500);
+      generateNumber(numTarget.length + 1);
+    } else {
+      setScore(prev => Math.max(0, prev - 200));
+      generateNumber(Math.max(3, numTarget.length - 1));
+    }
+  };
+
+  const generateMemory = (count: number) => {
+    const active: number[] = [];
+    while (active.length < count) {
+      const r = Math.floor(Math.random() * 16);
+      if (!active.includes(r)) active.push(r);
+    }
+    setGridData({ active, count });
+    setUserSelection([]);
+    setMemoryPhase('showing');
+    setTimeout(() => {
+      setMemoryPhase('guessing');
+      lastTargetTime.current = Date.now();
+    }, 1500);
+  };
+
+  const answerMemory = (idx: number) => {
+    if (memoryPhase !== 'guessing') return;
+    if (!gridData.active.includes(idx)) {
+      // Wrong
+      setScore(prev => Math.max(0, prev - 200));
+      generateMemory(Math.max(3, gridData.count - 1));
+      return;
+    }
+    
+    if (!userSelection.includes(idx)) {
+      const newSel = [...userSelection, idx];
+      setUserSelection(newSel);
+      if (newSel.length === gridData.count) {
+        // Success
+        setScore(prev => prev + 500);
+        setTimeout(() => generateMemory(gridData.count + 1), 300);
+      }
+    }
   };
 
   const downloadCard = async () => {
@@ -119,12 +243,10 @@ export default function SnapPlayApp() {
     try {
       const dataUrl = await htmlToImage.toPng(cardRef.current, { quality: 1, pixelRatio: 3 });
       const link = document.createElement('a');
-      link.download = `snapplay-score.png`;
+      link.download = `snapplay-${dailyGame.id}.png`;
       link.href = dataUrl;
       link.click();
-    } catch (err) {
-      console.error('Failed to export', err);
-    }
+    } catch (err) {}
   };
 
   return (
@@ -147,27 +269,20 @@ export default function SnapPlayApp() {
         {gameState === 'menu' && (
           <motion.div 
             key="menu"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             className="flex-1 flex flex-col items-center justify-center text-center"
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/50 mb-8">
               Daily Challenge
             </div>
             
-            <h1 className="text-5xl font-black mb-4 tracking-tighter">{dailyGame.name}</h1>
+            <h1 className="text-5xl font-black mb-4 tracking-tighter text-white">{dailyGame.name}</h1>
             <p className="text-gray-400 mb-12 text-lg">{dailyGame.desc}</p>
             
             <div className="flex gap-6 mb-12">
               <div className="text-center">
                 <span className="block text-2xl font-black text-white">{dailyGame.duration}s</span>
-                <span className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Time</span>
-              </div>
-              <div className="w-px h-10 bg-white/10"></div>
-              <div className="text-center">
-                <span className="block text-2xl font-black text-white">Global</span>
-                <span className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Leaderboard</span>
+                <span className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Time Limit</span>
               </div>
             </div>
 
@@ -184,37 +299,116 @@ export default function SnapPlayApp() {
         {gameState === 'playing' && (
           <motion.div 
             key="playing"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="flex-1 relative w-full h-full flex flex-col bg-white/5 rounded-3xl border border-white/10 overflow-hidden backdrop-blur-md"
           >
-            {/* HUD */}
             <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
-              <div className="text-2xl font-black">{score}</div>
+              <div className="text-2xl font-black text-white">{score}</div>
               <div className={`text-2xl font-black ${timeLeft <= 5 ? 'text-red-500 animate-pulse' : 'text-white'}`}>
                 00:{timeLeft.toString().padStart(2, '0')}
               </div>
             </div>
 
-            {/* Game Area (Reflex Rush implementation) */}
-            <div className="flex-1 relative cursor-crosshair">
-              {dailyGame.id === 'reflex' ? (
+            <div className="flex-1 relative cursor-crosshair flex items-center justify-center p-4 pt-16">
+              
+              {/* Reflex & Precision */}
+              {(dailyGame.id === 'reflex' || dailyGame.id === 'precision') && (
                 <button
                   onPointerDown={hitTarget}
-                  className="absolute w-16 h-16 bg-blue-500 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.8)] border-4 border-white active:bg-white transition-colors"
+                  className={`absolute bg-blue-500 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.8)] border-4 border-white active:bg-white transition-colors ${dailyGame.id === 'precision' ? 'w-8 h-8' : 'w-16 h-16'}`}
                   style={{ top: `${targetPos.top}%`, left: `${targetPos.left}%`, transform: 'translate(-50%, -50%)' }}
                 />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center p-8 text-center text-gray-500">
-                  <p>(Prototype: Reflex Rush is playable today. Check back tomorrow for other games!)</p>
-                  <button
-                  onPointerDown={hitTarget}
-                  className="absolute w-16 h-16 bg-blue-500 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.8)] border-4 border-white active:bg-white transition-colors"
-                  style={{ top: `${targetPos.top}%`, left: `${targetPos.left}%`, transform: 'translate(-50%, -50%)' }}
-                />
+              )}
+
+              {/* Speed Math */}
+              {dailyGame.id === 'math' && (
+                <div className="flex flex-col items-center">
+                  <div className="text-5xl font-black mb-12">{mathQ.q}</div>
+                  <div className="flex gap-4">
+                    {mathQ.options.map((opt, i) => (
+                      <button key={i} onClick={() => answerMath(opt)} className="w-20 h-20 bg-white/10 hover:bg-white/20 rounded-2xl text-3xl font-bold transition-colors">
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
+
+              {/* Color Rush */}
+              {dailyGame.id === 'color' && gridData && (
+                <div className="grid grid-cols-3 gap-2 w-full max-w-[280px] aspect-square">
+                  {Array.from({length: 9}).map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => answerGrid(i, 'color')}
+                      className="rounded-xl w-full h-full shadow-lg"
+                      style={{ 
+                        backgroundColor: `hsl(${gridData.hue}, 80%, ${i === gridData.target ? '65%' : '50%'})` 
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {/* Emoji Logic */}
+              {dailyGame.id === 'emoji' && gridData && (
+                <div className="grid grid-cols-4 gap-2 w-full max-w-[300px] aspect-square">
+                  {Array.from({length: 16}).map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => answerGrid(i, 'emoji')}
+                      className="rounded-xl w-full h-full bg-white/10 flex items-center justify-center text-3xl hover:bg-white/20 transition-colors"
+                    >
+                      {i === gridData.target ? gridData.odd : gridData.base}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Number Memory */}
+              {dailyGame.id === 'number' && (
+                <div className="flex flex-col items-center w-full max-w-[300px]">
+                  {memoryPhase === 'showing' ? (
+                    <div className="text-6xl font-black tracking-widest">{numTarget}</div>
+                  ) : (
+                    <>
+                      <input 
+                        type="number" 
+                        autoFocus
+                        value={numInput}
+                        onChange={(e) => setNumInput(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && submitNumber()}
+                        className="w-full bg-black/50 text-center text-4xl font-bold py-4 rounded-2xl border-2 border-white/20 text-white outline-none focus:border-blue-500 mb-4"
+                      />
+                      <button onClick={submitNumber} className="w-full py-3 bg-blue-600 text-white font-bold rounded-xl">Submit</button>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {/* Memory Match */}
+              {dailyGame.id === 'memory' && gridData && (
+                <div className="grid grid-cols-4 gap-2 w-full max-w-[300px] aspect-square">
+                  {Array.from({length: 16}).map((_, i) => {
+                    const isActive = gridData.active.includes(i);
+                    const isSelected = userSelection.includes(i);
+                    const showActive = memoryPhase === 'showing' && isActive;
+                    
+                    let bg = 'bg-white/10';
+                    if (showActive) bg = 'bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]';
+                    else if (memoryPhase === 'guessing' && isSelected) bg = 'bg-green-500';
+
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => answerMemory(i)}
+                        className={`rounded-xl w-full h-full transition-colors duration-300 ${bg}`}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+
             </div>
           </motion.div>
         )}
@@ -223,11 +417,9 @@ export default function SnapPlayApp() {
         {gameState === 'result' && (
           <motion.div 
             key="result"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="flex-1 flex flex-col items-center justify-center"
+            initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+            className="flex-1 flex flex-col items-center justify-center w-full"
           >
-            {/* Shareable Card */}
             <div 
               ref={cardRef}
               className="w-[320px] h-[568px] shrink-0 mx-auto rounded-[2rem] bg-[#0a0a0a] shadow-2xl relative overflow-hidden border border-white/20 flex flex-col justify-between p-6"
@@ -275,7 +467,7 @@ export default function SnapPlayApp() {
               </div>
             </div>
 
-            <div className="w-full flex gap-3 mt-6">
+            <div className="w-full max-w-[320px] flex gap-3 mt-6">
               <button 
                 onClick={downloadCard}
                 className="flex-1 py-4 bg-white text-black font-bold rounded-xl shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
