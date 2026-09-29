@@ -41,7 +41,7 @@ export default function FileDropzoneMock() {
           <div className="w-full bg-gray-100 rounded-full h-2 mb-4">
             <div className="bg-blue-600 h-2 rounded-full w-[68%] animate-pulse"></div>
           </div>
-          <p className="text-xs text-gray-400">AES-256 Military Grade</p>
+          <p className="text-xs text-gray-500">AES-256 Military Grade</p>
         </div>
       )}
 

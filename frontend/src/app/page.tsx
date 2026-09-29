@@ -69,7 +69,7 @@ export default function Home() {
                       </div>
                       <div>
                         <div className="text-white font-bold text-xl mb-1">Dhyey Raja</div>
-                        <div className="text-gray-400 text-base sm:text-sm">CEO, SnapLinks</div>
+                        <div className="text-gray-500 text-base sm:text-sm">CEO, SnapLinks</div>
                       </div>
                     </div>
 
@@ -195,7 +195,7 @@ export default function Home() {
                 <div className="w-full h-32 border border-gray-200 rounded-xl bg-white shadow-sm flex flex-col justify-center px-6 group-hover:border-yellow-300 transition-colors">
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
-                      <span className="text-base sm:text-sm text-gray-400 line-through">snaplink.com/very-long-ugly-url-1234</span>
+                      <span className="text-base sm:text-sm text-gray-500 line-through">snaplink.com/very-long-ugly-url-1234</span>
                       <span className="text-lg font-bold text-[#1a73e8]">snap.link/launch</span>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500">
@@ -290,7 +290,7 @@ export default function Home() {
                   For Developers
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-white">Developer API Access</h2>
-                <p className="text-gray-400 text-lg max-w-2xl">
+                <p className="text-gray-500 text-lg max-w-2xl">
                   Integrate SnapLinks' powerful URL shortening and file sharing capabilities directly into your own applications. Generate links programmatically at scale.
                 </p>
               </div>
@@ -298,7 +298,7 @@ export default function Home() {
               <div className="w-full md:w-auto relative z-10 flex flex-col items-center md:items-end bg-gray-800/50 p-6 sm:p-8 rounded-3xl border border-gray-700/50">
                 <div className="flex items-baseline gap-1 mb-1">
                   <span className="text-4xl font-black text-white">₹199</span>
-                  <span className="text-gray-400 font-medium">/ month</span>
+                  <span className="text-gray-500 font-medium">/ month</span>
                 </div>
                 <p className="text-gray-500 text-base sm:text-sm mb-6 font-medium">No hidden fees. Cancel anytime.</p>
                 
