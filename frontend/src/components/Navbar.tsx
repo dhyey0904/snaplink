@@ -29,7 +29,16 @@ export default function Navbar() {
   };
 
   return (
-<nav className="w-full border-b border-[#dadce0] bg-white/80 backdrop-blur-md sticky top-0 z-50">
+<>
+      {/* Global SnapPlay Announcement Banner */}
+      <Link href="/play" className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-center py-2.5 px-4 text-sm font-bold hover:brightness-110 transition-all cursor-pointer relative overflow-hidden group z-[60]">
+        <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
+        <span className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
+          <span>🎮 <span className="underline decoration-white/40 underline-offset-2">New: Play the Daily Challenge on SnapPlay</span></span>
+          <span className="bg-white text-indigo-700 px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider sm:ml-2 shadow-sm inline-block mt-1 sm:mt-0 group-hover:scale-105 transition-transform">Play Now &rarr;</span>
+        </span>
+      </Link>
+      <nav className="w-full border-b border-[#dadce0] bg-white/80 backdrop-blur-md sticky top-0 z-50">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex sm:flex-row justify-between sm:h-16 items-center py-3 sm:py-0">
           
@@ -341,5 +350,6 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+    </>
   );
 }
