@@ -57,7 +57,7 @@ export default function Home() {
                     Use Tools Instantly
                   </Link>
                   <Link href="/register" className="px-6 py-3 rounded-xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-colors text-base">
-                    Get Started for Free
+                    Sign up
                   </Link>
                 </div>
                 <p className="text-blue-200 text-sm mt-3 text-center lg:text-left font-medium animate-fade-in-up delay-400">

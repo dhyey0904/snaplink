@@ -13,10 +13,10 @@ export default function Footer() {
           <div>
             <h3 className="text-gray-900 font-bold mb-4 tracking-wide text-sm">PRODUCT</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/" className="hover:text-[#1a73e8] transition-colors">Homepage</Link></li>
-              <li><Link href="/pricing" className="hover:text-[#1a73e8] transition-colors">View Pricing</Link></li>
-              <li><Link href="/tools" className="hover:text-[#1a73e8] transition-colors">All Tools</Link></li>
-              <li><Link href="/help" className="hover:text-[#1a73e8] transition-colors">Help & FAQ</Link></li>
+              <li><Link href="/" className="hover:text-[#1a73e8] transition-colors">Home</Link></li>
+              <li><Link href="/pricing" className="hover:text-[#1a73e8] transition-colors">Pricing</Link></li>
+              <li><Link href="/tools" className="hover:text-[#1a73e8] transition-colors">Tools</Link></li>
+              <li><Link href="/help" className="hover:text-[#1a73e8] transition-colors">FAQ</Link></li>
               <li><Link href="/dashboard/api" className="hover:text-[#1a73e8] transition-colors">Developers API</Link></li>
             </ul>
           </div>
@@ -29,7 +29,7 @@ export default function Footer() {
               <li><Link href="/linktree-alternative" className="hover:text-[#1a73e8] transition-colors">Link-in-Bio</Link></li>
               <li><Link href="/file-sharing" className="hover:text-[#1a73e8] transition-colors">File Sharing</Link></li>
               <li><Link href="/digital-business-card" className="hover:text-[#1a73e8] transition-colors">3D vCard</Link></li>
-              <li><Link href="/blog" className="hover:text-[#1a73e8] transition-colors">Read our Blog</Link></li>
+              <li><Link href="/blog" className="hover:text-[#1a73e8] transition-colors">Blog</Link></li>
             </ul>
           </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
           <div>
             <h3 className="text-gray-900 font-bold mb-4 tracking-wide text-sm">LEGAL</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/security" className="hover:text-[#1a73e8] transition-colors">Security Center</Link></li>
+              <li><Link href="/security" className="hover:text-[#1a73e8] transition-colors">Security</Link></li>
               <li><Link href="/privacy" className="hover:text-[#1a73e8] transition-colors">Privacy policy</Link></li>
               <li><Link href="/terms" className="hover:text-[#1a73e8] transition-colors">Terms & conditions</Link></li>
               <li><Link href="/report" className="hover:text-[#1a73e8] transition-colors">Report Abuse</Link></li>
@@ -48,7 +48,7 @@ export default function Footer() {
           <div>
             <h3 className="text-gray-900 font-bold mb-4 tracking-wide text-sm">COMPANY</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/about" className="hover:text-[#1a73e8] transition-colors">About SnapLinks</Link></li>
+              <li><Link href="/about" className="hover:text-[#1a73e8] transition-colors">About us</Link></li>
               <li><Link href="/contact" className="hover:text-[#1a73e8] transition-colors">Contact us</Link></li>
               <li>
                 <div className="inline-flex items-center gap-2 group cursor-pointer" title="All systems are operating normally">
