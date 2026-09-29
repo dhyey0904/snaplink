@@ -71,8 +71,15 @@ const themes = {
 };
 
 const specialEvents: Record<string, {name: string, css: string, particles: string}> = {
-  "10-31": { name: "Halloween", css: `body { background-color: #000 !important; } .bg-white { background-color: #111 !important; } .text-gray-900 { color: #f97316 !important; }`, particles: 'bats' },
-  "12-25": { name: "Christmas", css: `body { background-color: #fff !important; }`, particles: 'snow' }
+  "halloween": { name: "Halloween", css: `body { background-color: #000 !important; } .bg-white { background-color: #111 !important; } .text-gray-900 { color: #f97316 !important; }`, particles: 'bats' },
+  "christmas": { name: "Christmas", css: `body { background-color: #fff !important; }`, particles: 'snow' },
+  "diwali": { name: "Happy Diwali", css: `body { background: linear-gradient(135deg, #1a0b2e, #4a1c40) !important; color: #fbbf24 !important; } .bg-white { background-color: rgba(0,0,0,0.5) !important; border-color: #fbbf24 !important; } .text-gray-900, .text-gray-800 { color: #fbbf24 !important; }`, particles: 'stars' },
+  "navratri": { name: "Happy Navratri", css: `body { background: linear-gradient(45deg, #ec4899, #8b5cf6, #3b82f6) !important; } .bg-white { background-color: rgba(255,255,255,0.9) !important; border: 2px solid #ec4899 !important; }`, particles: 'confetti' },
+  "holi": { name: "Happy Holi", css: `body { background: linear-gradient(to right, #ff0080, #ff8c00, #40e0d0, #ff0080) !important;  } .bg-white { background-color: rgba(255,255,255,0.85) !important; border-radius: 40px !important; }`, particles: 'confetti' },
+  "pongal": { name: "Happy Pongal", css: `body { background-color: #fef3c7 !important; } .bg-white { background-color: #fffbeb !important; border-color: #f59e0b !important; } .text-[#1557b0] { color: #16a34a !important; }`, particles: 'leaves' },
+  "eid": { name: "Eid Mubarak", css: `body { background-color: #022c22 !important; color: #fef08a !important; } .bg-white { background-color: #064e3b !important; border-color: #fef08a !important; } .text-gray-900, .text-gray-800 { color: #fef08a !important; } .text-[#1557b0] { color: #fef08a !important; }`, particles: 'stars' },
+  "newyear": { name: "Happy New Year", css: `body { background-color: #000 !important; color: #fbbf24 !important; } .bg-white { background-color: #111 !important; border: 1px solid #fbbf24 !important; } .text-gray-900, .text-gray-800 { color: #fbbf24 !important; }`, particles: 'confetti' },
+  "matrix": { name: "Enter the Matrix", css: `body { background-color: #000 !important; font-family: "Courier New", monospace !important; color: #0f0 !important; } .bg-white { background-color: #000 !important; border: 1px solid #0f0 !important; } .text-gray-900, .text-gray-800 { color: #0f0 !important; } * { border-radius: 0 !important; }`, particles: 'matrix' }
 };
 
 export default function DailyThemeEngine() {
@@ -97,8 +104,15 @@ export default function DailyThemeEngine() {
         else if (newSeq.endsWith('friday')) foundTheme = themes.Friday;
         else if (newSeq.endsWith('saturday')) foundTheme = themes.Saturday;
         else if (newSeq.endsWith('sunday')) foundTheme = themes.Sunday;
-        else if (newSeq.endsWith('halloween')) foundTheme = specialEvents["10-31"];
-        else if (newSeq.endsWith('christmas')) foundTheme = specialEvents["12-25"];
+        else if (newSeq.endsWith('halloween')) foundTheme = specialEvents["halloween"];
+        else if (newSeq.endsWith('christmas')) foundTheme = specialEvents["christmas"];
+        else if (newSeq.endsWith('diwali')) foundTheme = specialEvents["diwali"];
+        else if (newSeq.endsWith('navratri')) foundTheme = specialEvents["navratri"];
+        else if (newSeq.endsWith('holi')) foundTheme = specialEvents["holi"];
+        else if (newSeq.endsWith('pongal')) foundTheme = specialEvents["pongal"];
+        else if (newSeq.endsWith('eid')) foundTheme = specialEvents["eid"];
+        else if (newSeq.endsWith('newyear')) foundTheme = specialEvents["newyear"];
+        else if (newSeq.endsWith('matrix')) foundTheme = specialEvents["matrix"];
         else if (newSeq.endsWith('default') || newSeq.endsWith('normal') || newSeq.endsWith('clear')) {
           setTheme(null);
           setIsVisible(false);
