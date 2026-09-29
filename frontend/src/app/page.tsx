@@ -6,6 +6,8 @@ const QRCode = dynamic(() => import('react-qr-code'), { ssr: false });
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JarvisWelcome from "@/components/JarvisWelcome";
+
 
 export default function Home() {
   // Bio builder mock state
@@ -27,6 +29,7 @@ export default function Home() {
   
 
   return (
+    <JarvisWelcome />
     <div className="min-h-screen bg-white flex flex-col font-sans">
       <Navbar />
 
