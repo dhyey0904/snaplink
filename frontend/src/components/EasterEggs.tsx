@@ -291,8 +291,13 @@ export default function EasterEggs() {
       )}
 
       {activeEffect === 'coffee' && (
-        <div className="fixed inset-0 z-[9998] pointer-events-none bg-amber-900/10 mix-blend-multiply flex items-center justify-center">
-          <div className="text-[200px] opacity-10 filter blur-sm">☕</div>
+        <div className="fixed inset-0 z-[9998] pointer-events-none flex items-center justify-center bg-[#4a3b32]/40 backdrop-blur-sm">
+          <div className="text-[150px] animate-pulse drop-shadow-2xl">☕</div>
+          {/* Steam particles */}
+          {Array.from({length: 10}).map((_, i) => (
+            <div key={i} className="absolute text-4xl text-white/30 filter blur-md" style={{ animation: `floatUp ${3 + Math.random()*2}s ease-in-out infinite`, left: `calc(50% - 40px + ${Math.random()*80}px)`, top: 'calc(50% - 100px)' }}>~</div>
+          ))}
+          <style>{`@keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity: 0.8; } 100% { transform: translateY(-200px) scale(2); opacity: 0; } }`}</style>
         </div>
       )}
     </>
