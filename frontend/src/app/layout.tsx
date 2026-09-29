@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     default: "SnapLinks | The Ultimate All-in-One Digital Workspace",
     template: "%s | SnapLinks",
   },
-  description: "SnapLinks is the ultimate all-in-one digital workspace. Discover advanced deep link shortening, customizable Link-in-Bio pages, secure peer-to-peer file sharing, free PDF tools, 3D digital business cards, and daily SnapPlay challenges.",
+  description: "SnapLinks is the ultimate digital workspace for advanced URL shortening, Link-in-Bio pages, secure file sharing, and free PDF tools.",
   keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "SnapPlay", "daily challenges", "mini-games", "digital business card", "3D vcard", "digital workspace", "link management", "peer to peer file share"],
   authors: [{ name: "SnapLinks Team", url: "https://www.snaplinks.in" }],
   creator: "SnapLinks",
@@ -52,9 +52,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.snaplinks.in",
-    languages: {
-      'en-US': '/en-US',
-    },
   },
   icons: {
     icon: [
@@ -72,7 +69,7 @@ export const metadata: Metadata = {
     url: "https://www.snaplinks.in",
     siteName: "SnapLinks",
     title: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & File Sharing",
-    description: "Your ultimate web workspace for deep link shortening, secure file sharing, customizable Link-in-Bio pages, SnapPlay daily challenges, and a suite of free PDF tools.",
+    description: "Your ultimate web workspace for deep link shortening, secure file sharing, customizable Link-in-Bio pages, and free PDF tools.",
     images: [
       {
         url: "/og-image.png",
@@ -87,7 +84,7 @@ export const metadata: Metadata = {
     site: "@SnapLinks",
     creator: "@SnapLinks",
     title: "SnapLinks | Advanced URL Shortener & Link-in-Bio",
-    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.",
+    description: "Your ultimate digital workspace for advanced URL shortening, Link-in-Bio pages, secure file sharing, and free PDF tools.",
     images: ["/og-image.png"],
   },
   verification: {
