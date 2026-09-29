@@ -36,8 +36,7 @@ export default function EasterEggs() {
   };
 
   const speakAi = (msg: string) => {
-    setAiMessage(msg);
-    setTimeout(() => setAiMessage(''), 5000);
+    console.log("[Secret OS]: " + msg);
   };
 
   const handleCommand = (cmd: string) => {
@@ -243,39 +242,6 @@ export default function EasterEggs() {
         )}
       </AnimatePresence>
 
-      {/* Floating AI Orb */}
-      <AnimatePresence>
-        {aiEnabled && (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3 pointer-events-none"
-          >
-            <AnimatePresence>
-              {aiMessage && (
-                <motion.div 
-                  initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                  className="bg-black/80 backdrop-blur-md border border-cyan-500/30 text-cyan-300 font-mono text-sm px-4 py-2 rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.15)] max-w-xs text-right"
-                >
-                  {aiMessage}
-                </motion.div>
-              )}
-            </AnimatePresence>
-            
-            <div className="relative w-12 h-12 rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/50 shadow-[0_0_30px_rgba(0,255,255,0.3)] flex items-center justify-center pointer-events-auto cursor-help hover:bg-cyan-500/30 transition-colors group" onClick={() => speakAi('I am listening.')}>
-              <div className="absolute inset-2 bg-cyan-400 rounded-full animate-ping opacity-20"></div>
-              <div className="w-4 h-4 bg-cyan-300 rounded-full shadow-[0_0_10px_#fff]"></div>
-              
-              {/* Tooltip hint */}
-              <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-black/80 text-cyan-300 text-[10px] px-2 py-1 rounded whitespace-nowrap font-mono">
-                AI Core Online
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Global Visual Overlays */}
       {activeEffect === 'matrix' && (
