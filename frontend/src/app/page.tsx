@@ -117,9 +117,9 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-gray-900">PDF Utilities</h3>
                 </div>
                 <ul className="space-y-4 mb-8">
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Merge & Split PDFs</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Compress PDF Size</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Add Page Numbers & Watermarks</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Merge & Split PDFs</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Compress PDF Size</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Add Page Numbers & Watermarks</li>
                 </ul>
                 <Link href="/tools" className="inline-block w-full text-center bg-white border-2 border-gray-200 text-gray-800 font-bold py-3 rounded-xl hover:border-red-500 hover:text-red-600 transition-colors">
                   Explore PDF Tools
@@ -136,9 +136,9 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-gray-900">Image Converters</h3>
                 </div>
                 <ul className="space-y-4 mb-8">
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> JPG / PNG / WEBP / AVIF</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> SVG & GIF to PNG/JPG</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Image to PDF Generation</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> JPG / PNG / WEBP / AVIF</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> SVG & GIF to PNG/JPG</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Image to PDF Generation</li>
                 </ul>
                 <Link href="/tools" className="inline-block w-full text-center bg-purple-600 text-white font-bold py-3 rounded-xl hover:bg-purple-700 transition-colors shadow-lg shadow-purple-500/30">
                   Try Converters
@@ -154,9 +154,9 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-gray-900">File Security</h3>
                 </div>
                 <ul className="space-y-4 mb-8">
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> AES-256 PDF Encryption</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Remove PDF Passwords</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Browser-Based Privacy</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> AES-256 PDF Encryption</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Remove PDF Passwords</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Browser-Based Privacy</li>
                 </ul>
                 <Link href="/tools/protect-pdf" className="inline-block w-full text-center bg-white border-2 border-gray-200 text-gray-800 font-bold py-3 rounded-xl hover:border-indigo-500 hover:text-indigo-600 transition-colors">
                   Secure a PDF
@@ -198,7 +198,7 @@ export default function Home() {
                       <span className="text-base sm:text-sm text-gray-500 line-through">snaplink.com/very-long-ugly-url-1234</span>
                       <span className="text-lg font-bold text-[#1a73e8]">snap.link/launch</span>
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500">
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                     </div>
                   </div>
@@ -345,7 +345,7 @@ export default function Home() {
 
               {/* Card 3 */}
               <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-green-50 text-green-700 rounded-xl flex items-center justify-center mb-6">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">The Future: 3D vCards</h3>

@@ -23,12 +23,12 @@ export default function FileDropzoneMock() {
     >
       {uploadState === 'idle' && (
         <div className="animate-fade-in-up">
-          <div className="w-16 h-16 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
           </div>
           <p className="text-xl font-bold text-gray-800 mb-2">Drop a file here</p>
           <p className="text-sm text-gray-500">up to 50MB. Self-destructs in 5 mins.</p>
-          <p className="text-xs text-blue-500 font-bold mt-4 cursor-pointer hover:underline" onClick={() => setUploadState('uploading')}>Try dropping any file here!</p>
+          <p className="text-xs text-blue-600 font-bold mt-4 cursor-pointer hover:underline" onClick={() => setUploadState('uploading')}>Try dropping any file here!</p>
         </div>
       )}
       
@@ -47,7 +47,7 @@ export default function FileDropzoneMock() {
 
       {uploadState === 'done' && (
         <div className="w-full animate-fade-in-up">
-          <div className="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-green-50 text-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
           </div>
           <p className="text-xl font-bold text-gray-800 mb-2">Ready to Share</p>
