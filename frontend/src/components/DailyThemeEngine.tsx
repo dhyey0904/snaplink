@@ -77,48 +77,61 @@ const specialEvents: Record<string, {name: string, css: string, particles: strin
 
 export default function DailyThemeEngine() {
   const [theme, setTheme] = useState<any>(null);
-  const [disabled, setDisabled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const [, setKeySequence] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem('disableDailyThemes') === 'true') {
-      setDisabled(true);
-      return;
-    }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore if typing in an input field
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement).tagName)) return;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
 
-    const today = new Date();
-    const mmdd = `${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-    const dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
+      setKeySequence(prev => {
+        const newSeq = (prev + e.key).toLowerCase().slice(-15);
+        
+        let foundTheme = null;
+        if (newSeq.endsWith('monday')) foundTheme = themes.Monday;
+        else if (newSeq.endsWith('tuesday')) foundTheme = themes.Tuesday;
+        else if (newSeq.endsWith('wednesday')) foundTheme = themes.Wednesday;
+        else if (newSeq.endsWith('thursday')) foundTheme = themes.Thursday;
+        else if (newSeq.endsWith('friday')) foundTheme = themes.Friday;
+        else if (newSeq.endsWith('saturday')) foundTheme = themes.Saturday;
+        else if (newSeq.endsWith('sunday')) foundTheme = themes.Sunday;
+        else if (newSeq.endsWith('halloween')) foundTheme = specialEvents["10-31"];
+        else if (newSeq.endsWith('christmas')) foundTheme = specialEvents["12-25"];
+        else if (newSeq.endsWith('default') || newSeq.endsWith('normal') || newSeq.endsWith('clear')) {
+          setTheme(null);
+          setIsVisible(false);
+          return newSeq;
+        }
 
-    if (specialEvents[mmdd]) {
-      setTheme(specialEvents[mmdd]);
-    } else {
-      setTheme((themes as any)[dayName]);
-    }
+        if (foundTheme) {
+          setTheme(foundTheme);
+          setIsVisible(true);
+        }
+        
+        return newSeq;
+      });
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const disableThemes = () => {
-    localStorage.setItem('disableDailyThemes', 'true');
-    setDisabled(true);
-    setTheme(null);
-  };
-
-  if (disabled || !theme) return null;
+  if (!theme) return null;
 
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: theme.css }} />
-      
       <ThemeParticles type={theme.particles} />
-      {/* Banner */}
+      
       {isVisible && (
         <div className="fixed bottom-4 left-4 right-4 sm:right-auto z-[9999] bg-white text-gray-900 px-4 py-3 rounded-2xl shadow-2xl border border-gray-200 flex flex-col gap-2 sm:max-w-sm animate-fade-in-up">
           <div className="flex items-center justify-between gap-4">
-            <span className="font-bold text-sm">✨ Today's Theme: {theme.name}</span>
+            <span className="font-bold text-sm">✨ Secret Theme Unlocked: {theme.name}</span>
             <button onClick={() => setIsVisible(false)} className="text-gray-400 hover:text-gray-600">&times;</button>
           </div>
-          <p className="text-xs text-gray-500">SnapLinks changes its appearance every day automatically.</p>
-          <button onClick={disableThemes} className="text-xs font-bold text-red-600 hover:text-red-700 text-left">Disable Daily Themes</button>
+          <p className="text-xs text-gray-500">Type <strong className="text-gray-800 bg-gray-100 px-1 rounded">default</strong> anywhere on the screen to restore.</p>
         </div>
       )}
     </>
