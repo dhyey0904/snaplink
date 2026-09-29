@@ -155,12 +155,26 @@ export default function EasterEggs() {
         konamiIndex.current = 0;
       }
 
-      // Buffer for typing "/secret"
+      // Buffer for direct typing of easter eggs
       if (!isConsoleOpen && e.key.length === 1) {
-        inputBuffer.current = (inputBuffer.current + e.key).slice(-10);
+        inputBuffer.current = (inputBuffer.current + e.key.toLowerCase()).slice(-20);
+        
+        // Open console on /secret
         if (inputBuffer.current.endsWith('/secret')) {
           setIsConsoleOpen(true);
           inputBuffer.current = '';
+          return;
+        }
+        
+        // List of all direct trigger commands
+        const triggers = ['jarvis', 'clear', 'reset', 'exit', 'matrix', 'coffee', 'party', 'spin', 'flip', 'gravity', 'dvd', 'glitch', 'snow', 'pixel', 'invert', 'ghost', 'chaos'];
+        
+        for (const trigger of triggers) {
+          if (inputBuffer.current.endsWith(trigger)) {
+            handleCommand(trigger);
+            inputBuffer.current = ''; // clear buffer so it doesn't double trigger
+            break;
+          }
         }
       }
     };
