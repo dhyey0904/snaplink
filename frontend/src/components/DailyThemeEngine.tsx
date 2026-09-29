@@ -112,7 +112,7 @@ export default function DailyThemeEngine() {
       <ThemeParticles type={theme.particles} />
       {/* Banner */}
       {isVisible && (
-        <div className="fixed bottom-4 left-4 z-[9999] bg-white text-gray-900 px-4 py-3 rounded-2xl shadow-2xl border border-gray-200 flex flex-col gap-2 max-w-sm animate-fade-in-up">
+        <div className="fixed bottom-4 left-4 right-4 sm:right-auto z-[9999] bg-white text-gray-900 px-4 py-3 rounded-2xl shadow-2xl border border-gray-200 flex flex-col gap-2 sm:max-w-sm animate-fade-in-up">
           <div className="flex items-center justify-between gap-4">
             <span className="font-bold text-sm">✨ Today's Theme: {theme.name}</span>
             <button onClick={() => setIsVisible(false)} className="text-gray-400 hover:text-gray-600">&times;</button>
