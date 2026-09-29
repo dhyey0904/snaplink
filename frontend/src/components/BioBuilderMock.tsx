@@ -46,7 +46,7 @@ export default function BioBuilderMock() {
           </div>
         </div>
 
-        <Link href="/register" className="inline-flex items-center gap-2 font-bold text-[#1a73e8] hover:text-blue-700 text-lg transition-colors">
+        <Link href="/register" className="inline-flex items-center gap-2 font-bold text-[#1557b0] hover:text-blue-700 text-lg transition-colors">
           Create your free bio page 
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </Link>

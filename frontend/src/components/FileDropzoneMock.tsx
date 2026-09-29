@@ -16,7 +16,7 @@ export default function FileDropzoneMock() {
 
   return (
     <div 
-      className={`flex-1 bg-white rounded-3xl p-5 shadow-2xl transition-all duration-300 border-4 flex flex-col items-center justify-center text-center min-h-[260px] ${isDragging ? 'border-[#1a73e8] scale-105 bg-blue-50' : 'border-transparent'}`}
+      className={`flex-1 bg-white rounded-3xl p-5 shadow-2xl transition-all duration-300 border-4 flex flex-col items-center justify-center text-center min-h-[260px] ${isDragging ? 'border-[#1557b0] scale-105 bg-blue-50' : 'border-transparent'}`}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}

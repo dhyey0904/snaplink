@@ -39,7 +39,7 @@ export default function Home() {
                   SnapLinks is the ultimate all-in-one workspace. Convert images, manipulate PDFs, send self-destructing files, shorten URLs, and generate 3D business cards.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center animate-fade-in-up delay-300">
-                  <Link href="/tools" className="px-6 py-3 rounded-xl font-bold text-[#1a73e8] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
+                  <Link href="/tools" className="px-6 py-3 rounded-xl font-bold text-[#1557b0] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">
                     Use Tools Instantly
                   </Link>
                   <Link href="/register" className="px-6 py-3 rounded-xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-colors text-base">
@@ -78,7 +78,7 @@ export default function Home() {
                       <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-4 border border-white/10">
                         <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-500">S</span>
                       </div>
-                      <div className="text-gray-500 text-xs font-mono tracking-widest uppercase">Digital vCard</div>
+                      <div className="text-gray-400 text-xs font-mono tracking-widest uppercase">Digital vCard</div>
                     </div>
 
                   </div>
@@ -177,7 +177,7 @@ export default function Home() {
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#202124]">And that's just the <span className="text-[#1a73e8]">beginning.</span></h2>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#202124]">And that's just the <span className="text-[#1557b0]">beginning.</span></h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -196,7 +196,7 @@ export default function Home() {
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
                       <span className="text-base sm:text-sm text-gray-500 line-through">snaplink.com/very-long-ugly-url-1234</span>
-                      <span className="text-lg font-bold text-[#1a73e8]">snap.link/launch</span>
+                      <span className="text-lg font-bold text-[#1557b0]">snap.link/launch</span>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
@@ -207,7 +207,7 @@ export default function Home() {
 
               {/* Feature 2: Analytics */}
               <div className="bg-gray-50 rounded-[2rem] p-8 sm:p-12 border border-gray-100 hover:shadow-xl transition-shadow group">
-                <div className="w-16 h-16 bg-blue-100 text-[#1a73e8] rounded-2xl flex items-center justify-center mb-8">
+                <div className="w-16 h-16 bg-blue-100 text-[#1557b0] rounded-2xl flex items-center justify-center mb-8">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-[#202124] mb-4">Real-Time Analytics</h3>
@@ -220,7 +220,7 @@ export default function Home() {
                   <div className="w-8 bg-blue-300 rounded-t-sm h-[50%] animate-live-bars delay-100"></div>
                   <div className="w-8 bg-blue-400 rounded-t-sm h-[40%] animate-live-bars delay-200"></div>
                   <div className="w-8 bg-blue-500 rounded-t-sm h-[70%] animate-live-bars delay-300"></div>
-                  <div className="w-8 bg-[#1a73e8] rounded-t-sm h-[80%] animate-live-bars delay-400"></div>
+                  <div className="w-8 bg-[#1557b0] rounded-t-sm h-[80%] animate-live-bars delay-400"></div>
                 </div>
               </div>
 
@@ -302,7 +302,7 @@ export default function Home() {
                 </div>
                 <p className="text-gray-500 text-base sm:text-sm mb-6 font-medium">No hidden fees. Cancel anytime.</p>
                 
-                <a href="/dashboard/api" className="w-full text-center bg-[#1a73e8] hover:bg-[#1557b0] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <a href="/dashboard/api" className="w-full text-center bg-[#1557b0] hover:bg-[#1557b0] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                   Purchase API Key
                 </a>
               </div>
@@ -361,7 +361,7 @@ export default function Home() {
               <div className="space-y-4">
                 
                 <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1557b0] transition-colors">
                     <span>How large of a file can I send for free?</span>
                     <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
@@ -373,7 +373,7 @@ export default function Home() {
                 </details>
 
                 <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1557b0] transition-colors">
                     <span>Do I need an account to download a file?</span>
                     <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
@@ -385,7 +385,7 @@ export default function Home() {
                 </details>
 
                 <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1557b0] transition-colors">
                     <span>What analytics do you provide for shortened links?</span>
                     <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
@@ -397,7 +397,7 @@ export default function Home() {
                 </details>
 
                 <details className="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1a73e8] transition-colors">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-[#1557b0] transition-colors">
                     <span>Is the Developer API suitable for production use?</span>
                     <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
