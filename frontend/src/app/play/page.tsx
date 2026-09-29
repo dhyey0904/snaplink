@@ -2,8 +2,32 @@ import { Metadata } from 'next';
 import SnapPlayApp from './SnapPlayApp';
 
 export const metadata: Metadata = {
-  title: 'SnapPlay | Daily Challenge',
-  description: 'One daily challenge. 60 seconds. Can you beat the world? Play SnapPlay.',
+  title: 'SnapPlay | Daily Challenges & Mini-Games',
+  description: 'Play a new addictive mini-game every single day on SnapPlay. Test your reflexes, speed math, and memory. Can you beat the world? Play SnapPlay completely free.',
+  keywords: ["SnapPlay", "daily challenge", "mini-games", "brain training", "speed math", "reflex test", "daily games", "browser games", "wordle alternative"],
+  alternates: {
+    canonical: "https://www.snaplinks.in/play",
+  },
+  openGraph: {
+    title: 'SnapPlay | 365 Days of Mini-Games',
+    description: 'A new daily challenge unlocks every midnight. Compete globally, test your brain, and build your streak on SnapPlay.',
+    url: 'https://www.snaplinks.in/play',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'SnapPlay Daily Challenges Platform',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SnapPlay Daily Challenges',
+    description: 'Play a new addictive mini-game every single day on SnapPlay. No downloads, completely free.',
+    images: ['/og-image.png'],
+  }
 };
 
 export default function PlayPage() {

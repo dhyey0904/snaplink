@@ -4,11 +4,25 @@ import type { Metadata } from 'next';
 import SEOLandingLayout from '@/components/SEOLandingLayout';
 
 export const metadata: Metadata = {
-  title: "Free URL Shortener | SnapLinks",
-  description: "Shorten long, ugly links into clean, trackable URLs. Features password protection, expiry dates, and advanced analytics.",
+  title: "Advanced URL Shortener & Link Analytics | SnapLinks",
+  description: "Shorten long links, generate custom branded URLs, and track comprehensive analytics including geolocation, device type, and referral sources.",
+  keywords: ["url shortener", "custom link", "link analytics", "branded links", "link tracking", "url management"],
   alternates: {
     canonical: "https://www.snaplinks.in/url-shortener",
   },
+  openGraph: {
+    title: "Advanced URL Shortener & Link Analytics | SnapLinks",
+    description: "Shorten long links, generate custom branded URLs, and track comprehensive analytics including geolocation, device type, and referral sources.",
+    url: "https://www.snaplinks.in/url-shortener",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Advanced URL Shortener & Link Analytics Preview" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Advanced URL Shortener & Link Analytics",
+    description: "Shorten long links, generate custom branded URLs, and track comprehensive analytics including geolocation, device type, and referral sources.",
+    images: ["/og-image.png"],
+  }
 };
 
 export default function Page() {

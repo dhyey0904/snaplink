@@ -4,11 +4,25 @@ import type { Metadata } from 'next';
 import SEOLandingLayout from '@/components/SEOLandingLayout';
 
 export const metadata: Metadata = {
-  title: "Secure File Sharing | SnapLinks",
-  description: "Share files up to 50MB securely with auto-destructing links and password protection. The ultimate ephemeral file transfer tool.",
+  title: "Secure File Sharing & Transfer | SnapLinks",
+  description: "Share files up to 50MB securely with auto-destructing links and password protection. The ultimate ephemeral peer-to-peer file transfer tool.",
+  keywords: ["file sharing", "secure file transfer", "ephemeral sharing", "send files free", "password protect files", "auto-destruct files"],
   alternates: {
     canonical: "https://www.snaplinks.in/file-sharing",
   },
+  openGraph: {
+    title: "Secure File Sharing & Transfer | SnapLinks",
+    description: "Share files up to 50MB securely with auto-destructing links and password protection. The ultimate ephemeral peer-to-peer file transfer tool.",
+    url: "https://www.snaplinks.in/file-sharing",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Secure File Sharing & Transfer Preview" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Secure File Sharing & Transfer",
+    description: "Share files up to 50MB securely with auto-destructing links and password protection. The ultimate ephemeral peer-to-peer file transfer tool.",
+    images: ["/og-image.png"],
+  }
 };
 
 export default function Page() {

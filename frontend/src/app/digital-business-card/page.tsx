@@ -4,11 +4,25 @@ import type { Metadata } from 'next';
 import SEOLandingLayout from '@/components/SEOLandingLayout';
 
 export const metadata: Metadata = {
-  title: "3D Digital Business Card | SnapLinks",
-  description: "Create a stunning, interactive 3D digital business card. The ultimate modern alternative to paper and NFC cards.",
+  title: "3D Digital Business Cards & vCards | SnapLinks",
+  description: "Create stunning 3D interactive digital business cards. Share your contact info instantly via QR code or NFC. Never print paper cards again.",
+  keywords: ["digital business card", "vcard generator", "3D business card", "NFC card alternative", "contact sharing", "smart business card"],
   alternates: {
     canonical: "https://www.snaplinks.in/digital-business-card",
   },
+  openGraph: {
+    title: "3D Digital Business Cards & vCards | SnapLinks",
+    description: "Create stunning 3D interactive digital business cards. Share your contact info instantly via QR code or NFC. Never print paper cards again.",
+    url: "https://www.snaplinks.in/digital-business-card",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "3D Digital Business Cards & vCards Preview" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "3D Digital Business Cards & vCards",
+    description: "Create stunning 3D interactive digital business cards. Share your contact info instantly via QR code or NFC. Never print paper cards again.",
+    images: ["/og-image.png"],
+  }
 };
 
 export default function Page() {

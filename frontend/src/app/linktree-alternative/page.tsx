@@ -4,11 +4,25 @@ import type { Metadata } from 'next';
 import SEOLandingLayout from '@/components/SEOLandingLayout';
 
 export const metadata: Metadata = {
-  title: "Best Linktree Alternative | SnapLinks",
-  description: "Create a free, beautiful Link in Bio page with built-in file sharing and advanced analytics. The ultimate Linktree alternative.",
+  title: "Best Free Linktree Alternative & Link in Bio | SnapLinks",
+  description: "Create a free, beautiful Link in Bio page with built-in file sharing, 3D interactive cards, and advanced tracking. The ultimate Linktree alternative for creators.",
+  keywords: ["linktree alternative", "link in bio", "bio link tool", "creator profile", "instagram link", "tiktok link in bio"],
   alternates: {
     canonical: "https://www.snaplinks.in/linktree-alternative",
   },
+  openGraph: {
+    title: "Best Free Linktree Alternative & Link in Bio | SnapLinks",
+    description: "Create a free, beautiful Link in Bio page with built-in file sharing, 3D interactive cards, and advanced tracking. The ultimate Linktree alternative for creators.",
+    url: "https://www.snaplinks.in/linktree-alternative",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Best Free Linktree Alternative & Link in Bio Preview" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Free Linktree Alternative & Link in Bio",
+    description: "Create a free, beautiful Link in Bio page with built-in file sharing, 3D interactive cards, and advanced tracking. The ultimate Linktree alternative for creators.",
+    images: ["/og-image.png"],
+  }
 };
 
 export default function Page() {

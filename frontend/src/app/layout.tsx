@@ -21,37 +21,81 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  themeColor: '#ffffff',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://www.snaplinks.in'),
   title: {
-    default: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & Tools",
+    default: "SnapLinks | The Ultimate All-in-One Digital Workspace",
     template: "%s | SnapLinks",
   },
-  description: "SnapLinks is the ultimate all-in-one workspace featuring deep link shortening, Link-in-Bio, secure file sharing, free PDF tools, SnapPlay daily challenges, ",
-  keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "SnapPlay", "daily challenges", "mini-games", "digital business card", "3D vcard"],
-  authors: [{ name: "SnapLinks" }],
+  description: "SnapLinks is the ultimate all-in-one digital workspace. Discover advanced deep link shortening, customizable Link-in-Bio pages, secure peer-to-peer file sharing, free PDF tools, 3D digital business cards, and daily SnapPlay challenges.",
+  keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "SnapPlay", "daily challenges", "mini-games", "digital business card", "3D vcard", "digital workspace", "link management", "peer to peer file share"],
+  authors: [{ name: "SnapLinks Team", url: "https://www.snaplinks.in" }],
+  creator: "SnapLinks",
+  publisher: "SnapLinks",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: "https://www.snaplinks.in",
+    languages: {
+      'en-US': '/en-US',
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [
+      { url: '/apple-icon.png' },
+    ],
+  },
+  manifest: '/manifest.json',
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.snaplinks.in",
     siteName: "SnapLinks",
-    title: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & Tools",
-    description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, SnapPlay daily challenges, and free tools.",
+    title: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & File Sharing",
+    description: "Your ultimate web workspace for deep link shortening, secure file sharing, customizable Link-in-Bio pages, SnapPlay daily challenges, and a suite of free PDF tools.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SnapLinks Dashboard Preview",
+        alt: "SnapLinks Digital Workspace Dashboard Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SnapLinks | Advanced URL Shortener",
+    site: "@SnapLinks",
+    creator: "@SnapLinks",
+    title: "SnapLinks | Advanced URL Shortener & Link-in-Bio",
     description: "Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.",
     images: ["/og-image.png"],
   },
+  verification: {
+    google: "google-site-verification-code-here",
+    yandex: "yandex-verification-code",
+    yahoo: "yahoo-site-verification-code",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
