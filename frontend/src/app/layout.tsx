@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     default: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & Tools",
     template: "%s | SnapLinks",
   },
-  description: "SnapLinks is the ultimate all-in-one workspace featuring deep link shortening, Link-in-Bio, secure file sharing, free PDF tools, SnapPlay daily challenges, and viral experiences like Internet Vibe ID.",
-  keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "SnapPlay", "daily challenges", "mini-games", "Internet Vibe ID", "digital business card", "3D vcard"],
+  description: "SnapLinks is the ultimate all-in-one workspace featuring deep link shortening, Link-in-Bio, secure file sharing, free PDF tools, SnapPlay daily challenges, ",
+  keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "SnapPlay", "daily challenges", "mini-games", "digital business card", "3D vcard"],
   authors: [{ name: "SnapLinks" }],
   openGraph: {
     type: "website",
