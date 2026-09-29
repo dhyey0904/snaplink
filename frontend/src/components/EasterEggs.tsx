@@ -47,7 +47,7 @@ export default function EasterEggs() {
     if (cleanCmd === 'jarvis') {
       setAiEnabled(true);
       localStorage.setItem('snaplinks_ai_unlocked', 'true');
-      speakAi('AI Core activated. At your service.');
+      
       return;
     }
     
@@ -64,60 +64,62 @@ export default function EasterEggs() {
 
   const applyEffect = (effect: string) => {
     setActiveEffect(effect);
-    document.body.style.transform = '';
-    document.body.style.animation = '';
-    document.body.style.filter = '';
+    
+    // Reset all body styles
+    document.body.style.cssText = '';
     
     switch (effect) {
       case 'matrix':
-        speakAi('Entering the Matrix.');
+        // Full green hacker theme
+        document.body.style.filter = 'contrast(1.5) sepia(1) hue-rotate(80deg) saturate(3)';
+        document.body.style.backgroundColor = '#000';
         break;
       case 'coffee':
-        speakAi('Brewing virtual coffee...');
+        // Warm, cozy cafe theme
+        document.body.style.filter = 'sepia(0.6) hue-rotate(-20deg) contrast(1.1) saturate(1.2)';
         break;
       case 'party':
-        confetti({ particleCount: 200, spread: 160 });
-        speakAi('Party time!');
-        setTimeout(() => setActiveEffect(null), 3000);
+        confetti({ particleCount: 400, spread: 360, origin: { y: 0.3 } });
+        document.body.style.filter = 'saturate(2) contrast(1.2)';
+        setTimeout(() => applyEffect('reset'), 4000);
         break;
       case 'spin':
         document.body.style.animation = 'spin 2s linear infinite';
-        speakAi('Try not to get dizzy.');
         break;
       case 'flip':
         document.body.style.transform = 'scaleX(-1)';
-        speakAi('Mirror dimension accessed.');
         break;
       case 'gravity':
-        speakAi('Warning: Gravity stabilizers offline.');
+        document.body.style.animation = 'fall 2s forwards ease-in';
         break;
       case 'dvd':
-        speakAi('Watching it hit the corner...');
+        // Keeps original colors but adds overlay
         break;
       case 'glitch':
-        speakAi('S-s-systems f-f-failing...');
+        document.body.style.animation = 'glitch 0.2s infinite';
         break;
       case 'snow':
-        speakAi('Winter protocol activated.');
+        // Icy winter theme
+        document.body.style.filter = 'saturate(0.5) hue-rotate(180deg) contrast(1.2)';
         break;
       case 'pixel':
-        document.body.style.filter = 'contrast(1.5) grayscale(0.5) blur(1px)'; // Fake retro
-        speakAi('1995 graphics mode.');
+        // 8-bit retro theme
+        document.body.style.filter = 'contrast(1.5) grayscale(0.5) blur(1px)';
         break;
       case 'invert':
-        document.body.style.filter = 'invert(1)';
-        speakAi('Darkness falls.');
+        // Dark/Negative theme
+        document.body.style.filter = 'invert(1) hue-rotate(180deg)';
         break;
       case 'ghost':
+        // Spooky ethereal theme
         document.body.style.opacity = '0.5';
-        speakAi('Spooky.');
+        document.body.style.filter = 'grayscale(1) contrast(0.8)';
         break;
       case 'chaos':
         document.body.style.animation = 'spin 0.5s infinite, shake 0.2s infinite';
-        speakAi('Absolute chaos.');
+        document.body.style.filter = 'invert(1) hue-rotate(90deg)';
         break;
       default:
-        speakAi(`Command '${effect}' not recognized by AI Core.`);
         setActiveEffect(null);
         break;
     }
@@ -148,7 +150,7 @@ export default function EasterEggs() {
         if (konamiIndex.current === KONAMI_CODE.length) {
           konamiIndex.current = 0;
           applyEffect('party');
-          speakAi('Konami code accepted. +30 Lives.');
+          
         }
       } else {
         konamiIndex.current = 0;
