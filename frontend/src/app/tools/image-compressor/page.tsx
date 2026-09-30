@@ -1,8 +1,6 @@
 ﻿"use client";
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
-import AdSidebar from '@/components/AdSidebar';
-import AdBanner from '@/components/AdBanner';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { UploadCloud, CheckCircle, Settings, Sliders, FileImage, DownloadCloud, Image as ImageIcon, Copy, Zap, Info } from 'lucide-react';
@@ -388,9 +386,7 @@ export default function ImageCompressorPage() {
             
           </div>
           
-          <div className="mt-6">
-            <AdSidebar />
-          </div>
+          
         </aside>
 
       </div>
