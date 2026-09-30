@@ -28,8 +28,9 @@ export default async function sitemap({
       { url: `${baseUrl}/play`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
       { url: `${baseUrl}/url-shortener`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
       { url: `${baseUrl}/file-sharing`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-      { url: `${baseUrl}/link-in-bio`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+      { url: `${baseUrl}/linktree-alternative`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
       { url: `${baseUrl}/digital-business-card`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+      { url: `${baseUrl}/bridge`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     ];
   }
 

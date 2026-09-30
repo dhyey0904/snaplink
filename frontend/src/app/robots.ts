@@ -18,7 +18,8 @@ export default function robots(): MetadataRoute.Robots {
         '/blog',
         '/tools',
         '/play',
-        '/link-in-bio',
+        '/linktree-alternative',
+        '/bridge',
         '/url-shortener',
         '/digital-business-card',
         '/file-sharing',
@@ -56,7 +57,8 @@ export default function robots(): MetadataRoute.Robots {
         '/temp',
         '/uploads/private',
         '/search',
-        '/f/' // Short links redirect tracking
+        '/f/', // Short links redirect tracking
+        '/b/' // SnapBridge private transfer rooms
       ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
