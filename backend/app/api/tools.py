@@ -53,7 +53,7 @@ async def pdf_to_word(background_tasks: BackgroundTasks, file: UploadFile = File
 import pymupdf
 
 @router.post("/compress-pdf")
-async def compress_pdf(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+async def compress_pdf(background_tasks: BackgroundTasks, file: UploadFile = File(...), level: str = Form("recommended")):
     if not file.filename.lower().endswith(".pdf"):
         raise HTTPException(status_code=400, detail="File must be a PDF")
         
@@ -67,21 +67,29 @@ async def compress_pdf(background_tasks: BackgroundTasks, file: UploadFile = Fil
             content = await file.read()
             f.write(content)
             
-        # Compress using PyMuPDF (maximum garbage collection, image & font deflate, object streams)
+        import pymupdf
         doc = pymupdf.open(pdf_path)
+        
+        # Configure save options based on level
+        save_kwargs = {
+            "garbage": 3,
+            "deflate": True,
+        }
+        
+        if level == "extreme":
+            save_kwargs["garbage"] = 4
+            save_kwargs["deflate_images"] = True
+            save_kwargs["deflate_fonts"] = True
+        elif level == "less":
+            save_kwargs["garbage"] = 1
+            save_kwargs["deflate"] = False
+
         doc.save(
             compressed_path,
-            garbage=4,
-            deflate=1,
-            deflate_images=1,
-            deflate_fonts=1,
-            clean=1,
-            use_objstms=1,
-            compression_effort=1
+            **save_kwargs
         )
         doc.close()
         
-        # Schedule cleanup
         background_tasks.add_task(cleanup_files, pdf_path, compressed_path)
         
         original_name = file.filename.rsplit('.', 1)[0]
