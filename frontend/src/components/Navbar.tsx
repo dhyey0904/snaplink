@@ -112,6 +112,9 @@ export default function Navbar() {
                 <Link href="/tools" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname === '/tools' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
                   SnapTools
                 </Link>
+                  <Link href="/bridge" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname.startsWith('/bridge') || pathname.startsWith('/b/') ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                    SnapBridge <span className="bg-emerald-100 text-emerald-700 text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full ml-0.5">New</span>
+                  </Link>
                 <Link href="/dashboard/bio" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/bio' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
                   Bio
                 </Link>
@@ -167,6 +170,9 @@ export default function Navbar() {
               <>
                 <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Overview</Link>
                 <Link href="/tools" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/tools' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>SnapTools</Link>
+                  <Link href="/bridge" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg flex items-center justify-between ${pathname.startsWith('/bridge') || pathname.startsWith('/b/') ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>
+                    <div className="flex items-center gap-2">SnapBridge <span className="bg-emerald-100 text-emerald-700 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">New</span></div>
+                  </Link>
                 <Link href="/dashboard/bio" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/bio' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Bio</Link>
                 <Link href="/dashboard/links" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/links' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Links</Link>
                 <Link href="/dashboard/vcard" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/vcard' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>vCard</Link>
