@@ -25,6 +25,7 @@ async def create_room():
     ROOMS[short_code] = {
         "created_at": datetime.datetime.utcnow(),
         "expires_at": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
+        "status": "active",
         "files": []
     }
     return {"success": True, "shortCode": short_code}
@@ -48,6 +49,7 @@ async def upload_transfer(short_code: str, background_tasks: BackgroundTasks, fi
         ROOMS[short_code] = {
             "created_at": datetime.datetime.utcnow(),
             "expires_at": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
+        "status": "active",
             "files": []
         }
 
@@ -86,10 +88,13 @@ async def list_files(short_code: str):
         ROOMS[short_code] = {
             "created_at": datetime.datetime.utcnow(),
             "expires_at": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
+        "status": "active",
             "files": []
         }
         
     room = ROOMS[short_code]
+    if room.get("status") == "deleted":
+        raise HTTPException(status_code=404, detail="Room deleted by user")
     if datetime.datetime.utcnow() > room["expires_at"]:
         raise HTTPException(status_code=404, detail="Room expired")
         
@@ -125,6 +130,7 @@ async def delete_room(short_code: str):
     if short_code in ROOMS:
         room = ROOMS[short_code]
         # Mark all files as deleted and delete them from disk
+        room["status"] = "deleted"
         for fid in room["files"]:
             if fid in TRANSFERS:
                 t = TRANSFERS[fid]
@@ -134,7 +140,6 @@ async def delete_room(short_code: str):
                         os.remove(t["file_path"])
                 except:
                     pass
-        del ROOMS[short_code]
     return {"success": True}
 
 
