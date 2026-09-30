@@ -51,6 +51,17 @@ export default function MaintenanceModal() {
     return null;
   }
   
+  
+  // Render resets the free tier at exactly Midnight UTC on the 1st of the month.
+  // That is October 1, 2026 at 00:00:00 UTC (5:30 AM IST).
+  const renderResetTimeUTC = new Date('2026-10-01T00:00:00Z').getTime();
+  const isServerOffline = Date.now() < renderResetTimeUTC;
+
+  // If the server is no longer offline, hide the modal entirely!
+  if (!isServerOffline) {
+    return null;
+  }
+
   // Check if the current page requires the backend
   const requiresBackend = 
     pathname === '/login' ||
@@ -96,7 +107,7 @@ export default function MaintenanceModal() {
         
         <div className="inline-block text-center">
           <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">Expected Return</p>
-          <p className="text-blue-600 font-bold text-sm">October 1st, 2026</p>
+          <p className="text-blue-600 font-bold text-sm">Today Morning</p>
         </div>
       </div>
     </div>
