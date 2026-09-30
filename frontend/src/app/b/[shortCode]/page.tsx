@@ -18,7 +18,7 @@ export default function BridgeRoomPage() {
   useEffect(() => {
     // Poll for files
     fetchFiles();
-    const interval = setInterval(fetchFiles, 2000);
+    const interval = setInterval(fetchFiles, 500);
     return () => clearInterval(interval);
   }, [shortCode]);
 
