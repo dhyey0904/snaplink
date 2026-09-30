@@ -47,32 +47,7 @@ export default function Navbar() {
           
           <div className="flex justify-between items-center w-full sm:w-auto">
             <Link href={isAdmin ? "/admin" : isDashboard ? "/dashboard" : "/"} id="snaplinks-logo" className="flex-shrink-0 flex items-center group">
-                            <Image src="/icon.png" alt="SnapLinks Logo" width={32} height={32} className="mr-2 group-hover:rotate-12 transition-transform duration-300" />
-              <span className="text-2xl font-bold tracking-tight text-[#202124] group-hover:scale-105 transition-transform duration-300 flex">
-                <span className="flex">
-                  <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
-                  <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>
-                  <span className="inline-block animate-word-wave" style={{ animationDelay: '200ms' }}>a</span>
-                  <span className="inline-block animate-word-wave" style={{ animationDelay: '300ms' }}>p</span>
-                </span>
-                {isAdmin ? (
-                  <span className="text-[#ea4335] flex">
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '400ms' }}>A</span>
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '500ms' }}>d</span>
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '600ms' }}>m</span>
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '700ms' }}>i</span>
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '800ms' }}>n</span>
-                  </span>
-                ) : (
-                  <span className="text-[#1557b0] flex">
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '400ms' }}>L</span>
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '500ms' }}>i</span>
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '600ms' }}>n</span>
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '700ms' }}>k</span>
-                    <span className="inline-block animate-word-wave" style={{ animationDelay: '800ms' }}>s</span>
-                  </span>
-                )}
-              </span>
+              <Image src="/logo-full.png" alt="SnapLinks Logo" width={180} height={40} className="w-[140px] sm:w-[160px] md:w-[180px] h-auto object-contain group-hover:scale-105 transition-transform duration-300" priority />
             </Link>
             
             <div className={`flex items-center gap-2 sm:hidden transition-opacity duration-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
