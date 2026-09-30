@@ -137,7 +137,7 @@ export default function Navbar() {
                 <Link href="/tools" className="flex items-center gap-2 text-sm font-bold text-[#1557b0] hover:text-[#1557b0] transition-colors">
                   SnapTools <span className="bg-blue-100 text-[#1557b0] text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">Free</span>
                 </Link>
-                <Link href="/bridge" className="text-[14px] font-bold text-gray-800 hover:text-[#1557b0] tracking-wider uppercase transition-colors">SnapBridge</Link>
+                <Link href="/bridge" className="flex items-center gap-1.5 text-sm font-bold text-gray-700 hover:text-[#1557b0] transition-colors">SnapBridge <span className="bg-emerald-100 text-emerald-700 text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full">New</span></Link>
                 <Link href="/play" className="text-sm font-bold text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1">
                   <span>🎮</span> Play
                 </Link>
