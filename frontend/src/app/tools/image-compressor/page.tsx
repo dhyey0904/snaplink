@@ -32,6 +32,29 @@ export default function ImageCompressorPage() {
   const [resizeWidth, setResizeWidth] = useState<number | ''>('');
   
   const [isDragging, setIsDragging] = useState(false);
+  const [isServerOffline, setIsServerOffline] = useState(false);
+
+  useEffect(() => {
+    const checkHealth = async () => {
+      try {
+        const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
+        const res = await fetch(`${apiUrl}/sitemap/bio`, { 
+          method: 'GET',
+          cache: 'no-store'
+        });
+        if (res.ok || res.status === 404 || res.status === 405 || res.status === 200) {
+          setIsServerOffline(false);
+        } else {
+          setIsServerOffline(true);
+        }
+      } catch (e) {
+        setIsServerOffline(true);
+      }
+    };
+    checkHealth();
+    const interval = setInterval(checkHealth, 15000);
+    return () => clearInterval(interval);
+  }, []);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const formatSize = (bytes: number) => {
@@ -174,6 +197,15 @@ export default function ImageCompressorPage() {
         {/* Left Ad Placeholder (Since user asked to remove ads from image compressor, we just leave the empty div or omit it, wait, user said "remove ad from it", but then "now create it properly according to our website". I'll add the ad placeholders like other tools, but commented out or just use the layout) */}
         
         <main className="flex-grow max-w-3xl w-full">
+              {isServerOffline && (
+                <div className="mb-8 bg-orange-50 border border-orange-200 rounded-2xl p-6 text-center animate-pulse">
+                  <div className="text-orange-600 mb-2 flex justify-center">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                  </div>
+                  <h3 className="text-orange-800 font-bold text-xl mb-1">Server Upgrading (Back by Oct 2)</h3>
+                  <p className="text-orange-700 font-medium text-sm">We are currently waiting for our high-speed compute servers to reboot for the new month. This page will automatically unlock as soon as the server is online.</p>
+                </div>
+              )}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Image Compressor</h1>
             <p className="text-lg text-gray-600">Reduce file size by up to 90% while flawlessly preserving visual quality.</p>
@@ -240,10 +272,10 @@ export default function ImageCompressorPage() {
             <div className="mb-8">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">Select Images</label>
               <div 
-                className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors cursor-pointer relative ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-emerald-300 hover:bg-emerald-50'}`}
+                className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'opacity-50 pointer-events-none' : ''} ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-emerald-300 hover:bg-emerald-50'}`}
                 onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}
               >
-                <input type="file" ref={fileInputRef} accept="image/*" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                <input type="file" disabled={isServerOffline} ref={fileInputRef} accept="image/*" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                 <div className="flex flex-col items-center justify-center gap-2">
                   <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-4">
                     <UploadCloud size={32} />
