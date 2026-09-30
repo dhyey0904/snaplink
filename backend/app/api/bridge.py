@@ -2,7 +2,7 @@
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 from app.database.database import get_db, SessionLocal
-from app.models.bridge import Transfer
+from app.models.bridge import Transfer, BridgeRoom
 import shutil
 import uuid
 import os
@@ -19,9 +19,23 @@ os.makedirs(BRIDGE_DIR, exist_ok=True)
 def generate_short_code(length=6):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
-@router.post("/upload")
-async def upload_transfer(file: UploadFile = File(...), db: Session = Depends(get_db)):
+@router.post("/room")
+async def create_room(db: Session = Depends(get_db)):
     short_code = generate_short_code()
+    room = BridgeRoom(
+        room_code=short_code,
+        expires_at=datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+    )
+    db.add(room)
+    db.commit()
+    return {"success": True, "shortCode": short_code}
+
+@router.post("/room/{short_code}/upload")
+async def upload_transfer(short_code: str, file: UploadFile = File(...), db: Session = Depends(get_db)):
+    room = db.query(BridgeRoom).filter(BridgeRoom.room_code == short_code).first()
+    if not room:
+        raise HTTPException(status_code=404, detail="Room not found")
+
     file_id = str(uuid.uuid4())
     ext = os.path.splitext(file.filename)[1]
     filename = f"{file_id}{ext}"
@@ -32,36 +46,38 @@ async def upload_transfer(file: UploadFile = File(...), db: Session = Depends(ge
 
     transfer = Transfer(
         id=file_id,
-        short_code=short_code,
+        room_code=short_code,
         original_name=file.filename,
         file_path=file_path,
         mime_type=file.content_type,
-        size=os.path.getsize(file_path),
-        expires_at=datetime.datetime.utcnow() + datetime.timedelta(hours=24) # Fallback expiry
+        size=os.path.getsize(file_path)
     )
     db.add(transfer)
     db.commit()
 
-    return {"success": True, "shortCode": short_code}
+    return {"success": True, "fileId": file_id}
 
-@router.get("/status/{short_code}")
-async def get_status(short_code: str, db: Session = Depends(get_db)):
-    transfer = db.query(Transfer).filter(Transfer.short_code == short_code).first()
-    if not transfer:
-        return {"status": "deleted"}
+@router.get("/room/{short_code}/files")
+async def list_files(short_code: str, db: Session = Depends(get_db)):
+    room = db.query(BridgeRoom).filter(BridgeRoom.room_code == short_code).first()
+    if not room:
+        raise HTTPException(status_code=404, detail="Room not found")
+        
+    transfers = db.query(Transfer).filter(Transfer.room_code == short_code).all()
     
-    return {
-        "status": transfer.status,
-        "original_name": transfer.original_name,
-        "size": transfer.size,
-        "downloaded_at": transfer.downloaded_at.isoformat() if transfer.downloaded_at else None
-    }
-
-def delete_transfer_task(transfer_id: str, file_path: str):
-    # Wait 60 seconds
-    # Actually, we shouldn't do time.sleep in a background task blocking a worker.
-    # We can use asyncio.sleep if the background task is async.
-    pass
+    # Filter out deleted ones, just return waiting and downloaded
+    active_transfers = []
+    for t in transfers:
+        if t.status != "deleted":
+            active_transfers.append({
+                "id": t.id,
+                "original_name": t.original_name,
+                "size": t.size,
+                "status": t.status,
+                "downloaded_at": t.downloaded_at.isoformat() if t.downloaded_at else None
+            })
+            
+    return {"files": active_transfers}
 
 async def async_delete_transfer(transfer_id: str, file_path: str):
     await asyncio.sleep(60)
@@ -80,9 +96,9 @@ async def async_delete_transfer(transfer_id: str, file_path: str):
     finally:
         db.close()
 
-@router.get("/download/{short_code}")
-async def download_transfer(short_code: str, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
-    transfer = db.query(Transfer).filter(Transfer.short_code == short_code).first()
+@router.get("/download/{transfer_id}")
+async def download_transfer(transfer_id: str, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
+    transfer = db.query(Transfer).filter(Transfer.id == transfer_id).first()
     if not transfer or transfer.status == "deleted":
         raise HTTPException(status_code=404, detail="Transfer expired or deleted")
 

@@ -1,153 +1,81 @@
-import sys
+﻿import sys
 import os
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+
+from app.database.database import engine, Base
+from app.models import User, Link, Click
+from app.models.bridge import Transfer, BridgeRoom
+from app.api import auth, links, analytics, bio, vcard, files, payment, admin, integrations, rating, redirect, report
+from app.api import image, sitemap, bridge
+from sqlalchemy import text
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+from slowapi.middleware import SlowAPIMiddleware
+from app.core.limiter import limiter
+
+# Create database tables
 try:
-    from fastapi import FastAPI
-    from fastapi.middleware.cors import CORSMiddleware
-    from fastapi.staticfiles import StaticFiles
-    
-    from app.database.database import engine, Base
-    from app.models import User, Link, Click
-    from app.models.bridge import Transfer
-    from app.api import auth, links, analytics, bio, vcard, files, payment, admin, integrations, rating, redirect, report
-    from app.api import image, sitemap, bridge
-    from sqlalchemy import text
-    from slowapi import _rate_limit_exceeded_handler
-    from slowapi.errors import RateLimitExceeded
-    from slowapi.middleware import SlowAPIMiddleware
-    from app.core.limiter import limiter
-    
-    # Create database tables
     Base.metadata.create_all(bind=engine)
-    
-    # Safe migration: Add new columns if they don't exist
-    migrations = [
-        "ALTER TABLE bio_pages ADD COLUMN views INTEGER DEFAULT 0",
-        "ALTER TABLE bio_pages ADD COLUMN profile_image_url VARCHAR",
-        "ALTER TABLE bio_pages ADD COLUMN ad_enabled BOOLEAN DEFAULT true",
-        "ALTER TABLE bio_pages ADD COLUMN theme_type VARCHAR DEFAULT 'solid'",
-        "ALTER TABLE bio_links ADD COLUMN clicks INTEGER DEFAULT 0",
-        "ALTER TABLE bio_links ADD COLUMN link_type VARCHAR DEFAULT 'link'",
-        "ALTER TABLE bio_links ADD COLUMN metadata_json VARCHAR",
-        "ALTER TABLE users ADD COLUMN api_key VARCHAR",
-        "ALTER TABLE users ADD COLUMN api_key_url VARCHAR",
-        "ALTER TABLE users ADD COLUMN api_key_bio VARCHAR",
-        "ALTER TABLE users ADD COLUMN api_key_vcard VARCHAR",
-        "ALTER TABLE users ADD COLUMN api_key_files VARCHAR",
-        "ALTER TABLE users ADD COLUMN tier VARCHAR DEFAULT 'free'",
-        "ALTER TABLE links ADD COLUMN expires_at TIMESTAMP WITH TIME ZONE",
-        "ALTER TABLE links ADD COLUMN og_title VARCHAR",
-        "ALTER TABLE links ADD COLUMN og_description VARCHAR",
-        "ALTER TABLE links ADD COLUMN og_image VARCHAR",
-        """
-        CREATE TABLE IF NOT EXISTS business_cards (
-            id SERIAL PRIMARY KEY,
-            user_id INTEGER REFERENCES users(id),
-            custom_alias VARCHAR UNIQUE NOT NULL,
-            name VARCHAR,
-            company VARCHAR,
-            job_title VARCHAR,
-            phone VARCHAR,
-            email VARCHAR,
-            whatsapp VARCHAR,
-            portfolio_url VARCHAR,
-            social_links VARCHAR, 
-            theme_color VARCHAR DEFAULT 'dark',
-            views INTEGER DEFAULT 0
-        )
-        """,
-        """
-        CREATE TABLE IF NOT EXISTS files (
-            id SERIAL PRIMARY KEY,
-            user_id INTEGER REFERENCES users(id),
-            filename VARCHAR,
-            file_path VARCHAR,
-            content_type VARCHAR,
-            size_bytes INTEGER,
-            short_code VARCHAR UNIQUE,
-            password_hash VARCHAR,
-            expires_at TIMESTAMP WITH TIME ZONE,
-            downloads INTEGER DEFAULT 0,
-            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-        )
-        """,
-        """
-        CREATE TABLE IF NOT EXISTS ratings (
-            id SERIAL PRIMARY KEY,
-            stars INTEGER NOT NULL,
-            feedback VARCHAR,
-            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-        )
-        """
-    ]
-    
-    for query in migrations:
-        try:
-            with engine.begin() as conn:
-                conn.execute(text(query))
-        except Exception:
-            pass
-    
-    app = FastAPI(
-        title="SnapLinks API",
-        description="Backend API for SnapLinks URL Shortener",
-        version="1.0.0"
-    )
-    
-    # Rate Limiter setup
-    app.state.limiter = limiter
-    app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
-    app.add_middleware(SlowAPIMiddleware)
-    
-    # CORS setup
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_credentials=False,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-    
-    
-    import asyncio
-    from app.tasks.garbage_collector import cleanup_expired_files_task
-
-    @app.on_event("startup")
-    async def startup_event():
-        asyncio.create_task(cleanup_expired_files_task())
-
-    @app.get("/")
-
-    def read_root():
-        return {"message": "Welcome to SnapLinks API"}
-    
-    os.makedirs("uploads", exist_ok=True)
-    app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
-    
-    app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
-    app.include_router(links.router, prefix="/api/links", tags=["links"])
-    app.include_router(analytics.router, prefix="/api/analytics", tags=["analytics"])
-    app.include_router(bio.router, prefix="/api/bio", tags=["bio"])
-    app.include_router(vcard.router, prefix="/api/vcard", tags=["vcard"])
-    app.include_router(files.router, prefix="/api/files", tags=["files"])
-    app.include_router(payment.router, prefix="/api/payment", tags=["payment"])
-    app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
-    app.include_router(integrations.router, prefix="/api/integrations", tags=["integrations"])
-    app.include_router(rating.router, prefix="/api/rating", tags=["rating"])
-    app.include_router(image.router, prefix="/api/image", tags=["image"])
-    app.include_router(sitemap.router, prefix="/api", tags=["sitemap"])
-    app.include_router(bridge.router, prefix="/api/bridge", tags=["bridge"])
-    app.include_router(redirect.router, tags=["redirect"])
-    
-    
 except Exception as e:
-    print(f"FATAL STARTUP ERROR: {e}", file=sys.stderr)
-    import traceback
-    traceback.print_exc()
-    sys.exit(1)
+    print("DB CREATE ALL FAILED:", e)
 
+# Safe migration: Add new columns if they don't exist
+migrations = [
+    "ALTER TABLE bio_pages ADD COLUMN views INTEGER DEFAULT 0",
+    "ALTER TABLE bio_pages ADD COLUMN profile_image_url VARCHAR",
+    "ALTER TABLE bio_pages ADD COLUMN ad_enabled BOOLEAN DEFAULT true",
+    "ALTER TABLE bio_pages ADD COLUMN theme_type VARCHAR DEFAULT 'solid'",
+    "ALTER TABLE business_cards ADD COLUMN views INTEGER DEFAULT 0"
+]
 
+try:
+    with engine.begin() as conn:
+        for migration in migrations:
+            try:
+                conn.execute(text(migration))
+            except Exception:
+                pass # Column likely exists
+except Exception as e:
+    print(f"Migration error: {e}")
 
+app = FastAPI(title="SnapLinks API")
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.add_middleware(SlowAPIMiddleware)
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+UPLOAD_DIR = "uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
+COMPRESSED_DIR = os.path.join(UPLOAD_DIR, "compressed")
+os.makedirs(COMPRESSED_DIR, exist_ok=True)
+app.mount("/compressed", StaticFiles(directory=COMPRESSED_DIR), name="compressed")
 
-app.include_router(report.router, prefix="/api/report", tags=["Report"])
+app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
+app.include_router(links.router, prefix="/api/links", tags=["links"])
+app.include_router(analytics.router, prefix="/api/analytics", tags=["analytics"])
+app.include_router(bio.router, prefix="/api/bio", tags=["bio"])
+app.include_router(vcard.router, prefix="/api/vcard", tags=["vcard"])
+app.include_router(files.router, prefix="/api/files", tags=["files"])
+app.include_router(payment.router, prefix="/api/payment", tags=["payment"])
+app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
+app.include_router(integrations.router, prefix="/api/integrations", tags=["integrations"])
+app.include_router(rating.router, prefix="/api", tags=["rating"])
+app.include_router(redirect.router, tags=["redirect"])
+app.include_router(report.router, prefix="/api/report", tags=["report"])
+app.include_router(image.router, prefix="/api/image", tags=["image"])
+app.include_router(sitemap.router, prefix="/api", tags=["sitemap"])
+app.include_router(bridge.router, prefix="/api/bridge", tags=["bridge"])
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to SnapLinks API"}
