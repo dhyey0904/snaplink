@@ -54,12 +54,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.snaplinks.in",
   },
-      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
-    ],
-    apple: [
-      { url: '/apple-icon.png' },
-    ],
-  },
   manifest: '/manifest.json',
   openGraph: {
     type: "website",
