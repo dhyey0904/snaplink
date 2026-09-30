@@ -137,6 +137,19 @@ async def delete_room(short_code: str):
         del ROOMS[short_code]
     return {"success": True}
 
+
+@router.delete("/file/{transfer_id}")
+async def delete_file(transfer_id: str):
+    if transfer_id in TRANSFERS:
+        t = TRANSFERS[transfer_id]
+        t["status"] = "deleted"
+        try:
+            if os.path.exists(t["file_path"]):
+                os.remove(t["file_path"])
+        except:
+            pass
+    return {"success": True}
+
 @router.get("/download/{transfer_id}")
 async def download_transfer(transfer_id: str, background_tasks: BackgroundTasks):
     if transfer_id not in TRANSFERS:
