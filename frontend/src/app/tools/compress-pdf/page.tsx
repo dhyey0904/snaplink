@@ -22,29 +22,7 @@ export default function CompressPDFPage() {
   const [level, setLevel] = useState<CompressionLevel>('recommended');
   const [targetSizeKb, setTargetSizeKb] = useState<number>(100);
   const [isDragging, setIsDragging] = useState(false);
-  const [isServerOffline, setIsServerOffline] = useState(false);
-
-  useEffect(() => {
-    const checkHealth = async () => {
-      try {
-        const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
-        const res = await fetch(`${apiUrl}/sitemap/bio`, { 
-          method: 'GET',
-          cache: 'no-store'
-        });
-        if (res.ok || res.status === 404 || res.status === 405 || res.status === 200) {
-          setIsServerOffline(false);
-        } else {
-          setIsServerOffline(true);
-        }
-      } catch (e) {
-        setIsServerOffline(true);
-      }
-    };
-    checkHealth();
-    const interval = setInterval(checkHealth, 15000);
-    return () => clearInterval(interval);
-  }, []);
+  const isServerOffline = true; // Hardcoded to true for now. Change to false in the morning.
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const formatSize = (bytes: number) => {
