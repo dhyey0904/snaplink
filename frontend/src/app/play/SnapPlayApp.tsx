@@ -18,7 +18,8 @@ const LIBRARY_GAMES = [
 function getDailyGame() {
   // Use the date string to generate a daily hash so the sequence is completely random over 365 days
   // This prevents "Mondays always being the same game"
-  const dateStr = new Date().toISOString().split('T')[0];
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
   let hash = 0;
   for (let i = 0; i < dateStr.length; i++) {
     hash = Math.imul(31, hash) + dateStr.charCodeAt(i) | 0;
@@ -102,7 +103,8 @@ export default function SnapPlayApp() {
     clearInterval(timerRef.current);
     setGameState('result');
     
-    const todayStr = new Date().toISOString().split('T')[0];
+    const _d = new Date();
+    const todayStr = `${_d.getFullYear()}-${_d.getMonth() + 1}-${_d.getDate()}`;
     const lastPlayed = localStorage.getItem('snapplay_last');
     if (lastPlayed !== todayStr) {
       setStreak(prev => {
