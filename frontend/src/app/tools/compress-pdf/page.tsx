@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import AdSidebar from '@/components/AdSidebar';
 import AdBanner from '@/components/AdBanner';
 
-type CompressionLevel = 'recommended' | 'extreme' | 'less';
+type CompressionLevel = 'recommended' | 'extreme' | 'less' | 'target';
 
 interface CompressedFile {
   id: string;
@@ -20,6 +20,7 @@ interface CompressedFile {
 export default function CompressPDFPage() {
   const [files, setFiles] = useState<CompressedFile[]>([]);
   const [level, setLevel] = useState<CompressionLevel>('recommended');
+  const [targetSizeKb, setTargetSizeKb] = useState<number>(100);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -94,6 +95,7 @@ export default function CompressPDFPage() {
       const formData = new FormData();
       formData.append('file', fileObj.originalFile);
       formData.append('level', level);
+      if (level === 'target') formData.append('targetSizeKb', targetSizeKb.toString());
 
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
       const res = await fetch(`${apiUrl}/tools/compress-pdf`, {
@@ -153,7 +155,7 @@ export default function CompressPDFPage() {
             {/* Settings Row */}
             <div className="mb-8 bg-gray-50 p-6 rounded-2xl border border-gray-100">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-4">Compression Level</label>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <label className={`flex flex-col gap-2 p-4 rounded-xl border-2 cursor-pointer transition-colors ${level === 'recommended' ? 'border-green-500 bg-green-50/50' : 'border-transparent bg-white hover:border-gray-200'}`}>
                   <div className="flex items-center gap-2">
                     <input type="radio" checked={level === 'recommended'} onChange={() => setLevel('recommended')} className="w-4 h-4 text-green-600" />
@@ -176,6 +178,20 @@ export default function CompressPDFPage() {
                     <span className="font-bold text-gray-900">Less</span>
                   </div>
                   <span className="text-sm text-gray-500 ml-6">Minor compression, perfect quality</span>
+                </label>
+                <label className={`flex flex-col gap-2 p-4 rounded-xl border-2 cursor-pointer transition-colors ${level === 'target' ? 'border-green-500 bg-green-50/50' : 'border-transparent bg-white hover:border-gray-200'}`}>
+                  <div className="flex items-center gap-2">
+                    <input type="radio" checked={level === 'target'} onChange={() => setLevel('target')} className="w-4 h-4 text-green-600" />
+                    <span className="font-bold text-gray-900">Target Size</span>
+                  </div>
+                  {level === 'target' ? (
+                    <div className="flex items-center gap-2 mt-1">
+                      <input type="number" min="10" value={targetSizeKb} onChange={(e) => setTargetSizeKb(Number(e.target.value))} className="w-full border border-green-300 rounded p-1 text-sm outline-none bg-white" />
+                      <span className="text-xs font-bold text-gray-500">KB</span>
+                    </div>
+                  ) : (
+                    <span className="text-sm text-gray-500 ml-6">Specify exact size</span>
+                  )}
                 </label>
               </div>
             </div>

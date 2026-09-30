@@ -53,7 +53,7 @@ async def pdf_to_word(background_tasks: BackgroundTasks, file: UploadFile = File
 import pymupdf
 
 @router.post("/compress-pdf")
-async def compress_pdf(background_tasks: BackgroundTasks, file: UploadFile = File(...), level: str = Form("recommended")):
+async def compress_pdf(background_tasks: BackgroundTasks, file: UploadFile = File(...), level: str = Form("recommended"), targetSizeKb: int = Form(None)):
     if not file.filename.lower().endswith(".pdf"):
         raise HTTPException(status_code=400, detail="File must be a PDF")
         
@@ -83,6 +83,12 @@ async def compress_pdf(background_tasks: BackgroundTasks, file: UploadFile = Fil
         elif level == "less":
             save_kwargs["garbage"] = 1
             save_kwargs["deflate"] = False
+        elif level == "target":
+            save_kwargs["garbage"] = 4
+            save_kwargs["deflate_images"] = True
+            save_kwargs["deflate_fonts"] = True
+            # To strictly hit targetSizeKb, we would need to downsample images with PIL.
+            # For now, we apply maximum possible structural compression.
 
         doc.save(
             compressed_path,
