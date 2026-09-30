@@ -157,7 +157,7 @@ export default function CompressPDFPage() {
                   <div className="text-orange-600 mb-2 flex justify-center">
                     <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                   </div>
-                  <h3 className="text-orange-800 font-bold text-xl mb-1">Server Upgrading (Back by Oct 2)</h3>
+                  <h3 className="text-orange-800 font-bold text-xl mb-1">Server Upgrading (Back Today Morning)</h3>
                   <p className="text-orange-700 font-medium text-sm">We are currently waiting for our high-speed compute servers to reboot for the new month. This page will automatically unlock as soon as the server is online.</p>
                 </div>
               )}
