@@ -69,7 +69,7 @@ export default function Home() {
                       </div>
                       <div>
                         <div className="text-white font-bold text-xl mb-1">Dhyey Raja</div>
-                        <div className="text-gray-500 text-base sm:text-sm">CEO, SnapLinks</div>
+                        <div className="text-gray-300 text-base sm:text-sm">CEO, SnapLinks</div>
                       </div>
                     </div>
 
@@ -78,7 +78,7 @@ export default function Home() {
                       <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-4 border border-white/10">
                         <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-500">S</span>
                       </div>
-                      <div className="text-gray-400 text-xs font-mono tracking-widest uppercase">Digital vCard</div>
+                      <div className="text-gray-300 text-xs font-mono tracking-widest uppercase">Digital vCard</div>
                     </div>
 
                   </div>
@@ -104,7 +104,7 @@ export default function Home() {
                 <h2 className="text-4xl md:text-5xl font-extrabold text-[#202124] mb-6 leading-tight">
                   Meet <span className="text-[#1557b0]">SnapBridge.</span>
                 </h2>
-                <p className="text-[#5f6368] text-xl leading-relaxed mb-8">
+                <p className="text-gray-800 text-xl leading-relaxed mb-8">
                   A lightning-fast, peer-to-peer secure room for transferring files between your devices. Scan the QR code, drop your files, and watch them self-destruct 60 seconds after download. No cloud storage, no traces left behind.
                 </p>
                 
@@ -137,13 +137,13 @@ export default function Home() {
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                       </div>
                       <h3 className="text-gray-900 font-bold text-lg mb-1">Drop file to transfer</h3>
-                      <p className="text-gray-500 text-sm">File will sync instantly to paired devices</p>
+                      <p className="text-gray-700 text-sm">File will sync instantly to paired devices</p>
                     </div>
                     
                     <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white border border-gray-200 shadow-lg rounded-xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 animate-bounce z-20 scale-90 sm:scale-100 origin-top-right" style={{ animationDuration: '3s' }}>
                       <div className="w-10 h-10 bg-gray-100 rounded-lg p-1"><svg viewBox="0 0 100 100"><rect width="40" height="40" fill="currentColor" className="text-gray-800"/><rect x="60" width="40" height="40" fill="currentColor" className="text-gray-800"/><rect y="60" width="40" height="40" fill="currentColor" className="text-gray-800"/><rect x="60" y="60" width="40" height="40" fill="currentColor" className="text-gray-800"/></svg></div>
                       <div>
-                        <div className="text-xs text-gray-500 font-bold uppercase">Room Code</div>
+                        <div className="text-xs text-gray-700 font-bold uppercase">Room Code</div>
                         <div className="text-gray-900 font-mono font-bold tracking-widest text-sm">z8Fq2P</div>
                       </div>
                     </div>
@@ -181,7 +181,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-[#202124] mb-6 leading-tight">
                 Introducing SnapTools Suite
               </h2>
-              <p className="text-[#5f6368] text-xl max-w-2xl mx-auto leading-relaxed">
+              <p className="text-gray-800 text-xl max-w-2xl mx-auto leading-relaxed">
                 A powerful suite of document and image tools that run entirely in your browser. Fast, secure, and limitless conversions with zero server uploads. <strong className="text-gray-900">No signup required.</strong>
               </p>
             </div>
@@ -198,9 +198,9 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-gray-900">Image Compressor</h3>
                 </div>
                 <ul className="space-y-4 mb-8">
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Compress without losing quality</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Set target file size accurately</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Supports WebP, AVIF, PNG, JPG</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Compress without losing quality</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Set target file size accurately</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Supports WebP, AVIF, PNG, JPG</li>
                 </ul>
                 <Link href="/tools/image-compressor" className="inline-block w-full text-center bg-purple-600 text-white font-bold py-3 rounded-xl hover:bg-purple-700 transition-colors shadow-lg shadow-purple-500/30">
                   Compress Images
@@ -216,9 +216,9 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-gray-900">PDF Utilities</h3>
                 </div>
                 <ul className="space-y-4 mb-8">
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Merge & Split PDFs</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Compress PDF Size</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Add Page Numbers & Watermarks</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Merge & Split PDFs</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Compress PDF Size</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Add Page Numbers & Watermarks</li>
                 </ul>
                 <Link href="/tools" className="inline-block w-full text-center bg-white border-2 border-gray-200 text-gray-800 font-bold py-3 rounded-xl hover:border-red-500 hover:text-red-600 transition-colors">
                   Explore PDF Tools
@@ -234,9 +234,9 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-gray-900">File Security</h3>
                 </div>
                 <ul className="space-y-4 mb-8">
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> AES-256 PDF Encryption</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Remove PDF Passwords</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Browser-Based Privacy</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> AES-256 PDF Encryption</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Remove PDF Passwords</li>
+                  <li className="flex items-center gap-3 text-gray-800"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Browser-Based Privacy</li>
                 </ul>
                 <Link href="/tools/protect-pdf" className="inline-block w-full text-center bg-white border-2 border-gray-200 text-gray-800 font-bold py-3 rounded-xl hover:border-indigo-500 hover:text-indigo-600 transition-colors">
                   Secure a PDF
@@ -268,14 +268,14 @@ export default function Home() {
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-[#202124] mb-4">Smart URL Shortener</h3>
-                <p className="text-[#5f6368] text-lg mb-8 leading-relaxed">
+                <p className="text-gray-800 text-lg mb-8 leading-relaxed">
                   We haven't forgotten the basics. Create branded short links instantly. Fully customize your OpenGraph metadata for perfect social media previews every single time.
                 </p>
                 {/* Mini Link Mockup */}
                 <div className="w-full h-32 border border-gray-200 rounded-xl bg-white shadow-sm flex flex-col justify-center px-6 group-hover:border-yellow-300 transition-colors">
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
-                      <span className="text-base sm:text-sm text-gray-500 line-through">snaplink.com/very-long-ugly-url-1234</span>
+                      <span className="text-base sm:text-sm text-gray-700 line-through">snaplink.com/very-long-ugly-url-1234</span>
                       <span className="text-lg font-bold text-[#1557b0]">snap.link/launch</span>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
@@ -291,7 +291,7 @@ export default function Home() {
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-[#202124] mb-4">Real-Time Analytics</h3>
-                <p className="text-[#5f6368] text-lg mb-8 leading-relaxed">
+                <p className="text-gray-800 text-lg mb-8 leading-relaxed">
                   Track every click, scan, and download. Get detailed insights on referrers, devices, and locations without the bloated complexity of Google Analytics.
                 </p>
                 {/* Mini Chart Mockup */}
@@ -313,7 +313,7 @@ export default function Home() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
                 <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-[#202124]">Everything you need, in one place.</h2>
-                <p className="text-[#5f6368] text-lg max-w-2xl mx-auto">SnapLinks replaces your fragmented tools with one seamless, incredibly powerful dashboard.</p>
+                <p className="text-gray-800 text-lg max-w-2xl mx-auto">SnapLinks replaces your fragmented tools with one seamless, incredibly powerful dashboard.</p>
               </div>
   
               <div className="relative w-full overflow-hidden pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 [mask-image:_linear-gradient(to_right,transparent_0,_black_32px,_black_calc(100%-32px),transparent_100%)] sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
@@ -326,7 +326,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Custom URLs</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Create short, trackable links with custom social media preview cards.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Create short, trackable links with custom social media preview cards.</p>
               </div>
               
               {/* Feature 2 */}
@@ -335,7 +335,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Bio Pages</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Build beautiful mobile landing pages for your Instagram or TikTok profile.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Build beautiful mobile landing pages for your Instagram or TikTok profile.</p>
               </div>
 
               {/* Feature 3 */}
@@ -344,7 +344,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">File Sharing</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Share files securely with password protection and auto-expiry.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Share files securely with password protection and auto-expiry.</p>
               </div>
 
               {/* Feature 4 */}
@@ -353,7 +353,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">3D vCards</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
               </div>
               
               {/* Feature 5 */}
@@ -363,7 +363,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
               </div>
 
                   </div>
@@ -375,7 +375,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Custom URLs</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Create short, trackable links with custom social media preview cards.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Create short, trackable links with custom social media preview cards.</p>
               </div>
               
               {/* Feature 2 */}
@@ -384,7 +384,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Bio Pages</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Build beautiful mobile landing pages for your Instagram or TikTok profile.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Build beautiful mobile landing pages for your Instagram or TikTok profile.</p>
               </div>
 
               {/* Feature 3 */}
@@ -393,7 +393,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">File Sharing</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Share files securely with password protection and auto-expiry.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Share files securely with password protection and auto-expiry.</p>
               </div>
 
               {/* Feature 4 */}
@@ -402,7 +402,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">3D vCards</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
               </div>
               
               {/* Feature 5 */}
@@ -412,7 +412,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
               </div>
 
                   </div>
@@ -424,7 +424,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Custom URLs</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Create short, trackable links with custom social media preview cards.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Create short, trackable links with custom social media preview cards.</p>
               </div>
               
               {/* Feature 2 */}
@@ -433,7 +433,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Bio Pages</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Build beautiful mobile landing pages for your Instagram or TikTok profile.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Build beautiful mobile landing pages for your Instagram or TikTok profile.</p>
               </div>
 
               {/* Feature 3 */}
@@ -442,7 +442,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">File Sharing</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Share files securely with password protection and auto-expiry.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Share files securely with password protection and auto-expiry.</p>
               </div>
 
               {/* Feature 4 */}
@@ -451,7 +451,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">3D vCards</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
               </div>
               
               {/* Feature 5 */}
@@ -461,7 +461,7 @@ export default function Home() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
-                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
+                <p className="text-gray-800 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
               </div>
 
                   </div>
@@ -484,7 +484,7 @@ export default function Home() {
                   For Developers
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-white">Developer API Access</h2>
-                <p className="text-gray-500 text-lg max-w-2xl">
+                <p className="text-gray-700 text-lg max-w-2xl">
                   Integrate SnapLinks' powerful URL shortening and file sharing capabilities directly into your own applications. Generate links programmatically at scale.
                 </p>
               </div>
@@ -492,9 +492,9 @@ export default function Home() {
               <div className="w-full md:w-auto relative z-10 flex flex-col items-center md:items-end bg-gray-800/50 p-6 sm:p-8 rounded-3xl border border-gray-700/50">
                 <div className="flex items-baseline gap-1 mb-1">
                   <span className="text-4xl font-black text-white">₹199</span>
-                  <span className="text-gray-500 font-medium">/ month</span>
+                  <span className="text-gray-700 font-medium">/ month</span>
                 </div>
-                <p className="text-gray-500 text-base sm:text-sm mb-6 font-medium">No hidden fees. Cancel anytime.</p>
+                <p className="text-gray-700 text-base sm:text-sm mb-6 font-medium">No hidden fees. Cancel anytime.</p>
                 
                 <a href="/dashboard/api" className="w-full text-center bg-[#1557b0] hover:bg-[#1557b0] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                   Purchase API Key
@@ -511,7 +511,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Everything You Need to Know About SnapLinks</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">The most comprehensive guide to our file sharing, URL shortening, and digital identity tools.</p>
+              <p className="text-lg text-gray-800 max-w-2xl mx-auto">The most comprehensive guide to our file sharing, URL shortening, and digital identity tools.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
@@ -521,7 +521,7 @@ export default function Home() {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">What is SnapLinks?</h3>
-                <p className="text-gray-600 leading-relaxed text-sm text-justify">
+                <p className="text-gray-800 leading-relaxed text-sm text-justify">
                   SnapLinks is the internet's premier all-in-one platform designed for modern professionals, creators, and developers who need complete control over their digital footprint. Whether you are looking to securely transfer large files, create beautiful biolink pages, or shorten long ugly URLs into manageable, trackable links, SnapLinks provides a seamless, lightning-fast experience. In today's fast-paced digital economy, managing your brand and ensuring data privacy shouldn't require five different subscriptions. We combine secure ephemeral file sharing, advanced link analytics, and cutting-edge 3D digital business cards into one centralized dashboard.
                 </p>
               </div>
@@ -532,7 +532,7 @@ export default function Home() {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Secure Ephemeral Sharing</h3>
-                <p className="text-gray-600 leading-relaxed text-sm text-justify">
+                <p className="text-gray-800 leading-relaxed text-sm text-justify">
                   Data security is more critical now than ever before. When you send sensitive documents, creative assets, or private videos across the internet, you lose control the moment you hit send. SnapLinks solves this through our advanced ephemeral file sharing architecture. You can upload files up to 50MB and instantly generate a secure link. Unlike traditional cloud storage platforms that keep your files on their servers forever, SnapLinks files are designed to self-destruct. You can set strict expiration timers or configure the file to automatically delete itself the moment it is downloaded, providing unparalleled peace of mind.
                 </p>
               </div>
@@ -543,7 +543,7 @@ export default function Home() {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">The Future: 3D vCards</h3>
-                <p className="text-gray-600 leading-relaxed text-sm text-justify">
+                <p className="text-gray-800 leading-relaxed text-sm text-justify">
                   Paper business cards are outdated, expensive to reprint, and terrible for the environment. Standard "Link in Bio" pages are often boring and fail to capture attention. SnapLinks introduces the next generation of digital identity: the 3D Digital vCard. Our platform allows you to generate a fully interactive, three-dimensional profile that houses all your important links, social media profiles, portfolios, and contact information. When someone visits your SnapLinks bio, they experience a premium, interactive digital environment that elevates your personal brand for networking events and sponsorships.
                 </p>
               </div>
@@ -561,7 +561,7 @@ export default function Home() {
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                     </span>
                   </summary>
-                  <p className="text-gray-600 px-6 pb-6 leading-relaxed">
+                  <p className="text-gray-800 px-6 pb-6 leading-relaxed">
                     You can securely upload and share files up to 50MB in size. These files are processed securely and are ready to be shared instantly via a short link.
                   </p>
                 </details>
@@ -573,7 +573,7 @@ export default function Home() {
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                     </span>
                   </summary>
-                  <p className="text-gray-600 px-6 pb-6 leading-relaxed">
+                  <p className="text-gray-800 px-6 pb-6 leading-relaxed">
                     No! The people you send your files to do not need to create an account or download any special software. They simply click your secure SnapLinks, enter the password if you set one, and the download begins immediately in their web browser.
                   </p>
                 </details>
@@ -585,7 +585,7 @@ export default function Home() {
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                     </span>
                   </summary>
-                  <p className="text-gray-600 px-6 pb-6 leading-relaxed">
+                  <p className="text-gray-800 px-6 pb-6 leading-relaxed">
                     Our advanced analytics dashboard tracks everything you need to know about your link performance. We provide real-time click tracking, geographical location data, device and browser breakdowns, and referring sources, empowering you to optimize your marketing campaigns effectively.
                   </p>
                 </details>
@@ -597,7 +597,7 @@ export default function Home() {
                       <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                     </span>
                   </summary>
-                  <p className="text-gray-600 px-6 pb-6 leading-relaxed">
+                  <p className="text-gray-800 px-6 pb-6 leading-relaxed">
                     Yes. Our Developer API is built on a highly scalable infrastructure designed to handle your programmatic needs efficiently. It allows you to programmatically generate short links, configure AB testing routes, and automate file sharing directly from your own software applications.
                   </p>
                 </details>

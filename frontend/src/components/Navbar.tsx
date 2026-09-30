@@ -85,7 +85,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle mobile menu"
                 aria-expanded={isMobileMenuOpen}
-                className="text-gray-500 hover:text-gray-700 p-2 focus:outline-none"
+                className="text-gray-700 hover:text-gray-700 p-2 focus:outline-none"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {isMobileMenuOpen ? (
@@ -101,33 +101,33 @@ export default function Navbar() {
           {/* Desktop Links (Exact Original) */}
           <div className={`hidden sm:flex md:flex items-center gap-4 lg:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide mt-3 sm:mt-0 pb-1 sm:pb-0 w-full sm:w-auto transition-opacity duration-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
             {isAdmin ? (
-              <Link href="/dashboard" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="/dashboard" className="text-sm font-medium text-gray-800 hover:text-gray-900 transition-colors">
                 Exit Admin
               </Link>
             ) : isDashboard ? (
               <>
-                <Link href="/dashboard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                <Link href="/dashboard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-gray-800 hover:text-[#202124]'}`}>
                   Overview
                 </Link>
-                <Link href="/tools" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname === '/tools' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                <Link href="/tools" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname === '/tools' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-gray-800 hover:text-[#202124]'}`}>
                   SnapTools
                 </Link>
-                  <Link href="/bridge" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname.startsWith('/bridge') || pathname.startsWith('/b/') ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                  <Link href="/bridge" className={`text-sm font-medium transition-colors py-5 flex items-center gap-1 ${pathname.startsWith('/bridge') || pathname.startsWith('/b/') ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-gray-800 hover:text-[#202124]'}`}>
                     SnapBridge <span className="bg-emerald-100 text-emerald-700 text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full ml-0.5">New</span>
                   </Link>
-                <Link href="/dashboard/bio" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/bio' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                <Link href="/dashboard/bio" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/bio' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-gray-800 hover:text-[#202124]'}`}>
                   Bio
                 </Link>
-                <Link href="/dashboard/links" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/links' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                <Link href="/dashboard/links" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/links' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-gray-800 hover:text-[#202124]'}`}>
                   Links
                 </Link>
-                <Link href="/dashboard/vcard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/vcard' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                <Link href="/dashboard/vcard" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/vcard' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-gray-800 hover:text-[#202124]'}`}>
                   vCard
                 </Link>
-                <Link href="/dashboard/files" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/files' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                <Link href="/dashboard/files" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/files' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-gray-800 hover:text-[#202124]'}`}>
                   Files
                 </Link>
-                <Link href="/dashboard/api" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/api' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-[#5f6368] hover:text-[#202124]'}`}>
+                <Link href="/dashboard/api" className={`text-sm font-medium transition-colors py-5 ${pathname === '/dashboard/api' ? 'text-[#1557b0] border-b-2 border-[#1557b0]' : 'text-gray-800 hover:text-[#202124]'}`}>
                   API
                 </Link>
                 <div className="w-px h-6 bg-gray-200 mx-1"></div>
@@ -144,9 +144,9 @@ export default function Navbar() {
                 <Link href="/play" className="text-sm font-bold text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1">
                   <span>🎮</span> Play
                 </Link>
-                <Link href="/blog" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">Blog</Link>
+                <Link href="/blog" className="text-sm font-medium text-gray-800 hover:text-[#202124] transition-colors">Blog</Link>
                 <div className="w-px h-4 bg-gray-300 mx-2 hidden sm:block"></div>
-                <Link href="/login" className="text-sm font-bold text-[#5f6368] hover:text-[#202124] transition-colors">
+                <Link href="/login" className="text-sm font-bold text-gray-800 hover:text-[#202124] transition-colors">
                   Sign in
                 </Link>
                 <Link href="/register" className="text-sm font-bold bg-[#1557b0] text-white px-5 py-2.5 rounded-full hover:bg-[#1557b0] transition-colors shadow-md hover:shadow-lg focus:ring-4 focus:ring-[#1a73e8]/20">
@@ -183,7 +183,7 @@ export default function Navbar() {
                     <div className="w-8 h-8 bg-[#1557b0] text-white rounded-full flex items-center justify-center font-bold text-xs">U</div>
                     <div className="flex flex-col">
                       <span className="text-sm font-bold text-gray-900">User</span>
-                      <span className="text-xs text-gray-500">Free Plan</span>
+                      <span className="text-xs text-gray-700">Free Plan</span>
                     </div>
                   </div>
                   <button onClick={handleLogout} className="w-full text-left block px-3 py-3 text-base font-medium text-red-600 hover:bg-red-50 rounded-lg">
@@ -224,7 +224,7 @@ export default function Navbar() {
               <div className="relative group cursor-pointer flex items-center h-[46px]">
                 <div className="flex items-center gap-1 text-[13px] font-bold text-gray-800 group-hover:text-[#1557b0] tracking-wider uppercase transition-colors">
                   All PDF Tools
-                  <svg className="w-3 h-3 text-gray-500 group-hover:text-[#1557b0] group-hover:-rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                  <svg className="w-3 h-3 text-gray-700 group-hover:text-[#1557b0] group-hover:-rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
 
                 {/* Massive 5-Column Mega Menu */}
@@ -232,7 +232,7 @@ export default function Navbar() {
                   <div className="grid grid-cols-5 gap-4">
                     {/* ORGANIZE PDF */}
                     <div>
-                      <div className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-3 px-2">Organize PDF</div>
+                      <div className="text-[11px] font-bold text-gray-700 uppercase tracking-widest mb-3 px-2">Organize PDF</div>
                       <div className="space-y-0.5">
                         <Link href="/tools/merge-pdf" className="flex items-center gap-3 px-2 py-2 text-[13px] font-bold text-gray-700 hover:bg-blue-50 hover:text-[#1557b0] rounded-lg transition-colors group/item">
                           <div className="w-5 h-5 rounded bg-blue-50 text-[#1557b0] flex items-center justify-center shrink-0"><svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg></div>
@@ -251,7 +251,7 @@ export default function Navbar() {
 
                     {/* OPTIMIZE PDF */}
                     <div>
-                      <div className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-3 px-2">Optimize PDF</div>
+                      <div className="text-[11px] font-bold text-gray-700 uppercase tracking-widest mb-3 px-2">Optimize PDF</div>
                       <div className="space-y-0.5">
                         <Link href="/tools/compress-pdf" className="flex items-center gap-3 px-2 py-2 text-[13px] font-bold text-gray-700 hover:bg-blue-50 hover:text-[#1557b0] rounded-lg transition-colors group/item">
                           <div className="w-5 h-5 rounded bg-blue-50 text-[#1557b0] flex items-center justify-center shrink-0"><svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg></div>
@@ -268,7 +268,7 @@ export default function Navbar() {
 
                     {/* EDIT & SECURITY */}
                     <div>
-                      <div className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-3 px-2">Edit & Security</div>
+                      <div className="text-[11px] font-bold text-gray-700 uppercase tracking-widest mb-3 px-2">Edit & Security</div>
                       <div className="space-y-0.5">
                         <Link href="/tools/watermark-pdf" className="flex items-center gap-3 px-2 py-2 text-[13px] font-bold text-gray-700 hover:bg-blue-50 hover:text-[#1557b0] rounded-lg transition-colors group/item">
                           <div className="w-5 h-5 rounded bg-blue-50 text-[#1557b0] flex items-center justify-center shrink-0"><svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg></div>
