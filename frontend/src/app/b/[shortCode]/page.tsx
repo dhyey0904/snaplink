@@ -89,7 +89,7 @@ export default function BridgeRoomPage() {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
         <Navbar />
-        <main className="max-w-3xl mx-auto pt-32 px-4 flex justify-center">
+        <main className="max-w-3xl mx-auto pt-16 px-4 flex justify-center">
           <div className="bg-white rounded-3xl p-12 text-center shadow-xl border border-gray-100 w-full">
             <div className="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center text-red-500 mx-auto mb-6">
               <Trash2 size={48} />
@@ -106,7 +106,7 @@ export default function BridgeRoomPage() {
     <div className="min-h-screen bg-gray-50 font-sans">
       <Navbar />
       
-      <main className="max-w-5xl mx-auto pt-24 px-4 pb-12">
+      <main className="max-w-5xl mx-auto pt-16 px-4 pb-12">
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold text-xs mb-3 shadow-sm">

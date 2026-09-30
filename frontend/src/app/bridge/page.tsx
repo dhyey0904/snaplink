@@ -36,7 +36,7 @@ export default function BridgeLandingPage() {
     <div className="min-h-screen bg-gray-50 font-sans">
       <Navbar />
       
-      <main className="max-w-4xl mx-auto pt-24 pb-12 px-4">
+      <main className="max-w-4xl mx-auto pt-16 pb-12 px-4">
         <div className="text-center mb-16">
           <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full font-bold text-sm mb-6 shadow-sm">
             <Shield size={16} /> SnapBridge Secure Space
