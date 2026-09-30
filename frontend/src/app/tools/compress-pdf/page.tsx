@@ -227,7 +227,7 @@ export default function CompressPDFPage() {
             <div className="mb-8">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">Select PDF Files</label>
               <div 
-                className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'opacity-50 pointer-events-none' : ''} ${isDragging ? 'border-green-500 bg-green-50' : 'border-green-300 hover:bg-green-50'}`}
+                className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'bg-gray-50 pointer-events-none cursor-not-allowed' : ''} ${isDragging ? 'border-green-500 bg-green-50' : 'border-green-300 hover:bg-green-50'}`}
                 onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}
               >
                 <input type="file" disabled={isServerOffline} ref={fileInputRef} accept="application/pdf" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />

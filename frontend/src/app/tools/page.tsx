@@ -91,15 +91,13 @@ export default function ToolsHubPage() {
               key={tool.id} 
               href={tool.href}
               className={`bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#1a73e8]/30 flex flex-col items-center text-center group min-h-[220px] ${tool.requiresServer ? 'opacity-95' : ''}`}
-              title={tool.requiresServer ? 'Backend currently undergoing maintenance. Available Oct 2nd.' : ''}
+              
             >
               <div className="mb-5 relative w-[68px] h-[68px] rounded-2xl bg-blue-50 text-[#1a73e8] flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-100 group-hover:shadow-md transition-all duration-300">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={tool.icon}></path>
                 </svg>
-                {tool.requiresServer && (
-                  <span className="absolute -top-2 -right-6 bg-amber-50 text-amber-600 border border-amber-200 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">Oct 2</span>
-                )}
+                
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2.5 leading-tight group-hover:text-[#1a73e8] transition-colors">{tool.name}</h3>
               <p className="text-[14px] text-gray-500 leading-relaxed font-medium">{tool.desc}</p>
