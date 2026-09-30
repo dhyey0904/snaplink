@@ -220,8 +220,8 @@ export default function ImageCompressorPage() {
                     <div className="font-bold text-sm text-gray-900 mb-1">Target File Size</div>
                     {mode === 'target' && (
                       <div className="flex items-center gap-2">
-                        <input type="number" min="10" value={targetSizeKb} onChange={(e) => setTargetSizeKb(Number(e.target.value))} className="w-full border border-gray-200 rounded p-1.5 text-sm outline-none" />
-                        <span className="text-xs font-bold text-gray-500">KB</span>
+                        <input type="number" min="10" value={targetSizeKb} onChange={(e) => setTargetSizeKb(Number(e.target.value))} className="w-full text-gray-900 placeholder-gray-700 font-medium border border-gray-200 rounded p-1.5 text-sm outline-none" />
+                        <span className="text-xs font-bold text-gray-700">KB</span>
                       </div>
                     )}
                   </div>
@@ -240,7 +240,7 @@ export default function ImageCompressorPage() {
 
               <div className="space-y-4">
                 <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide">Output Format</label>
-                <select value={outputFormat} onChange={(e) => setOutputFormat(e.target.value)} className="w-full border border-gray-200 bg-white rounded-xl p-3 text-sm font-medium focus:outline-none">
+                <select value={outputFormat} onChange={(e) => setOutputFormat(e.target.value)} className="w-full text-gray-900 placeholder-gray-700 font-medium border border-gray-200 bg-white rounded-xl p-3 text-sm font-medium focus:outline-none">
                   <option value="original">Keep Original</option>
                   <option value="webp">Convert to WebP</option>
                   <option value="jpg">Convert to JPG</option>
@@ -248,7 +248,7 @@ export default function ImageCompressorPage() {
                 </select>
 
                 <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mt-4">Resize Width (px)</label>
-                <input type="number" placeholder="Optional (e.g. 1920)" value={resizeWidth} onChange={(e) => setResizeWidth(e.target.value ? Number(e.target.value) : '')} className="w-full border border-gray-200 bg-white rounded-xl p-3 text-sm font-medium focus:outline-none" />
+                <input type="number" placeholder="Optional (e.g. 1920)" value={resizeWidth} onChange={(e) => setResizeWidth(e.target.value ? Number(e.target.value) : '')} className="w-full text-gray-900 placeholder-gray-700 font-medium border border-gray-200 bg-white rounded-xl p-3 text-sm font-medium focus:outline-none" />
 
                 <label className="flex items-center gap-2 mt-4 cursor-pointer">
                   <input type="checkbox" checked={keepMetadata} onChange={(e) => setKeepMetadata(e.target.checked)} className="rounded text-[#1557b0]" />
