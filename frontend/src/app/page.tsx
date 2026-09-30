@@ -157,6 +157,14 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                
+                {/* Mobile Button at Bottom */}
+                <div className="w-full lg:hidden flex justify-center mt-2 z-20">
+                  <Link href="/bridge" className="w-full flex items-center justify-center gap-2 bg-[#1557b0] hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-md text-lg">
+                    Open a Secure Space
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </Link>
+                </div>
               </div>
               
             </div>
