@@ -54,9 +54,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.snaplinks.in",
   },
-  icons: {
-    icon: [
-      { url: '/favicon.ico' },
       { url: '/icon.png', type: 'image/png', sizes: '32x32' },
     ],
     apple: [
