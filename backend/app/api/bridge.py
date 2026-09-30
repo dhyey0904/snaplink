@@ -13,8 +13,6 @@ router = APIRouter()
 BRIDGE_DIR = os.path.join("uploads", "bridge")
 os.makedirs(BRIDGE_DIR, exist_ok=True)
 
-# IN-MEMORY STORE FOR LIGHTNING FAST PEER-TO-PEER SYNC
-# No need for roundtrips to Neon PostgreSQL for transient files
 ROOMS = {}
 TRANSFERS = {}
 
@@ -26,24 +24,40 @@ async def create_room():
     short_code = generate_short_code()
     ROOMS[short_code] = {
         "created_at": datetime.datetime.utcnow(),
+        "expires_at": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
         "files": []
     }
     return {"success": True, "shortCode": short_code}
 
+async def async_delete_unclaimed_transfer(transfer_id: str, file_path: str):
+    await asyncio.sleep(180) # 3 minutes
+    if transfer_id in TRANSFERS:
+        t = TRANSFERS[transfer_id]
+        if t["status"] == "waiting":
+            # Nobody downloaded it in 3 minutes! Delete it.
+            t["status"] = "deleted"
+            try:
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+            except:
+                pass
+
 @router.post("/room/{short_code}/upload")
-async def upload_transfer(short_code: str, file: UploadFile = File(...)):
+async def upload_transfer(short_code: str, background_tasks: BackgroundTasks, file: UploadFile = File(...)):
     if short_code not in ROOMS:
-        # Auto-create room if someone hits upload directly (e.g. from an expired room link they still have open)
-        ROOMS[short_code] = {"created_at": datetime.datetime.utcnow(), "files": []}
+        ROOMS[short_code] = {
+            "created_at": datetime.datetime.utcnow(),
+            "expires_at": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
+            "files": []
+        }
 
     file_id = str(uuid.uuid4())
     ext = os.path.splitext(file.filename)[1]
     filename = f"{file_id}{ext}"
     file_path = os.path.join(BRIDGE_DIR, filename)
 
-    # Use a larger buffer for fast writes
     with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer, length=1024*1024) # 1MB chunks
+        shutil.copyfileobj(file.file, buffer, length=1024*1024)
 
     transfer_data = {
         "id": file_id,
@@ -54,20 +68,33 @@ async def upload_transfer(short_code: str, file: UploadFile = File(...)):
         "size": os.path.getsize(file_path),
         "status": "waiting",
         "downloaded_at": None,
-        "created_at": datetime.datetime.utcnow()
+        "created_at": datetime.datetime.utcnow(),
+        "expires_at": datetime.datetime.utcnow() + datetime.timedelta(minutes=3)
     }
     TRANSFERS[file_id] = transfer_data
     ROOMS[short_code]["files"].append(file_id)
+
+    # Schedule the 3-minute auto-delete for unclaimed files
+    background_tasks.add_task(async_delete_unclaimed_transfer, file_id, file_path)
 
     return {"success": True, "fileId": file_id}
 
 @router.get("/room/{short_code}/files")
 async def list_files(short_code: str):
     if short_code not in ROOMS:
-        raise HTTPException(status_code=404, detail="Room not found")
+        # Auto-recover the room if the backend restarted
+        ROOMS[short_code] = {
+            "created_at": datetime.datetime.utcnow(),
+            "expires_at": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
+            "files": []
+        }
+        
+    room = ROOMS[short_code]
+    if datetime.datetime.utcnow() > room["expires_at"]:
+        raise HTTPException(status_code=404, detail="Room expired")
         
     active_transfers = []
-    for fid in ROOMS[short_code]["files"]:
+    for fid in room["files"]:
         if fid in TRANSFERS:
             t = TRANSFERS[fid]
             if t["status"] != "deleted":
@@ -91,7 +118,6 @@ async def async_delete_transfer(transfer_id: str, file_path: str):
     
     if transfer_id in TRANSFERS:
         TRANSFERS[transfer_id]["status"] = "deleted"
-        # We can also clean up the dict entirely to save memory, but marking deleted is fine
         
 @router.get("/download/{transfer_id}")
 async def download_transfer(transfer_id: str, background_tasks: BackgroundTasks):
