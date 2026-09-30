@@ -181,25 +181,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
               {/* Tool Category 1 */}
-              <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 animate-float">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center">
-                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">PDF Utilities</h3>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Merge & Split PDFs</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Compress PDF Size</li>
-                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Add Page Numbers & Watermarks</li>
-                </ul>
-                <Link href="/tools" className="inline-block w-full text-center bg-white border-2 border-gray-200 text-gray-800 font-bold py-3 rounded-xl hover:border-red-500 hover:text-red-600 transition-colors">
-                  Explore PDF Tools
-                </Link>
-              </div>
-
-              {/* Tool Category 2 */}
-              <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 transform relative animate-float delay-200">
+                <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 transform relative animate-float delay-200">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-4 py-1 rounded-full text-sm shadow-lg">NEW</div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center">
@@ -216,8 +198,26 @@ export default function Home() {
                   Try Converters
                 </Link>
               </div>
-
-              {/* Tool Category 3 */}
+                
+                {/* Tool Category 2 */}
+                <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 animate-float">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center">
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">PDF Utilities</h3>
+                </div>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Merge & Split PDFs</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Compress PDF Size</li>
+                  <li className="flex items-center gap-3 text-gray-600"><svg className="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg> Add Page Numbers & Watermarks</li>
+                </ul>
+                <Link href="/tools" className="inline-block w-full text-center bg-white border-2 border-gray-200 text-gray-800 font-bold py-3 rounded-xl hover:border-red-500 hover:text-red-600 transition-colors">
+                  Explore PDF Tools
+                </Link>
+              </div>
+                
+                {/* Tool Category 3 */}
               <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 animate-float delay-400">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center">
