@@ -132,7 +132,7 @@ export default function Home() {
               <div className="w-full lg:w-1/2 relative z-10">
                 <div className="bg-gray-50 rounded-3xl p-2 shadow-inner border border-gray-200">
                   <div className="bg-white rounded-2xl p-6 h-96 flex flex-col items-center justify-center relative overflow-hidden border border-gray-100">
-                    <div className="w-full max-w-sm bg-gray-50 border-2 border-dashed border-gray-300 rounded-2xl p-8 flex flex-col items-center justify-center text-center">
+                    <div className="w-full max-w-sm bg-gray-50 border-2 border-dashed border-gray-300 rounded-2xl p-4 sm:p-8 flex flex-col items-center justify-center text-center h-full sm:h-auto pb-16 sm:pb-8">
                       <div className="w-16 h-16 bg-blue-50 text-[#1557b0] rounded-full flex items-center justify-center mb-4">
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                       </div>
@@ -140,7 +140,7 @@ export default function Home() {
                       <p className="text-gray-500 text-sm">File will sync instantly to paired devices</p>
                     </div>
                     
-                    <div className="absolute top-6 right-6 bg-white border border-gray-200 shadow-lg rounded-xl p-3 flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
+                    <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white border border-gray-200 shadow-lg rounded-xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 animate-bounce z-20 scale-90 sm:scale-100 origin-top-right" style={{ animationDuration: '3s' }}>
                       <div className="w-10 h-10 bg-gray-100 rounded-lg p-1"><svg viewBox="0 0 100 100"><rect width="40" height="40" fill="currentColor" className="text-gray-800"/><rect x="60" width="40" height="40" fill="currentColor" className="text-gray-800"/><rect y="60" width="40" height="40" fill="currentColor" className="text-gray-800"/><rect x="60" y="60" width="40" height="40" fill="currentColor" className="text-gray-800"/></svg></div>
                       <div>
                         <div className="text-xs text-gray-500 font-bold uppercase">Room Code</div>
@@ -148,7 +148,7 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    <div className="absolute bottom-6 left-6 bg-white border border-orange-200 shadow-lg rounded-xl p-3 flex items-center gap-3">
+                    <div className="absolute bottom-4 sm:bottom-6 left-1/2 sm:left-6 -translate-x-1/2 sm:translate-x-0 w-[85%] sm:w-auto bg-white border border-orange-200 shadow-lg rounded-xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 z-20">
                       <div className="w-8 h-8 bg-orange-100 text-orange-500 rounded-md flex items-center justify-center"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
                       <div>
                         <div className="text-gray-900 font-bold text-sm">project_v2.zip</div>
