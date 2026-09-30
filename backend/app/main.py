@@ -8,7 +8,7 @@ try:
     from app.database.database import engine, Base
     from app.models import User, Link, Click
     from app.api import auth, links, analytics, bio, vcard, files, payment, admin, integrations, rating, redirect, report
-from app.api import image
+    from app.api import image
     from sqlalchemy import text
     from slowapi import _rate_limit_exceeded_handler
     from slowapi.errors import RateLimitExceeded
