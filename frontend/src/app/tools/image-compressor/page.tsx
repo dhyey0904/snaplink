@@ -88,7 +88,7 @@ export default function ImageCompressorPage() {
       status: 'pending',
       previewUrl: URL.createObjectURL(f)
     }));
-    setFiles(prev => [...prev, ...newItems]);
+    setFiles([newItems[0]]); // Restrict to one image at a time
   };
 
   const compressAll = async () => {
@@ -249,7 +249,7 @@ export default function ImageCompressorPage() {
                 className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors cursor-pointer relative ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-emerald-300 hover:bg-emerald-50'}`}
                 onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}
               >
-                <input type="file" ref={fileInputRef} multiple accept="image/*" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                <input type="file" ref={fileInputRef} accept="image/*" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                 <div className="text-emerald-600 font-bold flex flex-col items-center justify-center gap-2">
                   <div className="w-12 h-12 bg-white rounded-full shadow border border-emerald-200 flex items-center justify-center text-emerald-500 mb-2">
                     <UploadCloud size={24} />
@@ -264,7 +264,7 @@ export default function ImageCompressorPage() {
             {files.length > 0 && (
               <div className="border-t border-gray-100 pt-6">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-bold text-gray-800">Queue ({files.length})</h3>
+                  <h3 className="font-bold text-gray-800">Ready to Compress</h3>
                   {totalSaved > 0 && (
                     <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded text-xs font-bold">Saved: {formatSize(totalSaved)}</span>
                   )}
@@ -303,12 +303,10 @@ export default function ImageCompressorPage() {
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <button onClick={() => setFiles([])} className="text-sm font-bold text-gray-500 hover:text-red-500">Clear All</button>
-                  {allDone && totalSaved > 0 ? (
-                    <button onClick={downloadZip} className="bg-emerald-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-600 transition-colors shadow-lg">Download All ZIP</button>
-                  ) : (
-                    <button onClick={compressAll} disabled={isCompressing} className={`px-6 py-3 rounded-xl font-bold transition-all shadow-lg ${isCompressing ? 'bg-blue-300 text-white cursor-not-allowed' : 'bg-[#1557b0] text-white hover:bg-blue-700'}`}>
-                      {isCompressing ? 'Compressing...' : 'Compress Images'}
+                  <button onClick={() => setFiles([])} className="text-sm font-bold text-gray-500 hover:text-red-500">Clear</button>
+                  {!allDone && (
+                    <button onClick={compressAll} disabled={isCompressing} className={`px-8 py-3 rounded-xl font-bold transition-all shadow-lg ${isCompressing ? 'bg-blue-300 text-white cursor-not-allowed' : 'bg-[#1557b0] text-white hover:bg-blue-700'}`}>
+                      {isCompressing ? 'Compressing...' : 'Compress Image'}
                     </button>
                   )}
                 </div>
