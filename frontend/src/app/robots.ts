@@ -1,12 +1,29 @@
-import { MetadataRoute } from 'next'
- 
+﻿import { MetadataRoute } from 'next';
+
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.snaplinks.in';
+
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/dashboard/', '/f/', '/api/', '/reset-password'],
+      disallow: [
+        '/admin',
+        '/admin/',
+        '/dashboard',
+        '/dashboard/',
+        '/login',
+        '/register',
+        '/settings',
+        '/auth',
+        '/api/',
+        '/billing',
+        '/private',
+        '/search',
+        '/f/' // Short links shouldn't be indexed (they redirect)
+      ],
     },
-    sitemap: 'https://www.snaplinks.in/sitemap.xml',
-  }
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
+  };
 }
