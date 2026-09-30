@@ -24,10 +24,10 @@ const tools = [
   { category: 'PDF Utilities', id: 'compress', name: 'Compress PDF', desc: 'Reduce file size while optimizing for maximal PDF quality.', icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12', color: 'bg-green-500', href: '/tools/compress-pdf', requiresServer: true },
   
   // High Priority Converters
-  { category: 'Convert from PDF', id: 'pdf-to-word', name: 'PDF to Word', desc: 'Convert your PDF to an editable Word document (DOCX).', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true, requiresServer: true },
-  { category: 'Convert to PDF', id: 'word-to-pdf', name: 'Word to PDF', desc: 'Make DOC and DOCX files easy to read by converting them to PDF.', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-blue-600', href: '#', pro: true, requiresServer: true },
-  { category: 'Convert from PDF', id: 'pdf-to-jpg', name: 'PDF to JPG', desc: 'Extract all images contained in a PDF or convert each page to a JPG.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-yellow-500', href: '/tools/pdf-to-jpg' },
-  { category: 'Convert to PDF', id: 'img2pdf', name: 'Image to PDF', desc: 'Convert JPG and PNG images into a PDF document.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-emerald-500', href: '/tools/image-to-pdf' },
+  
+  
+  
+  
   
   // Security Tools
   { category: 'PDF Security', id: 'unlock', name: 'Unlock PDF', desc: 'Remove PDF password security, giving you the freedom to use your PDFs.', icon: 'M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z', color: 'bg-pink-500', href: '/tools/unlock-pdf' },
@@ -39,19 +39,19 @@ const tools = [
   { category: 'PDF Utilities', id: 'numbers', name: 'Page Numbers', desc: 'Add page numbers into PDFs with ease.', icon: 'M7 20l4-16m2 16l4-16M6 9h14M4 15h14', color: 'bg-teal-500', href: '/tools/page-numbers' },
 
   // Image Converters
-  { category: 'Image Converters', id: 'jpg-to-png', name: 'JPG to PNG', desc: 'Convert JPG images to transparent PNGs instantly.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-purple-500', href: '/tools/jpg-to-png' },
-  { category: 'Image Converters', id: 'png-to-jpg', name: 'PNG to JPG', desc: 'Convert PNG images to JPG format for smaller file sizes.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-indigo-500', href: '/tools/png-to-jpg' },
-  { category: 'Image Converters', id: 'jpg-to-webp', name: 'JPG to WEBP', desc: 'Convert JPG images to the modern WEBP format.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-blue-500', href: '/tools/jpg-to-webp' },
-  { category: 'Image Converters', id: 'png-to-webp', name: 'PNG to WEBP', desc: 'Convert PNG images to highly optimized WEBP files.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-cyan-500', href: '/tools/png-to-webp' },
-  { category: 'Image Converters', id: 'webp-to-jpg', name: 'WEBP to JPG', desc: 'Convert WEBP files back to universally supported JPGs.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-sky-500', href: '/tools/webp-to-jpg' },
-  { category: 'Image Converters', id: 'webp-to-png', name: 'WEBP to PNG', desc: 'Convert WEBP files to high-quality transparent PNGs.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-emerald-500', href: '/tools/webp-to-png' },
-  { category: 'Image Converters', id: 'bmp-to-jpg', name: 'BMP to JPG', desc: 'Convert large BMP files into compressed JPG images.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-amber-500', href: '/tools/bmp-to-jpg' },
-  { category: 'Image Converters', id: 'bmp-to-png', name: 'BMP to PNG', desc: 'Convert large BMP files into standard PNG images.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-orange-500', href: '/tools/bmp-to-png' },
-  { category: 'Image Converters', id: 'svg-to-png', name: 'SVG to PNG', desc: 'Convert vector SVG graphics into raster PNG images.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-fuchsia-500', href: '/tools/svg-to-png' },
-  { category: 'Image Converters', id: 'svg-to-jpg', name: 'SVG to JPG', desc: 'Convert vector SVG graphics into raster JPG images.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-pink-500', href: '/tools/svg-to-jpg' },
-  { category: 'Image Converters', id: 'avif-to-jpg', name: 'AVIF to JPG', desc: 'Convert modern AVIF images back to standard JPG format.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-rose-500', href: '/tools/avif-to-jpg' },
-  { category: 'Image Converters', id: 'avif-to-png', name: 'AVIF to PNG', desc: 'Convert modern AVIF images into transparent PNGs.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-red-500', href: '/tools/avif-to-png' },
-  { category: 'Image Converters', id: 'gif-to-png', name: 'GIF to PNG', desc: 'Extract the first frame of a GIF animation into a PNG image.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: 'bg-violet-500', href: '/tools/gif-to-png' },
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 ];
 
 export default function ToolsHubPage() {
