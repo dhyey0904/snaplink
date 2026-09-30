@@ -1,0 +1,9 @@
+﻿/* TEAM */
+Developer: SnapLinks Team
+Location: Earth
+
+/* SITE */
+Last update: 2026/09/30
+Standards: HTML5, CSS3, ES6
+Components: Next.js, React, Tailwind CSS, FastAPI, PostgreSQL
+Software: Code
