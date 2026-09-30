@@ -215,7 +215,7 @@ export default function CompressPDFPage() {
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                   </div>
                   <span className="text-lg">Click to browse or drop PDF files</span>
-                  <span className="text-sm text-green-500/70 font-medium">Supports standard PDF documents</span>
+                  <span className="text-sm text-green-800 font-medium">Supports standard PDF documents</span>
                 </div>
               </div>
             </div>

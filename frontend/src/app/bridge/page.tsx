@@ -68,7 +68,7 @@ export default function BridgeLandingPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Join Space</h2>
             <p className="text-gray-700 mb-6 text-sm">Enter a room code to join an existing secure transfer session.</p>
             <form onSubmit={joinRoom} className="w-full flex gap-2">
-              <input type="text" placeholder="Enter Code" value={joinCode} onChange={(e) => setJoinCode(e.target.value)} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl font-mono text-center font-bold focus:outline-none focus:ring-2 focus:ring-purple-500" maxLength={8} />
+              <input type="text" placeholder="Enter Code" value={joinCode} onChange={(e) => setJoinCode(e.target.value)} className="w-full px-4 py-3 bg-gray-50 placeholder-gray-600 border border-gray-200 rounded-xl font-mono text-center font-bold focus:outline-none focus:ring-2 focus:ring-purple-500" maxLength={8} />
               <button type="submit" className="px-6 py-3 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-colors">Join</button>
             </form>
           </motion.div>

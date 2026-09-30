@@ -249,7 +249,7 @@ export default function ImageCompressorPage() {
                     <UploadCloud size={24} />
                   </div>
                   <span className="text-lg">Click to browse or drop images</span>
-                  <span className="text-sm text-emerald-500/70 font-medium">Supports JPG, PNG, WebP, AVIF</span>
+                  <span className="text-sm text-emerald-800 font-medium">Supports JPG, PNG, WebP, AVIF</span>
                 </div>
               </div>
             </div>
