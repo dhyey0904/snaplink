@@ -245,8 +245,8 @@ export default function ImageCompressorPage() {
               >
                 <input type="file" ref={fileInputRef} accept="image/*" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                 <div className="flex flex-col items-center justify-center gap-2">
-                  <div className="w-12 h-12 bg-white rounded-full shadow border border-emerald-200 flex items-center justify-center text-emerald-500 mb-2">
-                    <UploadCloud size={24} />
+                  <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-4">
+                    <UploadCloud size={32} />
                   </div>
                   <h3 className="text-gray-900 font-bold text-lg mb-1">Click to browse or drop images</h3>
                   <p className="text-gray-700 text-sm font-medium">Supports JPG, PNG, WebP, AVIF</p>
