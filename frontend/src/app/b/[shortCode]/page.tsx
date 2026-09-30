@@ -83,7 +83,20 @@ export default function BridgeRoomPage() {
     return (bytes / 1024 / 1024).toFixed(2) + ' MB';
   };
 
+  
+  const closeRoom = async () => {
+    if (!confirm("Are you sure you want to permanently destroy this room and delete all files inside it?")) return;
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      await fetch(`${apiUrl}/bridge/room/${shortCode}`, { method: 'DELETE' });
+      setError("Room closed by user.");
+    } catch(e) {
+      console.error("Failed to close room");
+    }
+  };
+
   const roomUrl = typeof window !== 'undefined' ? window.location.href : '';
+
 
   if (error) {
     return (
@@ -115,9 +128,14 @@ export default function BridgeRoomPage() {
             <h1 className="text-4xl font-black text-gray-900 font-mono">Room: {shortCode}</h1>
             <p className="text-gray-500 font-medium mt-1">Anyone in this room can upload and download files.</p>
           </div>
-          <button onClick={() => setShowQR(true)} className="bg-white border border-gray-200 shadow-sm text-gray-700 px-4 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-gray-50 transition-colors">
-            <QrCode size={18} /> Show QR Code
-          </button>
+          <div className="flex items-center gap-3">
+            <button onClick={() => setShowQR(true)} className="bg-white border border-gray-200 shadow-sm text-gray-700 px-4 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-gray-50 transition-colors">
+              <QrCode size={18} /> Show QR Code
+            </button>
+            <button onClick={closeRoom} className="bg-red-50 border border-red-200 shadow-sm text-red-600 px-4 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-red-100 transition-colors">
+              <X size={18} /> Close Room
+            </button>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
