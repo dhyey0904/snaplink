@@ -32,8 +32,7 @@ export default function Navbar() {
 <>
       {/* Global SnapPlay Announcement Banner */}
       {(pathname === '/' || pathname === '/dashboard') && (
-        <Link href="/bridge" className="text-[13px] font-bold text-gray-800 hover:text-[#1557b0] tracking-wider uppercase transition-colors">SnapBridge</Link>
-              <Link href="/play" className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-center py-2.5 px-4 text-sm font-bold hover:brightness-110 transition-all cursor-pointer relative overflow-hidden group z-[60]">
+        <Link href="/play" className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-center py-2.5 px-4 text-sm font-bold hover:brightness-110 transition-all cursor-pointer relative overflow-hidden group z-[60]">
           <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
           <span className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
             <span><span className="underline decoration-white/40 underline-offset-2">New: Play the Daily Challenge on SnapPlay</span></span>
@@ -138,8 +137,7 @@ export default function Navbar() {
                 <Link href="/tools" className="flex items-center gap-2 text-sm font-bold text-[#1557b0] hover:text-[#1557b0] transition-colors">
                   SnapTools <span className="bg-blue-100 text-[#1557b0] text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">Free</span>
                 </Link>
-                <Link href="/bridge" className="text-[13px] font-bold text-gray-800 hover:text-[#1557b0] tracking-wider uppercase transition-colors">SnapBridge</Link>
-              <Link href="/play" className="text-sm font-bold text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1">
+                <Link href="/play" className="text-sm font-bold text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1">
                   <span>🎮</span> Play
                 </Link>
                 <Link href="/blog" className="text-sm font-medium text-[#5f6368] hover:text-[#202124] transition-colors">Blog</Link>
@@ -188,8 +186,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/bridge" className="text-[13px] font-bold text-gray-800 hover:text-[#1557b0] tracking-wider uppercase transition-colors">SnapBridge</Link>
-              <Link href="/play" className="block px-3 py-3 text-base font-bold text-purple-600 hover:bg-purple-50 rounded-lg flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/play" className="block px-3 py-3 text-base font-bold text-purple-600 hover:bg-purple-50 rounded-lg flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                   <span>🎮</span> SnapPlay
                 </Link>
                 <Link href="/blog" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
