@@ -13,7 +13,7 @@ export default function BridgeLandingPage() {
   const createRoom = async () => {
     setIsCreating(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
       const res = await fetch(`${apiUrl}/bridge/room`, { method: 'POST' });
       const data = await res.json();
       if (data.success) {

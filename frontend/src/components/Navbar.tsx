@@ -192,8 +192,12 @@ export default function Navbar() {
                 </div>
               </>
             ) : (
-              <>
-                <Link href="/play" className="block px-3 py-3 text-base font-bold text-purple-600 hover:bg-purple-50 rounded-lg flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                <>
+                <Link href="/tools" className="block px-3 py-3 text-base font-bold text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>SnapTools</Link>
+                <Link href="/bridge" className="block px-3 py-3 text-base font-bold text-gray-700 hover:bg-gray-50 rounded-lg flex items-center justify-between" onClick={() => setIsMobileMenuOpen(false)}>
+                  <div className="flex items-center gap-2">SnapBridge <span className="bg-emerald-100 text-emerald-700 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">New</span></div>
+                </Link>
+                <Link href="/play"  className="block px-3 py-3 text-base font-bold text-purple-600 hover:bg-purple-50 rounded-lg flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                   <span>🎮</span> SnapPlay
                 </Link>
                 <Link href="/blog" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>

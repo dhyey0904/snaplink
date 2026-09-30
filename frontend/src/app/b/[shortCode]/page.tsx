@@ -24,7 +24,7 @@ export default function BridgeRoomPage() {
 
   const fetchFiles = async () => {
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
       const res = await fetch(`${apiUrl}/bridge/room/${shortCode}/files`);
       if (res.ok) {
         const json = await res.json();
@@ -46,7 +46,7 @@ export default function BridgeRoomPage() {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
       const res = await fetch(`${apiUrl}/bridge/room/${shortCode}/upload`, {
         method: 'POST',
         body: formData,
@@ -69,7 +69,7 @@ export default function BridgeRoomPage() {
   };
 
   const downloadFile = (fileId: string) => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+    const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
     const a = document.createElement('a');
     a.href = `${apiUrl}/bridge/download/${fileId}`;
     document.body.appendChild(a);
@@ -80,7 +80,7 @@ export default function BridgeRoomPage() {
 
   const deleteFile = async (fileId: string) => {
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
       await fetch(`${apiUrl}/bridge/file/${fileId}`, { method: 'DELETE' });
       // Optimistically remove it from UI
       setFiles(files.filter(f => f.id !== fileId));
@@ -98,7 +98,7 @@ export default function BridgeRoomPage() {
   const closeRoom = async () => {
     if (!confirm("Are you sure you want to permanently destroy this room and delete all files inside it?")) return;
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
       await fetch(`${apiUrl}/bridge/room/${shortCode}`, { method: 'DELETE' });
       setError("Room closed by user.");
     } catch(e) {
@@ -190,11 +190,11 @@ export default function BridgeRoomPage() {
                   <AnimatePresence>
                     {files.map(file => (
                       <motion.div key={file.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} className="bg-gray-50 rounded-2xl p-4 flex items-center justify-between group border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
-                        <div className="flex items-center gap-4 overflow-hidden">
+                        <div className="flex items-center gap-4 overflow-hidden flex-1 min-w-0">
                            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
                               <FileIcon size={24} />
                            </div>
-                           <div className="overflow-hidden">
+                           <div className="overflow-hidden min-w-0 flex-1">
                              <h4 className="font-bold text-gray-900 truncate">{file.original_name}</h4>
                              <p className="text-xs text-gray-500 font-medium">{formatSize(file.size)}</p>
                            </div>

@@ -52,7 +52,7 @@ export default async function sitemap({
   if (id === 'bio') {
     try {
       // In production, fetch this from the actual FastAPI backend endpoint
-      // Example: const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/sitemap/bio`);
+      // Example: const res = await fetch(`${`${process.env.NEXT_PUBLIC_BACKEND_URL}/api`}/sitemap/bio`);
       // const bios = await res.json();
       const bios = [ { alias: 'demo', updated_at: new Date().toISOString() } ]; // Mock fallback
       
@@ -69,7 +69,7 @@ export default async function sitemap({
 
   if (id === 'vcard') {
     try {
-      // Example: const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/sitemap/vcard`);
+      // Example: const res = await fetch(`${`${process.env.NEXT_PUBLIC_BACKEND_URL}/api`}/sitemap/vcard`);
       const vcards = [ { alias: 'demo', updated_at: new Date().toISOString() } ]; // Mock fallback
       
       return vcards.map((vcard) => ({

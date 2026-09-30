@@ -103,7 +103,7 @@ export default function CompressPDFPage() {
       formData.append('level', level);
       if (level === 'target') formData.append('targetSizeKb', targetSizeKb.toString());
 
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
       const res = await fetch(`${apiUrl}/tools/compress-pdf`, {
         method: 'POST',
         body: formData,
