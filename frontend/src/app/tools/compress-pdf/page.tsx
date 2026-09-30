@@ -1,4 +1,6 @@
-﻿import React, { useState, useRef, useCallback, useEffect } from 'react';
+"use client";
+
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import AdSidebar from '@/components/AdSidebar';
 import AdBanner from '@/components/AdBanner';
