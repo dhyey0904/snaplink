@@ -47,8 +47,7 @@ export default function Navbar() {
           
           <div className="flex justify-between items-center w-full sm:w-auto">
             <Link href={isAdmin ? "/admin" : isDashboard ? "/dashboard" : "/"} id="snaplinks-logo" className="flex-shrink-0 flex items-center group">
-                            <Image src="/icon.png" alt="SnapLinks Logo" width={32} height={32} className="mr-2 group-hover:rotate-12 transition-transform duration-300" />
-              <span className="text-2xl font-bold tracking-tight text-[#202124] group-hover:scale-105 transition-transform duration-300 flex">
+                            <span className="text-2xl font-bold tracking-tight text-[#202124] group-hover:scale-105 transition-transform duration-300 flex">
                 <span className="flex">
                   <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
                   <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>
