@@ -301,17 +301,18 @@ export default function Home() {
         </section>
 
         {/* ALL-IN-ONE TOOLKIT */}
-        <section className="py-24 bg-white text-[#202124] relative border-t border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-[#202124]">Everything you need, in one place.</h2>
-              <p className="text-[#5f6368] text-lg max-w-2xl mx-auto">SnapLinks replaces your fragmented tools with one seamless, incredibly powerful dashboard.</p>
-            </div>
-
-            <div className="relative w-full overflow-hidden pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+          <section className="py-24 bg-white text-[#202124] relative border-t border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-[#202124]">Everything you need, in one place.</h2>
+                <p className="text-[#5f6368] text-lg max-w-2xl mx-auto">SnapLinks replaces your fragmented tools with one seamless, incredibly powerful dashboard.</p>
+              </div>
+  
+              <div className="relative w-full overflow-hidden pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
                 <div className="flex gap-8 group">
                   <div className="flex shrink-0 animate-marquee gap-8 group-hover:[animation-play-state:paused]">
-                    {/* Feature 1 */}
+                    
+              {/* Feature 1 */}
               <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
                 <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
@@ -346,24 +347,21 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-3 text-gray-900">3D vCards</h3>
                 <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
               </div>
-                {/* Feature 5 */}
-                <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl z-10">New</div>
-                  <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
-                  <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
-                
-                  
-              {/* Feature 1 */}
-              <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
-                <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+              
+              {/* Feature 5 */}
+              <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden group">
+                <div className="absolute top-0 right-0 bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl z-10">New</div>
+                <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
                 </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
+                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
+              </div>
+
                   </div>
                   <div className="flex shrink-0 animate-marquee gap-8 group-hover:[animation-play-state:paused]" aria-hidden="true">
-                    {/* Feature 1 */}
+                    
+              {/* Feature 1 */}
               <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
                 <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
@@ -398,24 +396,21 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-3 text-gray-900">3D vCards</h3>
                 <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
               </div>
-                {/* Feature 5 */}
-                <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl z-10">New</div>
-                  <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
-                  <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
-                
-                  
-              {/* Feature 1 */}
-              <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
-                <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+              
+              {/* Feature 5 */}
+              <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden group">
+                <div className="absolute top-0 right-0 bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl z-10">New</div>
+                <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
                 </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
+                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
+              </div>
+
                   </div>
                   <div className="flex shrink-0 animate-marquee gap-8 group-hover:[animation-play-state:paused]" aria-hidden="true">
-                    {/* Feature 1 */}
+                    
+              {/* Feature 1 */}
               <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
                 <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
@@ -450,21 +445,17 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-3 text-gray-900">3D vCards</h3>
                 <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
               </div>
-                {/* Feature 5 */}
-                <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl z-10">New</div>
-                  <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
-                  <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
-                
-                  
-              {/* Feature 1 */}
-              <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
-                <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+              
+              {/* Feature 5 */}
+              <div className="w-[280px] shrink-0 bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden group">
+                <div className="absolute top-0 right-0 bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl z-10">New</div>
+                <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
                 </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
+                <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
+              </div>
+
                   </div>
                 </div>
               </div>
