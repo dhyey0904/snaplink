@@ -74,10 +74,10 @@ export default function Navbar() {
             </Link>
             
             <div className={`flex items-center gap-2 sm:hidden transition-opacity duration-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
-              {/* Mobile SnapTools Link (Landing Page Only) */}
+              {/* Mobile SnapBridge Link (Landing Page Only) */}
               {!isAdmin && !isDashboard && (
-                <Link href="/tools" className="flex items-center gap-1 text-[13px] font-bold text-[#1557b0] mr-1">
-                  SnapTools <span className="bg-blue-100 text-[#1557b0] text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full">Free</span>
+                <Link href="/bridge" className="flex items-center gap-1 text-[13px] font-bold text-gray-700 hover:text-[#1557b0] mr-1">
+                  SnapBridge <span className="bg-emerald-100 text-emerald-700 text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded-full">New</span>
                 </Link>
               )}
               {/* Mobile Hamburger Icon */}
