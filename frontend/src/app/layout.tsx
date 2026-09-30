@@ -4,6 +4,8 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import "./globals.css";
+import { siteConfig } from '@/config/site';
+
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import MaintenanceModal from "@/components/MaintenanceModal";
@@ -21,19 +23,19 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport = {
-  themeColor: '#ffffff',
+  themeColor: siteConfig.themeColor,
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://www.snaplinks.in'),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "SnapLinks | The Ultimate All-in-One Digital Workspace",
-    template: "%s | SnapLinks",
+    default: `${siteConfig.name} | The Ultimate All-in-One Digital Workspace`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: "SnapLinks is the ultimate digital workspace for advanced URL shortening, Link-in-Bio pages, secure file sharing, and free PDF tools.",
+  description: siteConfig.description,
   keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "SnapPlay", "daily challenges", "mini-games", "digital business card", "3D vcard", "digital workspace", "link management", "peer to peer file share"],
   authors: [{ name: "SnapLinks Team", url: "https://www.snaplinks.in" }],
   creator: "SnapLinks",
