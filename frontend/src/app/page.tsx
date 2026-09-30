@@ -106,7 +106,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
               
               {/* Tool Category 1 */}
               <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 animate-float">
@@ -236,7 +236,7 @@ export default function Home() {
               <p className="text-[#5f6368] text-lg max-w-2xl mx-auto">SnapLinks replaces your fragmented tools with one seamless, incredibly powerful dashboard.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
               {/* Feature 1 */}
               <div className="bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
                 <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
@@ -272,6 +272,15 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-3 text-gray-900">3D vCards</h3>
                 <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Design stunning interactive digital business cards for networking.</p>
               </div>
+                {/* Feature 5 */}
+                <div className="bg-[#fafafc] rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl z-10">New</div>
+                  <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">SnapBridge</h3>
+                  <p className="text-gray-600 text-base sm:text-sm leading-relaxed">Lightning-fast peer-to-peer file transfer rooms that self-destruct.</p>
+                </div>
             </div>
           </div>
                 </section>
