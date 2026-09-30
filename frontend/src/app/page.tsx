@@ -92,7 +92,7 @@ export default function Home() {
 
         
         {/* SNAPBRIDGE SECTION */}
-        <section id="snapbridge" className="py-24 bg-[#fafafc] relative overflow-hidden border-t border-gray-100">
+        <section id="snapbridge" className="scroll-mt-20 py-24 bg-[#fafafc] relative overflow-hidden border-t border-gray-100">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-[2.5rem] p-8 sm:p-12 shadow-xl border border-gray-100 flex flex-col lg:flex-row items-center gap-16 relative overflow-hidden">
               
@@ -163,7 +163,7 @@ export default function Home() {
           </div>
         </section>
         {/* SNAPTOOLS SECTION */}
-        <section id="snaptools" className="py-24 bg-gradient-to-b from-white to-blue-50/50 relative overflow-hidden border-t border-gray-100">
+        <section id="snaptools" className="scroll-mt-20 py-24 bg-gradient-to-b from-white to-blue-50/50 relative overflow-hidden border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center mb-16">
@@ -178,7 +178,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
               {/* Tool Category 1 */}
               <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 animate-float">
