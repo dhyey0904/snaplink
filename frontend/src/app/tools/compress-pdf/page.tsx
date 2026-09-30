@@ -22,7 +22,18 @@ export default function CompressPDFPage() {
   const [level, setLevel] = useState<CompressionLevel>('recommended');
   const [targetSizeKb, setTargetSizeKb] = useState<number>(100);
   const [isDragging, setIsDragging] = useState(false);
-  const isServerOffline = true; // Hardcoded to true for now. Change to false in the morning.
+  const [isServerOffline, setIsServerOffline] = useState(true);
+
+  useEffect(() => {
+    // Render resets the free tier at exactly Midnight UTC on the 1st of the month.
+    // That is October 1, 2026 at 00:00:00 UTC (5:30 AM IST).
+    const renderResetTimeUTC = new Date('2026-10-01T00:00:00Z').getTime();
+    
+    // Automatically unlock the frontend without any network pings if the current time is past the reset time!
+    if (Date.now() >= renderResetTimeUTC) {
+      setIsServerOffline(false);
+    }
+  }, []);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const formatSize = (bytes: number) => {
