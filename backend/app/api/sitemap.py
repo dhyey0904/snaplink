@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from typing import List, Dict
 from app.database.database import get_db
 from app.models.bio import BioPage
-from app.models.vcard import VCard
+from app.models.vcard import BusinessCard
 
 router = APIRouter()
 
@@ -14,5 +14,5 @@ async def get_sitemap_bios(db: Session = Depends(get_db)):
 
 @router.get("/sitemap/vcard", response_model=List[Dict])
 async def get_sitemap_vcards(db: Session = Depends(get_db)):
-    vcards = db.query(VCard.alias, VCard.created_at).all()
-    return [{"alias": v.alias, "updated_at": v.created_at.isoformat() if v.created_at else None} for v in vcards]
+    vcards = db.query(BusinessCard.custom_alias).all()
+    return [{"alias": v.custom_alias, "updated_at": None} for v in vcards]
