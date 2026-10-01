@@ -32,7 +32,7 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | The Ultimate All-in-One Digital Workspace`,
+    default: `${siteConfig.name} | A Unified Digital Workspace`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     url: "https://www.snaplinks.in",
     siteName: "SnapLinks",
     title: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & File Sharing",
-    description: "Your ultimate web workspace for deep link shortening, secure file sharing, customizable Link-in-Bio pages, and free PDF tools.",
+    description: "Your unified web workspace for deep link shortening, secure file sharing, customizable Link-in-Bio pages, and free PDF tools.",
     images: [
       {
         url: "/og-image.png",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     site: "@SnapLinks",
     creator: "@SnapLinks",
     title: "SnapLinks | Advanced URL Shortener & Link-in-Bio",
-    description: "Your ultimate digital workspace for advanced URL shortening, Link-in-Bio pages, secure file sharing, and free PDF tools.",
+    description: "Your unified digital workspace for advanced URL shortening, Link-in-Bio pages, secure file sharing, and free PDF tools.",
     images: ["/og-image.png"],
   },
   verification: {
@@ -109,7 +109,7 @@ export default function RootLayout({
       ratingValue: '4.8',
       ratingCount: '124'
     },
-    description: 'Your ultimate web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.',
+    description: 'Your unified web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.',
     url: 'https://www.snaplinks.in',
   };
 

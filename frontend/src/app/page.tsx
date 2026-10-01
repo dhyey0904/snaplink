@@ -36,7 +36,7 @@ export default function Home() {
                   Free Web Tools & <br/>Secure <span className="text-blue-200">File Sharing</span>
                 </h1>
                 <p className="text-base md:text-lg font-medium text-blue-100 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed animate-fade-in-up delay-200">
-                  SnapLinks is the ultimate all-in-one workspace. Convert images, manipulate PDFs, send self-destructing files, shorten URLs, and generate 3D business cards.
+                  SnapLinks is a unified workspace. Compress images, edit PDFs, share files securely, shorten URLs, and create digital business cards.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center animate-fade-in-up delay-300">
                   <Link href="/tools" className="px-6 py-3 rounded-xl font-bold text-[#1557b0] bg-white hover:bg-blue-50 transition-colors shadow-lg text-base">

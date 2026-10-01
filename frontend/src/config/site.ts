@@ -1,7 +1,7 @@
 ﻿export const siteConfig = {
   name: "SnapLinks",
   shortName: "SnapLinks",
-  description: "The Ultimate All-in-One Utility Platform. Link Shortener, Link-in-Bio, vCard, PDF Tools, and more.",
+  description: "A unified utility platform for your digital needs. Link Shortener, Link-in-Bio, vCard, PDF Tools, and more.",
   url: process.env.NEXT_PUBLIC_APP_URL || "https://snaplinks.in",
   themeColor: "#1557b0",
   backgroundColor: "#ffffff",
