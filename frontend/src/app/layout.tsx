@@ -93,27 +93,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'SnapLinks',
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Any',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '124'
-    },
-    description: 'Your unified web workspace for deep link shortening, secure file sharing, Link-in-Bio pages, and free SnapLinks Tools.',
-    url: 'https://www.snaplinks.in',
-  };
-
-  return (
+    return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
@@ -162,12 +142,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col overflow-x-hidden antialiased">
               <MaintenanceModal />
                   <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleusercontent.com"}>
-          <Script
-          id="schema-org"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {children}
+          {children}
         </GoogleOAuthProvider>
         <Analytics />
         <SpeedInsights />
