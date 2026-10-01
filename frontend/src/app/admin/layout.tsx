@@ -60,8 +60,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar - Clean Light Theme */}
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col shadow-sm`}>
         <div className="h-16 flex items-center px-6 border-b border-gray-100">
-          <Link href="/admin" className="text-xl font-bold flex items-center gap-2 tracking-tight">
-            <span className="text-[#2563EB]">SnapLinks</span>OS
+          <Link href="/admin" className="text-2xl font-bold flex items-center gap-2 tracking-tight group">
+            <span className="text-xl font-bold tracking-tight text-[#202124] group-hover:scale-105 transition-transform duration-300 flex">
+                <span className="flex">
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '200ms' }}>a</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '300ms' }}>p</span>
+                </span>
+                <span className="text-[#ea4335] flex">
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '400ms' }}>A</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '500ms' }}>d</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '600ms' }}>m</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '700ms' }}>i</span>
+                  <span className="inline-block animate-word-wave" style={{ animationDelay: '800ms' }}>n</span>
+                </span>
+              </span>
           </Link>
           <div className="ml-auto flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
