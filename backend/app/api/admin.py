@@ -50,6 +50,14 @@ def delete_report(report_id: int, db: Session = Depends(get_db), admin: User = D
     db.commit()
     return {"message": "Report deleted successfully"}
 
+from app.models.settings import SystemSettings
+from pydantic import BaseModel
+
+class SettingsUpdate(BaseModel):
+    maintenance_mode: bool
+    allow_registrations: bool
+    max_upload_size_mb: int
+
 @router.get("/settings")
 def get_settings(db: Session = Depends(get_db), _: User = Depends(verify_admin)):
     settings = db.query(SystemSettings).first()
