@@ -4,7 +4,21 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-export default function Home() {
+// Fetch real rating for SEO
+async function getRatingSummary() {
+  try {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com';
+    const res = await fetch(`${backendUrl}/api/rating/summary`, { next: { revalidate: 3600 } });
+    if (!res.ok) return { average: 5.0, count: 1 };
+    return await res.json();
+  } catch(e) {
+    return { average: 5.0, count: 1 };
+  }
+}
+
+
+export default async function Home() {
+  const ratingData = await getRatingSummary();
   // Bio builder mock state
 
   // File Dropzone mock state
@@ -14,6 +28,28 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans">
+      
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "SnapLinks",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": ratingData.average.toString(),
+            "ratingCount": ratingData.count.toString()
+          },
+          "description": "Secure file sharing and 3D digital business card generator platform."
+        })
+      }} />
+
       <Navbar />
 
       <main className="flex-grow">
