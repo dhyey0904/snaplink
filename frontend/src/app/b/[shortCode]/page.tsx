@@ -12,6 +12,7 @@ export default function BridgeRoomPage() {
   const [uploading, setUploading] = useState(false);
   const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showQR, setShowQR] = useState(false);
 
@@ -39,9 +40,10 @@ export default function BridgeRoomPage() {
 
   const handleUpload = async (file: File) => {
     if (file.size > 50 * 1024 * 1024) {
-      alert("File exceeds 50MB limit.");
+      setUploadError("This file exceeds the 50MB security limit. Please upload a smaller file.");
       return;
     }
+    setUploadError(null);
     setUploading(true);
     const formData = new FormData();
     formData.append('file', file);
@@ -54,7 +56,7 @@ export default function BridgeRoomPage() {
       if (!res.ok) throw new Error("Upload failed");
       await fetchFiles();
     } catch(e) {
-      alert("Upload failed. Make sure the backend is running.");
+      setUploadError("Upload failed. Make sure the backend is running and the file is under 50MB.");
     } finally {
       setUploading(false);
     }
