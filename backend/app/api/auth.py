@@ -30,6 +30,8 @@ GOOGLE_CLIENT_ID = "234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleuse
 @router.post("/register", response_model=UserResponse)
 def register_user(user_in: UserCreate, db: Session = Depends(get_db)) -> Any:
     settings = db.query(SystemSettings).first()
+    if settings and settings.maintenance_mode:
+        raise HTTPException(status_code=503, detail="The system is currently undergoing maintenance. Please try again later.")
     if settings and not settings.allow_registrations:
         raise HTTPException(status_code=403, detail="New registrations are currently disabled by the administrator.")
         
