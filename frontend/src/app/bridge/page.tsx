@@ -44,7 +44,7 @@ export default function BridgeLandingPage() {
           <motion.h1 initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }} className="text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
             Transfer instantly. <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Automatically disappears.</span>
           </motion.h1>
-          <motion.p initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="text-xl text-gray-800">Create a secure peer-to-peer room. Upload files, scan the QR code to join, and download instantly. Files self-destruct 60 seconds after download.</motion.p>
+          <motion.p initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="text-xl text-gray-800">Create a secure peer-to-peer room. Upload files, scan the QR code to join, and download instantly. Files up to 50MB self-destruct 60 seconds after download.</motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
