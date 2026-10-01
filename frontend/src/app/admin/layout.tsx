@@ -122,7 +122,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </button>
             <h1 className="text-lg font-bold text-gray-900 flex items-center gap-3">
               {navItems.find(item => item.href === pathname)?.name || 'Command Center'}
-              <span className="px-2 py-0.5 rounded bg-gray-100 border border-gray-200 text-xs text-gray-500 font-mono">v1.0.4</span>
+              
             </h1>
           </div>
           
