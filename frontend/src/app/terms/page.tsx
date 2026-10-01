@@ -25,7 +25,7 @@ export default function TermsOfService() {
         </div>
 
         {/* Content */}
-        <div className="prose prose-p:text-justify prose-li:text-justify prose-lg prose-blue max-w-none text-gray-600 text-justify prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-p:leading-relaxed prose-li:leading-relaxed">
+        <div className="prose prose-lg prose-blue max-w-none text-gray-600 text-justify prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-p:leading-relaxed prose-li:leading-relaxed">
           
           <p>
             Welcome to SnapLinks ("we," "our," or "us"). These Terms of Service ("Terms") govern your access to and use of 

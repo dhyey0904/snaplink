@@ -23,7 +23,7 @@ export default function SecurityPage() {
               <Shield className="w-10 h-10 text-blue-300" />
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight">Security & Privacy</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed text-justify sm:text-center">
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed sm:text-center">
               At SnapLinks, we prioritize the protection of your digital workspace. We employ standard web security practices to keep your URLs, files, and accounts safe while being transparent about our capabilities as an independent platform.
             </p>
           </div>
@@ -33,7 +33,7 @@ export default function SecurityPage() {
         <div className="max-w-5xl mx-auto -mt-10 relative z-30 px-6">
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-2xl shadow-md flex gap-4">
             <Info className="w-6 h-6 text-yellow-600 shrink-0" />
-            <p className="text-sm text-yellow-800 text-justify">
+            <p className="text-sm text-yellow-800">
               <strong>Transparency Notice:</strong> SnapLinks is an independent, unregistered startup project. We do not claim to offer military-grade or enterprise-level compliance frameworks (such as HIPAA or SOC2). We provide standard, reliable web security and rely on trusted third-party cloud providers (Render, Neon) to host our infrastructure securely.
             </p>
           </div>
@@ -47,7 +47,7 @@ export default function SecurityPage() {
                 <Lock className="w-7 h-7 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Encryption in Transit</h3>
-              <p className="text-gray-600 leading-relaxed text-justify">
+              <p className="text-gray-600 leading-relaxed">
                 All data transmitted between your browser and our servers is secured using standard HTTPS/TLS encryption. This prevents intermediaries from intercepting your data or file uploads while they are traveling across the internet.
               </p>
             </div>
@@ -57,7 +57,7 @@ export default function SecurityPage() {
                 <Server className="w-7 h-7 text-purple-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Cloud Infrastructure</h3>
-              <p className="text-gray-600 leading-relaxed text-justify">
+              <p className="text-gray-600 leading-relaxed">
                 Our application backend and PostgreSQL database are hosted on reputable modern cloud providers. We rely on their built-in data center security and physical hardware protections to keep your stored data safe.
               </p>
             </div>
@@ -67,7 +67,7 @@ export default function SecurityPage() {
                 <Key className="w-7 h-7 text-emerald-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Secure Authentication</h3>
-              <p className="text-gray-600 leading-relaxed text-justify">
+              <p className="text-gray-600 leading-relaxed">
                 We use secure, industry-standard JSON Web Tokens (JWT) for session management. All user passwords are computationally hashed and salted using robust algorithms before being stored in our database.
               </p>
             </div>
@@ -83,10 +83,10 @@ export default function SecurityPage() {
                   <Key className="w-8 h-8 text-orange-600" />
                 </div>
                 <h2 className="text-3xl font-black text-gray-900 mb-4">Account Protection</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-4 text-justify">
+                <p className="text-gray-600 text-lg leading-relaxed mb-4">
                   To protect your account from unauthorized access, we provide multiple layers of standard web security and authentication integrations.
                 </p>
-                <ul className="space-y-3 text-gray-600 text-justify">
+                <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Google OAuth:</strong> Sign in securely without needing a password.</li>
                   <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Hashed Passwords:</strong> We never store plain-text passwords.</li>
                   <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Session Limits:</strong> Expiring JWT tokens prevent indefinite access.</li>
@@ -118,10 +118,10 @@ export default function SecurityPage() {
                   <FileCheck className="w-8 h-8 text-teal-600" />
                 </div>
                 <h2 className="text-3xl font-black text-gray-900 mb-4">Data Privacy</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-4 text-justify">
+                <p className="text-gray-600 text-lg leading-relaxed mb-4">
                   We collect only the information necessary to provide our services. As an independent platform, we are committed to being transparent about how your data is handled.
                 </p>
-                <ul className="space-y-3 text-gray-600 text-justify">
+                <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>No Data Selling:</strong> We do not sell your personal information.</li>
                   <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>Transparency:</strong> Real, honest statements about our capabilities.</li>
                   <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>Right to Delete:</strong> You can request full account deletion at any time.</li>
@@ -148,7 +148,7 @@ export default function SecurityPage() {
         {/* CTA */}
         <section className="py-24 px-6 sm:px-12 text-center">
           <h2 className="text-3xl font-black text-gray-900 mb-6">Have a security concern?</h2>
-          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto text-justify sm:text-center">
+          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto sm:text-center">
             If you have any questions about our data practices or believe you have found a vulnerability, please reach out. We value feedback that helps keep our users safe.
           </p>
           <a href="mailto:hello.snaplinks@gmail.com" className="inline-flex items-center gap-2 bg-[#1a73e8] text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
