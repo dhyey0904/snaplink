@@ -298,7 +298,7 @@ export default function PublicBusinessCard() {
         
         {/* Powered By SnapLinks */}
         <div className="absolute bottom-4 inset-x-0 flex justify-center z-20 pointer-events-auto">
-          <a href=process.env.NEXT_PUBLIC_APP_URL || "https://snaplinks.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
+          <a href={process.env.NEXT_PUBLIC_APP_URL || "https://snaplinks.in"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
             <span className="text-[10px] md:text-xs text-white font-medium uppercase tracking-widest">Powered by</span>
             <span className="text-[10px] md:text-xs text-white font-black tracking-tight">SnapLinks</span>
           </a>

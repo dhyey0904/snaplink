@@ -174,7 +174,7 @@ export default function FileDownloadPage() {
         </div>
         <h1 className="text-3xl font-bold text-[#202124] mb-2 tracking-tight">File Unavailable</h1>
         <p className="text-lg text-[#5f6368] text-center max-w-md">{error}</p>
-        <a href=process.env.NEXT_PUBLIC_APP_URL || "https://snaplinks.in" className="mt-8 px-6 py-3 bg-[#202124] text-white font-bold rounded-full hover:bg-black transition-colors shadow-md">Get SnapLinks</a>
+        <a href={process.env.NEXT_PUBLIC_APP_URL || "https://snaplinks.in"} className="mt-8 px-6 py-3 bg-[#202124] text-white font-bold rounded-full hover:bg-black transition-colors shadow-md">Get SnapLinks</a>
       </div>
     );
   }
