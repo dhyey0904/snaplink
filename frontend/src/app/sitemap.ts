@@ -31,9 +31,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com';
     
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2000);
+    
     // Fetch bios
     try {
-      const bioRes = await fetch(`${backendUrl}/api/sitemap/bio`, { next: { revalidate: 3600 } });
+      const bioRes = await fetch(`${backendUrl}/api/sitemap/bio`, { 
+        next: { revalidate: 3600 },
+        signal: controller.signal
+      });
       if (bioRes.ok) {
         const bios = await bioRes.json();
         bios.forEach((b: any) => {
@@ -49,7 +55,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Fetch vcards
     try {
-      const vcardRes = await fetch(`${backendUrl}/api/sitemap/vcard`, { next: { revalidate: 3600 } });
+      const vcardRes = await fetch(`${backendUrl}/api/sitemap/vcard`, { 
+        next: { revalidate: 3600 },
+        signal: controller.signal
+      });
       if (vcardRes.ok) {
         const vcards = await vcardRes.json();
         vcards.forEach((v: any) => {
@@ -62,6 +71,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
       }
     } catch (e) {}
+    
+    clearTimeout(timeoutId);
   } catch (e) {}
 
   return routes as MetadataRoute.Sitemap;
