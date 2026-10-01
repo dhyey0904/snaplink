@@ -3,7 +3,7 @@
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://snaplinks.in';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const routes = [
+  const routes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
     { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
@@ -27,10 +27,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/tools/page-numbers`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
   ];
 
-  // Try to fetch dynamic routes (Bios and vCards) from backend, but fail gracefully if offline
+  // Fetch dynamic routes from backend gracefully
   try {
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com';
-    
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 2000);
     
@@ -75,5 +74,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     clearTimeout(timeoutId);
   } catch (e) {}
 
-  return routes as MetadataRoute.Sitemap;
+  return routes;
 }

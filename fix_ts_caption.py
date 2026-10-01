@@ -3,10 +3,7 @@ file = 'frontend/src/app/snapbook/[slug]/BookReaderClient.tsx'
 with open(file, 'r', encoding='utf-8') as f:
     c = f.read()
 
-c = c.replace(
-    'className="w-full max-w-3xl h-[80vh] bg-transparent flex relative perspective-1000"',
-    'className="w-full max-w-3xl h-[88vh] bg-transparent flex relative perspective-1000"'
-)
+c = c.replace('page.caption', '(page as any).caption')
 
 with open(file, 'w', encoding='utf-8') as f:
     f.write(c)
