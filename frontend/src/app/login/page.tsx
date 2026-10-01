@@ -82,7 +82,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex min-h-[100dvh] overflow-y-auto lg:h-screen lg:overflow-hidden w-full bg-white font-sans">
+    <div className="flex min-h-screen overflow-y-auto lg:h-screen lg:overflow-hidden w-full bg-white font-sans">
       
       {/* LEFT SIDE - Form */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-16 md:px-24 xl:px-32 py-10 lg:py-0 relative z-10 bg-white shadow-[20px_0_40px_rgba(0,0,0,0.1)]">

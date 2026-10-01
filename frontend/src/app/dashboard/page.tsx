@@ -100,7 +100,7 @@ export default function Dashboard() {
             </h2>
           </div>
           
-          <h1 className="text-6xl md:text-7xl font-black tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a73e8] via-purple-500 to-[#1a73e8] animate-text-shimmer bg-[length:200%_auto]">
               Your Workspace
             </span>

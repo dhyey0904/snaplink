@@ -36,7 +36,7 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="min-h-[100dvh] w-full flex items-center justify-center p-4 sm:p-8 relative overflow-hidden font-sans bg-[#0a0a0a]">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-8 relative overflow-hidden font-sans bg-[#0a0a0a]">
       <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-blue-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDuration: '8s' }}></div>
       <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-purple-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDuration: '10s' }}></div>
 
