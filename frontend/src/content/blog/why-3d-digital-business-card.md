@@ -39,6 +39,6 @@ With SnapLinks's advanced analytics, your digital business card acts as a tracki
 ---
 
 ### Ready to upgrade your networking game?
-Join thousands of creators, founders, and professionals who are already using SnapLinks to power their digital identity. 
+Join modern creators, founders, and professionals who are using SnapLinks to power their digital identity. 
 
 [**Create your free 3D Digital Business Card today.**](https://www.snaplinks.in/register)
