@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
 
 type Props = {
-  params: { shortCode: string }
+  params: Promise<{ shortCode: string }>
 };
 
 export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
+  const resolvedParams = await params;
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
   
   try {
-    const res = await fetch(`${backendUrl}/${params.shortCode}?json=true&no_analytics=true`, { cache: 'no-store' });
+    const res = await fetch(`${backendUrl}/${resolvedParams.shortCode}?json=true&no_analytics=true`, { cache: 'no-store' });
     if (!res.ok) {
       return { title: 'SnapLinks Redirect' };
     }
