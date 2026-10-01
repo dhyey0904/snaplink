@@ -180,13 +180,7 @@ export default function Navbar() {
                 <Link href="/dashboard/files" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/files' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>Files</Link>
                 <Link href="/dashboard/api" onClick={() => setIsMobileMenuOpen(false)} className={`block px-3 py-3 text-base font-medium rounded-lg ${pathname === '/dashboard/api' ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}>API</Link>
                 <div className="border-t border-gray-100 mt-4 pt-4">
-                  <div className="flex items-center gap-3 px-3 pb-3">
-                    <div className="w-8 h-8 bg-[#1557b0] text-white rounded-full flex items-center justify-center font-bold text-xs">U</div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold text-gray-900">User</span>
-                      <span className="text-xs text-gray-700">Free Plan</span>
-                    </div>
-                  </div>
+                  
                   <button onClick={handleLogout} className="w-full text-left block px-3 py-3 text-base font-medium text-red-600 hover:bg-red-50 rounded-lg">
                     Logout
                   </button>
