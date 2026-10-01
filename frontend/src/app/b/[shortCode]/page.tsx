@@ -38,8 +38,8 @@ export default function BridgeRoomPage() {
   };
 
   const handleUpload = async (file: File) => {
-    if (file.size > 100 * 1024 * 1024) {
-      alert("File exceeds 100MB limit.");
+    if (file.size > 50 * 1024 * 1024) {
+      alert("File exceeds 50MB limit.");
       return;
     }
     setUploading(true);
@@ -162,7 +162,7 @@ export default function BridgeRoomPage() {
                   <UploadCloud size={40} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Drop a file here</h3>
-                <p className="text-gray-700 text-sm mb-8 font-medium px-4">Up to 100MB per file. Supports all formats.</p>
+                <p className="text-gray-700 text-sm mb-8 font-medium px-4">Up to 50MB per file. Supports all formats.</p>
                 
                 <input type="file" className="hidden" ref={fileInputRef} onChange={(e) => e.target.files && handleUpload(e.target.files[0])} />
                 <button onClick={() => fileInputRef.current?.click()} disabled={uploading} className="bg-gray-900 text-white font-bold py-3 px-8 rounded-xl hover:bg-black transition-colors disabled:opacity-50 w-full">
