@@ -3,7 +3,7 @@ import ClientBioPage from './ClientBioPage';
 
 export async function generateMetadata({ params }: { params: Promise<{ alias: string }> }): Promise<Metadata> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
-  const frontendUrl = "https://www.snaplinks.in";
+  const frontendUrl = process.env.NEXT_PUBLIC_APP_URL || "https://snaplinks.in";
   
   try {
     const resolvedParams = await params;

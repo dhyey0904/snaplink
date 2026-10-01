@@ -29,7 +29,7 @@ export default function TermsOfService() {
           
           <p>
             Welcome to SnapLinks ("we," "our," or "us"). These Terms of Service ("Terms") govern your access to and use of 
-            the SnapLinks website (www.snaplinks.in) and our suite of digital tools, including our URL shortener, ephemeral 
+            the SnapLinks website (snaplinks.in) and our suite of digital tools, including our URL shortener, ephemeral 
             file sharing service, digital business cards, and Developer API (collectively, the "Services").
           </p>
           <p>

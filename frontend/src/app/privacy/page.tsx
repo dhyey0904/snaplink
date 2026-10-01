@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
           <p>
             At SnapLinks ("we," "us," or "our"), we are committed to protecting your personal information and your right to privacy. 
             This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website 
-            (www.snaplinks.in) and use our suite of services, including our URL shortener, ephemeral file sharing, and 3D digital vCards.
+            (snaplinks.in) and use our suite of services, including our URL shortener, ephemeral file sharing, and 3D digital vCards.
           </p>
 
           <div className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-sm">
