@@ -182,7 +182,7 @@ export default function Home() {
                 Introducing SnapTools Suite
               </h2>
               <p className="text-gray-800 text-xl max-w-2xl mx-auto leading-relaxed">
-                A powerful suite of document and image tools that run entirely in your browser. Fast, secure, and limitless conversions with zero server uploads. <strong className="text-gray-900">No signup required.</strong>
+                A convenient suite of document and image tools backed by our secure cloud infrastructure. Fast, reliable utility processing with standard encryption to keep your files safe. <strong className="text-gray-900">No signup required.</strong>
               </p>
             </div>
             
