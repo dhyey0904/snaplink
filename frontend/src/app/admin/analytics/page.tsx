@@ -92,19 +92,19 @@ export default function AnalyticsPage() {
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
             <Activity size={16} className="text-blue-500" /> Total Global Clicks
           </div>
-          <div className="text-4xl font-black text-gray-900">{data.overview.total_clicks.toLocaleString()}</div>
+          <div className="text-4xl font-black text-gray-900">{(data?.overview?.total_clicks || data?.total_clicks || 0).toLocaleString()}</div>
         </div>
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
             <Users size={16} className="text-green-500" /> Registered Users
           </div>
-          <div className="text-4xl font-black text-gray-900">{data.overview.total_users.toLocaleString()}</div>
+          <div className="text-4xl font-black text-gray-900">{(data?.overview?.total_users || 0).toLocaleString()}</div>
         </div>
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
             <LinkIcon size={16} className="text-purple-500" /> Short Links Created
           </div>
-          <div className="text-4xl font-black text-gray-900">{data.overview.total_links.toLocaleString()}</div>
+          <div className="text-4xl font-black text-gray-900">{(data?.overview?.total_links || 0).toLocaleString()}</div>
         </div>
       </div>
 
@@ -141,10 +141,10 @@ export default function AnalyticsPage() {
 
       {/* Breakdowns */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <BreakdownCard title="Traffic Sources" icon={Globe} items={data.top_sources} colorClass="bg-blue-500" />
-        <BreakdownCard title="Geographic" icon={MapPin} items={data.top_countries} colorClass="bg-purple-500" />
-        <BreakdownCard title="Devices" icon={Monitor} items={data.top_devices} colorClass="bg-green-500" />
-        <BreakdownCard title="Browsers" icon={Compass} items={data.top_browsers} colorClass="bg-orange-500" />
+        <BreakdownCard title="Traffic Sources" icon={Globe} items={data.top_sources || []} colorClass="bg-blue-500" />
+        <BreakdownCard title="Geographic" icon={MapPin} items={data.top_countries || []} colorClass="bg-purple-500" />
+        <BreakdownCard title="Devices" icon={Monitor} items={data.top_devices || []} colorClass="bg-green-500" />
+        <BreakdownCard title="Browsers" icon={Compass} items={data.top_browsers || []} colorClass="bg-orange-500" />
       </div>
 
     </div>
