@@ -76,7 +76,7 @@ export default function Home() {
                     {/* Back Face */}
                     <div className="absolute inset-0 bg-gradient-to-bl from-gray-900 via-black to-gray-900 rounded-3xl shadow-2xl p-5 flex flex-col items-center justify-center border border-gray-700 overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)]">
                       <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-4 border border-white/10">
-                        <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-500">S</span>
+                        <img src="/icon.png" alt="SnapLinks Logo" className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
                       </div>
                       <div className="text-gray-300 text-xs font-mono tracking-widest uppercase">Digital vCard</div>
                     </div>
