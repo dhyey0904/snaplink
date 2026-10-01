@@ -207,14 +207,14 @@ export default function Login() {
         
         {/* SnapLinks Logo - Flex positioned to avoid overlap */}
         <div className="z-20 w-full">
-          <Link href="/" id="snaplinks-logo-desktop" className="flex text-3xl font-extrabold tracking-tight text-white hover:scale-105 transition-transform origin-left drop-shadow-md group">
+          <Link href="/" id="snaplinks-logo-desktop" className="flex text-2xl font-bold tracking-tight text-white hover:scale-105 transition-transform origin-left drop-shadow-md group">
               <span className="flex">
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '0ms' }}>S</span>
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '100ms' }}>n</span>
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '200ms' }}>a</span>
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '300ms' }}>p</span>
               </span>
-              <span className="text-blue-300 flex">
+              <span className="text-[#4285f4] flex">
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '400ms' }}>L</span>
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '500ms' }}>i</span>
                 <span className="inline-block animate-word-wave" style={{ animationDelay: '600ms' }}>n</span>
@@ -229,8 +229,8 @@ export default function Login() {
         <div className="absolute bottom-[-10%] left-[-10%] w-[30vw] h-[30vw] bg-purple-500 opacity-20 rounded-full filter blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
 
         {/* 3D Glassmorphic Container (Shrunk to fit safely) */}
-        <div className="relative z-10 w-full max-w-sm mx-auto perspective-1000 mt-[-40px]">
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 relative overflow-hidden group">
+        <div className="relative z-10 w-full max-w-sm mx-auto perspective-1000 mt-12">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl transform transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
             
             <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6 border border-white/30 shadow-inner">
@@ -239,8 +239,8 @@ export default function Login() {
             
             <h3 className="text-3xl font-extrabold text-white mb-4 tracking-tight leading-tight drop-shadow-sm">Unleash your digital<br/>potential.</h3>
             
-            <p className="text-blue-100 text-sm leading-relaxed mb-8 font-medium">
-              "Switching to SnapLinks was the best decision for our team. The 50MB ephemeral file sharing and stunning 3D vCards have completely elevated our brand."
+            <p className="text-blue-100/90 text-sm leading-relaxed mb-8 font-medium">
+              SnapLinks was built with a relentless focus on high-quality reliability, pixel-perfect UI, and user privacy. We are driven by the passion to build tools that empower modern professionals.
             </p>
             
             <div className="flex items-center gap-4">
