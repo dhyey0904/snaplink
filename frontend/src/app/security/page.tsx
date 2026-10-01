@@ -2,12 +2,11 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
-import { Shield, Lock, EyeOff, Server, Key, FileCheck } from 'lucide-react';
-import Link from 'next/link';
+import { Shield, Lock, Server, Key, FileCheck, Info } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Security | SnapLinks',
-  description: 'Learn how SnapLinks protects your data with enterprise-grade security, encryption, and privacy controls.',
+  description: 'Learn how SnapLinks handles your data with standard web security and privacy practices.',
 };
 
 export default function SecurityPage() {
@@ -23,64 +22,74 @@ export default function SecurityPage() {
             <div className="w-20 h-20 bg-white/10 rounded-3xl flex items-center justify-center mx-auto mb-8 backdrop-blur-xl border border-white/20">
               <Shield className="w-10 h-10 text-blue-300" />
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight">Enterprise-Grade Security</h1>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
-              At SnapLinks, the privacy and security of your data is our highest priority. We use industry-standard encryption to ensure your files and links remain exclusively yours.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight">Security & Privacy</h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed text-justify sm:text-center">
+              At SnapLinks, we prioritize the protection of your digital workspace. We employ standard web security practices to keep your URLs, files, and accounts safe while being transparent about our capabilities as an independent platform.
             </p>
           </div>
         </section>
 
+        {/* Legal Disclaimer */}
+        <div className="max-w-5xl mx-auto -mt-10 relative z-30 px-6">
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-2xl shadow-md flex gap-4">
+            <Info className="w-6 h-6 text-yellow-600 shrink-0" />
+            <p className="text-sm text-yellow-800 text-justify">
+              <strong>Transparency Notice:</strong> SnapLinks is an independent, unregistered startup project. We do not claim to offer military-grade or enterprise-level compliance frameworks (such as HIPAA or SOC2). We provide standard, reliable web security and rely on trusted third-party cloud providers (Render, Neon) to host our infrastructure securely.
+            </p>
+          </div>
+        </div>
+
         {/* Core Pillars */}
-        <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto -mt-20 relative z-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto relative z-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
               <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
                 <Lock className="w-7 h-7 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">End-to-End Encryption</h3>
-              <p className="text-gray-600 leading-relaxed">
-                All data transmitted to and from SnapLinks is encrypted in transit using TLS 1.3. Your files and sensitive data are encrypted at rest using AES-256 block-level encryption.
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Encryption in Transit</h3>
+              <p className="text-gray-600 leading-relaxed text-justify">
+                All data transmitted between your browser and our servers is secured using standard HTTPS/TLS encryption. This prevents intermediaries from intercepting your data or file uploads while they are traveling across the internet.
               </p>
             </div>
             
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
               <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-6">
-                <EyeOff className="w-7 h-7 text-purple-600" />
+                <Server className="w-7 h-7 text-purple-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Zero-Knowledge Architecture</h3>
-              <p className="text-gray-600 leading-relaxed">
-                For SnapBridge Secure File Sharing, we employ strict zero-knowledge protocols. Your decryption keys never touch our servers, meaning even we cannot view your files.
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Cloud Infrastructure</h3>
+              <p className="text-gray-600 leading-relaxed text-justify">
+                Our application backend and PostgreSQL database are hosted on reputable modern cloud providers. We rely on their built-in data center security and physical hardware protections to keep your stored data safe.
               </p>
             </div>
             
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
               <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6">
-                <Server className="w-7 h-7 text-emerald-600" />
+                <Key className="w-7 h-7 text-emerald-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Secure Infrastructure</h3>
-              <p className="text-gray-600 leading-relaxed">
-                SnapLinks is hosted on enterprise cloud infrastructure with strict physical and network security. Our databases are isolated in private VPCs with no direct public access.
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Secure Authentication</h3>
+              <p className="text-gray-600 leading-relaxed text-justify">
+                We use secure, industry-standard JSON Web Tokens (JWT) for session management. All user passwords are computationally hashed and salted using robust algorithms before being stored in our database.
               </p>
             </div>
           </div>
         </section>
 
         {/* Details Section */}
-        <section className="py-16 px-6 sm:px-12 max-w-5xl mx-auto">
+        <section className="py-12 px-6 sm:px-12 max-w-5xl mx-auto">
           <div className="space-y-16">
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="w-full md:w-1/2">
                 <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
                   <Key className="w-8 h-8 text-orange-600" />
                 </div>
-                <h2 className="text-3xl font-black text-gray-900 mb-4">Authentication & Access</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                  We leverage robust OAuth 2.0 protocols and strict JWT-based authentication. Passwords are salted and hashed using modern bcrypt algorithms.
+                <h2 className="text-3xl font-black text-gray-900 mb-4">Account Protection</h2>
+                <p className="text-gray-600 text-lg leading-relaxed mb-4 text-justify">
+                  To protect your account from unauthorized access, we provide multiple layers of standard web security and authentication integrations.
                 </p>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> Google Single Sign-On (SSO) Support</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> Strict Session Expirations</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> Brute-Force Protection via Rate Limiting</li>
+                <ul className="space-y-3 text-gray-600 text-justify">
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Google OAuth:</strong> Sign in securely without needing a password.</li>
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Hashed Passwords:</strong> We never store plain-text passwords.</li>
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Session Limits:</strong> Expiring JWT tokens prevent indefinite access.</li>
                 </ul>
               </div>
               <div className="w-full md:w-1/2 bg-gray-900 rounded-3xl p-8 shadow-lg">
@@ -92,13 +101,12 @@ export default function SecurityPage() {
 }
 .
 {
-  "sub": "user_12345",
+  "sub": "user_id",
   "exp": 1735689600,
-  "iat": 1704067200,
-  "role": "verified_user"
+  "iat": 1704067200
 }
 .
-[SIGNATURE]`}
+[SECURE_SIGNATURE]`}
                   </code>
                 </pre>
               </div>
@@ -109,14 +117,14 @@ export default function SecurityPage() {
                 <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
                   <FileCheck className="w-8 h-8 text-teal-600" />
                 </div>
-                <h2 className="text-3xl font-black text-gray-900 mb-4">Compliance & Data Privacy</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                  We process data transparently. We do not sell your personal data. We comply with modern privacy frameworks to ensure your digital rights are respected.
+                <h2 className="text-3xl font-black text-gray-900 mb-4">Data Privacy</h2>
+                <p className="text-gray-600 text-lg leading-relaxed mb-4 text-justify">
+                  We collect only the information necessary to provide our services. As an independent platform, we are committed to being transparent about how your data is handled.
                 </p>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> Regular automated security audits</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> Data minimization principles</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> Right to erasure (Delete your account instantly)</li>
+                <ul className="space-y-3 text-gray-600 text-justify">
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>No Data Selling:</strong> We do not sell your personal information.</li>
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>Transparency:</strong> Real, honest statements about our capabilities.</li>
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>Right to Delete:</strong> You can request full account deletion at any time.</li>
                 </ul>
               </div>
               <div className="w-full md:w-1/2 bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
@@ -124,12 +132,12 @@ export default function SecurityPage() {
                   <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-2xl">
                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">🛡️</div>
                     <div className="flex-1"><div className="h-2 w-24 bg-gray-300 rounded-full mb-2"></div><div className="h-2 w-32 bg-gray-200 rounded-full"></div></div>
-                    <div className="text-green-500 font-bold text-sm">Compliant</div>
+                    <div className="text-green-500 font-bold text-sm">Honest Security</div>
                   </div>
                   <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-2xl">
                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">🔒</div>
                     <div className="flex-1"><div className="h-2 w-16 bg-gray-300 rounded-full mb-2"></div><div className="h-2 w-28 bg-gray-200 rounded-full"></div></div>
-                    <div className="text-green-500 font-bold text-sm">Encrypted</div>
+                    <div className="text-green-500 font-bold text-sm">HTTPS Protected</div>
                   </div>
                 </div>
               </div>
@@ -140,11 +148,11 @@ export default function SecurityPage() {
         {/* CTA */}
         <section className="py-24 px-6 sm:px-12 text-center">
           <h2 className="text-3xl font-black text-gray-900 mb-6">Have a security concern?</h2>
-          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-            If you believe you have found a security vulnerability in SnapLinks, please report it to us immediately. We take all reports seriously.
+          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto text-justify sm:text-center">
+            If you have any questions about our data practices or believe you have found a vulnerability, please reach out. We value feedback that helps keep our users safe.
           </p>
-          <a href="mailto:security@snaplinks.in" className="inline-flex items-center gap-2 bg-[#1a73e8] text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
-            Contact Security Team
+          <a href="mailto:hello.snaplinks@gmail.com" className="inline-flex items-center gap-2 bg-[#1a73e8] text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
+            Contact: hello.snaplinks@gmail.com
           </a>
         </section>
       </main>
