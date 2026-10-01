@@ -1,29 +1,15 @@
 ﻿import re
 
-file = 'frontend/src/app/layout.tsx'
+file = 'frontend/src/app/admin/settings/page.tsx'
 with open(file, 'r', encoding='utf-8') as f:
     c = f.read()
 
-# Replace the broken syntax block
-broken = """  alternates: {
-    canonical: "https://www.snaplinks.in",
-  },
-      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
-    ],
-    apple: [
-      { url: '/apple-icon.png' },
-    ],
-  },
-  manifest: '/manifest.json',"""
+bad_line = """const res = await fetch('${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api/admin/settings', {"""
+good_line = """const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api/admin/settings`, {"""
 
-fixed = """  alternates: {
-    canonical: "https://www.snaplinks.in",
-  },
-  manifest: '/manifest.json',"""
-
-c = c.replace(broken, fixed)
+c = c.replace(bad_line, good_line)
 
 with open(file, 'w', encoding='utf-8') as f:
     f.write(c)
 
-print("Fixed syntax")
+print("Fixed syntax error in settings page")
