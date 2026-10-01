@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "About Us | SnapLinks",
   description: "Learn about SnapLinks's mission to unify digital identity, secure file sharing, and link management for modern professionals.",
   alternates: {
-    canonical: "https://www.snaplinks.in/about",
+    canonical: "/about",
   },
 };
 

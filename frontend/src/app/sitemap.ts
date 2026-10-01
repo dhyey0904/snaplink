@@ -1,6 +1,6 @@
 ﻿import { MetadataRoute } from 'next';
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.snaplinks.in';
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://snaplinks.in';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes = [

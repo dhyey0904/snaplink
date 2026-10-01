@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | SnapLinks",
   description: "Learn how SnapLinks collects, uses, and protects your data. We are committed to your privacy and secure file sharing.",
   alternates: {
-    canonical: "https://www.snaplinks.in/privacy",
+    canonical: "/privacy",
   },
 };
 

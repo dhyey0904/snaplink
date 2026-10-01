@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Help Center & FAQ | SnapLinks",
   description: "Find answers to frequently asked questions, learn how to use SnapLinks, and contact support.",
   alternates: {
-    canonical: "https://www.snaplinks.in/help",
+    canonical: "/help",
   },
 };
 

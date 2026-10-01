@@ -151,7 +151,7 @@ export default function VCardDashboard() {
     }
   };
 
-  const addCustomLink = () => setCustomLinks([...customLinks, { title: '', url: '' }]);
+  const addCustomLink = () => setCustomLinks([...customLinks, { title: '', url: '/' }]);
   const updateCustomLink = (index: number, field: 'title' | 'url', value: string) => {
     const newLinks = [...customLinks];
     newLinks[index][field] = value;

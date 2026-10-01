@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rotate PDF files | SnapLinks',
     description: 'Rotate your PDFs the way you need them. Rotate multiple PDFs at once instantly.',
-    url: 'https://www.snaplinks.in/tools/rotate-pdf',
+    url: '/tools/rotate-pdf',
   }
 };
 

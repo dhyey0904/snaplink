@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: ["SnapLinks Tools", "URL shortener", "free PDF tools", "link in bio", "secure file sharing", "SnapPlay", "daily challenges", "mini-games", "digital business card", "3D vcard", "digital workspace", "link management", "peer to peer file share"],
-  authors: [{ name: "SnapLinks Team", url: "https://www.snaplinks.in" }],
+  authors: [{ name: "SnapLinks Team", url: '/' }],
   creator: "SnapLinks",
   publisher: "SnapLinks",
   robots: {
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.snaplinks.in",
+    canonical: '/',
   },
   manifest: '/manifest.json',
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.snaplinks.in",
+    url: '/',
     siteName: "SnapLinks",
     title: "SnapLinks | URL Shortener, Link-in-Bio, SnapPlay & File Sharing",
     description: "Your unified web workspace for deep link shortening, secure file sharing, customizable Link-in-Bio pages, and free PDF tools.",

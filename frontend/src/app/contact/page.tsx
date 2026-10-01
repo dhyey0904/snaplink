@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Contact Us | SnapLinks",
   description: "Get in touch with the SnapLinks team for support, business inquiries, or general questions.",
   alternates: {
-    canonical: "https://www.snaplinks.in/contact",
+    canonical: "/contact",
   },
 };
 

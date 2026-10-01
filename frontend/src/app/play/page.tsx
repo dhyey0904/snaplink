@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: 'Play a new addictive mini-game every single day on SnapPlay. Test your reflexes, speed math, and memory. Can you beat the world? Play SnapPlay completely free.',
   keywords: ["SnapPlay", "daily challenge", "mini-games", "brain training", "speed math", "reflex test", "daily games", "browser games", "wordle alternative"],
   alternates: {
-    canonical: "https://www.snaplinks.in/play",
+    canonical: "/play",
   },
   openGraph: {
     title: 'SnapPlay | 365 Days of Mini-Games',
     description: 'A new daily challenge unlocks every midnight. Compete globally, test your brain, and build your streak on SnapPlay.',
-    url: 'https://www.snaplinks.in/play',
+    url: '/play',
     type: 'website',
     images: [
       {

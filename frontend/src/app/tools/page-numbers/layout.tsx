@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Add Page Numbers to PDF | SnapLinks',
     description: 'Add page numbers into PDFs with ease. Choose your positions, dimensions, and typography.',
-    url: 'https://www.snaplinks.in/tools/page-numbers',
+    url: '/tools/page-numbers',
   }
 };
 

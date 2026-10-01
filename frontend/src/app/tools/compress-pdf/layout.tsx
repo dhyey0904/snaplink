@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Compress PDF files | SnapLinks',
     description: 'Compress PDF file to get the same PDF quality but less filesize. Optimize your PDFs for web.',
-    url: 'https://www.snaplinks.in/tools/compress-pdf',
+    url: '/tools/compress-pdf',
   }
 };
 

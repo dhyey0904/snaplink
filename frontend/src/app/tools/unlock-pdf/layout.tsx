@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Unlock PDF files | SnapLinks',
     description: 'Remove PDF password security, giving you the freedom to use your PDFs as you want.',
-    url: 'https://www.snaplinks.in/tools/unlock-pdf',
+    url: '/tools/unlock-pdf',
   }
 };
 

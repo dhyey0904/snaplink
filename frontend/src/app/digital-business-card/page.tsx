@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   description: "Create stunning 3D interactive digital business cards. Share your contact info instantly via QR code or NFC. Never print paper cards again.",
   keywords: ["digital business card", "vcard generator", "3D business card", "NFC card alternative", "contact sharing", "smart business card"],
   alternates: {
-    canonical: "https://www.snaplinks.in/digital-business-card",
+    canonical: "/digital-business-card",
   },
   openGraph: {
     title: "3D Digital Business Cards & vCards | SnapLinks",
     description: "Create stunning 3D interactive digital business cards. Share your contact info instantly via QR code or NFC. Never print paper cards again.",
-    url: "https://www.snaplinks.in/digital-business-card",
+    url: "/digital-business-card",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "3D Digital Business Cards & vCards Preview" }]
   },

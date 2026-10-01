@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | SnapLinks",
   description: "Read the Terms of Service for SnapLinks. These terms govern your use of our URL shortener, file sharing, and digital vCard services.",
   alternates: {
-    canonical: "https://www.snaplinks.in/terms",
+    canonical: "/terms",
   },
 };
 

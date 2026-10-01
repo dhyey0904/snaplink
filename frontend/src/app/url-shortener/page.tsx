@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   description: "Shorten long links, generate custom branded URLs, and track comprehensive analytics including geolocation, device type, and referral sources.",
   keywords: ["url shortener", "custom link", "link analytics", "branded links", "link tracking", "url management"],
   alternates: {
-    canonical: "https://www.snaplinks.in/url-shortener",
+    canonical: "/url-shortener",
   },
   openGraph: {
     title: "Advanced URL Shortener & Link Analytics | SnapLinks",
     description: "Shorten long links, generate custom branded URLs, and track comprehensive analytics including geolocation, device type, and referral sources.",
-    url: "https://www.snaplinks.in/url-shortener",
+    url: "/url-shortener",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Advanced URL Shortener & Link Analytics Preview" }]
   },

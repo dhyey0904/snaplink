@@ -8,12 +8,12 @@ export const metadata = {
   description: 'Access Snap Tools to merge, split, compress, watermark, and convert PDF documents for free. Fast, reliable, and secure.',
   keywords: ["Snap Tools", "free PDF tools", "PDF compressor", "merge PDF", "split PDF", "web utilities"],
   alternates: {
-    canonical: "https://www.snaplinks.in/tools",
+    canonical: "/tools",
   },
   openGraph: {
     title: 'Snap Tools | Free PDF & Web Utilities',
     description: 'Merge, split, compress, watermark, and convert PDF documents for free instantly online.',
-    url: 'https://www.snaplinks.in/tools',
+    url: '/tools',
   }
 };
 
