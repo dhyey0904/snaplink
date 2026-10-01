@@ -70,7 +70,7 @@ export default function Register() {
     <div className="fixed inset-0 flex w-full bg-white font-sans overflow-hidden">
       
       {/* LEFT SIDE - Form */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-16 md:px-24 xl:px-32 py-10 lg:py-0 relative z-10 overflow-y-auto" bg-white shadow-[20px_0_40px_rgba(0,0,0,0.1)]">
+      <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-16 md:px-24 xl:px-32 py-10 lg:py-0 relative z-10 overflow-y-auto bg-white shadow-[20px_0_40px_rgba(0,0,0,0.1)]">
         <div className="max-w-md w-full mx-auto">
           {/* Mobile Only Logo */}
           <div className="lg:hidden mb-8 flex items-center justify-center">
