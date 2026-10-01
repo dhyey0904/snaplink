@@ -509,7 +509,7 @@ export default function VCardDashboard() {
               )}
 
               {/* Realistic iPhone Frame */}
-              <div className="relative w-[340px] h-[720px] rounded-[3.5rem] bg-gray-900 p-[12px] shadow-2xl ring-1 ring-gray-900/10 flex-shrink-0 mx-auto border-4 border-gray-800 transform scale-90 sm:scale-100 origin-top">
+              <div className="relative h-[65vh] max-h-[650px] sm:h-auto sm:w-[340px] aspect-[1/2.11] rounded-[2.5rem] sm:rounded-[3.5rem] bg-gray-900 p-[8px] sm:p-[12px] shadow-2xl ring-1 ring-gray-900/10 flex-shrink-0 mx-auto sm:border-4 border-2 border-gray-800">
                  {/* Hardware elements */}
                  <div className="absolute top-[12px] left-1/2 -translate-x-1/2 w-[120px] h-[25px] bg-gray-900 rounded-b-[1.2rem] z-50 flex items-center justify-end px-3">
                    <div className="w-2 h-2 rounded-full bg-black/50 border border-white/10 shadow-inner"></div>
@@ -520,7 +520,7 @@ export default function VCardDashboard() {
                  <div className="absolute right-[-4px] top-40 w-1 h-24 bg-gray-700 rounded-r-sm"></div>
 
                  {/* Screen */}
-                 <div className="w-full h-full bg-white rounded-[2.8rem] overflow-hidden relative flex flex-col" style={{ background: phoneBg }}>
+                 <div className="w-full h-full bg-white rounded-3xl sm:rounded-[2.8rem] overflow-hidden relative flex flex-col" style={{ background: phoneBg }}>
                     
                     {/* EXHIBITION GALLERY LAYOUT FOR PREVIEW */}
                     <div className="flex-1 w-full flex flex-col items-center justify-center relative overflow-hidden px-4 pb-20">

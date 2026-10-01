@@ -717,7 +717,7 @@ export default function BioDashboard() {
               <div className={`lg:col-span-5 xl:col-span-4 relative ${activeTab === 'preview' ? 'block' : 'hidden lg:block'}`}>
                 <div className="sticky top-8 flex justify-center pb-8">
                   {/* Realistic iPhone Frame */}
-                  <div className="relative w-[340px] h-[720px] rounded-[3.5rem] bg-black p-[14px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] ring-1 ring-gray-900/10 flex-shrink-0 mx-auto transform scale-90 sm:scale-100 origin-top">
+                  <div className="relative h-[65vh] max-h-[650px] sm:h-auto sm:w-[340px] aspect-[1/2.11] rounded-[2.5rem] sm:rounded-[3.5rem] bg-black p-[8px] sm:p-[14px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] ring-1 ring-gray-900/10 flex-shrink-0 mx-auto">
                     
                     {/* Hardware Buttons */}
                     <div className="absolute top-[120px] -left-[2px] w-[3px] h-[30px] bg-gray-800 rounded-l-md"></div>
@@ -726,7 +726,7 @@ export default function BioDashboard() {
                     <div className="absolute top-[190px] -right-[2px] w-[3px] h-[90px] bg-gray-800 rounded-r-md"></div>
 
                     {/* Screen */}
-                    <div className="w-full h-full bg-white rounded-[2.8rem] overflow-hidden relative flex flex-col">
+                    <div className="w-full h-full bg-white rounded-3xl sm:rounded-[2.8rem] overflow-hidden relative flex flex-col">
                       
                       {/* Dynamic Island & Status Bar */}
                       <div className="absolute top-0 inset-x-0 h-14 z-30 pointer-events-none flex justify-between items-start px-6 pt-3 text-[13px] font-semibold text-white">
