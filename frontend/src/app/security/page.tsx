@@ -87,9 +87,9 @@ export default function SecurityPage() {
                   To protect your account from unauthorized access, we provide multiple layers of standard web security and authentication integrations.
                 </p>
                 <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Google OAuth:</strong> Sign in securely without needing a password.</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Hashed Passwords:</strong> We never store plain-text passwords.</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> <strong>Session Limits:</strong> Expiring JWT tokens prevent indefinite access.</li>
+                  <li className="flex gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-2"></div> <span><strong>Google OAuth:</strong> Sign in securely without needing a password.</span></li>
+                  <li className="flex gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-2"></div> <span><strong>Hashed Passwords:</strong> We never store plain-text passwords.</span></li>
+                  <li className="flex gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-2"></div> <span><strong>Session Limits:</strong> Expiring JWT tokens prevent indefinite access.</span></li>
                 </ul>
               </div>
               <div className="w-full md:w-1/2 bg-gray-900 rounded-3xl p-8 shadow-lg">
@@ -122,9 +122,9 @@ export default function SecurityPage() {
                   We collect only the information necessary to provide our services. As an independent platform, we are committed to being transparent about how your data is handled.
                 </p>
                 <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>No Data Selling:</strong> We do not sell your personal information.</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>Transparency:</strong> Real, honest statements about our capabilities.</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></div> <strong>Right to Delete:</strong> You can request full account deletion at any time.</li>
+                  <li className="flex gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-2"></div> <span><strong>No Data Selling:</strong> We do not sell your personal information.</span></li>
+                  <li className="flex gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-2"></div> <span><strong>Transparency:</strong> Real, honest statements about our capabilities.</span></li>
+                  <li className="flex gap-3"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0 mt-2"></div> <span><strong>Right to Delete:</strong> You can request full account deletion at any time.</span></li>
                 </ul>
               </div>
               <div className="w-full md:w-1/2 bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
