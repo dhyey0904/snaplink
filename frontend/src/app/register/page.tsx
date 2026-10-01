@@ -10,13 +10,32 @@ export default function Register() {
   const router = useRouter();
   
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      router.replace("/dashboard");
+    const token = localStorage.getItem("token");
+    if (token) {
+      redirectUser(token);
     }
   }, [router]);
   
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
+
+  const parseJwt = (token: string) => {
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const redirectUser = (token: string) => {
+    const payload = parseJwt(token);
+    if (payload && payload.sub === 'hello.snaplinks@gmail.com') {
+      router.replace('/admin');
+    } else {
+      router.replace('/dashboard');
+    }
+  };
+
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -58,7 +77,7 @@ export default function Register() {
       const data = await response.json();
       localStorage.setItem("token", data.access_token);
       setSuccess("Account created successfully!");
-      setTimeout(() => router.replace("/dashboard"), 400);
+      setTimeout(() => redirectUser(data.access_token), 400);
     } catch (err: any) {
       setError(err.message);
     } finally {

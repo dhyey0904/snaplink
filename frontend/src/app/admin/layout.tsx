@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -8,6 +8,31 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [authorized, setAuthorized] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.replace("/login");
+      return;
+    }
+    
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      if (payload && payload.sub === 'hello.snaplinks@gmail.com') {
+        setAuthorized(true);
+      } else {
+        router.replace('/dashboard');
+      }
+    } catch(e) {
+      router.replace("/login");
+    }
+  }, [router]);
+
+  if (!authorized) {
+    return <div className="min-h-screen flex items-center justify-center bg-gray-50"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>;
+  }
+
 
   const handleLogout = () => {
     localStorage.removeItem('token');

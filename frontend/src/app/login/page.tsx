@@ -10,11 +10,30 @@ export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      router.replace("/dashboard");
+    const token = localStorage.getItem("token");
+    if (token) {
+      redirectUser(token);
     }
   }, [router]);
   const [error, setError] = useState("");
+
+  const parseJwt = (token: string) => {
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const redirectUser = (token: string) => {
+    const payload = parseJwt(token);
+    if (payload && payload.sub === 'hello.snaplinks@gmail.com') {
+      router.replace('/admin');
+    } else {
+      router.replace('/dashboard');
+    }
+  };
+
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -45,7 +64,7 @@ export default function Login() {
       const result = await data.json();
       localStorage.setItem("token", result.access_token);
       setSuccess("Login successful!");
-      setTimeout(() => router.replace("/dashboard"), 400);
+      setTimeout(() => redirectUser(localStorage.getItem("token") || ""), 400);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -73,7 +92,7 @@ export default function Login() {
       const data = await response.json();
       localStorage.setItem("token", data.access_token);
       setSuccess("Login successful!");
-      setTimeout(() => router.replace("/dashboard"), 400);
+      setTimeout(() => redirectUser(localStorage.getItem("token") || ""), 400);
     } catch (err: any) {
       setError(err.message);
     } finally {
