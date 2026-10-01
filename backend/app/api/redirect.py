@@ -50,6 +50,7 @@ from datetime import datetime, timezone
 from app.database.database import get_db
 from app.models.link import Link
 from app.models.click import Click
+from app.models.settings import SystemSettings
 
 router = APIRouter()
 

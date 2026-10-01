@@ -57,8 +57,11 @@ async def upload_transfer(short_code: str, background_tasks: BackgroundTasks, fi
     file.file.seek(0, 2)
     file_size = file.file.tell()
     file.file.seek(0)
-    if file_size > 50 * 1024 * 1024:
-        raise HTTPException(status_code=413, detail="File exceeds 50MB limit.")
+    
+    settings = db.query(SystemSettings).first()
+    max_mb = settings.max_upload_size_mb if settings else 50
+    if file_size > max_mb * 1024 * 1024:
+        raise HTTPException(status_code=413, detail=f"File exceeds {max_mb}MB system limit.")
 
     file_id = str(uuid.uuid4())
     ext = os.path.splitext(file.filename)[1]

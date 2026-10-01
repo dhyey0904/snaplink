@@ -5,6 +5,7 @@ from typing import Any
 
 from app.database.database import get_db
 from app.models.user import User
+from app.models.settings import SystemSettings
 from app.core.email import send_welcome_email
 from fastapi import BackgroundTasks
 from app.schemas.user import UserCreate, UserResponse
@@ -28,6 +29,10 @@ GOOGLE_CLIENT_ID = "234819018700-s05ud8ua2h7eqp9t99jhm8ki6sqircjn.apps.googleuse
 
 @router.post("/register", response_model=UserResponse)
 def register_user(user_in: UserCreate, db: Session = Depends(get_db)) -> Any:
+    settings = db.query(SystemSettings).first()
+    if settings and not settings.allow_registrations:
+        raise HTTPException(status_code=403, detail="New registrations are currently disabled by the administrator.")
+        
     user = db.query(User).filter(User.email == user_in.email).first()
     if user:
         raise HTTPException(

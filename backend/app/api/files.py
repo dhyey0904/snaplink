@@ -18,6 +18,7 @@ from app.schemas.file import FileShareResponse, FileVerifyRequest
 from app.api.deps import get_current_user
 from app.core.limiter import limiter
 from app.models.user import User
+from app.models.settings import SystemSettings
 
 router = APIRouter()
 
@@ -49,6 +50,11 @@ async def upload_file(
     file.file.seek(0, os.SEEK_END)
     file_size = file.file.tell()
     file.file.seek(0)
+    
+    settings = db.query(SystemSettings).first()
+    max_mb = settings.max_upload_size_mb if settings else 100
+    if file_size > max_mb * 1024 * 1024:
+        raise HTTPException(status_code=413, detail=f"File exceeds {max_mb}MB system limit.")
     
     if file_size > MAX_FILE_SIZE:
         raise HTTPException(status_code=400, detail="File too large. Maximum size is 50MB.")
