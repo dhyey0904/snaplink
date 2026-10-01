@@ -1,7 +1,7 @@
 ﻿import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://snaplinks.in';
+  const baseUrl = 'https://www.snaplinks.in';
 
   return {
     rules: {
@@ -9,12 +9,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: [
         '/',
         '/about',
-        '/features',
-        '/pricing',
         '/contact',
         '/privacy',
         '/terms',
-        '/cookies',
         '/blog',
         '/tools',
         '/play',
@@ -23,13 +20,8 @@ export default function robots(): MetadataRoute.Robots {
         '/url-shortener',
         '/digital-business-card',
         '/file-sharing',
-        '/docs',
-        '/developers',
-        '/templates',
         '/bio/',
         '/v/',
-        '/status',
-        '/changelog',
         '/security',
         '/help',
       ],
@@ -40,25 +32,9 @@ export default function robots(): MetadataRoute.Robots {
         '/register',
         '/forgot-password',
         '/reset-password',
-        '/settings',
-        '/profile/edit',
-        '/billing',
-        '/subscription',
-        '/notifications',
-        '/private',
-        '/auth',
-        '/api/private',
-        '/api/internal',
-        '/test',
-        '/dev',
-        '/staging',
-        '/draft',
-        '/preview',
-        '/temp',
-        '/uploads/private',
-        '/search',
-        '/f/', // Short links redirect tracking
-        '/b/' // SnapBridge private transfer rooms
+        '/report',
+        '/f/', 
+        '/b/' 
       ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
