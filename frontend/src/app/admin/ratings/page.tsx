@@ -16,7 +16,7 @@ export default function AdminRatings() {
 
   const fetchRatings = async () => {
     try {
-      const token = localStorage.getItem('snaplink_token');
+      const token = localStorage.getItem('token');
       if (!token) {
         router.push('/login');
         return;
@@ -47,7 +47,7 @@ export default function AdminRatings() {
     if (!confirm('Are you sure you want to delete this feedback?')) return;
     
     try {
-      const token = localStorage.getItem('snaplink_token');
+      const token = localStorage.getItem('token');
       const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://snaplink-x8i6.onrender.com";
       const res = await fetch(`${backendUrl}/api/admin/ratings/${id}`, {
         method: 'DELETE',
