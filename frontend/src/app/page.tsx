@@ -29,7 +29,7 @@ export default function Home() {
               <div className="w-full lg:w-1/2 text-center lg:text-left">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-4 backdrop-blur-sm animate-fade-in-up">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                  20+ Free Web Tools & File Sharing
+                  Free Web Tools & Secure File Sharing
                 </div>
                 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight animate-fade-in-up delay-100">
