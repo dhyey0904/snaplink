@@ -509,7 +509,7 @@ export default function VCardDashboard() {
               )}
 
               {/* Realistic iPhone Frame */}
-              <div className="relative w-[340px] h-[720px] rounded-[3.5rem] bg-gray-900 p-[12px] shadow-2xl ring-1 ring-gray-900/10 flex-shrink-0 mx-auto border-4 border-gray-800">
+              <div className="relative w-[340px] h-[720px] rounded-[3.5rem] bg-gray-900 p-[12px] shadow-2xl ring-1 ring-gray-900/10 flex-shrink-0 mx-auto border-4 border-gray-800 transform scale-90 sm:scale-100 origin-top">
                  {/* Hardware elements */}
                  <div className="absolute top-[12px] left-1/2 -translate-x-1/2 w-[120px] h-[25px] bg-gray-900 rounded-b-[1.2rem] z-50 flex items-center justify-end px-3">
                    <div className="w-2 h-2 rounded-full bg-black/50 border border-white/10 shadow-inner"></div>

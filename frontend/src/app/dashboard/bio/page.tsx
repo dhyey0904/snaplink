@@ -717,7 +717,7 @@ export default function BioDashboard() {
               <div className={`lg:col-span-5 xl:col-span-4 relative ${activeTab === 'preview' ? 'block' : 'hidden lg:block'}`}>
                 <div className="sticky top-8 flex justify-center pb-8">
                   {/* Realistic iPhone Frame */}
-                  <div className="relative w-[340px] h-[720px] rounded-[3.5rem] bg-black p-[14px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] ring-1 ring-gray-900/10 flex-shrink-0 mx-auto">
+                  <div className="relative w-[340px] h-[720px] rounded-[3.5rem] bg-black p-[14px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] ring-1 ring-gray-900/10 flex-shrink-0 mx-auto transform scale-90 sm:scale-100 origin-top">
                     
                     {/* Hardware Buttons */}
                     <div className="absolute top-[120px] -left-[2px] w-[3px] h-[30px] bg-gray-800 rounded-l-md"></div>
