@@ -127,7 +127,7 @@ export default function ImageCompressorPage() {
       formData.append('keepMetadata', keepMetadata.toString());
       if (resizeWidth) formData.append('resizeWidth', resizeWidth.toString());
 
-      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api`;
       const res = await fetch(`${apiUrl}/image/compress`, {
         method: 'POST',
         body: formData,

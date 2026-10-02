@@ -25,7 +25,7 @@ export default function BridgeRoomPage() {
 
   const fetchFiles = async () => {
     try {
-      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api`;
       const res = await fetch(`${apiUrl}/bridge/room/${shortCode}/files`);
       if (res.ok) {
         const json = await res.json();
@@ -48,7 +48,7 @@ export default function BridgeRoomPage() {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api`;
       const res = await fetch(`${apiUrl}/bridge/room/${shortCode}/upload`, {
         method: 'POST',
         body: formData,
@@ -71,7 +71,7 @@ export default function BridgeRoomPage() {
   };
 
   const downloadFile = (fileId: string) => {
-    const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
+    const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api`;
     const a = document.createElement('a');
     a.href = `${apiUrl}/bridge/download/${fileId}`;
     document.body.appendChild(a);
@@ -82,7 +82,7 @@ export default function BridgeRoomPage() {
 
   const deleteFile = async (fileId: string) => {
     try {
-      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api`;
       await fetch(`${apiUrl}/bridge/file/${fileId}`, { method: 'DELETE' });
       // Optimistically remove it from UI
       setFiles(files.filter(f => f.id !== fileId));
@@ -100,7 +100,7 @@ export default function BridgeRoomPage() {
   const closeRoom = async () => {
     if (!confirm("Are you sure you want to permanently destroy this room and delete all files inside it?")) return;
     try {
-      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api`;
+      const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api`;
       await fetch(`${apiUrl}/bridge/room/${shortCode}`, { method: 'DELETE' });
       setError("Room closed by user.");
     } catch(e) {

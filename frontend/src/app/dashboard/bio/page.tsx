@@ -346,7 +346,7 @@ export default function BioDashboard() {
 
     const handleToggleLink = async (id: number, currentStatus: boolean) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/bio/links/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api/bio/links/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
