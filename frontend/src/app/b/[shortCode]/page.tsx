@@ -155,7 +155,7 @@ export default function BridgeRoomPage() {
           {/* Upload Zone */}
           <div className="md:col-span-1">
              <div 
-                className={`bg-white border-2 border-dashed rounded-3xl p-8 flex flex-col items-center justify-center text-center transition-all h-[400px] ${dragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
+                className={`bg-white border-2 border-dashed rounded-3xl p-4 sm:p-8 flex flex-col items-center justify-center text-center transition-all h-[400px] ${dragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
                 onDragOver={(e) => { e.preventDefault(); setDragActive(true); }}
                 onDragLeave={() => setDragActive(false)}
                 onDrop={handleDrop}
@@ -175,7 +175,7 @@ export default function BridgeRoomPage() {
 
           {/* Files List */}
           <div className="md:col-span-2">
-            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 min-h-[400px]">
+            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-4 sm:p-6 min-h-[400px]">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <FileIcon size={20} className="text-blue-600" /> Files in this Room ({files.length})
               </h2>
@@ -191,7 +191,7 @@ export default function BridgeRoomPage() {
                 <div className="space-y-4">
                   <AnimatePresence>
                     {files.map(file => (
-                      <motion.div key={file.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} className="bg-gray-50 rounded-2xl p-4 flex items-center justify-between group border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                      <motion.div key={file.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} className="bg-gray-50 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
                         <div className="flex items-center gap-4 overflow-hidden flex-1 min-w-0">
                            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
                               <FileIcon size={24} />
@@ -202,7 +202,7 @@ export default function BridgeRoomPage() {
                            </div>
                         </div>
 
-                        <div className="flex items-center gap-4 shrink-0 pl-4">
+                        <div className="flex items-center gap-4 shrink-0 sm:pl-4 w-full sm:w-auto justify-end">
                           {file.status === 'downloaded' ? (
                             <div className="flex items-center gap-2 bg-orange-100 text-orange-600 px-3 py-1.5 rounded-lg text-sm font-bold">
                               <Clock size={16} className="animate-pulse" /> Self-destructing...
