@@ -132,8 +132,8 @@ export default function BridgeRoomPage() {
     <div className="min-h-screen bg-gray-50 font-sans">
       <Navbar />
       
-      <main className="max-w-5xl mx-auto pt-16 px-4 pb-12">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+      <main className="max-w-5xl mx-auto pt-16 px-4 pb-12 w-full overflow-hidden sm:overflow-visible">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 gap-6 w-full text-center md:text-left">
           <div>
             <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold text-xs mb-3 shadow-sm">
               <ShieldCheck size={14} /> End-to-End Secure Room
@@ -141,7 +141,7 @@ export default function BridgeRoomPage() {
             <h1 className="text-4xl font-black text-gray-900 font-mono">Room: {shortCode}</h1>
             <p className="text-gray-700 font-medium mt-1">Anyone in this room can upload and download files.</p>
           </div>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 w-full md:w-auto">
             <button onClick={() => setShowQR(true)} className="bg-white border border-gray-200 shadow-sm text-gray-700 px-4 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-gray-50 transition-colors">
               <QrCode size={18} /> Show QR Code
             </button>
@@ -155,7 +155,7 @@ export default function BridgeRoomPage() {
           {/* Upload Zone */}
           <div className="md:col-span-1">
              <div 
-                className={`bg-white border-2 border-dashed rounded-3xl p-4 sm:p-8 flex flex-col items-center justify-center text-center transition-all h-[400px] ${dragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
+                className={`bg-white border-2 border-dashed rounded-3xl p-4 sm:p-8 flex flex-col items-center justify-center text-center transition-all min-h-[350px] w-full box-border ${dragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
                 onDragOver={(e) => { e.preventDefault(); setDragActive(true); }}
                 onDragLeave={() => setDragActive(false)}
                 onDrop={handleDrop}
@@ -191,7 +191,7 @@ export default function BridgeRoomPage() {
                 <div className="space-y-4">
                   <AnimatePresence>
                     {files.map(file => (
-                      <motion.div key={file.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} className="bg-gray-50 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                      <motion.div key={file.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} className="bg-gray-50 rounded-2xl p-4 flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 group border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all w-full">
                         <div className="flex items-center gap-4 overflow-hidden flex-1 min-w-0">
                            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
                               <FileIcon size={24} />
@@ -202,7 +202,7 @@ export default function BridgeRoomPage() {
                            </div>
                         </div>
 
-                        <div className="flex items-center gap-4 shrink-0 sm:pl-4 w-full sm:w-auto justify-end">
+                        <div className="flex items-center gap-4 shrink-0 sm:pl-4 w-full sm:w-auto justify-center sm:justify-end">
                           {file.status === 'downloaded' ? (
                             <div className="flex items-center gap-2 bg-orange-100 text-orange-600 px-3 py-1.5 rounded-lg text-sm font-bold">
                               <Clock size={16} className="animate-pulse" /> Self-destructing...
@@ -256,7 +256,7 @@ export default function BridgeRoomPage() {
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             className="fixed bottom-6 left-4 right-4 md:left-auto md:right-6 z-[100] bg-white border border-gray-200 shadow-2xl text-gray-900 px-5 py-4 rounded-2xl flex justify-between items-center md:min-w-[300px]"
           >
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 w-full md:w-auto">
               <div className="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-red-500 shrink-0">
                 <ShieldAlert size={20} />
               </div>
