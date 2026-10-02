@@ -133,7 +133,7 @@ export default function BridgeRoomPage() {
       <Navbar />
       
       <main className="max-w-5xl mx-auto pt-16 px-4 pb-12">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold text-xs mb-3 shadow-sm">
               <ShieldCheck size={14} /> End-to-End Secure Room
@@ -141,7 +141,7 @@ export default function BridgeRoomPage() {
             <h1 className="text-4xl font-black text-gray-900 font-mono">Room: {shortCode}</h1>
             <p className="text-gray-700 font-medium mt-1">Anyone in this room can upload and download files.</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <button onClick={() => setShowQR(true)} className="bg-white border border-gray-200 shadow-sm text-gray-700 px-4 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-gray-50 transition-colors">
               <QrCode size={18} /> Show QR Code
             </button>
@@ -254,9 +254,9 @@ export default function BridgeRoomPage() {
             initial={{ opacity: 0, y: 50, scale: 0.9 }} 
             animate={{ opacity: 1, y: 0, scale: 1 }} 
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="fixed bottom-6 right-6 z-[100] bg-white border border-gray-200 shadow-2xl text-gray-900 px-5 py-4 rounded-2xl flex justify-between items-center min-w-[300px]"
+            className="fixed bottom-6 left-4 right-4 md:left-auto md:right-6 z-[100] bg-white border border-gray-200 shadow-2xl text-gray-900 px-5 py-4 rounded-2xl flex justify-between items-center md:min-w-[300px]"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <div className="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-red-500 shrink-0">
                 <ShieldAlert size={20} />
               </div>
