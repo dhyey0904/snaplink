@@ -52,13 +52,13 @@ export default function HelpCenterPage() {
       <main className="flex-1 w-full pt-32 pb-24">
         
         {/* Header */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+        <section className="max-w-4xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-6">How can we help?</h1>
           <div className="relative max-w-2xl mx-auto">
             <input 
               type="text" 
               placeholder="Search for answers..." 
-              className="w-full px-6 py-4 rounded-2xl border border-gray-200 shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent transition-all"
+              className="w-full px-4 md:px-6 py-4 rounded-2xl border border-gray-200 shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-[#1a73e8] focus:border-transparent transition-all"
             />
             <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -67,10 +67,10 @@ export default function HelpCenterPage() {
         </section>
 
         {/* FAQ Sections */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="max-w-4xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8">
           <div className="space-y-12">
             {faqs.map((section, idx) => (
-              <div key={idx} className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+              <div key={idx} className="bg-white rounded-3xl p-4 md:p-8 shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-[#1a73e8] rounded-full"></div>
                   {section.category}
@@ -90,13 +90,13 @@ export default function HelpCenterPage() {
         </section>
 
         {/* Contact Support CTA */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 text-center">
-          <div className="bg-[#1a73e8] rounded-3xl p-10 shadow-lg text-white">
+        <section className="max-w-4xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 mt-16 text-center">
+          <div className="bg-[#1a73e8] rounded-3xl p-5 md:p-10 shadow-lg text-white">
             <h2 className="text-2xl font-bold mb-4">Still need help?</h2>
             <p className="text-blue-100 mb-8 max-w-xl mx-auto">
               If you couldn't find the answer to your question in our FAQ, our support team is ready to assist you.
             </p>
-            <a href="mailto:hello.snaplinks@gmail.com" className="inline-block bg-white text-[#1a73e8] px-8 py-3 rounded-xl font-bold shadow hover:bg-gray-50 transition-colors">
+            <a href="mailto:hello.snaplinks@gmail.com" className="inline-block bg-white text-[#1a73e8] px-4 md:px-8 py-3 rounded-xl font-bold shadow hover:bg-gray-50 transition-colors">
               Contact Support
             </a>
           </div>

@@ -333,7 +333,7 @@ export default function SnapPlayApp() {
 
               {/* Color Rush */}
               {dailyGame.id === 'color' && gridData && (
-                <div className="grid grid-cols-3 gap-2 w-full max-w-[280px] aspect-square">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full max-w-[280px] aspect-square">
                   {Array.from({length: 9}).map((_, i) => (
                     <button
                       key={i}

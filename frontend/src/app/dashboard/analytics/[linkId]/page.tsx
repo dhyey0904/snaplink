@@ -60,29 +60,29 @@ export default function AnalyticsDashboard() {
       {/* Navbar */}
       <Navbar />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 py-8">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+          <div className="bg-white rounded-2xl p-4 md:p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-sm font-medium text-[#5f6368] mb-2">Total Clicks</h3>
             <div className="text-4xl font-extrabold text-[#1a73e8]">{data.total_clicks}</div>
           </div>
-          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+          <div className="bg-white rounded-2xl p-4 md:p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-sm font-medium text-[#5f6368] mb-2">Top Device</h3>
             <div className="text-2xl font-bold text-[#202124]">{deviceData.length > 0 ? deviceData.sort((a, b) => b.value - a.value)[0].name : "N/A"}</div>
           </div>
-          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+          <div className="bg-white rounded-2xl p-4 md:p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-sm font-medium text-[#5f6368] mb-2">Top Referrer</h3>
             <div className="text-2xl font-bold text-[#202124]">{referrerData.length > 0 ? referrerData[0].name : "N/A"}</div>
           </div>
-          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+          <div className="bg-white rounded-2xl p-4 md:p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-sm font-medium text-[#5f6368] mb-2">Top Country</h3>
             <div className="text-2xl font-bold text-[#202124]">{countryData.length > 0 && countryData[0].name !== "Unknown" ? countryData[0].name : (countryData.length > 1 ? countryData[1].name : "N/A")}</div>
           </div>
         </div>
 
         {/* Charts Row 1 */}
-        <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm mb-8">
+        <div className="bg-white rounded-2xl p-4 md:p-6 border border-[#dadce0] shadow-sm mb-8">
           <h3 className="text-lg font-bold text-[#202124] mb-6">Traffic Over Time (Last 30 Days)</h3>
           <div className="h-[300px] w-full">
             {data.daily_clicks.length > 0 ? (
@@ -102,8 +102,8 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Charts Row 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white rounded-2xl p-4 md:p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-lg font-bold text-[#202124] mb-6">Top Referrers</h3>
             {referrerData.length > 0 ? (
               <div className="h-[250px] w-full">
@@ -126,7 +126,7 @@ export default function AnalyticsDashboard() {
             )}
           </div>
           
-          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+          <div className="bg-white rounded-2xl p-4 md:p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-lg font-bold text-[#202124] mb-6">Top Countries</h3>
             {countryData.length > 0 ? (
               <div className="h-[250px] w-full">
@@ -149,7 +149,7 @@ export default function AnalyticsDashboard() {
             )}
           </div>
 
-          <div className="bg-white rounded-2xl p-6 border border-[#dadce0] shadow-sm">
+          <div className="bg-white rounded-2xl p-4 md:p-6 border border-[#dadce0] shadow-sm">
             <h3 className="text-lg font-bold text-[#202124] mb-6">Devices & Browsers</h3>
             <div className="space-y-6">
               <div>

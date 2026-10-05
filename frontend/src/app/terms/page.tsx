@@ -16,7 +16,7 @@ export default function TermsOfService() {
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-[#1a73e8] selection:text-white">
       <Navbar />
       
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 pt-32 pb-24">
         
         {/* Header */}
         <div className="mb-12 border-b border-gray-200 pb-8">

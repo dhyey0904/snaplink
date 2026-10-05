@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-[#1a73e8] selection:text-white">
       <Navbar />
       
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 pt-32 pb-24">
         
         {/* Header */}
         <div className="mb-12 border-b border-gray-200 pb-8">
@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
             (snaplinks.in) and use our suite of services, including our URL shortener, ephemeral file sharing, and 3D digital vCards.
           </p>
 
-          <div className="bg-gray-100 p-6 rounded-xl border border-gray-200 text-sm">
+          <div className="bg-gray-100 p-4 md:p-6 rounded-xl border border-gray-200 text-sm">
             <strong>Legal Disclaimer:</strong> SnapLinks is currently operating as an independent, unregistered project and is not a registered corporate entity. By using this service, you acknowledge that the creators and developers assume no legal liability for any data breaches, loss of information, or damages. You use the platform entirely at your own risk.
           </div>
 

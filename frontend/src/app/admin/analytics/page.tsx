@@ -49,13 +49,13 @@ export default function AnalyticsPage() {
 
   const BreakdownCard = ({ title, icon: Icon, items, colorClass }: { title: string, icon: any, items: any[], colorClass: string }) => (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-      <div className="px-6 py-4 border-b border-gray-100 flex items-center gap-2 bg-gray-50/50">
+      <div className="px-4 md:px-6 py-4 border-b border-gray-100 flex items-center gap-2 bg-gray-50/50">
         <Icon size={18} className="text-gray-500" />
         <h3 className="text-gray-900 font-bold">{title}</h3>
       </div>
       <div className="divide-y divide-gray-100 p-2">
         {items.length === 0 ? (
-          <div className="p-6 text-center text-gray-400 text-sm">No data available</div>
+          <div className="p-4 md:p-6 text-center text-gray-400 text-sm">No data available</div>
         ) : (
           items.map((item: any, i: number) => (
             <div key={i} className="p-4 flex items-center justify-between hover:bg-gray-50 rounded-xl transition-colors group">
@@ -87,20 +87,20 @@ export default function AnalyticsPage() {
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+      <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
             <Activity size={16} className="text-blue-500" /> Total Global Clicks
           </div>
           <div className="text-4xl font-black text-gray-900">{(data?.overview?.total_clicks || data?.total_clicks || 0).toLocaleString()}</div>
         </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
             <Users size={16} className="text-green-500" /> Registered Users
           </div>
           <div className="text-4xl font-black text-gray-900">{(data?.overview?.total_users || 0).toLocaleString()}</div>
         </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
             <LinkIcon size={16} className="text-purple-500" /> Short Links Created
           </div>
@@ -109,7 +109,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Main Chart */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 md:p-6">
         <h3 className="text-gray-900 font-bold mb-6 flex items-center gap-2">
           <Activity size={18} className="text-blue-500"/>
           7-Day Trailing Engagement
@@ -140,7 +140,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Breakdowns */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <BreakdownCard title="Traffic Sources" icon={Globe} items={data.top_sources || []} colorClass="bg-blue-500" />
         <BreakdownCard title="Geographic" icon={MapPin} items={data.top_countries || []} colorClass="bg-purple-500" />
         <BreakdownCard title="Devices" icon={Monitor} items={data.top_devices || []} colorClass="bg-green-500" />

@@ -26,9 +26,9 @@ export default function AdBanner({ slot = "0987654321" }: { slot?: string }) {
   }, []);
 
   return (
-    <div className="w-full max-w-[728px] mx-auto mt-10 mb-2 flex justify-center relative bg-gray-50 border border-gray-100 rounded-xl overflow-hidden min-h-[100px] xl:hidden">
+    <div className="w-full max-w-[728px] mx-auto mt-10 mb-2 flex justify-center relative rounded-xl overflow-hidden xl:hidden min-h-[50px]">
       {/* Fallback styling placeholder */}
-      <span className="absolute top-1 right-2 text-[9px] uppercase tracking-wider font-bold text-gray-300 pointer-events-none z-0">Advertisement</span>
+      
       
       {/* Real AdSense Ad Unit - Responsive */}
       <ins className="adsbygoogle relative z-10 w-full"

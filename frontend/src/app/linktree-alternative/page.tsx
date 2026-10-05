@@ -36,7 +36,7 @@ export default function Page() {
               <div className="flex items-center justify-center gap-2 text-2xl font-bold text-gray-900 mb-4">
                 snaplinks.in/ <input type="text" className="border-b-2 border-gray-300 focus:border-[#1a73e8] outline-none px-2 w-48 text-center bg-transparent" placeholder="your-name" />
               </div>
-              <Link href="/register" className="w-full sm:w-auto mx-auto bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md">
+              <Link href="/register" className="w-full sm:w-auto mx-auto bg-black hover:bg-gray-800 text-white px-4 md:px-8 py-4 rounded-xl font-bold transition-all shadow-md">
                 Claim Your Link
               </Link>
               <p className="text-xs text-gray-500 mt-2">It\'s free, and takes less than a minute.</p>

@@ -77,7 +77,7 @@ export default function AdPage() {
   }
 
   return (
-    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#111827] text-white overflow-hidden p-4 sm:p-8">
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-[#111827] text-white overflow-hidden p-4 sm:p-4 md:p-8">
       {adSensePubId && (
         <Script
           async
@@ -90,14 +90,14 @@ export default function AdPage() {
       {/* Top Section - Timer or Button */}
       <div className="w-full flex justify-end mt-4">
         {countdown > 0 ? (
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-xl">
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 md:px-6 py-3 rounded-full border border-white/20 shadow-xl">
             <svg className="w-5 h-5 text-gray-300 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
             <span className="font-semibold text-lg">Redirecting in <span className="font-black text-[#3b82f6] text-xl w-6 inline-block text-center">{countdown}</span>s</span>
           </div>
         ) : (
           <button 
             onClick={() => window.location.href = originalUrl}
-            className="flex items-center gap-3 bg-[#3b82f6] hover:bg-[#2563eb] text-white px-8 py-3 rounded-full border border-blue-400 shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer font-bold"
+            className="flex items-center gap-3 bg-[#3b82f6] hover:bg-[#2563eb] text-white px-4 md:px-8 py-3 rounded-full border border-blue-400 shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer font-bold"
           >
             Continue to Link
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>

@@ -104,7 +104,7 @@ export default function Login() {
     <div className="fixed inset-0 flex w-full bg-white font-sans overflow-hidden">
       
       {/* LEFT SIDE - Form */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-16 md:px-24 xl:px-32 py-10 lg:py-0 relative z-10 overflow-y-auto bg-white shadow-[20px_0_40px_rgba(0,0,0,0.1)]">
+      <div className="w-full lg:w-1/2 flex flex-col justify-center px-4 md:px-6 sm:px-16 md:px-24 xl:px-32 py-10 lg:py-0 relative z-10 overflow-y-auto bg-white shadow-[20px_0_40px_rgba(0,0,0,0.1)]">
         <div className="max-w-md w-full mx-auto">
           {/* Mobile Only Logo */}
           <div className="lg:hidden mb-8 flex items-center justify-center">
@@ -133,7 +133,7 @@ export default function Login() {
           {/* Toast Notification */}
           {success && (
             <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50 animate-bounce" style={{ animationIterationCount: 1 }}>
-              <div className="bg-white px-6 py-4 rounded-2xl shadow-2xl border border-green-100 flex items-center gap-3">
+              <div className="bg-white px-4 md:px-6 py-4 rounded-2xl shadow-2xl border border-green-100 flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
                   <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
@@ -222,7 +222,7 @@ export default function Login() {
       </div>
 
       {/* RIGHT SIDE - Branding & Visuals (Wow Moment) */}
-      <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-[#1a73e8] via-[#0d47a1] to-black flex-col justify-between p-12 overflow-hidden">
+      <div className="hidden lg:flex w-1/2 relative bg-gradient-to-br from-[#1a73e8] via-[#0d47a1] to-black flex-col justify-between p-4 md:p-6 md:p-12 overflow-hidden">
         
         {/* SnapLinks Logo - Flex positioned to avoid overlap */}
         <div className="z-20 w-full">
@@ -249,7 +249,7 @@ export default function Login() {
 
         {/* 3D Glassmorphic Container (Shrunk to fit safely) */}
         <div className="relative z-10 w-full max-w-sm mx-auto perspective-1000 mt-12">
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl transform transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-8 shadow-2xl transform transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
             
             <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6 border border-white/30 shadow-inner">

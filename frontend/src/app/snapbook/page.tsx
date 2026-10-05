@@ -14,7 +14,7 @@ export default function SnapBookLibrary() {
     <div className="min-h-screen bg-[#f5f5f7] font-sans selection:bg-[#1a4b3c] selection:text-white">
       {/* Header */}
       <header className="sticky top-0 z-40 bg-[#f5f5f7]/80 backdrop-blur-xl border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-[#1a4b3c] text-white flex items-center justify-center font-serif italic text-xl font-bold shadow-inner">
               S
@@ -44,7 +44,7 @@ export default function SnapBookLibrary() {
       </header>
 
       {/* Hero */}
-      <section className="py-24 px-6 text-center max-w-4xl mx-auto">
+      <section className="py-24 px-4 md:px-6 text-center max-w-4xl mx-auto">
         <h2 className="text-5xl md:text-7xl font-serif font-medium text-gray-900 tracking-tight mb-6">
           The future of <span className="italic text-[#1a4b3c]">reading</span>.
         </h2>
@@ -54,7 +54,7 @@ export default function SnapBookLibrary() {
       </section>
 
       {/* Library Shelf */}
-      <section className="max-w-7xl mx-auto px-6 pb-32">
+      <section className="max-w-7xl mx-auto px-4 md:px-6 pb-32">
         <div className="flex items-center justify-between mb-12">
           <h3 className="text-2xl font-bold text-gray-900">Featured Books</h3>
           <div className="flex gap-2">
@@ -110,7 +110,7 @@ export default function SnapBookLibrary() {
                     className="absolute inset-0 w-full h-full object-cover rounded-r-xl rounded-l-sm opacity-90 mix-blend-multiply"
                   />
                   
-                  <div className="absolute inset-0 p-6 flex flex-col justify-between z-20">
+                  <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between z-20">
                     <div className="text-white drop-shadow-md">
                       <p className="text-[10px] font-bold uppercase tracking-widest opacity-80 mb-2">{book.category}</p>
                       <h3 className="font-serif text-2xl font-bold leading-tight shadow-black">{book.title}</h3>

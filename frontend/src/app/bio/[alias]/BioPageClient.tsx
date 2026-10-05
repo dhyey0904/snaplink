@@ -218,7 +218,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
 
           {/* Long Bio */}
           {bioPage.bio_text && (
-            <p className={`text-center text-[14px] leading-[1.6] mb-8 px-6 max-w-[380px] ${t.textMuted}`}>
+            <p className={`text-center text-[14px] leading-[1.6] mb-8 px-4 md:px-6 max-w-[380px] ${t.textMuted}`}>
               {bioPage.bio_text}
             </p>
           )}
@@ -364,7 +364,7 @@ export default function BioPageClient({ bioPage }: { bioPage: any }) {
                 );
               })
             ) : (
-              <div className={`p-8 text-center rounded-[24px] border ${t.linkBg} ${t.textMuted}`}>
+              <div className={`p-4 md:p-8 text-center rounded-[24px] border ${t.linkBg} ${t.textMuted}`}>
                 No links added yet.
               </div>
             )}

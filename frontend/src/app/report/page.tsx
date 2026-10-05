@@ -49,12 +49,12 @@ export default function Page() {
     <div className="min-h-screen bg-[#fafafc] flex flex-col font-sans">
       <Navbar />
       
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 py-16 lg:py-24">
         <h1 className="text-4xl md:text-5xl font-black text-[#202124] tracking-tight mb-8">Report Abuse</h1>
         <div className="prose prose-lg prose-blue max-w-none text-[#5f6368]">
           <p className="text-xl mb-6">We take platform abuse very seriously. If you have discovered a SnapLinks URL that redirects to malware, phishing, or illegal content, please report it immediately.</p>
           
-          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 mt-8">
+          <div className="bg-white p-4 md:p-8 rounded-3xl shadow-sm border border-gray-100 mt-8">
             {success ? (
               <div className="text-center py-10">
                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -62,7 +62,7 @@ export default function Page() {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Report Submitted Successfully</h3>
                 <p className="text-gray-500 mb-6">Thank you for helping keep SnapLinks safe. Our trust and safety team will review this link shortly.</p>
-                <button onClick={() => setSuccess(false)} className="px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-colors">
+                <button onClick={() => setSuccess(false)} className="px-4 md:px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-colors">
                   Submit Another Report
                 </button>
               </div>
@@ -111,7 +111,7 @@ export default function Page() {
                 <button 
                   type="submit" 
                   disabled={loading}
-                  className="px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 disabled:opacity-50 transition-colors self-start shadow-md flex items-center gap-2"
+                  className="px-4 md:px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 disabled:opacity-50 transition-colors self-start shadow-md flex items-center gap-2"
                 >
                   {loading ? 'Submitting...' : 'Submit Report'}
                 </button>

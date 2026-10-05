@@ -47,9 +47,9 @@ export default function BridgeLandingPage() {
           <motion.p initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="text-xl text-gray-800">Create a secure peer-to-peer room. Upload files, scan the QR code to join, and download instantly. Files up to 50MB self-destruct 60 seconds after download.</motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {/* Create Room */}
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center flex flex-col justify-center items-center h-72">
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="bg-white p-4 md:p-8 rounded-3xl shadow-xl border border-gray-100 text-center flex flex-col justify-center items-center h-72">
             <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner">
               <Plus size={32} />
             </div>
@@ -61,7 +61,7 @@ export default function BridgeLandingPage() {
           </motion.div>
 
           {/* Join Room */}
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center flex flex-col justify-center items-center h-72">
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-white p-4 md:p-8 rounded-3xl shadow-xl border border-gray-100 text-center flex flex-col justify-center items-center h-72">
             <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner">
               <LogIn size={32} />
             </div>
@@ -69,7 +69,7 @@ export default function BridgeLandingPage() {
             <p className="text-gray-700 mb-6 text-sm">Enter a room code to join an existing secure transfer session.</p>
             <form onSubmit={joinRoom} className="w-full flex gap-2">
               <input type="text" placeholder="Enter Code" value={joinCode} onChange={(e) => setJoinCode(e.target.value)} className="w-full px-4 py-3 bg-gray-50 placeholder-gray-600 border border-gray-200 rounded-xl font-mono text-center font-bold focus:outline-none focus:ring-2 focus:ring-purple-500" maxLength={8} />
-              <button type="submit" className="px-6 py-3 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-colors">Join</button>
+              <button type="submit" className="px-4 md:px-6 py-3 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-colors">Join</button>
             </form>
           </motion.div>
         </div>

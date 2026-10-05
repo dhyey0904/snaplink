@@ -174,7 +174,7 @@ export default function FileDownloadPage() {
         </div>
         <h1 className="text-3xl font-bold text-[#202124] mb-2 tracking-tight">File Unavailable</h1>
         <p className="text-lg text-[#5f6368] text-center max-w-md">{error}</p>
-        <a href={process.env.NEXT_PUBLIC_APP_URL || "https://snaplinks.in"} className="mt-8 px-6 py-3 bg-[#202124] text-white font-bold rounded-full hover:bg-black transition-colors shadow-md">Get SnapLinks</a>
+        <a href={process.env.NEXT_PUBLIC_APP_URL || "https://snaplinks.in"} className="mt-8 px-4 md:px-6 py-3 bg-[#202124] text-white font-bold rounded-full hover:bg-black transition-colors shadow-md">Get SnapLinks</a>
       </div>
     );
   }
@@ -195,7 +195,7 @@ export default function FileDownloadPage() {
         <div className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-white">
           
           {/* Header */}
-          <div className="bg-[#f8f9fa] p-6 sm:p-10 text-center border-b border-gray-100 relative">
+          <div className="bg-[#f8f9fa] p-4 md:p-6 sm:p-5 md:p-10 text-center border-b border-gray-100 relative">
             {timeLeft && (
               <div className="flex justify-center mb-6">
                 <div className="bg-red-100 text-red-600 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider flex items-center gap-1.5 shadow-sm">
@@ -213,7 +213,7 @@ export default function FileDownloadPage() {
           </div>
 
           {/* Content */}
-          <div className="p-6 sm:p-10">
+          <div className="p-4 md:p-6 sm:p-5 md:p-10">
             
             {metadata.has_password && !verifiedToken ? (
               <div className="space-y-6">

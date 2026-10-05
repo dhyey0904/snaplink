@@ -206,14 +206,14 @@ export default function Dashboard() {
 
       
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12 relative z-20 mb-20">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 w-full py-8 lg:py-12 relative z-20 mb-20">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           
           {/* Left Column */}
           <div className="w-full md:flex-1 flex flex-col gap-8">
             
             {/* Upload Box */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center min-h-[400px] shadow-xl relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-4 md:p-8 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center min-h-[400px] shadow-xl relative overflow-hidden">
               <div 
                 className="absolute inset-0 z-10 cursor-pointer"
                 onDragOver={(e) => e.preventDefault()}
@@ -237,7 +237,7 @@ export default function Dashboard() {
               
               {selectedFile ? (
                 <div className="flex flex-col items-center z-20 w-full max-w-md pointer-events-auto">
-                  <div className="text-lg font-medium text-gray-900 bg-gray-100 px-6 py-3 rounded-full mb-6 max-w-full truncate shadow-inner">
+                  <div className="text-lg font-medium text-gray-900 bg-gray-100 px-4 md:px-6 py-3 rounded-full mb-6 max-w-full truncate shadow-inner">
                     {selectedFile.name}
                   </div>
                   
@@ -248,7 +248,7 @@ export default function Dashboard() {
                   ) : (
                     <button 
                       onClick={handleUpload}
-                      className="bg-[#8b5cf6] hover:bg-[#7c3aed] text-white px-10 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full flex justify-center items-center gap-2"
+                      className="bg-[#8b5cf6] hover:bg-[#7c3aed] text-white px-5 md:px-10 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full flex justify-center items-center gap-2"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                       Confirm Upload
@@ -302,7 +302,7 @@ export default function Dashboard() {
                   ))}
                 </div>
               ) : (
-                <div className="bg-white rounded-3xl p-12 border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
+                <div className="bg-white rounded-3xl p-4 md:p-6 md:p-12 border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
                   <svg className="w-16 h-16 mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                   <h3 className="text-lg font-bold text-gray-900 mb-1">No files shared yet</h3>
                   <p className="text-sm text-gray-500">Upload files above to start sharing</p>

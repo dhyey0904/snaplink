@@ -14,7 +14,7 @@ const FlipBook = HTMLFlipBook as any;
 const Page = forwardRef<HTMLDivElement, any>((props, ref) => {
   return (
     <div className={`page bg-transparent relative h-full w-full`} ref={ref} data-density={props.density || 'soft'}>
-      <div className={`w-full h-full flex flex-col relative px-6 py-10 md:px-14 md:py-12 shadow-[0_0_15px_rgba(0,0,0,0.1)] ${props.themeClasses}`}>
+      <div className={`w-full h-full flex flex-col relative px-4 md:px-6 py-10 md:px-14 md:py-12 shadow-[0_0_15px_rgba(0,0,0,0.1)] ${props.themeClasses}`}>
         {/* Subtle paper gradient based on side */}
         <div className={`absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent to-black/[0.04] ${props.side === 'right' ? 'bg-gradient-to-l' : ''}`}></div>
         
@@ -173,7 +173,7 @@ export default function BookReaderClient({ book }: { book: Book }) {
 
   if (showIntro) {
     return (
-      <div className="fixed inset-0 bg-[#f5f5f7] flex items-center justify-center z-50 overflow-hidden text-gray-900 p-6">
+      <div className="fixed inset-0 bg-[#f5f5f7] flex items-center justify-center z-50 overflow-hidden text-gray-900 p-4 md:p-6">
         <Link href="/snapbook" className="absolute top-8 left-8 p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-all text-gray-500 hover:text-gray-900 z-50">
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
         </Link>
@@ -187,7 +187,7 @@ export default function BookReaderClient({ book }: { book: Book }) {
           >
              <div className="absolute left-0 inset-y-0 w-4 bg-black/20 rounded-l-md z-20 mix-blend-overlay shadow-inner"></div>
              <img src={book.coverImage} className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply rounded-r-2xl rounded-l-md" />
-             <div className="absolute inset-0 p-8 flex flex-col justify-between z-20 text-white drop-shadow-md">
+             <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-between z-20 text-white drop-shadow-md">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest opacity-80 mb-2">{book.category}</p>
                   <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight">{book.title}</h1>
@@ -210,7 +210,7 @@ export default function BookReaderClient({ book }: { book: Book }) {
              
              <button 
                 onClick={() => setShowIntro(false)}
-                className="px-8 py-4 bg-[#1a4b3c] text-white rounded-xl font-bold text-lg hover:bg-[#12362b] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-3"
+                className="px-4 md:px-8 py-4 bg-[#1a4b3c] text-white rounded-xl font-bold text-lg hover:bg-[#12362b] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-3"
              >
                 Open Book
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
@@ -229,7 +229,7 @@ export default function BookReaderClient({ book }: { book: Book }) {
       )}
 
       {/* Top Header */}
-      <header className="h-16 flex-shrink-0 flex items-center justify-between px-6 z-40 bg-black/5 backdrop-blur-sm relative border-b border-black/5">
+      <header className="h-16 flex-shrink-0 flex items-center justify-between px-4 md:px-6 z-40 bg-black/5 backdrop-blur-sm relative border-b border-black/5">
         <div className="flex items-center gap-4">
           <button onClick={() => setShowIntro(true)} className="p-2 rounded-full hover:bg-black/10 transition-colors" title="Close Book">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
@@ -264,13 +264,13 @@ export default function BookReaderClient({ book }: { book: Book }) {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="absolute left-0 top-0 bottom-0 w-80 bg-white/95 dark:bg-[#1a1a1a]/95 backdrop-blur-3xl shadow-[20px_0_40px_rgba(0,0,0,0.1)] z-50 border-r border-black/5 flex flex-col"
             >
-              <div className="p-6 border-b border-black/5 flex justify-between items-center">
+              <div className="p-4 md:p-6 border-b border-black/5 flex justify-between items-center">
                 <h2 className="font-serif text-xl font-bold">Contents</h2>
                 <button onClick={() => setShowToc(false)} className="opacity-50 hover:opacity-100">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
               </div>
-              <div className="flex-1 overflow-y-auto p-6 space-y-4">
+              <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4">
                 {book.chapters.map((chap, i) => {
                   const targetPage = allPages.findIndex(p => p.chapterTitle === chap.title) + 1; // +1 because Cover is page 0
                   return (
@@ -297,7 +297,7 @@ export default function BookReaderClient({ book }: { book: Book }) {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 50, opacity: 0 }}
-              className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-[#1a4b3c] text-white px-6 py-4 rounded-2xl shadow-2xl z-50 flex items-center gap-4 max-w-md w-full"
+              className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-[#1a4b3c] text-white px-4 md:px-6 py-4 rounded-2xl shadow-2xl z-50 flex items-center gap-4 max-w-md w-full"
             >
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center animate-pulse flex-shrink-0">
                 <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5 19h4.5a2 2 0 001.414-.586l4-4A2 2 0 0016 13V11a2 2 0 00-.586-1.414l-4-4A2 2 0 0010.5 5H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
@@ -386,7 +386,7 @@ export default function BookReaderClient({ book }: { book: Book }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="absolute top-20 right-6 w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl p-6 z-50 text-gray-900 dark:text-white"
+            className="absolute top-20 right-6 w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl p-4 md:p-6 z-50 text-gray-900 dark:text-white"
           >
             <h3 className="text-sm font-bold uppercase tracking-widest mb-4">Reading Settings</h3>
             
@@ -409,7 +409,7 @@ export default function BookReaderClient({ book }: { book: Book }) {
               </div>
               <div>
                 <p className="text-xs font-semibold text-gray-500 mb-2">Font</p>
-                <div className="grid grid-cols-3 gap-2 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm">
                   <button onClick={() => setFontFamily('serif')} className={`py-2 rounded-lg font-serif border ${fontFamily === 'serif' ? 'border-[#1a4b3c] bg-black/5' : 'border-gray-200 dark:border-gray-700'}`}>Serif</button>
                   <button onClick={() => setFontFamily('sans')} className={`py-2 rounded-lg font-sans border ${fontFamily === 'sans' ? 'border-[#1a4b3c] bg-black/5' : 'border-gray-200 dark:border-gray-700'}`}>Modern</button>
                   <button onClick={() => setFontFamily('dyslexic')} className={`py-2 rounded-lg font-mono text-xs border ${fontFamily === 'dyslexic' ? 'border-[#1a4b3c] bg-black/5' : 'border-gray-200 dark:border-gray-700'}`}>Dyslexic</button>

@@ -85,7 +85,7 @@ export default function Dashboard() {
 
 
 
-      <main className="flex-1 max-w-7xl mx-auto px-6 sm:px-12 w-full py-8 lg:py-12 relative z-20 mb-20">
+      <main className="flex-1 max-w-7xl mx-auto px-4 md:px-6 sm:px-4 md:px-6 md:px-12 w-full py-8 lg:py-12 relative z-20 mb-20">
         <div className="mb-16 relative">
           {/* Subtle background ambient glow behind the text */}
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-32 bg-blue-400/20 rounded-full blur-[80px] -z-10 pointer-events-none"></div>
@@ -110,9 +110,9 @@ export default function Dashboard() {
             Access your tools, manage links, and grow your audience from one unified dashboard.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {APPS.map((app, index) => (
-            <Link key={index} href={app.href} className="group block bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 hover:border-[#1a73e8] transition-all duration-300 relative overflow-hidden">
+            <Link key={index} href={app.href} className="group block bg-white rounded-3xl p-4 md:p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 hover:border-[#1a73e8] transition-all duration-300 relative overflow-hidden">
               
               
               
@@ -133,7 +133,7 @@ export default function Dashboard() {
           ))}
           
           {/* Add a "Coming Soon" card to demonstrate scalability */}
-          <div className="group block bg-gray-50 rounded-3xl p-8 border border-dashed border-gray-300 flex flex-col items-center justify-center text-center opacity-80 hover:bg-gray-100 transition-colors cursor-default">
+          <div className="group block bg-gray-50 rounded-3xl p-4 md:p-8 border border-dashed border-gray-300 flex flex-col items-center justify-center text-center opacity-80 hover:bg-gray-100 transition-colors cursor-default">
             <div className="w-14 h-14 rounded-2xl bg-gray-200 text-gray-400 flex items-center justify-center mb-4">
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
             </div>

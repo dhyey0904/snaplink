@@ -67,7 +67,7 @@ export default function AdminRatings() {
     ? (ratings.reduce((acc, r) => acc + r.stars, 0) / ratings.length).toFixed(1)
     : '0.0';
 
-  if (loading) return <div className="p-8 text-center text-gray-500 font-bold animate-pulse">Loading ratings...</div>;
+  if (loading) return <div className="p-4 md:p-8 text-center text-gray-500 font-bold animate-pulse">Loading ratings...</div>;
 
   return (
     <div>
@@ -85,18 +85,18 @@ export default function AdminRatings() {
       )}
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+      <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Average Rating</div>
           <div className="text-4xl font-black text-gray-900 flex items-center gap-2">
             {averageRating} <Star className="w-8 h-8 fill-yellow-400 text-yellow-400" />
           </div>
         </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Total Submissions</div>
           <div className="text-4xl font-black text-[#1557b0]">{ratings.length}</div>
         </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">With Written Feedback</div>
           <div className="text-4xl font-black text-purple-600">
             {ratings.filter(r => r.feedback && r.feedback.trim().length > 0).length}
@@ -118,7 +118,7 @@ export default function AdminRatings() {
             <tbody>
               {ratings.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="p-8 text-center text-gray-500 font-medium">No ratings collected yet.</td>
+                  <td colSpan={4} className="p-4 md:p-8 text-center text-gray-500 font-medium">No ratings collected yet.</td>
                 </tr>
               ) : (
                 ratings.map(rating => (

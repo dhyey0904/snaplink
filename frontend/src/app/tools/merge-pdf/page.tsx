@@ -54,7 +54,7 @@ export default function MergePDFPage() {
     <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       <Navbar />
       
-            <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
+            <div className="max-w-7xl mx-auto flex gap-4 md:p-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad */}
         <div className="hidden xl:block w-[300px] shrink-0">
           <AdSidebar />
@@ -66,10 +66,10 @@ export default function MergePDFPage() {
           <p className="text-lg text-gray-600">Combine multiple PDFs into one unified document. Your files never leave your browser.</p>
         </div>
         
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-5 md:p-10">
           <div className="mb-8">
             <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">1. Select PDFs (Hold Ctrl/Cmd to select multiple)</label>
-            <div className="border-2 border-dashed border-red-300 rounded-2xl p-4 md:p-8 text-center hover:bg-red-50 transition-colors cursor-pointer relative">
+            <div className="border-2 border-dashed border-red-300 rounded-2xl p-4 md:p-4 md:p-8 text-center hover:bg-red-50 transition-colors cursor-pointer relative">
               <input type="file" multiple accept="application/pdf" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
               {files.length > 0 ? (
                 <div className="text-red-600 font-bold flex flex-col items-center justify-center gap-2">
@@ -98,7 +98,7 @@ export default function MergePDFPage() {
               <a 
                 href={downloadUrl} 
                 download="merged_document.pdf"
-                className="px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all flex items-center gap-2 text-lg"
+                className="px-4 md:px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all flex items-center gap-2 text-lg"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 Download Merged PDF
@@ -107,7 +107,7 @@ export default function MergePDFPage() {
               <button 
                 onClick={handleProcess}
                 disabled={files.length < 2 || isProcessing}
-                className="px-8 py-4 bg-[#1a73e8] hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2 text-lg"
+                className="px-4 md:px-8 py-4 bg-[#1a73e8] hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2 text-lg"
               >
                 {isProcessing ? (
                   <>

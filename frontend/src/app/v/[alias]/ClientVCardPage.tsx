@@ -160,12 +160,12 @@ export default function PublicBusinessCard() {
       )}
 
       {/* EXHIBITION GALLERY LAYOUT */}
-      <div className="flex-1 w-full flex flex-col items-center justify-center relative overflow-hidden px-4 md:px-8 pb-16 md:pb-20">
+      <div className="flex-1 w-full flex flex-col items-center justify-center relative overflow-hidden px-4 md:px-4 md:px-8 pb-16 md:pb-20">
         
         {/* Top Left Status Badge */}
         {card.status_badge && (
           <div className="absolute top-6 left-6 md:top-8 md:left-8 z-20">
-            <span className="px-5 py-2 md:px-6 md:py-2.5 bg-white/10 backdrop-blur-xl border border-white/20 text-white font-bold tracking-widest uppercase text-[10px] md:text-xs rounded-full shadow-2xl">
+            <span className="px-5 py-2 md:px-4 md:px-6 md:py-2.5 bg-white/10 backdrop-blur-xl border border-white/20 text-white font-bold tracking-widest uppercase text-[10px] md:text-xs rounded-full shadow-2xl">
               {card.status_badge}
             </span>
           </div>
@@ -198,7 +198,7 @@ export default function PublicBusinessCard() {
             ))}
 
             {/* FRONT OF CARD */}
-            <div className={`absolute inset-0 rounded-3xl p-5 md:p-8 flex flex-col justify-between backface-hidden border`}
+            <div className={`absolute inset-0 rounded-3xl p-5 md:p-4 md:p-8 flex flex-col justify-between backface-hidden border`}
                  style={{ 
                     background: cardMaterialBg, 
                     borderColor: isDarkText ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.2)',
@@ -245,7 +245,7 @@ export default function PublicBusinessCard() {
             </div>
 
             {/* BACK OF CARD */}
-            <div className={`absolute inset-0 rounded-3xl p-5 md:p-8 flex flex-col justify-center items-center backface-hidden border`}
+            <div className={`absolute inset-0 rounded-3xl p-5 md:p-4 md:p-8 flex flex-col justify-center items-center backface-hidden border`}
                  style={{ 
                     background: cardMaterialBg, 
                     borderColor: isDarkText ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.2)',
@@ -273,14 +273,14 @@ export default function PublicBusinessCard() {
           
           <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 pointer-events-auto">
             {card.resume_url && (
-              <a href={card.resume_url} target="_blank" rel="noopener noreferrer" className="px-5 py-3 md:px-6 md:py-4 bg-white text-gray-900 rounded-full font-bold shadow-2xl hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-1.5 md:gap-2 text-xs md:text-base">
+              <a href={card.resume_url} target="_blank" rel="noopener noreferrer" className="px-5 py-3 md:px-4 md:px-6 md:py-4 bg-white text-gray-900 rounded-full font-bold shadow-2xl hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-1.5 md:gap-2 text-xs md:text-base">
                 <svg className="w-4 h-4 md:w-5 md:h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 16l4-5h-3V4h-2v7H8l4 5zM20 18H4v-2H2v2c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-2h-2v2z"/></svg>
                 Resume
               </a>
             )}
             
             {customLinks.map((link, idx) => link.title && link.url ? (
-              <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className={`px-5 py-3 md:px-6 md:py-4 backdrop-blur-xl border rounded-full font-bold hover:scale-105 active:scale-95 transition-all shadow-xl text-xs md:text-base max-w-[200px] md:max-w-[250px] truncate flex-shrink-0 ${isDarkText ? 'bg-black/5 text-gray-900 border-black/10 hover:bg-black/10' : 'bg-white/10 text-white border-white/20 hover:bg-white/20'}`}>
+              <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className={`px-5 py-3 md:px-4 md:px-6 md:py-4 backdrop-blur-xl border rounded-full font-bold hover:scale-105 active:scale-95 transition-all shadow-xl text-xs md:text-base max-w-[200px] md:max-w-[250px] truncate flex-shrink-0 ${isDarkText ? 'bg-black/5 text-gray-900 border-black/10 hover:bg-black/10' : 'bg-white/10 text-white border-white/20 hover:bg-white/20'}`}>
                 {link.title}
               </a>
             ) : null)}
@@ -289,7 +289,7 @@ export default function PublicBusinessCard() {
           <div className="w-px h-6 md:h-8 bg-white/20 hidden md:block mx-2"></div>
           
           <div className="pointer-events-auto">
-            <button onClick={handleSaveContact} className="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-extrabold shadow-2xl shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 md:gap-3 text-xs md:text-base">
+            <button onClick={handleSaveContact} className="px-4 md:px-6 py-3 md:px-4 md:px-8 md:py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-extrabold shadow-2xl shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 md:gap-3 text-xs md:text-base">
               <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
               Save to Contacts
             </button>

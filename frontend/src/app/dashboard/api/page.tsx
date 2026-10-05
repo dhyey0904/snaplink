@@ -163,7 +163,7 @@ export default function ApiDashboard() {
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       <Navbar />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12 relative z-20 mb-20">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 w-full py-8 lg:py-12 relative z-20 mb-20">
         <div className="w-full">
           {tier === "free" ? (
             <div className="max-w-7xl mx-auto">
@@ -174,8 +174,8 @@ export default function ApiDashboard() {
                   Generate short links programmatically, integrate with your CRM, and build powerful workflows across all 4 services.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div className="bg-white p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+              <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div className="bg-white p-4 md:p-8 rounded-3xl shadow-xl flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4">Why upgrade to Pro?</h3>
                     <ul className="space-y-4">
@@ -195,7 +195,7 @@ export default function ApiDashboard() {
                   </div>
                 </div>
 
-                <div className="bg-white p-8 rounded-3xl shadow-xl flex flex-col items-center justify-center text-center relative overflow-hidden">
+                <div className="bg-white p-4 md:p-8 rounded-3xl shadow-xl flex flex-col items-center justify-center text-center relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#1a73e8]/10 to-[#9333ea]/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
                   <h3 className="text-2xl font-bold text-[#202124] mb-2">Pro API Access</h3>
                   <div className="flex items-baseline justify-center mb-6">
@@ -207,7 +207,7 @@ export default function ApiDashboard() {
                   <button 
                     onClick={handlePurchase} 
                     disabled={paying} 
-                    className="w-full py-4 px-8 bg-[#1a73e8] hover:bg-[#1557b0] disabled:bg-[#8ab4f8] disabled:cursor-not-allowed text-white text-lg font-medium rounded-full transition-colors focus:ring-4 focus:ring-[#1a73e8]/20 shadow-sm"
+                    className="w-full py-4 px-4 md:px-8 bg-[#1a73e8] hover:bg-[#1557b0] disabled:bg-[#8ab4f8] disabled:cursor-not-allowed text-white text-lg font-medium rounded-full transition-colors focus:ring-4 focus:ring-[#1a73e8]/20 shadow-sm"
                   >
                     {paying ? "Loading Secure Checkout..." : "Unlock API Access Now"}
                   </button>
@@ -227,11 +227,11 @@ export default function ApiDashboard() {
 
               {/* API Key Card */}
               <div className="bg-white rounded-3xl shadow-xl mb-10 overflow-hidden">
-                <div className="px-8 py-6 border-b border-[#dadce0] bg-[#f8f9fa]">
+                <div className="px-4 md:px-8 py-6 border-b border-[#dadce0] bg-[#f8f9fa]">
                   <h3 className="text-xl font-bold text-[#202124]">Authentication</h3>
                   <p className="text-sm text-[#5f6368] mt-1">Your secret key must be kept safe. Do not share it publicly.</p>
                 </div>
-                <div className="p-8">
+                <div className="p-4 md:p-8">
                   {apiKey ? (
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                       <div className="flex-1 w-full bg-[#f1f3f4] p-4 rounded-xl border border-[#dadce0] font-mono text-sm tracking-wider break-all flex items-center justify-between">
@@ -241,10 +241,10 @@ export default function ApiDashboard() {
                         </button>
                       </div>
                       <div className="flex gap-3 w-full sm:w-auto">
-                        <button onClick={handleCopy} className="flex-1 sm:flex-none px-6 py-4 bg-[#202124] text-white rounded-xl font-medium hover:bg-[#3c4043] transition-colors shrink-0">
+                        <button onClick={handleCopy} className="flex-1 sm:flex-none px-4 md:px-6 py-4 bg-[#202124] text-white rounded-xl font-medium hover:bg-[#3c4043] transition-colors shrink-0">
                           Copy Key
                         </button>
-                        <button onClick={handleGenerateKey} className="flex-1 sm:flex-none px-6 py-4 bg-red-50 text-red-600 border border-red-200 rounded-xl font-medium hover:bg-red-100 transition-colors shrink-0">
+                        <button onClick={handleGenerateKey} className="flex-1 sm:flex-none px-4 md:px-6 py-4 bg-red-50 text-red-600 border border-red-200 rounded-xl font-medium hover:bg-red-100 transition-colors shrink-0">
                           Regenerate
                         </button>
                       </div>
@@ -252,7 +252,7 @@ export default function ApiDashboard() {
                   ) : (
                     <div className="text-center py-6">
                       <p className="text-[#5f6368] mb-6">You have not generated an API key yet.</p>
-                      <button onClick={handleGenerateKey} className="px-8 py-3 bg-[#1a73e8] text-white rounded-full font-medium hover:bg-[#1557b0] transition-colors focus:ring-4 focus:ring-[#1a73e8]/20">
+                      <button onClick={handleGenerateKey} className="px-4 md:px-8 py-3 bg-[#1a73e8] text-white rounded-full font-medium hover:bg-[#1557b0] transition-colors focus:ring-4 focus:ring-[#1a73e8]/20">
                         Generate API Key
                       </button>
                     </div>
@@ -262,10 +262,10 @@ export default function ApiDashboard() {
 
               {/* Documentation Card */}
               <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-                <div className="px-8 py-6 border-b border-[#dadce0]">
+                <div className="px-4 md:px-8 py-6 border-b border-[#dadce0]">
                   <h3 className="text-xl font-bold text-[#202124]">API Reference</h3>
                 </div>
-                <div className="p-8">
+                <div className="p-4 md:p-8">
                   <p className="text-[#5f6368] mb-8">
                     All API requests must include your secret API key in the <code className="bg-[#f1f3f4] text-[#d93025] px-2 py-1 rounded text-sm font-mono border border-[#dadce0]">x-api-key</code> header.
                   </p>
@@ -280,7 +280,7 @@ export default function ApiDashboard() {
                       <div className="flex items-center px-4 py-2 bg-[#3c4043] text-gray-300 text-xs font-mono border-b border-gray-600">
                         <span>Terminal</span>
                       </div>
-                      <div className="p-6 overflow-x-auto">
+                      <div className="p-4 md:p-6 overflow-x-auto">
                         <pre className="font-mono text-sm text-[#8ab4f8] leading-relaxed">
                           <span className="text-white">curl -X POST</span> https://snaplink-backend-j69v.onrender.com/api/links/ \<br/>
                           <span className="text-white">  -H</span> "Content-Type: application/json" \<br/>

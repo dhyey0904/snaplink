@@ -26,7 +26,7 @@ export default function ImageCompressorPage() {
   const [files, setFiles] = useState<CompressedFile[]>([]);
   const [mode, setMode] = useState<CompressionMode>('smart');
   const [quality, setQuality] = useState(85);
-  const [targetSizeKb, setTargetSizeKb] = useState(100);
+  const [targetSizeKb, setTargetSizeKb] = useState<string>("100");
   const [outputFormat, setOutputFormat] = useState('original');
   const [keepMetadata, setKeepMetadata] = useState(false);
   const [resizeWidth, setResizeWidth] = useState<number | ''>('');
@@ -182,12 +182,12 @@ export default function ImageCompressorPage() {
     <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       <Navbar />
       
-      <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
+      <div className="max-w-7xl mx-auto flex gap-4 md:p-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad Placeholder (Since user asked to remove ads from image compressor, we just leave the empty div or omit it, wait, user said "remove ad from it", but then "now create it properly according to our website". I'll add the ad placeholders like other tools, but commented out or just use the layout) */}
         
         <main className="flex-grow max-w-3xl w-full">
               {isServerOffline && (
-                <div className="mb-8 bg-orange-50 border border-orange-200 rounded-2xl p-4 md:p-6 text-center animate-pulse">
+                <div className="mb-8 bg-orange-50 border border-orange-200 rounded-2xl p-4 md:p-4 md:p-6 text-center animate-pulse">
                   <div className="text-orange-600 mb-2 flex justify-center">
                     <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                   </div>
@@ -200,10 +200,10 @@ export default function ImageCompressorPage() {
             <p className="text-lg text-gray-600">Reduce file size by up to 90% while flawlessly preserving visual quality.</p>
           </div>
           
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-8">
+          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-4 md:p-8">
             
             {/* Settings Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:p-6 mb-8 bg-gray-50 p-4 md:p-6 rounded-2xl border border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-4 md:p-4 md:p-6 mb-8 bg-gray-50 p-4 md:p-4 md:p-6 rounded-2xl border border-gray-100">
               <div className="space-y-4">
                 <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide">Compression Mode</label>
                 
@@ -220,7 +220,7 @@ export default function ImageCompressorPage() {
                     <div className="font-bold text-sm text-gray-900 mb-1">Target File Size</div>
                     {mode === 'target' && (
                       <div className="flex items-center gap-2">
-                        <input type="number" min="10" value={targetSizeKb} onChange={(e) => setTargetSizeKb(Number(e.target.value))} className="w-full text-gray-900 placeholder-gray-700 font-medium border border-gray-200 rounded p-1.5 text-sm outline-none" />
+                        <input type="number" min="10" placeholder="e.g. 500" value={targetSizeKb} onChange={(e) => setTargetSizeKb(e.target.value)} className="w-full text-gray-900 placeholder-gray-400 font-medium border border-gray-200 rounded p-1.5 text-sm outline-none" />
                         <span className="text-xs font-bold text-gray-700">KB</span>
                       </div>
                     )}
@@ -261,7 +261,7 @@ export default function ImageCompressorPage() {
             <div className="mb-8">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">Select Images</label>
               <div 
-                className={`border-2 border-dashed rounded-2xl p-4 md:p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'bg-gray-50 pointer-events-none cursor-not-allowed' : ''} ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-emerald-300 hover:bg-emerald-50'}`}
+                className={`border-2 border-dashed rounded-2xl p-4 md:p-4 md:p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'bg-gray-50 pointer-events-none cursor-not-allowed' : ''} ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-emerald-300 hover:bg-emerald-50'}`}
                 onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}
               >
                 <input type="file" disabled={isServerOffline} ref={fileInputRef} accept="image/*" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
@@ -320,7 +320,7 @@ export default function ImageCompressorPage() {
                 <div className="flex justify-between items-center">
                   <button onClick={() => setFiles([])} className="text-sm font-bold text-gray-500 hover:text-red-500">Clear</button>
                   {!allDone && (
-                    <button onClick={compressAll} disabled={isCompressing} className={`px-8 py-3 rounded-xl font-bold transition-all shadow-lg ${isCompressing ? 'bg-blue-300 text-white cursor-not-allowed' : 'bg-[#1557b0] text-white hover:bg-blue-700'}`}>
+                    <button onClick={compressAll} disabled={isCompressing} className={`px-4 md:px-8 py-3 rounded-xl font-bold transition-all shadow-lg ${isCompressing ? 'bg-blue-300 text-white cursor-not-allowed' : 'bg-[#1557b0] text-white hover:bg-blue-700'}`}>
                       {isCompressing ? 'Compressing...' : 'Compress Image'}
                     </button>
                   )}

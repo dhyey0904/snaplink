@@ -116,7 +116,7 @@ export default function BridgeRoomPage() {
       <div className="min-h-screen bg-gray-50 font-sans">
         <Navbar />
         <main className="max-w-3xl mx-auto pt-16 px-4 flex justify-center">
-          <div className="bg-white rounded-3xl p-12 text-center shadow-xl border border-gray-100 w-full">
+          <div className="bg-white rounded-3xl p-4 md:p-6 md:p-12 text-center shadow-xl border border-gray-100 w-full">
             <div className="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center text-red-500 mx-auto mb-6">
               <Trash2 size={48} />
             </div>
@@ -151,11 +151,11 @@ export default function BridgeRoomPage() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 md:grid-cols-3 gap-8">
           {/* Upload Zone */}
           <div className="md:col-span-1">
              <div 
-                className={`bg-white border-2 border-dashed rounded-3xl p-4 sm:p-8 flex flex-col items-center justify-center text-center transition-all min-h-[350px] w-full box-border ${dragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
+                className={`bg-white border-2 border-dashed rounded-3xl p-4 sm:p-4 md:p-8 flex flex-col items-center justify-center text-center transition-all min-h-[350px] w-full box-border ${dragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
                 onDragOver={(e) => { e.preventDefault(); setDragActive(true); }}
                 onDragLeave={() => setDragActive(false)}
                 onDrop={handleDrop}
@@ -167,7 +167,7 @@ export default function BridgeRoomPage() {
                 <p className="text-gray-700 text-sm mb-8 font-medium px-4">Up to 50MB per file. Supports all formats.</p>
                 
                 <input type="file" className="hidden" ref={fileInputRef} onChange={(e) => e.target.files && handleUpload(e.target.files[0])} />
-                <button onClick={() => fileInputRef.current?.click()} disabled={uploading} className="bg-gray-900 text-white font-bold py-3 px-8 rounded-xl hover:bg-black transition-colors disabled:opacity-50 w-full">
+                <button onClick={() => fileInputRef.current?.click()} disabled={uploading} className="bg-gray-900 text-white font-bold py-3 px-4 md:px-8 rounded-xl hover:bg-black transition-colors disabled:opacity-50 w-full">
                   {uploading ? 'Uploading...' : 'Browse Files'}
                 </button>
              </div>
@@ -175,7 +175,7 @@ export default function BridgeRoomPage() {
 
           {/* Files List */}
           <div className="md:col-span-2">
-            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-4 sm:p-6 min-h-[400px]">
+            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-4 sm:p-4 md:p-6 min-h-[400px]">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <FileIcon size={20} className="text-blue-600" /> Files in this Room ({files.length})
               </h2>
@@ -231,7 +231,7 @@ export default function BridgeRoomPage() {
       {/* QR Code Modal */}
       {showQR && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setShowQR(false)}>
-          <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="bg-white p-8 rounded-3xl max-w-sm w-full text-center shadow-2xl" onClick={e => e.stopPropagation()}>
+          <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="bg-white p-4 md:p-8 rounded-3xl max-w-sm w-full text-center shadow-2xl" onClick={e => e.stopPropagation()}>
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Join Space</h3>
             <p className="text-gray-700 mb-8 font-medium">Scan this QR code with any device to instantly join this room.</p>
             <div className="bg-white p-4 rounded-2xl inline-block border-2 border-gray-100 shadow-sm mb-8">

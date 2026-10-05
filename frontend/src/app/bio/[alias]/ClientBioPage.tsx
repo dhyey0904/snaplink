@@ -23,7 +23,7 @@ export default async function PublicBioPage({ params }: { params: Promise<{ alia
     return <BioPageClient bioPage={bioPage} />;
   } catch (error: any) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-800 p-8">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-800 p-4 md:p-8">
         <h2 className="text-xl font-bold text-red-600 mb-4">Error loading page</h2>
         <p className="font-mono bg-white p-4 rounded border text-sm">{error.message || String(error)}</p>
       </div>

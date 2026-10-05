@@ -39,7 +39,7 @@ export default function PlayPage() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#ff00ff] rounded-full blur-[150px] opacity-20 mix-blend-screen animate-pulse duration-7000 delay-1000"></div>
       </div>
       
-      <div className="relative z-10 w-full max-w-[480px] h-full flex flex-col p-4 sm:p-6 min-h-[100dvh]">
+      <div className="relative z-10 w-full max-w-[480px] h-full flex flex-col p-4 sm:p-4 md:p-6 min-h-[100dvh]">
          <SnapPlayApp />
       </div>
     </main>

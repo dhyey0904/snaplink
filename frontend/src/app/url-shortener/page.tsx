@@ -34,7 +34,7 @@ export default function Page() {
         
             <div className="flex flex-col md:flex-row gap-4">
               <input type="url" className="flex-1 px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1a73e8] focus:border-[#1a73e8] outline-none text-gray-900 placeholder-gray-500 text-lg" placeholder="Paste your very long URL here..." />
-              <Link href="/register" className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md flex-shrink-0 flex items-center justify-center text-lg">
+              <Link href="/register" className="bg-black hover:bg-gray-800 text-white px-4 md:px-8 py-4 rounded-xl font-bold transition-all shadow-md flex-shrink-0 flex items-center justify-center text-lg">
                 Shorten Link
               </Link>
             </div>

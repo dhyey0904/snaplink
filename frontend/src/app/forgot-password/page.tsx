@@ -36,12 +36,12 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-8 relative overflow-hidden font-sans bg-[#0a0a0a]">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-4 md:p-8 relative overflow-hidden font-sans bg-[#0a0a0a]">
       <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-blue-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDuration: '8s' }}></div>
       <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-purple-600/30 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style={{ animationDuration: '10s' }}></div>
 
       <div className="w-full max-w-md relative z-10 perspective-1000">
-        <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-8 sm:p-10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
+        <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-4 md:p-8 sm:p-5 md:p-10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
           <div className="flex justify-center mb-6">
             <Link href="/" className="text-3xl font-black tracking-tighter text-white drop-shadow-md">
               Snap<span className="text-[#3b82f6]">Link</span>

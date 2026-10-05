@@ -33,7 +33,7 @@ export default async function BlogPost({ params }: any) {
       <Navbar />
       
       <main className="flex-1 w-full pt-12 pb-24">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8">
           
           <Link href="/blog" className="inline-flex items-center text-sm font-bold text-gray-500 hover:text-gray-900 transition-colors mb-8 uppercase tracking-wider">
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>

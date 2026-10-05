@@ -51,7 +51,7 @@ export default function AdminDashboard() {
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 text-red-600 p-6 rounded-2xl shadow-sm">
+      <div className="bg-red-50 border border-red-200 text-red-600 p-4 md:p-6 rounded-2xl shadow-sm">
         <h3 className="font-bold text-lg mb-2">Access Denied</h3>
         <p>{error}</p>
       </div>
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
     <div className="space-y-6">
       
       {/* Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between relative overflow-hidden group">
           <div className="relative z-10">
             <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-2">
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
         </div>
         
         {stats?.recent_reports?.length === 0 ? (
-          <div className="p-10 text-center text-gray-400 font-medium text-sm">
+          <div className="p-5 md:p-10 text-center text-gray-400 font-medium text-sm">
             <svg className="w-10 h-10 mx-auto text-green-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             System logs clear. No active abuse reports.
           </div>

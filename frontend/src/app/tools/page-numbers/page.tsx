@@ -96,7 +96,7 @@ export default function PageNumbersPage() {
     <div className="min-h-screen bg-gray-50 font-sans pb-20">
       <Navbar />
       
-            <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
+            <div className="max-w-7xl mx-auto flex gap-4 md:p-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad */}
         <div className="hidden xl:block w-[300px] shrink-0">
           <AdSidebar />
@@ -108,10 +108,10 @@ export default function PageNumbersPage() {
           <p className="text-lg text-gray-600">Insert page numbers into your PDF documents with custom positioning.</p>
         </div>
         
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-5 md:p-10">
           <div className="mb-8">
             <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">1. Select PDF File</label>
-            <div className="border-2 border-dashed border-teal-300 rounded-2xl p-4 md:p-8 text-center hover:bg-teal-50 transition-colors cursor-pointer relative">
+            <div className="border-2 border-dashed border-teal-300 rounded-2xl p-4 md:p-4 md:p-8 text-center hover:bg-teal-50 transition-colors cursor-pointer relative">
               <input type="file" accept="application/pdf" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
               {file ? (
                 <div className="text-teal-600 font-bold flex flex-col items-center justify-center gap-2">
@@ -127,9 +127,9 @@ export default function PageNumbersPage() {
           </div>
           
           {file && (
-            <div className="mb-8 bg-gray-50 p-4 md:p-6 rounded-2xl border border-gray-200">
+            <div className="mb-8 bg-gray-50 p-4 md:p-4 md:p-6 rounded-2xl border border-gray-200">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-4">2. Customization Options</label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-4 md:p-4 md:p-6">
                 <div>
                   <label className="block text-xs font-bold text-gray-500 mb-2">Position</label>
                   <select 
@@ -175,7 +175,7 @@ export default function PageNumbersPage() {
               <a 
                 href={downloadUrl} 
                 download={`numbered_${file?.name || 'document'}.pdf`}
-                className="px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all flex items-center gap-2 text-lg"
+                className="px-4 md:px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all flex items-center gap-2 text-lg"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 Download PDF
@@ -184,7 +184,7 @@ export default function PageNumbersPage() {
               <button 
                 onClick={handleProcess}
                 disabled={!file || isProcessing}
-                className="px-8 py-4 bg-[#1a73e8] hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2 text-lg"
+                className="px-4 md:px-8 py-4 bg-[#1a73e8] hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2 text-lg"
               >
                 {isProcessing ? (
                   <>

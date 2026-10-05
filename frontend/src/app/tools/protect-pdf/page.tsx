@@ -10,6 +10,7 @@ import AdBanner from '@/components/AdBanner';
 export default function ProtectPDFPage() {
   const [file, setFile] = useState<File | null>(null);
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -51,7 +52,7 @@ export default function ProtectPDFPage() {
     <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       <Navbar />
       
-            <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
+            <div className="max-w-7xl mx-auto flex gap-4 md:p-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad */}
         <div className="hidden xl:block w-[300px] shrink-0">
           <AdSidebar />
@@ -63,10 +64,10 @@ export default function ProtectPDFPage() {
           <p className="text-lg text-gray-600">Encrypt your PDF with a strong AES-256 password to keep sensitive data confidential.</p>
         </div>
         
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-5 md:p-10">
           <div className="mb-8">
             <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">1. Select PDF File</label>
-            <div className="border-2 border-dashed border-indigo-300 rounded-2xl p-4 md:p-8 text-center hover:bg-indigo-50 transition-colors cursor-pointer relative">
+            <div className="border-2 border-dashed border-indigo-300 rounded-2xl p-4 md:p-4 md:p-8 text-center hover:bg-indigo-50 transition-colors cursor-pointer relative">
               <input type="file" accept="application/pdf" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
               {file ? (
                 <div className="text-indigo-600 font-bold flex items-center justify-center gap-2">
@@ -82,7 +83,11 @@ export default function ProtectPDFPage() {
           <div className="mb-8">
             <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">2. Create a Password</label>
             <input 
-              type="password" 
+              type="password"
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck="false"
+                autoComplete="off" 
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
               className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 font-medium text-gray-900"
@@ -99,7 +104,7 @@ export default function ProtectPDFPage() {
               <a 
                 href={downloadUrl} 
                 download={`protected_${file?.name}`}
-                className="px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all flex items-center gap-2 text-lg"
+                className="px-4 md:px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all flex items-center gap-2 text-lg"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                 Download Protected PDF
@@ -108,7 +113,7 @@ export default function ProtectPDFPage() {
               <button 
                 onClick={handleProcess}
                 disabled={!file || !password || isProcessing}
-                className="px-8 py-4 bg-[#6366f1] hover:bg-indigo-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-lg shadow-indigo-500/30 transition-all flex items-center gap-2 text-lg"
+                className="px-4 md:px-8 py-4 bg-[#6366f1] hover:bg-indigo-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-lg shadow-indigo-500/30 transition-all flex items-center gap-2 text-lg"
               >
                 {isProcessing ? (
                   <>

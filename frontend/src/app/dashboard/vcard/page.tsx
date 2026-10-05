@@ -247,18 +247,18 @@ export default function VCardDashboard() {
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
       <Navbar />
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative z-20 mb-20">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 py-8 lg:py-12 relative z-20 mb-20">
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* LEFT: EDITOR FORM */}
           <div className="w-full lg:w-[60%] flex flex-col gap-6">
-            <div className="bg-white rounded-[2rem] border border-gray-100 p-6 md:p-10 shadow-sm">
+            <div className="bg-white rounded-[2rem] border border-gray-100 p-4 md:p-6 md:p-5 md:p-10 shadow-sm">
               <div className="flex justify-between items-center mb-6">
                 <div>
                   <h2 className="text-2xl font-black text-gray-900 tracking-tight">Card Editor</h2>
                   <p className="text-sm text-gray-500 mt-1">Design your 3D digital business card</p>
                 </div>
-                <button onClick={handleSave} className="hidden sm:inline-flex px-6 py-3 bg-[#1a73e8] text-white text-sm font-bold rounded-xl hover:bg-[#1557b0] transition-colors shadow-md shadow-blue-500/30 whitespace-nowrap">
+                <button onClick={handleSave} className="hidden sm:inline-flex px-4 md:px-6 py-3 bg-[#1a73e8] text-white text-sm font-bold rounded-xl hover:bg-[#1557b0] transition-colors shadow-md shadow-blue-500/30 whitespace-nowrap">
                   {isSaved ? '✅ Saved!' : 'Save Changes'}
                 </button>
               </div>
@@ -277,7 +277,7 @@ export default function VCardDashboard() {
                       <input type="text" required value={alias} onChange={(e) => setAlias(e.target.value)} placeholder="your-name" className="flex-1 block w-full px-4 py-2 bg-white   focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Full Name</label>
                       <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Jane Doe" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
@@ -287,7 +287,7 @@ export default function VCardDashboard() {
                       <input type="text" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder="CEO & Founder" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">Company Name</label>
                       <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Acme Corp" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
@@ -297,7 +297,7 @@ export default function VCardDashboard() {
                       <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+12345678900" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">WhatsApp</label>
                       <input type="tel" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder="+12345678900" className="block w-full px-4 py-2 bg-white   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-900 placeholder-gray-600" />
@@ -321,7 +321,7 @@ export default function VCardDashboard() {
                         <option value="Founder">Founder</option>
                       </select>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Headshot Image</label>
                         <label className="flex flex-col items-center justify-center w-full h-24 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors bg-white">
@@ -352,7 +352,7 @@ export default function VCardDashboard() {
                       <label className="block text-sm font-bold text-gray-700 mb-2">Resume (PDF URL or File)</label>
                       <div className="flex flex-col sm:flex-row gap-2">
                         <input type="url" value={resumeUrl} onChange={e => setResumeUrl(e.target.value)} placeholder="https://..." className="flex-1 px-4 py-2.5 bg-white   border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-600" />
-                        <label className="cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold px-6 py-2.5 rounded-lg transition-colors border border-gray-200 flex items-center justify-center text-sm whitespace-nowrap">
+                        <label className="cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold px-4 md:px-6 py-2.5 rounded-lg transition-colors border border-gray-200 flex items-center justify-center text-sm whitespace-nowrap">
                           Upload PDF
                           <input type="file" accept="application/pdf" className="hidden text-gray-900 placeholder-gray-600" onChange={(e) => handleImageUpload(e, setResumeUrl)} />
                         </label>
@@ -509,7 +509,7 @@ export default function VCardDashboard() {
               )}
 
               {/* Realistic iPhone Frame */}
-              <div className="relative h-[65vh] max-h-[650px] sm:h-auto sm:w-[340px] aspect-[1/2.11] rounded-[2.5rem] sm:rounded-[3.5rem] bg-gray-900 p-[8px] sm:p-[12px] shadow-2xl ring-1 ring-gray-900/10 flex-shrink-0 mx-auto sm:border-4 border-2 border-gray-800">
+              <div className="relative w-[90%] max-w-[320px] sm:max-w-[340px] aspect-[1/2.11] rounded-[2.5rem] sm:rounded-[3.5rem] bg-gray-900 p-[8px] sm:p-[12px] shadow-2xl ring-1 ring-gray-900/10 flex-shrink-0 mx-auto sm:border-4 border-2 border-gray-800">
                  {/* Hardware elements */}
                  <div className="absolute top-[12px] left-1/2 -translate-x-1/2 w-[120px] h-[25px] bg-gray-900 rounded-b-[1.2rem] z-50 flex items-center justify-end px-3">
                    <div className="w-2 h-2 rounded-full bg-black/50 border border-white/10 shadow-inner"></div>

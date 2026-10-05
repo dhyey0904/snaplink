@@ -379,9 +379,9 @@ export default function BioDashboard() {
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col font-sans">
       <Navbar />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 w-full py-8 lg:py-12">
         {!bioPage ? (
-          <div className="bg-white rounded-3xl shadow-xl p-10 text-center max-w-xl mx-auto mt-10 relative overflow-hidden">
+          <div className="bg-white rounded-3xl shadow-xl p-5 md:p-10 text-center max-w-xl mx-auto mt-10 relative overflow-hidden">
             <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
             <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Claim your URL</h2>
             <p className="text-gray-500 mb-8">One link to share all your content across platforms.</p>
@@ -411,7 +411,7 @@ export default function BioDashboard() {
           <div className="space-y-8">
             
             {/* Header */}
-            <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-6 sm:p-8 relative overflow-hidden">
+            <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-4 md:p-6 sm:p-4 md:p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/3"></div>
               
               <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
@@ -443,10 +443,10 @@ export default function BioDashboard() {
                 
                 {/* Tabs */}
                 <div className="flex flex-wrap gap-2 mb-8 bg-white p-1.5 rounded-2xl shadow-sm border border-gray-200 self-start w-full sm:w-auto">
-                    <button onClick={() => setActiveTab('links')} className={`px-3 sm:px-6 py-2.5 rounded-xl text-sm font-bold transition-all flex-1 sm:flex-none text-center ${activeTab === 'links' ? 'bg-black text-white shadow-md' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>Links</button>
-                    <button onClick={() => setActiveTab('profile')} className={`px-3 sm:px-6 py-2.5 rounded-xl text-sm font-bold transition-all flex-1 sm:flex-none text-center ${activeTab === 'profile' ? 'bg-black text-white shadow-md' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>Profile</button>
-                    <button onClick={() => setActiveTab('design')} className={`px-3 sm:px-6 py-2.5 rounded-xl text-sm font-bold transition-all flex-1 sm:flex-none text-center ${activeTab === 'design' ? 'bg-black text-white shadow-md' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>Appearance</button>
-                    <button onClick={() => setActiveTab('preview')} className={`lg:hidden px-3 sm:px-6 py-2.5 rounded-xl text-sm font-bold transition-all flex-1 sm:flex-none text-center w-full mt-1 sm:mt-0 ${activeTab === 'preview' ? 'bg-[#1a73e8] text-white shadow-md' : 'text-blue-600 hover:bg-blue-50 bg-blue-50/50'}`}>Live Preview</button>
+                    <button onClick={() => setActiveTab('links')} className={`px-3 sm:px-4 md:px-6 py-2.5 rounded-xl text-sm font-bold transition-all flex-1 sm:flex-none text-center ${activeTab === 'links' ? 'bg-black text-white shadow-md' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>Links</button>
+                    <button onClick={() => setActiveTab('profile')} className={`px-3 sm:px-4 md:px-6 py-2.5 rounded-xl text-sm font-bold transition-all flex-1 sm:flex-none text-center ${activeTab === 'profile' ? 'bg-black text-white shadow-md' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>Profile</button>
+                    <button onClick={() => setActiveTab('design')} className={`px-3 sm:px-4 md:px-6 py-2.5 rounded-xl text-sm font-bold transition-all flex-1 sm:flex-none text-center ${activeTab === 'design' ? 'bg-black text-white shadow-md' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>Appearance</button>
+                    <button onClick={() => setActiveTab('preview')} className={`lg:hidden px-3 sm:px-4 md:px-6 py-2.5 rounded-xl text-sm font-bold transition-all flex-1 sm:flex-none text-center w-full mt-1 sm:mt-0 ${activeTab === 'preview' ? 'bg-[#1a73e8] text-white shadow-md' : 'text-blue-600 hover:bg-blue-50 bg-blue-50/50'}`}>Live Preview</button>
                   </div>
 
                 {/* Tab Content */}
@@ -456,7 +456,7 @@ export default function BioDashboard() {
                     <div className="space-y-6">
                       
                       {/* Add Link Card */}
-                      <div className="bg-white rounded-[2rem] shadow-sm border border-gray-200 p-6 sm:p-8">
+                      <div className="bg-white rounded-[2rem] shadow-sm border border-gray-200 p-4 md:p-6 sm:p-4 md:p-8">
                         <h3 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
                           <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4"></path></svg>
@@ -466,7 +466,7 @@ export default function BioDashboard() {
                         <form onSubmit={handleAddLink} className="space-y-5">
                           <div>
                             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Block Type</label>
-                            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 mb-2">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:grid-cols-4 mb-2">
                               {['link', 'video', 'product', 'donation'].map((type) => (
                                 <button
                                   key={type}
@@ -484,7 +484,7 @@ export default function BioDashboard() {
                             </div>
                           </div>
                           
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                          <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
                                 {newLinkType === 'video' ? 'Video Title' : newLinkType === 'product' ? 'Product Name' : newLinkType === 'donation' ? 'Support Title' : 'Link Title'}
@@ -537,7 +537,7 @@ export default function BioDashboard() {
                           </div>
                           
                           {newLinkType === 'product' && (
-                            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 p-5 bg-gray-50 rounded-xl border border-gray-100">
+                            <div className="grid grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2 p-5 bg-gray-50 rounded-xl border border-gray-100">
                               <div>
                                 <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Price (e.g. $19.99)</label>
                                 <input 
@@ -558,7 +558,7 @@ export default function BioDashboard() {
                             </div>
                           )}
 
-                          <button type="submit" disabled={isAddingLink} className="w-full sm:w-auto px-8 py-3.5 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-200 disabled:opacity-50 transition-all">
+                          <button type="submit" disabled={isAddingLink} className="w-full sm:w-auto px-4 md:px-8 py-3.5 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-200 disabled:opacity-50 transition-all">
                             {isAddingLink ? 'Adding...' : 'Add Block'}
                           </button>
                         </form>
@@ -567,7 +567,7 @@ export default function BioDashboard() {
                       {/* Link List */}
                       <div className="space-y-4">
                         {(!bioPage.links || bioPage.links.length === 0) && (
-                          <div className="bg-white rounded-[2rem] border border-dashed border-gray-300 p-12 text-center">
+                          <div className="bg-white rounded-[2rem] border border-dashed border-gray-300 p-4 md:p-6 md:p-12 text-center">
                             <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4">
                               <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                             </div>
@@ -598,10 +598,10 @@ export default function BioDashboard() {
                   )}
 
                   {activeTab === 'profile' && (
-                    <div className="bg-white rounded-[2rem] shadow-sm border border-gray-200 p-6 sm:p-8">
+                    <div className="bg-white rounded-[2rem] shadow-sm border border-gray-200 p-4 md:p-6 sm:p-4 md:p-8">
                       <h3 className="text-lg font-bold text-gray-900 mb-6">Profile Settings</h3>
                       <form onSubmit={handleUpdateBio} className="space-y-6">
-                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2">
                           <div>
                             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Page Title</label>
                             <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all  font-medium text-gray-900 placeholder-gray-600" />
@@ -622,7 +622,7 @@ export default function BioDashboard() {
 
                         <div className="border-t border-gray-100 pt-6">
                           <h4 className="text-sm font-bold text-gray-900 mb-4">Contact & Resume</h4>
-                          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                          <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2">
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Contact Email</label>
                               <input type="email" value={contactEmail} onChange={e => setContactEmail(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900 placeholder-gray-600" placeholder="hello@example.com" />
@@ -642,7 +642,7 @@ export default function BioDashboard() {
 
                         <div className="border-t border-gray-100 pt-6">
                           <h4 className="text-sm font-bold text-gray-900 mb-4">Social Links</h4>
-                          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                          <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2">
                             <div>
                               <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Twitter / X</label>
                               <input type="url" value={twitterUrl} onChange={e => setTwitterUrl(e.target.value)} className="block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-gray-900 placeholder-gray-600" placeholder="https://twitter.com/..." />
@@ -663,19 +663,19 @@ export default function BioDashboard() {
                         </div>
 
                         <div className="pt-4 flex justify-end">
-                          <button type="submit" className="px-8 py-3.5 rounded-xl font-bold text-white bg-black hover:bg-gray-800 transition-colors shadow-md">Save Profile Changes</button>
+                          <button type="submit" className="px-4 md:px-8 py-3.5 rounded-xl font-bold text-white bg-black hover:bg-gray-800 transition-colors shadow-md">Save Profile Changes</button>
                         </div>
                       </form>
                     </div>
                   )}
 
                   {activeTab === 'design' && (
-                    <div className="bg-white rounded-[2rem] shadow-sm border border-gray-200 p-6 sm:p-8">
+                    <div className="bg-white rounded-[2rem] shadow-sm border border-gray-200 p-4 md:p-6 sm:p-4 md:p-8">
                       <h3 className="text-lg font-bold text-gray-900 mb-6">Appearance</h3>
                       <form onSubmit={handleUpdateBio} className="space-y-6">
                         <div>
                             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Theme Style</label>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-1 md:grid-cols-3 gap-4">
                               {[
                                 { id: 'dark-glass', name: 'Dark Glass', bg: 'bg-[#0a0a0f] border-gray-700' },
                                 { id: 'light-glass', name: 'Light Glass', bg: 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200' },
@@ -704,7 +704,7 @@ export default function BioDashboard() {
                         </div>
 
                         <div className="pt-4 flex justify-end">
-                          <button type="submit" className="px-8 py-3.5 rounded-xl font-bold text-white bg-black hover:bg-gray-800 transition-colors shadow-md">Save Appearance</button>
+                          <button type="submit" className="px-4 md:px-8 py-3.5 rounded-xl font-bold text-white bg-black hover:bg-gray-800 transition-colors shadow-md">Save Appearance</button>
                         </div>
                       </form>
                     </div>
@@ -717,7 +717,7 @@ export default function BioDashboard() {
               <div className={`lg:col-span-5 xl:col-span-4 relative ${activeTab === 'preview' ? 'block' : 'hidden lg:block'}`}>
                 <div className="sticky top-8 flex justify-center pb-8">
                   {/* Realistic iPhone Frame */}
-                  <div className="relative h-[65vh] max-h-[650px] sm:h-auto sm:w-[340px] aspect-[1/2.11] rounded-[2.5rem] sm:rounded-[3.5rem] bg-black p-[8px] sm:p-[14px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] ring-1 ring-gray-900/10 flex-shrink-0 mx-auto">
+                  <div className="relative w-[90%] max-w-[320px] sm:max-w-[340px] aspect-[1/2.11] rounded-[2.5rem] sm:rounded-[3.5rem] bg-black p-[8px] sm:p-[14px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] ring-1 ring-gray-900/10 flex-shrink-0 mx-auto">
                     
                     {/* Hardware Buttons */}
                     <div className="absolute top-[120px] -left-[2px] w-[3px] h-[30px] bg-gray-800 rounded-l-md"></div>
@@ -729,7 +729,7 @@ export default function BioDashboard() {
                     <div className="w-full h-full bg-white rounded-3xl sm:rounded-[2.8rem] overflow-hidden relative flex flex-col">
                       
                       {/* Dynamic Island & Status Bar */}
-                      <div className="absolute top-0 inset-x-0 h-14 z-30 pointer-events-none flex justify-between items-start px-6 pt-3 text-[13px] font-semibold text-white">
+                      <div className="absolute top-0 inset-x-0 h-14 z-30 pointer-events-none flex justify-between items-start px-4 md:px-6 pt-3 text-[13px] font-semibold text-white">
                         <span className="mt-1 ml-1 drop-shadow-md">9:41</span>
                         
                         {/* Dynamic Island */}
@@ -885,17 +885,17 @@ export default function BioDashboard() {
       {/* QR Code Modal */}
       {qrModalUrl && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setQrModalUrl(null)}>
-          <div className="bg-white p-8 rounded-3xl shadow-2xl max-w-sm w-full text-center" onClick={e => e.stopPropagation()}>
+          <div className="bg-white p-4 md:p-8 rounded-3xl shadow-2xl max-w-sm w-full text-center" onClick={e => e.stopPropagation()}>
             <h3 className="font-bold text-gray-900 mb-2 text-xl">Bio QR Code</h3>
             <p className="text-sm text-gray-500 mb-6">Scan to view your Link-in-Bio</p>
             <div className="flex justify-center mb-8 p-4 bg-gray-50 rounded-2xl">
               <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrModalUrl)}`} alt="QR Code" width="200" height="200" className="rounded-xl" />
             </div>
             <div className="space-y-3">
-              <button onClick={handleDownloadQR} className="px-6 py-3.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors w-full shadow-lg shadow-blue-500/30">
+              <button onClick={handleDownloadQR} className="px-4 md:px-6 py-3.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors w-full shadow-lg shadow-blue-500/30">
                 Download Image
               </button>
-              <button onClick={() => setQrModalUrl(null)} className="px-6 py-3.5 bg-gray-100 text-gray-800 rounded-xl font-bold hover:bg-gray-200 transition-colors w-full">
+              <button onClick={() => setQrModalUrl(null)} className="px-4 md:px-6 py-3.5 bg-gray-100 text-gray-800 rounded-xl font-bold hover:bg-gray-200 transition-colors w-full">
                 Close
               </button>
             </div>
@@ -906,7 +906,7 @@ export default function BioDashboard() {
       {/* Share Modal */}
       {showShareModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[60] p-4" onClick={() => setShowShareModal(false)}>
-          <div className="bg-white p-8 rounded-3xl shadow-2xl flex flex-col items-center max-w-sm w-full" onClick={e => e.stopPropagation()}>
+          <div className="bg-white p-4 md:p-8 rounded-3xl shadow-2xl flex flex-col items-center max-w-sm w-full" onClick={e => e.stopPropagation()}>
             <h3 className="font-extrabold text-gray-900 mb-1 text-2xl">Share Link</h3>
             <p className="text-gray-500 text-sm mb-6">Share your bio page directly</p>
             

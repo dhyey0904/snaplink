@@ -16,7 +16,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-[#1a73e8] selection:text-white">
       <Navbar />
       
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-4 md:px-6 lg:px-4 md:px-8 pt-32 pb-24">
         
         {/* Header */}
         <div className="text-center mb-16">
@@ -28,11 +28,11 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-10">
           
           {/* Contact Information Cards */}
           <div className="flex flex-col gap-6">
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-white p-4 md:p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-blue-50 text-[#1a73e8] rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -43,7 +43,7 @@ export default function ContactPage() {
               <a href="mailto:hello.snaplinks@gmail.com" className="text-[#1a73e8] font-bold hover:underline">hello.snaplinks@gmail.com</a>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-white p-4 md:p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-gray-50 text-gray-700 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -58,7 +58,7 @@ export default function ContactPage() {
           </div>
 
           {/* Social / Developer Links */}
-          <div className="bg-gray-900 text-white p-10 rounded-3xl flex flex-col justify-between relative overflow-hidden shadow-xl">
+          <div className="bg-gray-900 text-white p-5 md:p-10 rounded-3xl flex flex-col justify-between relative overflow-hidden shadow-xl">
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1a73e8] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-purple-500 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
             

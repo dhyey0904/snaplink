@@ -8,7 +8,7 @@ from app.database.database import engine, Base
 from app.models import User, Link, Click
 from app.models.bridge import Transfer, BridgeRoom
 from app.api import auth, links, analytics, bio, vcard, files, payment, admin, integrations, rating, redirect, report
-from app.api import image, sitemap, bridge
+from app.api import image, sitemap, bridge, tools
 from sqlalchemy import text
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
@@ -75,6 +75,7 @@ app.include_router(report.router, prefix="/api/report", tags=["report"])
 app.include_router(image.router, prefix="/api/image", tags=["image"])
 app.include_router(sitemap.router, prefix="/api", tags=["sitemap"])
 app.include_router(bridge.router, prefix="/api/bridge", tags=["bridge"])
+app.include_router(tools.router, prefix="/api/tools", tags=["tools"])
 
 @app.get("/")
 def read_root():

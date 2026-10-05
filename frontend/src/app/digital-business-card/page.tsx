@@ -32,7 +32,7 @@ export default function Page() {
       subtitle="Ditch paper cards forever. Generate a stunning, interactive 3D digital business card that houses all your contact info and links."
       InteractiveWidget={
         
-            <div className="flex flex-col items-center justify-center p-8 bg-gray-900 rounded-3xl relative overflow-hidden group">
+            <div className="flex flex-col items-center justify-center p-4 md:p-8 bg-gray-900 rounded-3xl relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 opacity-20"></div>
               <div className="w-48 h-32 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl transform rotate-12 group-hover:rotate-0 transition-all duration-500 flex flex-col justify-between p-4 relative z-10">
                 <div className="w-8 h-8 rounded-full bg-white/20"></div>
@@ -41,7 +41,7 @@ export default function Page() {
                   <div className="w-16 h-2 bg-white/20 rounded-full"></div>
                 </div>
               </div>
-              <Link href="/register" className="mt-8 relative z-10 bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors">
+              <Link href="/register" className="mt-8 relative z-10 bg-white text-gray-900 px-4 md:px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors">
                 Create Your 3D Card
               </Link>
             </div>
