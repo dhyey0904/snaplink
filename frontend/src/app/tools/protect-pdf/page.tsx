@@ -34,7 +34,7 @@ export default function ProtectPDFPage() {
       const pdfBytes = new Uint8Array(arrayBuffer);
       
       // Encrypt the PDF directly in the browser using Web Crypto API
-      const encryptedBytes = await encryptPDF(pdfBytes, password, password);
+      const encryptedBytes = await encryptPDF(pdfBytes, password.normalize("NFC"), password.normalize("NFC"));
       
       const blob = new Blob([encryptedBytes as any], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);

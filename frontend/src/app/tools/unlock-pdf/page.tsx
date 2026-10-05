@@ -38,10 +38,10 @@ export default function UnlockPDFPage() {
       
       try {
         // Try to decrypt using cryptpdf (for AES-256 Rev 5 PDFs)
-        decryptedBytes = await decryptPDF(pdfBytes, password);
+        decryptedBytes = await decryptPDF(pdfBytes, password.normalize("NFC"));
       } catch (err: any) {
         // Fallback to pdf-lib for older encryption schemes (RC4, AES-128)
-        const pdfDoc = await PDFDocument.load(arrayBuffer, { password } as any);
+        const pdfDoc = await PDFDocument.load(arrayBuffer, { password: password.normalize("NFC") } as any);
         decryptedBytes = await pdfDoc.save();
       }
       
