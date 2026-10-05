@@ -96,7 +96,7 @@ export default function PageNumbersPage() {
     <div className="min-h-screen bg-gray-50 font-sans pb-20">
       <Navbar />
       
-            <div className="max-w-7xl mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+            <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad */}
         <div className="hidden xl:block w-[300px] shrink-0">
           <AdSidebar />
@@ -108,10 +108,10 @@ export default function PageNumbersPage() {
           <p className="text-lg text-gray-600">Insert page numbers into your PDF documents with custom positioning.</p>
         </div>
         
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-10">
           <div className="mb-8">
             <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">1. Select PDF File</label>
-            <div className="border-2 border-dashed border-teal-300 rounded-2xl p-8 text-center hover:bg-teal-50 transition-colors cursor-pointer relative">
+            <div className="border-2 border-dashed border-teal-300 rounded-2xl p-4 md:p-8 text-center hover:bg-teal-50 transition-colors cursor-pointer relative">
               <input type="file" accept="application/pdf" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
               {file ? (
                 <div className="text-teal-600 font-bold flex flex-col items-center justify-center gap-2">
@@ -127,9 +127,9 @@ export default function PageNumbersPage() {
           </div>
           
           {file && (
-            <div className="mb-8 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+            <div className="mb-8 bg-gray-50 p-4 md:p-6 rounded-2xl border border-gray-200">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-4">2. Customization Options</label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:p-6">
                 <div>
                   <label className="block text-xs font-bold text-gray-500 mb-2">Position</label>
                   <select 

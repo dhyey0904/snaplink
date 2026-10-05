@@ -158,13 +158,13 @@ export default function CompressPDFPage() {
   const allDone = files.length > 0 && files.every(f => f.status === 'success' || f.status === 'error');
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       <Navbar />
       
-      <div className="max-w-7xl mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+      <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         <main className="flex-grow max-w-3xl w-full">
               {isServerOffline && (
-                <div className="mb-8 bg-orange-50 border border-orange-200 rounded-2xl p-6 text-center animate-pulse">
+                <div className="mb-8 bg-orange-50 border border-orange-200 rounded-2xl p-4 md:p-6 text-center animate-pulse">
                   <div className="text-orange-600 mb-2 flex justify-center">
                     <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                   </div>
@@ -177,10 +177,10 @@ export default function CompressPDFPage() {
             <p className="text-lg text-gray-600">Optimize and reduce PDF file structure size instantly securely.</p>
           </div>
           
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-8">
             
             {/* Settings Row */}
-            <div className="mb-8 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+            <div className="mb-8 bg-gray-50 p-4 md:p-6 rounded-2xl border border-gray-100">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-4">Compression Level</label>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <label className={`flex flex-col gap-2 p-4 rounded-xl border-2 cursor-pointer transition-colors ${level === 'recommended' ? 'border-green-500 bg-green-50/50' : 'border-transparent bg-white hover:border-gray-200'}`}>
@@ -227,7 +227,7 @@ export default function CompressPDFPage() {
             <div className="mb-8">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">Select PDF Files</label>
               <div 
-                className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'bg-gray-50 pointer-events-none cursor-not-allowed' : ''} ${isDragging ? 'border-green-500 bg-green-50' : 'border-green-300 hover:bg-green-50'}`}
+                className={`border-2 border-dashed rounded-2xl p-4 md:p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'bg-gray-50 pointer-events-none cursor-not-allowed' : ''} ${isDragging ? 'border-green-500 bg-green-50' : 'border-green-300 hover:bg-green-50'}`}
                 onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}
               >
                 <input type="file" disabled={isServerOffline} ref={fileInputRef} accept="application/pdf" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
@@ -253,7 +253,7 @@ export default function CompressPDFPage() {
 
                 <div className="space-y-3 mb-6">
                   {files.map((file) => (
-                    <div key={file.id} className="flex items-center gap-4 bg-gray-50 border border-gray-100 p-3 rounded-xl">
+                    <div key={file.id} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-gray-50 border border-gray-100 p-3 rounded-xl w-full">
                       <div className="w-12 h-12 bg-red-50 text-red-500 rounded flex items-center justify-center border border-red-100 shrink-0">
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                       </div>

@@ -67,10 +67,10 @@ export default function WatermarkPDFPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       <Navbar />
       
-            <div className="max-w-7xl mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+            <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad */}
         <div className="hidden xl:block w-[300px] shrink-0">
           <AdSidebar />
@@ -82,10 +82,10 @@ export default function WatermarkPDFPage() {
           <p className="text-lg text-gray-600">Stamp an image or text over your PDF in seconds. 100% free and runs securely in your browser—no files uploaded to our servers.</p>
         </div>
         
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-10">
           <div className="mb-8">
             <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">1. Select PDF File</label>
-            <div className="border-2 border-dashed border-gray-300 rounded-2xl p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer relative">
+            <div className="border-2 border-dashed border-gray-300 rounded-2xl p-4 md:p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer relative">
               <input type="file" accept="application/pdf" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
               {file ? (
                 <div className="text-blue-600 font-bold flex items-center justify-center gap-2">
@@ -98,7 +98,7 @@ export default function WatermarkPDFPage() {
             </div>
           </div>
           
-          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:p-6">
             <div>
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">2. Watermark Text</label>
               <input 

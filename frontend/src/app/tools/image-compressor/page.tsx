@@ -179,15 +179,15 @@ export default function ImageCompressorPage() {
   const allDone = files.length > 0 && files.every(f => f.status === 'success' || f.status === 'error');
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       <Navbar />
       
-      <div className="max-w-7xl mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+      <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad Placeholder (Since user asked to remove ads from image compressor, we just leave the empty div or omit it, wait, user said "remove ad from it", but then "now create it properly according to our website". I'll add the ad placeholders like other tools, but commented out or just use the layout) */}
         
         <main className="flex-grow max-w-3xl w-full">
               {isServerOffline && (
-                <div className="mb-8 bg-orange-50 border border-orange-200 rounded-2xl p-6 text-center animate-pulse">
+                <div className="mb-8 bg-orange-50 border border-orange-200 rounded-2xl p-4 md:p-6 text-center animate-pulse">
                   <div className="text-orange-600 mb-2 flex justify-center">
                     <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                   </div>
@@ -200,10 +200,10 @@ export default function ImageCompressorPage() {
             <p className="text-lg text-gray-600">Reduce file size by up to 90% while flawlessly preserving visual quality.</p>
           </div>
           
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-8">
             
             {/* Settings Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:p-6 mb-8 bg-gray-50 p-4 md:p-6 rounded-2xl border border-gray-100">
               <div className="space-y-4">
                 <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide">Compression Mode</label>
                 
@@ -261,7 +261,7 @@ export default function ImageCompressorPage() {
             <div className="mb-8">
               <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">Select Images</label>
               <div 
-                className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'bg-gray-50 pointer-events-none cursor-not-allowed' : ''} ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-emerald-300 hover:bg-emerald-50'}`}
+                className={`border-2 border-dashed rounded-2xl p-4 md:p-8 text-center transition-colors cursor-pointer relative ${isServerOffline ? 'bg-gray-50 pointer-events-none cursor-not-allowed' : ''} ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-emerald-300 hover:bg-emerald-50'}`}
                 onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}
               >
                 <input type="file" disabled={isServerOffline} ref={fileInputRef} accept="image/*" onChange={(e) => { if(e.target.files) addFiles(Array.from(e.target.files)); }} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
@@ -287,7 +287,7 @@ export default function ImageCompressorPage() {
 
                 <div className="space-y-3 mb-6">
                   {files.map((file) => (
-                    <div key={file.id} className="flex items-center gap-4 bg-gray-50 border border-gray-100 p-3 rounded-xl">
+                    <div key={file.id} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-gray-50 border border-gray-100 p-3 rounded-xl w-full">
                       <img src={file.previewUrl} alt="Preview" className="w-12 h-12 rounded object-cover border border-gray-200 shrink-0" />
                       
                       <div className="flex-grow min-w-0">

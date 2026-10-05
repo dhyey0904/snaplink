@@ -51,10 +51,10 @@ export default function MergePDFPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       <Navbar />
       
-            <div className="max-w-7xl mx-auto flex gap-8 pt-8 pb-12 px-4 items-start justify-center">
+            <div className="max-w-7xl mx-auto flex gap-4 md:p-8 pt-8 pb-12 px-4 items-start justify-center">
         {/* Left Ad */}
         <div className="hidden xl:block w-[300px] shrink-0">
           <AdSidebar />
@@ -66,10 +66,10 @@ export default function MergePDFPage() {
           <p className="text-lg text-gray-600">Combine multiple PDFs into one unified document. Your files never leave your browser.</p>
         </div>
         
-        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-10">
           <div className="mb-8">
             <label className="block text-sm font-bold text-gray-700 uppercase tracking-wide mb-2">1. Select PDFs (Hold Ctrl/Cmd to select multiple)</label>
-            <div className="border-2 border-dashed border-red-300 rounded-2xl p-8 text-center hover:bg-red-50 transition-colors cursor-pointer relative">
+            <div className="border-2 border-dashed border-red-300 rounded-2xl p-4 md:p-8 text-center hover:bg-red-50 transition-colors cursor-pointer relative">
               <input type="file" multiple accept="application/pdf" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
               {files.length > 0 ? (
                 <div className="text-red-600 font-bold flex flex-col items-center justify-center gap-2">
