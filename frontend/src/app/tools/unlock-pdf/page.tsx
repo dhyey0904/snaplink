@@ -34,24 +34,51 @@ export default function UnlockPDFPage() {
       const arrayBuffer = await file.arrayBuffer();
       const pdfBytes = new Uint8Array(arrayBuffer);
       
-      let decryptedBytes: Uint8Array;
+      let decryptedBytes: Uint8Array | null = null;
+      let backendUrl: string | null = null;
       
       let cryptErr = '';
       try {
         decryptedBytes = await decryptPDF(pdfBytes, password.normalize("NFC"));
       } catch (err: any) {
         cryptErr = err.message || "Unknown cryptpdf error";
+        
+        // If cryptpdf fails (because it only supports AES-256 Rev 5),
+        // fallback to our robust Python backend which supports RC4 and all other specs.
         try {
-          const pdfDoc = await PDFDocument.load(arrayBuffer, { password: password.normalize("NFC") } as any);
-          decryptedBytes = await pdfDoc.save();
+          const formData = new FormData();
+          formData.append('file', file);
+          formData.append('password', password.normalize("NFC"));
+          
+          const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL || 'https://snaplink-x8i6.onrender.com'}/api`;
+          const res = await fetch(`${apiUrl}/tools/unlock-pdf`, {
+            method: 'POST',
+            body: formData,
+          });
+          
+          if (!res.ok) {
+            const errData = await res.json().catch(() => ({}));
+            if (res.status === 401 || errData.detail?.includes("Invalid password")) {
+               throw new Error("Invalid password");
+            }
+            throw new Error(errData.detail || "Backend unlock failed");
+          }
+          
+          const backendBlob = await res.blob();
+          backendUrl = URL.createObjectURL(backendBlob);
+          
         } catch (err2: any) {
-          throw new Error(`CRITICAL_FAIL: cryptpdf[${cryptErr}] pdf-lib[${err2.message}]`);
+          throw new Error(`CRITICAL_FAIL: Local[${cryptErr}] Backend[${err2.message}]`);
         }
       }
       
-      const blob = new Blob([decryptedBytes as any], { type: 'application/pdf' });
-      const url = URL.createObjectURL(blob);
-      setDownloadUrl(url);
+      let urlToDownload = backendUrl;
+      if (decryptedBytes) {
+        const blob = new Blob([decryptedBytes as any], { type: 'application/pdf' });
+        urlToDownload = URL.createObjectURL(blob);
+      }
+      
+      setDownloadUrl(urlToDownload);
       
     } catch (err: any) {
       console.error(err);
